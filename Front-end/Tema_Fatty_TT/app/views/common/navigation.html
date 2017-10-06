@@ -1,0 +1,46 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul side-navigation class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+
+                <div class="profile-element" uib-dropdown>
+                  <span>
+                    <img class="img-circle small-image" alt="Imagen Perfil" src="img/edgar.hurtado.jpg">
+                  </span>
+                    <a uib-dropdown-toggle href>
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">{{userName}}</strong>
+                             </span>
+                                <span class="text-muted text-xs block">Menu Perfil<b class="caret"></b></span>
+                            </span>
+                    </a>
+                    <ul uib-dropdown-menu class="animated fadeInRight m-t-xs">
+                        <li>
+                          <a ui-sref="login">Otro menu</a>
+                        </li>
+                        <li>
+                          <a ui-sref="login">Tercer menu</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                          <a ui-sref="login">Salir</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    TT
+                </div>
+
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="index.main"><i class="fa fa-th-large"></i> <span class="nav-label">Inicio</span> </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="index.imc"><i class="fa fa-hospital-o"></i> <span class="nav-label">Calcular IMC</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
