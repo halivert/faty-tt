@@ -1,0 +1,13 @@
+
+
+#Dependencias de Bower
+bower_components
+
+#Dependencias de node
+node_modules/
+
+#Version dist/ 
+dist/
+
+#Archivos temporales
+.tmp
