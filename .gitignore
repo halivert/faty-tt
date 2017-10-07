@@ -11,3 +11,11 @@ dist/
 
 #Archivos temporales
 .tmp
+
+
+# Archivos generados por STS
+.classpath
+.project
+.settings/
+.metadata/
+target/

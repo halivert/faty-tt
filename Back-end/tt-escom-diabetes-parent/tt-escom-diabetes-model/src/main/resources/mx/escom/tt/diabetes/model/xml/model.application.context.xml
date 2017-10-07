@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:ldap="http://www.springframework.org/schema/ldap"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/ldap http://www.springframework.org/schema/ldap/spring-ldap-2.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+		
+<!-- Datasource -->
+	<bean id="DataSourceCliente" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		
+		<property name="driverClassName"><value>${driver}</value></property>
+		<property name="url"><value>${url}</value></property> 
+		<property name="username"><value>${username}</value></property>
+		<property name="password"><value>${password}</value></property> 
+		
+	</bean>
+<!-- /Datasource -->
+
+<!-- SESSION FACTORY -->
+	<bean id="SessionFactoryCliente" 
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		
+		<property name="dataSource">
+			<ref bean="DataSourceCliente"/>
+		</property>
+		
+        <property name="annotatedClasses">
+            <list>
+                <value>mx.escom.tt.diabetes.model.dto.ClienteDto</value>
+            </list>
+        </property>
+		
+		<property name="hibernateProperties">
+			<props>
+				<!-- <prop key="hibernate.dialect">${dialect}</prop>  -->
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.connection.SetBigStringTryClob">true</prop>
+			</props>
+		</property>
+	</bean>
+<!-- /SESSION FACTORY -->
+
+<!-- TRANSACTION MANAGER -->
+	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+	</bean>
+<!-- /TRANSACTION MANAGER -->
+
+
+
+<!-- DECLARACION DE DAO's -->	
+	<bean id="ClienteDao" class="mx.escom.tt.diabetes.model.dao.impl.ClienteDaoImpl">
+		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+		<property name="ql" ref="ClienteHqlHelper"/>  
+	</bean>
+<!-- /DECLARACION DE DAO's -->	
+	
+	
+	
+<!-- QUERIES HQL -->
+	<bean id="ClienteHqlHelper" class="mx.escom.tt.diabetes.model.hql.ClienteHqlHelper">
+		<property name="queries">
+			<map>
+				<entry key="RECUPERA_CLIENTE_POR_ID">
+					<value>
+						SELECT clienteDto
+						FROM ClienteDto clienteDto
+						WHERE clienteDto.idCliente = :idCliente
+					</value>
+				</entry>
+			</map>
+		</property>
+	</bean>		
+<!-- QUERIES HQL -->
+
+</beans>
