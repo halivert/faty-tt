@@ -1,6 +1,7 @@
 package mx.escom.tt.diabetes.model.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,25 +15,25 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="CLIENTE")
-public class ClienteDto implements Serializable{
+@Table(name="USUARIO")
+public class UsuarioDto implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(generator = "uuid")
+	//@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
-	@Column(name = "ID_CLIENTE", unique = true, length = 50)
-	private @Getter @Setter String idCliente;
+	@Column(name = "ID_USUARIO", unique = true)
+	private @Getter @Setter Integer idUsuario;
 	
 	@Column(name = "NOMBRE", unique = false, length = 45)
 	private @Getter @Setter String nombre;
 
-	@Column(name = "EDAR", unique = false, length = 45)
-	private @Getter @Setter int edad;
+	@Column(name = "FECHA_NAC", unique = false)
+	private @Getter @Setter Date fechaNac;
 	
 	@Override
 	public String toString() {
-		return "idCliente : " + idCliente + " nombre : " + nombre + " edad : " + edad;
+		return "idUsuario : " + idUsuario + " nombre : " + nombre + " fechaNac : " + fechaNac;
 	}
 }

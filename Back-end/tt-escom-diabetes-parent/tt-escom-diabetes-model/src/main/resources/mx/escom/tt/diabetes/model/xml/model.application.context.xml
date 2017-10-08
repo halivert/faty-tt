@@ -22,8 +22,7 @@
 <!-- /Datasource -->
 
 <!-- SESSION FACTORY -->
-	<bean id="SessionFactoryCliente" 
-		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<bean id="SessionFactoryCliente" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		
 		<property name="dataSource">
 			<ref bean="DataSourceCliente"/>
@@ -31,14 +30,14 @@
 		
         <property name="annotatedClasses">
             <list>
-                <value>mx.escom.tt.diabetes.model.dto.ClienteDto</value>
+                <value>mx.escom.tt.diabetes.model.dto.UsuarioDto</value>
             </list>
         </property>
 		
 		<property name="hibernateProperties">
 			<props>
 				<!-- <prop key="hibernate.dialect">${dialect}</prop>  -->
-				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.connection.SetBigStringTryClob">true</prop>
 			</props>
@@ -50,28 +49,29 @@
 	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="SessionFactoryCliente" />
 	</bean>
+	<tx:annotation-driven transaction-manager="txManager" />
 <!-- /TRANSACTION MANAGER -->
 
 
 
 <!-- DECLARACION DE DAO's -->	
-	<bean id="ClienteDao" class="mx.escom.tt.diabetes.model.dao.impl.ClienteDaoImpl">
+	<bean id="UsuarioDao" class="mx.escom.tt.diabetes.model.dao.impl.UsuarioDaoImpl">
 		<property name="sessionFactory" ref="SessionFactoryCliente"/>
-		<property name="ql" ref="ClienteHqlHelper"/>  
+		<property name="ql" ref="UsuarioHqlHelper"/>  
 	</bean>
 <!-- /DECLARACION DE DAO's -->	
 	
 	
 	
 <!-- QUERIES HQL -->
-	<bean id="ClienteHqlHelper" class="mx.escom.tt.diabetes.model.hql.ClienteHqlHelper">
+	<bean id="UsuarioHqlHelper" class="mx.escom.tt.diabetes.model.hql.UsuarioHqlHelper">
 		<property name="queries">
 			<map>
-				<entry key="RECUPERA_CLIENTE_POR_ID">
+				<entry key="RECUPERA_USUARIO_POR_ID">
 					<value>
-						SELECT clienteDto
-						FROM ClienteDto clienteDto
-						WHERE clienteDto.idCliente = :idCliente
+						SELECT usuarioDto
+						FROM UsuarioDto usuarioDto
+						WHERE usuarioDto.idUsuario = :idUsuario
 					</value>
 				</entry>
 			</map>
