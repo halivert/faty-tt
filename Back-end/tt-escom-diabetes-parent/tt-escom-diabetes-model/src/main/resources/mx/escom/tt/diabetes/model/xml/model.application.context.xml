@@ -36,7 +36,7 @@
 		
 		<property name="hibernateProperties">
 			<props>
-				<!-- <prop key="hibernate.dialect">${dialect}</prop>  -->
+				<!-- <prop key="hibernate.dialect">${dialect}</prop>   -->
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.connection.SetBigStringTryClob">true</prop>

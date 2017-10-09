@@ -36,7 +36,7 @@ public class UsuarioDaoImplTestCase {
 		log.debug("Inicio - Test");
 		UsuarioDto usuarioDto = null;
 		
-		Integer idUsuario = 1;
+		Integer idUsuario = 7;
 		
 		usuarioDto = clienteDao.recuperarUsuarioPorId(idUsuario);
 
@@ -60,9 +60,9 @@ public class UsuarioDaoImplTestCase {
 		log.debug("Inicio - Test");
 		
 		UsuarioDto usuarioDto = new UsuarioDto();
-		String nombre = "Ivan";
+		String nombre = "Enrique";
 		Date fechaNac = new Date();
-		Integer idUsuario = 2;
+		Integer idUsuario = 4;
 		
 		usuarioDto.setIdUsuario(idUsuario);
 		usuarioDto.setNombre(nombre);

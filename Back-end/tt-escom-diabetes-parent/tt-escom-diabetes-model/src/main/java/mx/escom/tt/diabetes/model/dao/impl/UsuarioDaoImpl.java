@@ -15,6 +15,7 @@ import lombok.extern.apachecommons.CommonsLog;
 import lombok.Getter;
 import lombok.Setter;
 
+
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
@@ -22,7 +23,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import mx.escom.tt.diabetes.commons.utils.Constants;
 
@@ -86,7 +86,7 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements UsuarioDao{
 		log.debug("Inicio - Dao");
 		
 		String msjEx = null;
-		Boolean result = Boolean.FALSE;
+
 		
 		{//Validaciones
 			if(usuarioDto == null) {
@@ -96,14 +96,12 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements UsuarioDao{
 		}
 		
 		try {
-			result = getHibernateTemplate().execute(new HibernateCallback<Boolean>() {
+			 getHibernateTemplate().execute(new HibernateCallback<Boolean>() {
 
 				@Override
 				public Boolean doInHibernate(Session session) throws HibernateException {
 					log.debug("Inicio - Hibernate");
-					
-					Boolean resultAux = Boolean.FALSE;
-					
+			
 					getHibernateTemplate().save(usuarioDto);
 					getHibernateTemplate().flush();
 					

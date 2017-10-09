@@ -10,6 +10,8 @@
 	<modules>
 		<module>tt-escom-diabetes-model</module>
 		<module>tt-escom-diabetes-commons</module>
+		<module>tt-escom-diabetes-business</module>
+		<module>tt-escom-diabetes</module>
 	</modules>
 	
 	<properties>
@@ -40,6 +42,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+</build>
 	
 </project>
