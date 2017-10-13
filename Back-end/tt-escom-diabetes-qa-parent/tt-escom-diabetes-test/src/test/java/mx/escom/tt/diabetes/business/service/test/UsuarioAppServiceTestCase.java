@@ -33,7 +33,7 @@ public class UsuarioAppServiceTestCase {
 		log.debug("Inicio - Test");
 		
 		UsuarioDto usuarioDto = null;
-		Integer idUsuario = 7;
+		Integer idUsuario = 4;
 		
 		usuarioDto = usuarioAppService.recuperarUsuarioPorIdAppService(idUsuario);
 
