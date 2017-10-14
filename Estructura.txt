@@ -1,91 +1,88 @@
-蚽dice General
+脥ndice General
 Advertencia 
-蚽dice General
-蚽dice de figuras 
-蚽dice de tablas 
-Cap韙ulo 1: Introducci髇 
-1.1 Antecedentes 
-1.2 Planteamiento del problema 
-1.3 Propuesta de soluci髇 
-1.4 Objetivos 
-1.4.1 Objetivo General 
-1.4.2 Objetivos particulares 
-1.5 Justificaci髇 
-Cap韙ulo 2: Estado del arte
-2.1 Introducci髇 
-2.2 羗bito 
-2.2.1 Nacional 
-2.2.2 Internacional 
-Cap韙ulo 3: Marco te髍ico
-3.1 Metabolismo	
-3.1 Trastornos Metabolicos	
-3.1.1 Alteraciones de la glandura tiroides	
-3.1.2 Hemocromatosis	
-3.1.3 Obesidad
-(Agregar 2 enfermedades mas )
-3.1.4 Diabetes Mellitus	
-3.1.4.1 Diabetes Mellitus Tipo I	
-3.1.4.1 Diabetes Mellitus Tipo II	
-3.2.5 Diabetes Mellitus Tipo II en M閤ico	
-3.2.6 Complicaciones de la Diabetes Mellitus Tipo II	
-3.2.7 Formula Dieto-sintetica	
-3.2.8 Machine Learning	(investigar mas... mucho mas) (debemos hablar de que es machine learning, aprendizaje algoritmos, y por que escogimos arboles de decision 
-3.2.9 Ceres	
-Cap韙ulo 4: Marco metodol骻ico
-4.1 Introduccion
-Cap韙ulo 5: Planificacion del sistema
-5.1 Introduccion
-5.2 Cronograma
-Cap韙ulo 6: Estudio de factibilidad	
-6.1	Introducci髇	
-6.2	Alcance del sistema	
-6.2.1	Estudio de la solicitud	
-6.2.2	Identificaci髇 del alcance del sistema	
-6.2.3	Especificaci髇 del alcance del sistema	
-6.3	Estudio de alternativas de soluci髇	
-6.3.1	Descripci髇 del diagrama	
-6.3.2	Preselecci髇 de alternativas de soluci髇	
-6.4	Valoraci髇 de alternativas	
-6.4.1	Estudio de factibilidad econ髆ica	
-6.4.2	Estudio de riesgos	
-6.5	Selecci髇 de alternativa
-Cap韙ulo 7: An醠isis del sistema	
-7.1	Introducci髇	
-7.2	Establecimiento de requerimientos	
-7.2.1	Requerimientos funcionales	
-7.2.2	Requerimientos no funcionales	
-7.3	Definici髇 del sistema	
-7.3.1	Especificaci髇 de est醤dares y normas	
-7.3.2	Identificaci髇 de usuarios	
-7.4	Cat醠ogo de mensajes		
-7.5	Definici髇 de interfaces de usuario	??
-(cuantas interfaces y cuales)
-7.6	Modelo de casos de uso	
-7.6.1	Diagramas de casos de uso ??	
-7.6.2	An醠isis de casos de uso	
-Cap韙ulo 8: Dise駉 del sistema	
-8.1	Introducci髇	
-8.2	Definici髇 de la arquitectura sistema	
-8.2.1	Niveles de arquitectura	
-8.2.2	Arquitectura f韘ica	
-8.2.3	Arquitectura l骻ica	
-8.2.4	Prototipos del sistema	??
-8.3	Especificaciones de excepciones	
-8.4	Diagrama de bloques	??
-8.5	Diagramas de secuencia	
-8.6	Diagramas de actividades	
-8.7	Modelo de datos	
-8.8	Diccionario de datos
-Cap韙ulo 9: Desarrollo del sistema	
-9.1	Introducci髇	
-9.2	Interfaz del sistema	
-Cap韙ulo 10: Pruebas del sistema	
-10.1	Introducci髇	
-10.2	Guiones de prueba ??	
-10.3	Resultados	
-Cap韙ulo 11: Conclusiones	
-Cap韙ulo 12: Trabajo a futuro	
+脥ndice General
+脥ndice de figuras 
+脥ndice de tablas 
+Cap铆tulo 1: Introducci贸n 
+	1.1 Antecedentes 
+	1.2 Planteamiento del problema 
+	1.3 Propuesta de soluci贸n 
+	1.4 Objetivos 
+		1.4.1 Objetivo General 
+		1.4.2 Objetivos particulares 
+	1.5 Justificaci贸n 
+Cap铆tulo 2: Estado del arte
+	2.1 Introducci贸n 
+	2.2 脕mbito 
+		2.2.1 Nacional 
+		2.2.2 Internacional 
+Cap铆tulo 3: Marco te贸rico
+	3.1 Metabolismo	
+	3.1 Trastornos Metabolicos	
+		3.1.1 Alteraciones de la glandura tiroides	
+		3.1.2 Hemocromatosis	
+		3.1.3 Obesidad
+		(Agregar 2 enfermedades mas )
+		3.1.4 Diabetes Mellitus	
+			3.1.4.1 Diabetes Mellitus Tipo I	
+			3.1.4.1 Diabetes Mellitus Tipo II	
+		3.2.5 Diabetes Mellitus Tipo II en M茅xico	
+		3.2.6 Complicaciones de la Diabetes Mellitus Tipo II	
+		3.2.7 Formula Dieto-sintetica	
+		3.2.8 Machine Learning	(investigar mas... mucho mas) (debemos hablar de que es machine learning, aprendizaje algoritmos, y por que escogimos arboles de decision 
+		3.2.9 Ceres	
+Cap铆tulo 4: Marco metodol贸gico
+	4.1 Introduccion
+Cap铆tulo 5: Planificacion del sistema
+	5.1 Introduccion
+	5.2 Cronograma
+Cap铆tulo 6: Estudio de factibilidad	
+	6.1	Introducci贸n	
+	6.2	Alcance del sistema	
+		6.2.1	Estudio de la solicitud	
+		6.2.2	Identificaci贸n del alcance del sistema	
+		6.2.3	Especificaci贸n del alcance del sistema	
+	6.3	Estudio de alternativas de soluci贸n	
+		6.3.1	Descripci贸n del diagrama	
+		6.3.2	Preselecci贸n de alternativas de soluci贸n	
+	6.4	Valoraci贸n de alternativas	
+		6.4.1	Estudio de factibilidad econ贸mica	
+		6.4.2	Estudio de riesgos	
+	6.5	Selecci贸n de alternativa
+Cap铆tulo 7: An谩lisis del sistema	
+	7.1	Introducci贸n	
+	7.2	Establecimiento de requerimientos	
+		7.2.1	Requerimientos funcionales	
+		7.2.2	Requerimientos no funcionales	
+	7.3	Definici贸n del sistema	
+		7.3.1	Especificaci贸n de est谩ndares y normas	
+		7.3.2	Identificaci贸n de usuarios	
+	7.4	Cat谩logo de mensajes		
+	7.5	Definici贸n de interfaces de usuario	??
+	(cuantas interfaces y cuales)
+	7.6	Modelo de casos de uso	
+		7.6.1	Diagramas de casos de uso ??	
+		7.6.2	An谩lisis de casos de uso	
+Cap铆tulo 8: Dise帽o del sistema	
+  8.1	Introducci贸n	
+  8.2	Definici贸n de la arquitectura sistema	
+    8.2.1	Niveles de arquitectura	
+    8.2.2	Arquitectura f铆sica	
+    8.2.3	Arquitectura l贸gica	
+    8.2.4	Prototipos del sistema	??
+  8.3	Especificaciones de excepciones	
+  8.4	Diagrama de bloques	??
+  8.5	Diagramas de secuencia	
+  8.6	Diagramas de actividades	
+  8.7	Modelo de datos	
+  8.8	Diccionario de datos
+Cap铆tulo 9: Desarrollo del sistema	
+  9.1	Introducci贸n	
+  9.2	Interfaz del sistema	
+Cap铆tulo 10: Pruebas del sistema	
+  10.1	Introducci贸n	
+  10.2	Guiones de prueba ??	
+  10.3	Resultados	
+Cap铆tulo 11: Conclusiones	
+Cap铆tulo 12: Trabajo a futuro	
 Referencias	
-	
-
-
