@@ -31,6 +31,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>mx.escom.tt.diabetes.model.dto.UsuarioDto</value>
+                <value>mx.escom.tt.diabetes.model.dto.IndividuoDto</value>
             </list>
         </property>
 		
@@ -59,6 +60,10 @@
 		<property name="sessionFactory" ref="SessionFactoryCliente"/>
 		<property name="ql" ref="UsuarioHqlHelper"/>  
 	</bean>
+	
+	<bean id="IndividuoDao" class="mx.escom.tt.diabetes.model.dao.impl.IndividuoDaoImpl">
+  <property name="sessionFactory" ref="SessionFactoryCliente"/>
+ </bean>
 <!-- /DECLARACION DE DAO's -->	
 	
 	
