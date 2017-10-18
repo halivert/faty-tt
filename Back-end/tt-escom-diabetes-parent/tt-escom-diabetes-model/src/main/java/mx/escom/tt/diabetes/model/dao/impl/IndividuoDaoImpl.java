@@ -1,15 +1,13 @@
 package mx.escom.tt.diabetes.model.dao.impl;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate4.HibernateCallback;
-import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.Getter;
+import lombok.Setter;
 import mx.escom.tt.diabetes.model.dao.IndividuoDao;
 import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 
@@ -17,16 +15,13 @@ import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 public class IndividuoDaoImpl implements IndividuoDao {
 
-	private SessionFactory sessionFactory;
+	private @Getter @Setter
+	SessionFactory  sessionFactory;
 	
-	@Override
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
 		
 	@Override
 	public void guardarIndividuo(IndividuoDto individuoDto) throws Exception {
-		this.sessionFactory.getCurrentSession().save(individuoDto);
+		sessionFactory.getCurrentSession().save(individuoDto);
 	}
 
 	@Override

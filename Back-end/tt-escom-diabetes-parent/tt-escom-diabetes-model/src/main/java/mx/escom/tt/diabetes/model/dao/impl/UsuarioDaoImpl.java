@@ -103,6 +103,9 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements UsuarioDao{
 					log.debug("Inicio - Hibernate");
 			
 					getHibernateTemplate().save(usuarioDto);
+					
+					
+					
 					getHibernateTemplate().flush();
 					
 					log.debug("Fin - Hibertane");

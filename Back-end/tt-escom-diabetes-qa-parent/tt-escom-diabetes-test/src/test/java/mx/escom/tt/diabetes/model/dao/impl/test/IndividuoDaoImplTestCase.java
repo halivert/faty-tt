@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.sun.jna.platform.unix.X11;
 import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
@@ -20,6 +19,7 @@ import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 		"classpath:mx/escom/tt/diabetes/model/xml/model.application.context.xml" })
 public class IndividuoDaoImplTestCase {
 	@Autowired IndividuoDao individuoDao;
+	
 	/**
 	 * 
 	 * Proposito : Validar el correcto funcionamiento del metodo guardarIndividuo() de la clase IndividuoDao. 
@@ -33,6 +33,12 @@ public class IndividuoDaoImplTestCase {
 		log.debug("Inicio - Test");
 		IndividuoDto individuoDto = new IndividuoDto();
 		
+		individuoDto.setNombre("Ivan");
+		individuoDto.setApellidoMaterno("Guzman");
+		individuoDto.setApellidoPaterno("Hurtado");
+		individuoDto.setEmail("edgarivancs@gmail.com");
+		
+	
 		try {
 			individuoDao.guardarIndividuo(individuoDto);
 		} catch (Exception e) {
@@ -76,6 +82,7 @@ public class IndividuoDaoImplTestCase {
 		log.debug("Inicio - Test");
 		
 		try {
+			
 			IndividuoDto individuoDto = individuoDao.obtenerIndividuo(2);
 			XStream xStream = new XStream();
 			log.debug("xStream.toXML(usuarioDto): " + Constants.SALTO_LINEA + xStream.toXML(individuoDto));
