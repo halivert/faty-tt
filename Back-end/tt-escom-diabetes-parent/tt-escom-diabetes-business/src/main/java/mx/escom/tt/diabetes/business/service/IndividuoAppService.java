@@ -2,7 +2,6 @@ package mx.escom.tt.diabetes.business.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.model.dao.IndividuoDao;
 import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 

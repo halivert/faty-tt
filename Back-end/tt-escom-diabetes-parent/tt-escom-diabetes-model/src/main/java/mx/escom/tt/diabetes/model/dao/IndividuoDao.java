@@ -3,9 +3,6 @@ package mx.escom.tt.diabetes.model.dao;
 
 import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 
-<<<<<<< HEAD
-public interface IndividuoDao {
-=======
 public interface IndividuoDao  {
 	
 	/**
@@ -17,7 +14,6 @@ public interface IndividuoDao  {
 	 * @param individuoDto
 	 * @throws Exception
 	 */
->>>>>>> fc9f0e950d23d6ab1fb23d2e691d868f844f74d7
 	public void guardarIndividuo(IndividuoDto individuoDto) throws Exception;
 	
 	/**

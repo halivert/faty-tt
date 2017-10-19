@@ -20,10 +20,7 @@ import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 		"classpath:mx/escom/tt/diabetes/model/xml/model.application.context.xml" })
 public class IndividuoDaoImplTestCase {
 	@Autowired IndividuoDao individuoDao;
-<<<<<<< HEAD
 	@Autowired IndividuoAppService individuoAppService;
-=======
->>>>>>> fc9f0e950d23d6ab1fb23d2e691d868f844f74d7
 	
 	/**
 	 * 
@@ -118,28 +115,6 @@ public class IndividuoDaoImplTestCase {
 			individuoDao.actualizarIndividuo(individuoDto);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-
-		log.debug("Fin - Test");
-	}
-	
-	/**
-	 * 
-	 * Proposito : Validar el correcto funcionamiento del metodo obtenerIndividuo() de la clase IndividuoAppService. 
-	 *
-	 * @author Hali, ESCOM
-	 * @version 1.0.0, 07/10/2017
-	 * @see IndividuoAppService#obtenerIndividuo(Integer)
-	 */
-	@Test
-	public void obtenerIndividuoAppS() {
-		log.debug("Inicio - Test");
-		try {
-			IndividuoDto individuoDto = individuoAppService.obtenerIndividuo(2);
-			XStream xStream = new XStream();
-			log.debug("xStream.toXML(usuarioDto): " + Constants.SALTO_LINEA + xStream.toXML(individuoDto));
-		} catch (Exception e) {
-			e.getMessage();
 		}
 
 		log.debug("Fin - Test");
