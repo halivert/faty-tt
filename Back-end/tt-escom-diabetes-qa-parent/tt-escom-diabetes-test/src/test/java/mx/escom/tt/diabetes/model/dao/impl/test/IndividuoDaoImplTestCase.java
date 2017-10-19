@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.sun.jna.platform.unix.X11;
 import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
@@ -21,7 +20,10 @@ import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 		"classpath:mx/escom/tt/diabetes/model/xml/model.application.context.xml" })
 public class IndividuoDaoImplTestCase {
 	@Autowired IndividuoDao individuoDao;
+<<<<<<< HEAD
 	@Autowired IndividuoAppService individuoAppService;
+=======
+>>>>>>> fc9f0e950d23d6ab1fb23d2e691d868f844f74d7
 	
 	/**
 	 * 
@@ -36,6 +38,12 @@ public class IndividuoDaoImplTestCase {
 		log.debug("Inicio - Test");
 		IndividuoDto individuoDto = new IndividuoDto();
 		
+		individuoDto.setNombre("Ivan");
+		individuoDto.setApellidoMaterno("Guzman");
+		individuoDto.setApellidoPaterno("Hurtado");
+		individuoDto.setEmail("edgarivancs@gmail.com");
+		
+	
 		try {
 			individuoDao.guardarIndividuo(individuoDto);
 		} catch (Exception e) {
@@ -79,6 +87,7 @@ public class IndividuoDaoImplTestCase {
 		log.debug("Inicio - Test");
 		
 		try {
+			
 			IndividuoDto individuoDto = individuoDao.obtenerIndividuo(2);
 			XStream xStream = new XStream();
 			log.debug("xStream.toXML(usuarioDto): " + Constants.SALTO_LINEA + xStream.toXML(individuoDto));

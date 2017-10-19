@@ -32,6 +32,7 @@
             <list>
                 <value>mx.escom.tt.diabetes.model.dto.UsuarioDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.IndividuoDto</value>
+                <value>mx.escom.tt.diabetes.model.dto.PacienteDto</value>
             </list>
         </property>
 		
@@ -62,6 +63,9 @@
 	</bean>
 	
 	<bean id="IndividuoDao" class="mx.escom.tt.diabetes.model.dao.impl.IndividuoDaoImpl">
+  <property name="sessionFactory" ref="SessionFactoryCliente"/>
+ </bean>
+ <bean id="PacienteDao" class="mx.escom.tt.diabetes.model.dao.impl.PacienteDaoImpl">
   <property name="sessionFactory" ref="SessionFactoryCliente"/>
  </bean>
 <!-- /DECLARACION DE DAO's -->	
