@@ -78,7 +78,7 @@ public class PacienteFacadeTestCase {
 	public void recuperarPaciente() {
 		log.debug("Inicio - Test");
 		
-		String idPacienteStr = "4";
+		String idPacienteStr = "1";
 		PacienteDto pacienteDto = null;
 		
 		pacienteDto = pacienteFacade.recuperarPaciente(idPacienteStr);

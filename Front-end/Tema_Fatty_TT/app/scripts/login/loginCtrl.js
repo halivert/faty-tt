@@ -1,12 +1,35 @@
 
 angular.module('trabajoTerminal')
 
-.controller('loginCtrl', function($scope,$location,$log,$state){
+.controller('loginCtrl', function($scope,$location,$log,$state,loginService,toastr){
 
 	$scope.titulo = "Trabajo terminal";
 
-    $scope.iniciarSesion = function(){
+	$scope.usuarioObject={
+        email:'',
+        password:''
+  	};
+
+    $scope.iniciarSesion = function(email,password){
       $log.debug("iniciarSesion");
-       $state.transitionTo('index.main');
+
+
+
+
+      loginService.iniciaSesionService(email,password).then(
+      	function successCallback() {
+	       
+	        	$state.transitionTo('index.main');
+	       
+        },
+        function errorCallback(d) {
+        	$log.debug(JSON.stringify(d.data.mensaje));
+			toastr.error(d.data.mensaje, 'Error');
+			
+
+        }); 
+
     };
+
+
 });

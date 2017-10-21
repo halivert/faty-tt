@@ -5,6 +5,7 @@
 (function () {
     angular.module('trabajoTerminal', [
         'ui.router',                    // Routing
-        'ui.bootstrap'                 // Bootstrap
+        'ui.bootstrap',                 // Bootstrap
+        'toastr'
     ])
 })();

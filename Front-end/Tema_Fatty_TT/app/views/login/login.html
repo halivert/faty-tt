@@ -12,12 +12,12 @@
             <p></p>
             <form class="m-t" role="form" > <!--action="index.html"-->
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Usuario" required="">
+                    <input type="email" class="form-control" placeholder="Usuario" required="" ng-model="usuarioObject.email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Contraseña" required="">
+                    <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="usuarioObject.password">
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b" ng-click = "iniciarSesion()">Ingresar</button>
+                <button type="submit" class="btn btn-primary block full-width m-b" ng-click = "iniciarSesion(usuarioObject.email,usuarioObject.password)">Ingresar</button>
 
                 <a href="#"><small>Olvidó su contraseña?</small></a>
                 <p></p>
