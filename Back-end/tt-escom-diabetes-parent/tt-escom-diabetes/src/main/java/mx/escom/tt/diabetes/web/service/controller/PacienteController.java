@@ -5,19 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-//import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.model.dto.PacienteDto;
-import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 import mx.escom.tt.diabetes.web.facade.PacienteFacade;
-import mx.escom.tt.diabetes.web.facade.UsuarioFacade;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
-//import mx.escom.tt.diabetes.model.dto.UsuarioDto;
-//import mx.escom.tt.diabetes.web.facade.UsuarioFacade;
 
 
 /* REVISAR LAS ANOTACIONES
@@ -31,7 +26,6 @@ import mx.escom.tt.diabetes.web.vo.RespuestaVo;
 @RequestMapping(value = "/ceres/")
 public class PacienteController {
 	
-	@Autowired UsuarioFacade usuarioFacade;
 	@Autowired PacienteFacade pacienteFacade;
 
 	
@@ -120,7 +114,6 @@ public class PacienteController {
 	public ResponseEntity<?> eliminarPaciente(@RequestParam (value="idPaciente", required=true) String idPaciente) {
 		log.debug("Inicio - Controller");
 		ResponseEntity<?> result = null;
-		PacienteDto pacienteDto = null;
 		RespuestaVo respuesta=null;
 		
 		try {

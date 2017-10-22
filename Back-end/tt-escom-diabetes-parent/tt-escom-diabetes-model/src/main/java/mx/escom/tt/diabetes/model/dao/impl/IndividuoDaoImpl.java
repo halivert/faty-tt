@@ -19,25 +19,25 @@ public class IndividuoDaoImpl implements IndividuoDao {
 	SessionFactory  sessionFactory;
 	
 	@Override
-	public void guardarIndividuo(IndividuoDto individuoDto) throws Exception {
+	public void guardarIndividuo(IndividuoDto individuoDto) throws RuntimeException {
 		sessionFactory.getCurrentSession().save(individuoDto);
 	}
 
 	@Override
-	public void borrarIndividuo(Integer idIndividuo) throws Exception {
+	public void borrarIndividuo(Integer idIndividuo) throws RuntimeException {
 		sessionFactory.getCurrentSession().delete(
 				sessionFactory.getCurrentSession().load(IndividuoDto.class, idIndividuo)
 				);
 	}
 	
 	@Override
-	public IndividuoDto obtenerIndividuo(Integer idIndividuo) throws Exception {
+	public IndividuoDto obtenerIndividuo(Integer idIndividuo) throws RuntimeException {
 		IndividuoDto individuoDto = (IndividuoDto) sessionFactory.getCurrentSession().get(IndividuoDto.class, idIndividuo); 
 		return individuoDto;
 	}
 
 	@Override
-	public void actualizarIndividuo(IndividuoDto individuoDto) throws Exception {
+	public void actualizarIndividuo(IndividuoDto individuoDto) throws RuntimeException {
 		sessionFactory.getCurrentSession().update(individuoDto);
 	}
   

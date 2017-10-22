@@ -14,7 +14,7 @@ public interface IndividuoDao  {
 	 * @param individuoDto
 	 * @throws Exception
 	 */
-	public void guardarIndividuo(IndividuoDto individuoDto) throws Exception;
+	public void guardarIndividuo(IndividuoDto individuoDto) throws RuntimeException;
 	
 	/**
 	 * 
@@ -25,7 +25,7 @@ public interface IndividuoDao  {
 	 * @return
 	 * @throws Exception
 	 */
-	public IndividuoDto obtenerIndividuo(Integer idIndividuo) throws Exception;
+	public IndividuoDto obtenerIndividuo(Integer idIndividuo) throws RuntimeException;
 	
 	/**
 	 * 
@@ -35,6 +35,6 @@ public interface IndividuoDao  {
 	 * @param idIndividuo
 	 * @throws Exception
 	 */
-	public void borrarIndividuo(Integer idIndividuo) throws Exception;
-	public void actualizarIndividuo(IndividuoDto individuoDto) throws Exception;
+	public void borrarIndividuo(Integer idIndividuo) throws RuntimeException;
+	public void actualizarIndividuo(IndividuoDto individuoDto) throws RuntimeException;
 }

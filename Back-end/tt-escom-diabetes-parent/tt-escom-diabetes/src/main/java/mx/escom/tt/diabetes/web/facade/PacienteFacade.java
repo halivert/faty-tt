@@ -134,7 +134,7 @@ public class PacienteFacade {
 			result.setMensaje("Se borró el paciente.");
 			
 		}catch (Exception ex) {
-			msjError="Ocurrió un error al eliminar el paciente.";
+			msjError="Ocurrió un error al borrar el paciente.";
 			throw new RuntimeException(msjError);
 		}
 		
