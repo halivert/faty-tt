@@ -89,4 +89,34 @@ public class IndividuoAppService {
 		log.debug("Fin - Service");
 	}
 	
+	/**
+	 * 
+	 * Proposito : Recuperar un objeto de la clase IndividuoDto, para el inicio de sesion
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 22/10/2017
+	 * @param individuoDto			-	IndividuoDto con la informacion para iniciar sesion
+	 * @return	IndividuoDto		-	Objeto IndividuoDto si existe en la BD	
+	 * @throws RuntimeException		-	Si ocurre un error durante la ejecucion
+	 */
+	public IndividuoDto recuperarPorEmailYKeyword(IndividuoDto individuoDto) throws RuntimeException {		
+		log.debug("Inicio - Service");
+		
+		IndividuoDto result = null;
+		 
+		if(individuoDto.getEmail() == null || individuoDto.getEmail().isEmpty()) {
+			throw new RuntimeException();
+		}
+		if(individuoDto.getKeyword() == null || individuoDto.getKeyword().isEmpty()) {
+			throw new RuntimeException();
+		}
+		
+		//-TODO Hacer el cifrado de la contraseña
+		
+		
+		result = individuoDao.recuperarPorEmailYKeyword(individuoDto.getEmail(), individuoDto.getKeyword());
+		
+		log.debug("Fin - Service");
+		return result;
+	}
+	
 }

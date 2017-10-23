@@ -29,6 +29,18 @@ public interface IndividuoDao  {
 	
 	/**
 	 * 
+	 * Proposito : Metodo para buscar un individuo con base en su email y keyword 
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 22/10/2017
+	 * @param emai
+	 * @param keyword
+	 * @return
+	 * @throws RuntimeException
+	 */
+	public IndividuoDto recuperarPorEmailYKeyword(String email, String keyword) throws RuntimeException;
+	
+	/**
+	 * 
 	 * Proposito : 
 	 * @author Hali, ESCOM
 	 * @version 1,0,0. 16/10/2017
@@ -36,5 +48,6 @@ public interface IndividuoDao  {
 	 * @throws Exception
 	 */
 	public void borrarIndividuo(Integer idIndividuo) throws RuntimeException;
+	
 	public void actualizarIndividuo(IndividuoDto individuoDto) throws RuntimeException;
 }

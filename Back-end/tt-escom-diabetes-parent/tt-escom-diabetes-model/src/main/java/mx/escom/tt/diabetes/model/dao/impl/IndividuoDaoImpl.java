@@ -1,16 +1,19 @@
 package mx.escom.tt.diabetes.model.dao.impl;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.model.dao.IndividuoDao;
 import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 
+@CommonsLog
 @Repository("IndividuoDao")
 @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 public class IndividuoDaoImpl implements IndividuoDao {
@@ -39,6 +42,22 @@ public class IndividuoDaoImpl implements IndividuoDao {
 	@Override
 	public void actualizarIndividuo(IndividuoDto individuoDto) throws RuntimeException {
 		sessionFactory.getCurrentSession().update(individuoDto);
+	}
+
+	@Override
+	public IndividuoDto recuperarPorEmailYKeyword(String email, String keyword) throws RuntimeException {
+		log.debug("Inicio - Dao");
+		IndividuoDto individuoDto = null;
+		
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(IndividuoDto.class);
+		
+		criteria.add(Restrictions.eq("email", email));
+		criteria.add(Restrictions.eq("keyword", keyword));
+		
+		individuoDto = (IndividuoDto) criteria.uniqueResult();
+		
+		log.debug("Fin - Dao");
+		return individuoDto;
 	}
   
 }

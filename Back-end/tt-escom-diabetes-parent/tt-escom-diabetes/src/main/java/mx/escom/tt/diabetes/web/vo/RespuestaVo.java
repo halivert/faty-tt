@@ -10,4 +10,6 @@ public class RespuestaVo {
 	
 	public @Getter @Setter String respuesta;
 	
+	public @Getter @Setter String individuoRol;
+	
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.IndividuoAppService;
 import mx.escom.tt.diabetes.model.dto.IndividuoDto;
+import mx.escom.tt.diabetes.web.vo.IndividuoVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
 
 @Service
@@ -233,6 +234,46 @@ public class IndividuoFacade {
 		
 		log.debug("Fin - Facade");
 		return result;
+	}
+	
+	/**
+	 * 
+	 * Proposito : Recuperar un Individuo con base en su email y contraseña
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 22/10/2017
+	 * @param individuoVo
+	 * @return RespuestaVo			- Respuesta si se encontro el individuo.	
+	 * @throws RuntimeException		- Si ocurre un error durante la ejecucion.
+	 */
+	public RespuestaVo login(IndividuoVo individuoVo) throws RuntimeException{
+		log.debug("Incio - Facade");
+		RespuestaVo respuestaVo = null;
+		IndividuoDto individuoDto = new IndividuoDto();
+		IndividuoDto result = null;
+		
+		
+		
+		//Se fijan los parametros provenientes de la vista, en el IndividuoDto 
+		individuoDto.setEmail(individuoVo.getEmail());
+		individuoDto.setKeyword(individuoVo.getKeyword());
+	
+		try{
+			result = individuoAppService.recuperarPorEmailYKeyword(individuoDto);
+		
+			if(result == null) {
+				throw new RuntimeException("Email o contraseña incorrectos");
+			}
+			respuestaVo = new RespuestaVo();
+			
+			respuestaVo.setIndividuoRol(result.getRol().toString());
+			respuestaVo.setMensaje("Inicio de sesión correcto");
+		
+		}catch (Exception ex) {
+			throw new RuntimeException(ex.getMessage());
+		}
+		
+		log.debug("Fin - Facade");
+		return respuestaVo;
 	}
 	
 	

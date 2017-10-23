@@ -1,29 +1,129 @@
-    <div class="middle-box text-center loginscreen animated fadeInDown" ng-controller="loginCtrl">
-        <div>
-            <div>
 
-                <h1 class="logo-name">TT1</h1>
+<div class="loginColumns animated fadeInDown" ng-controller="loginCtrl">
+        <div class="row">
+
+            <div class="col-md-6">
+                <h2 class="font-bold">{{titulo}}</h2>
+
+                <p>
+                    Sistema de recomendación alimenticia.
+                </p>
+
 
             </div>
-            <h3 class="welcome-message">{{titulo}}</h3>
-            <p>
+            <div class="col-md-6">
+                <div class="ibox-content">
+                    <form class="m-t" role="form">
+                        <div class="form-group">
+                            <p class="text-muted text-left">
+                                <strong><small>Correo electrónico</small></strong>
+                            </p>
+                            <input type="email" class="form-control" placeholder="Correo electrónico" required="" ng-model="usuarioObject.email">
+                        </div>
+                        <div class="form-group">
+                            <p class="text-muted text-left">
+                                <strong><small>Contraseña</small></strong>
+                            </p>
+                            <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="usuarioObject.password">
+                        </div>
+                        <button type="submit" class="btn btn-primary block full-width m-b" ng-click = "iniciarSesion()">  Ingresar </button>
 
-            </p>
-            <p></p>
-            <form class="m-t" role="form" > <!--action="index.html"-->
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Usuario" required="" ng-model="usuarioObject.email">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Contraseña" required="" ng-model="usuarioObject.password">
-                </div>
-                <button type="submit" class="btn btn-primary block full-width m-b" ng-click = "iniciarSesion(usuarioObject.email,usuarioObject.password)">Ingresar</button>
+                        
+                        <br/>
+                        <a href="#">
+                            <small>Olvidé mi contraseña</small>
+                        </a>
+                        <br/><br/>
 
-                <a href="#"><small>Olvidó su contraseña?</small></a>
-                <p></p>
-                <!--<p class="text-muted text-center"><small>Do not have an account?</small></p>-->
-                <a class="btn btn-sm btn-white btn-block" >Crear una cuenta</a>
-            </form>
-            <p class="m-t"> <small>Trabajo Terminal</small> </p>
+                        <p class="text-muted text-center">
+                            <strong><small>¿No tienes una cuenta?</small></strong>
+                        </p>
+                       <a data-toggle="modal" class="btn btn-sm btn-white btn-block" data-target="#modal-form" >Crear una cuenta</a>
+
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-6">
+                Escuela Superior de Cómputo
+            </div>
+            <div class="col-md-6 text-right">
+               <small>2017</small>
+            </div>
+        </div>
+<!--MODAL-->
+<div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog model-sm">
+        <div class="modal-content"> 
+        <div class="modal-body">
+            <div class="row">
+            <h3 class="m-t-none m-b">Crea una cuenta</h3>
+
+                <p>Ingresa los datos solicitados</p>
+                <form role="form" name="formRegistro" novalidate>
+                <div class="row">
+                <div class="col-sm-6 b-r">
+                    <div class="form-group "><label>Nombre</label> <input type="text" name="nombre" placeholder="Nombre" ng-model = "datosP.nombre" class="form-control" required></div>
+                    <small class ="text-danger" ng-show="formRegistro.nombre.$touched && formRegistro.nombre.$invalid">Campo requerido.</small>
+
+                    <div class="form-group "><label>Apellido Paterno</label> <input type="text" name="ap" placeholder="Apellido Paterno"  ng-model = "datosP.apellidoPaterno" class="form-control" required></div>
+                    <small class ="text-danger" ng-show="formRegistro.ap.$touched && formRegistro.ap.$invalid">Campo requerido.</small>
+
+                    <div class="form-group "><label>Apellido Materno</label> <input type="text" name ="am" placeholder="Apellido Materno" ng-model = "datosP.apellidoMaterno" class="form-control" required></div>
+                    <small class ="text-danger" ng-show="formRegistro.am.$touched && formRegistro.am.$invalid">Campo requerido.</small>
+
+                    <fieldset class="col-sm-12">
+                        <input type="radio" name="sex" id="sex-m" value="1" ng-model = "datosP.idSexo">
+                        <label for="sex-m">Hombre</label>
+                        <input type="radio" name="sex" id="sex-f" value="0" ng-model = "datosP.idSexo">
+                        <label for="sex-f">Mujer</label>
+                    </fieldset>
+                </div>
+                <div class="col-sm-6">
+              
+                    <div class="form-group"><label>Correo electrónico</label> <input type="email" name="email" placeholder="Correo electrónico" ng-model = "datosP.email" ng-model = "datosP.keyword" class="form-control" required></div>
+                    <small class ="text-danger" ng-show="formRegistro.email.$touched && formRegistro.email.$invalid">Campo requerido.</small>                    
+
+                    <div class="form-group"><label>Contraseña</label> 
+                    <input type="password" name="password" placeholder="Contraseña" class="form-control" ng-model = "datosP.keyword" required></div>
+                    
+                    <div class="form-group"><label>Repetir contraseña</label> <input type="password" name="password" ng-model = "datosP.confirmpass" placeholder="Contraseña" class="form-control" required></div>
+                
+                </div>
+                </div>
+                <br/>
+                <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="m-t-none m-b">¿Eres médico o paciente?</h4>
+                    <div class="col-sm-6">
+                        <input type="radio" name="rol" id="rol-m" value="1" ng-model = "datosP.rol">
+                        <label for="rol-m">Médico</label>
+                        <input type="radio" name="rol" id="rol-p" value="0" ng-model = "datosP.rol">
+                        <label for="rol-p">Paciente</label> 
+                    <div ng-if= "datosP.rol == 1">
+                        <div class="form-group "><label>Cédula Profesional</label> <input type="text" name="cedula" placeholder="Cédula" ng-model = "datosP.cedula" class="form-control" required></div>
+                    </div>
+                    </div>
+                    <div class="col-sm-6">
+
+                    </div>
+                </div>
+                </div>
+
+                </form>
+                <div>
+                    <button class="btn btn-sm btn-success pull-right m-t-n-xs" type="submit" ng-disabled="!validaForm()" ng-click="registrarP(datosP)"><strong>Crear cuenta</strong></button> 
+                </div>
+            </div>
+        </div>
         </div>
     </div>
+</div>
+
+</div>
+
+
+

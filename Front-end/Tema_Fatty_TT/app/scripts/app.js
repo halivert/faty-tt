@@ -6,6 +6,7 @@
     angular.module('trabajoTerminal', [
         'ui.router',                    // Routing
         'ui.bootstrap',                 // Bootstrap
-        'toastr'
+        'toastr',
+        'ngCookies'
     ])
 })();

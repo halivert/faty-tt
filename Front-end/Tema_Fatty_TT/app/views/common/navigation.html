@@ -1,4 +1,4 @@
-<nav class="navbar-default navbar-static-side" role="navigation">
+<nav class="navbar-default navbar-static-side" role="navigation" style="background-color: #2f4050;height: 100%;" ng-controller="navigationCtrl">
     <div class="sidebar-collapse">
         <ul side-navigation class="nav metismenu" id="side-menu">
             <li class="nav-header">
@@ -38,8 +38,17 @@
                 <a ui-sref="index.main"><i class="fa fa-th-large"></i> <span class="nav-label">Inicio</span> </a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="index.imc"><i class="fa fa-hospital-o"></i> <span class="nav-label">Calcular IMC</span></a>
+                <a ui-sref="index.imc"><i class="fa fa-hospital-o"></i> <span class="nav-label">Calcular IMC </span></a>
             </li>
+     
+            <li ui-sref-active="active" ng-if="rol == 'M'">
+                <a ui-sref="index.imc"><i class="fa fa-hospital-o"></i> <span class="nav-label">Medico</span></a>
+            </li>
+   
+            <li ui-sref-active="active" ng-if="rol == 'P'">
+                <a ui-sref="index.imc"><i class="fa fa-hospital-o"></i> <span class="nav-label">Paciente</span></a>
+            </li>
+           
         </ul>
 
     </div>

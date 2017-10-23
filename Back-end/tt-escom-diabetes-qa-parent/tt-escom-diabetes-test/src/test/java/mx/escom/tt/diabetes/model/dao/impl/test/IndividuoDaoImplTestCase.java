@@ -141,5 +141,30 @@ public class IndividuoDaoImplTestCase {
 
 		log.debug("Fin - Test");
 	}
+	
+	/**
+	 * 
+	 * Proposito : Validar el correcto funcionamiento del metodo  recuperarPorEmailYKeyword(), de la clase IndividuoDao
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 22/10/2017
+	 * @see IndividuoDao#recuperarPorEmailYKeyword(String, String)
+	 */
+	@Test
+	public void recuperarPorEmailYKeyword() {
+		log.debug("Inicio - Test");
+		
+		IndividuoDto individuoDto = null;
+		String email = "ed@ed.com";
+		String keyword = "09887";
+		
+		individuoDto = individuoDao.recuperarPorEmailYKeyword(email, keyword);
+		
+		if(individuoDto != null) {
+			XStream xStream = new XStream();
+			log.debug("xStream.toXML(usuarioDto): " + Constants.SALTO_LINEA + xStream.toXML(individuoDto));
+		}
+		
+		log.debug("Fin - Test");
+	}
 
 }
