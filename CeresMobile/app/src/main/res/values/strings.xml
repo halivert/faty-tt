@@ -1,0 +1,51 @@
+<resources>
+    <string name="datos_incorrectos">Email y/o contraseña incorrectos</string>
+    <string name="app_name">Ceres mobile</string>
+    <string name="soy_medico">Soy médico</string>
+    <string name="soy_paciente">Soy paciente</string>
+    <string name="paciente">Paciente</string>
+    <string name="medico">Médico</string>
+    <string name="pass">Contraseña</string>
+    <string name="email">Email</string>
+    <string name="entrar">Ingresar</string>
+    <string name="bienvenida">Bienvenido a Ceres</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="cerrar_session">Salir</string>
+    <string name="hola">Hola</string>
+    <string name="error_conexion">Error de conexión</string>
+    <string name="cerrando_sesion">Cerrando sesión</string>
+    <string name="confirmar_cerrar_sesion">Seguro que desea cerrar sesión?</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="falta_email">Falta email</string>
+    <string name="formato_incorrecto">Formato incorrecto</string>
+    <string name="falta_keyword">Falta contraseña</string>
+    <string name="error">Error</string>
+    <string name="faltan_parametros">Faltan parámetros</string>
+
+    <string name="registrarme">Registrarme</string>
+    <string name="confirma_key">Repite tu contraseña</string>
+    <string name="confirma_pass">Repite tu contraseña</string>
+    <string name="codigo_medico">Código médico</string>
+    <string name="ap_materno">Apellido materno</string>
+    <string name="ap_paterno">Apellido paterno</string>
+    <string name="nombre">Nombre</string>
+    <string name="tipoUsuarioIncorrecto">Tipo de usuario incorrecto</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="falta_nombre">Falta nombre</string>
+    <string name="falta_ap_materno">Falta apellido materno</string>
+    <string name="falta_ap_paterno">Falta apellido paterno</string>
+    <string name="falta_codigo_medico">Falta código médico</string>
+    <string name="falta_confirmacion">Falta confirmación</string>
+    <string name="keyword_no_coincide">Contraseñas no coinciden</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+    <string name="fecha_nac">Fecha de nacimiento</string>
+    <string name="falta_sexo">Falta sexo</string>
+    <string name="falta_fecha_nac">Falta fecha de nacimiento</string>
+    <string name="email_ya_registrado">El correo electrónico ya fue usado</string>
+    <string name="cedula_profesional">Cédula profesional</string>
+    <string name="falta_cedula_prof">Falta cédula profesional</string>
+</resources>
