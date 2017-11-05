@@ -9,9 +9,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
-import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 import mx.escom.tt.diabetes.web.facade.UsuarioFacade;
-import mx.escom.tt.diabetes.commons.utils.Constants;
+import mx.escom.tt.diabetes.web.vo.UsuarioVo;
 
 @CommonsLog
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,20 +22,54 @@ public class UsuarioFacadeTestCase {
 	
 	@Autowired UsuarioFacade usuarioFacade;
 	
-	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarUsuarioPorId() de la clase UsuarioFacade. 
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 02/11/2017
+	 */
 	@Test
 	public void recuperarUsuarioPorIdFacadeTestCase() {
 		log.debug("Inicio - Test");
 		
-		UsuarioDto usuarioDto = null;
-		String idUsuarioStr = "1";
+		UsuarioVo usuarioVo = null;
+		String idUsuarioStr = "120";
 		
-		usuarioDto = usuarioFacade.recuperarUsuarioPorIdFacade(idUsuarioStr);
+		usuarioVo = usuarioFacade.recuperarUsuarioPorId(idUsuarioStr);
 
-		if(usuarioDto != null) {
+		if(usuarioVo != null) {
 			XStream xStream = new XStream();
-			log.debug("xStream.toXML(usuarioDto): " + Constants.SALTO_LINEA + xStream.toXML(usuarioDto));
+			log.debug("xStream.toXML(usuarioDto): \n" + xStream.toXML(usuarioVo));
 		}
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * 
+	 * Proposito : Validar el correcto funcionamiento del metodo guardarUsuario()
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 02/11/2017
+	 */
+	@Test
+	public void guardarUsuario() {
+		log.debug("Inicio - Test");
+		
+		UsuarioVo usuarioVo = new UsuarioVo();
+		
+		{//SE ARMA EL VO
+			usuarioVo.setNombre("Ivan");
+			usuarioVo.setApellidoPaterno("Hurtado");
+			usuarioVo.setApellidoMaterno("Guzman");
+			usuarioVo.setEmail("edgar@gmail.commm");
+			usuarioVo.setFechaNacimiento("27/02/1994");
+			usuarioVo.setKeyword("050077");
+			usuarioVo.setSexo("1");
+			usuarioVo.setIdRol("0");
+			usuarioVo.setCodigoMedico("98");
+			usuarioVo.setCedulaProfesional("IVAN1234");
+		}
+		usuarioFacade.guardarUsuario(usuarioVo);
+
 		
 		log.debug("Fin - Test");
 	}

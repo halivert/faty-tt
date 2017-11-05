@@ -1,6 +1,8 @@
 package mx.escom.tt.diabetes.model.dao;
 
 
+import java.util.List;
+
 import mx.escom.tt.diabetes.model.dto.IndividuoDto;
 
 public interface IndividuoDao  {
@@ -50,4 +52,14 @@ public interface IndividuoDao  {
 	public void borrarIndividuo(Integer idIndividuo) throws RuntimeException;
 	
 	public void actualizarIndividuo(IndividuoDto individuoDto) throws RuntimeException;
+	
+	/**
+	 * Proposito : Metodo para recuperar un individuo por su email
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 28/10/2017
+	 * @param email
+	 * @return
+	 * @throws RuntimeException
+	 */
+	public List<IndividuoDto> recuperarPorEmail(String email) throws RuntimeException;
 }

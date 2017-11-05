@@ -61,7 +61,7 @@ public class PacienteAppServiceTestCase {
 		
 		Integer idIndividuo = 2;
 		Integer idMedico = 1;
-		double peso = 100;
+		/*double peso = 100;
 		double talla = 80.4;
 		double estatura = 140;
 		double imc = 35.67;
@@ -75,7 +75,7 @@ public class PacienteAppServiceTestCase {
 		pacienteDto.setEstatura(estatura);		
 		pacienteDto.setImc(imc);		
 		pacienteDto.setCarbohidratos(carbohidratos);		
-		pacienteDto.setProteinas(proteinas);
+		pacienteDto.setProteinas(proteinas);*/
 		
 		pacienteAppService.guardarPaciente(pacienteDto);
 		log.debug("Fin - Test");

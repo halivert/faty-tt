@@ -17,31 +17,34 @@ import lombok.Setter;
 
 
 import org.springframework.transaction.annotation.Propagation;
-import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
-
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate4.HibernateCallback;
+
 import mx.escom.tt.diabetes.commons.utils.Constants;
 
 
 @CommonsLog
 @Repository("UsuarioDao")
 @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
-public class UsuarioDaoImpl extends HibernateDaoSupport implements UsuarioDao{
+public class UsuarioDaoImpl implements UsuarioDao { 
 	
 	@Autowired UsuarioHqlHelper usuarioHqlHelper;
 	
 	private @Getter @Setter QlHelper ql;
 
+	private @Getter @Setter
+	SessionFactory  sessionFactory;
+	
 	@Override
 	public UsuarioDto recuperarUsuarioPorId(Integer idUsuario) throws RuntimeException{
 		log.debug("Inicio - Dao");
 		
 		String msjEx = null;
 		UsuarioDto usuarioDto = null;
+		
 		
 		{//Validaciones
 			if(idUsuario == null){
@@ -51,29 +54,10 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements UsuarioDao{
 		}
 		
 		try {
-			usuarioDto = getHibernateTemplate().execute(new HibernateCallback<UsuarioDto>() {
-				@Override
-				public UsuarioDto doInHibernate(Session session) throws HibernateException {
-					log.debug("Inicio - Hibernate");
-					UsuarioDto usuarioDtoAux = null;
-					String queryStr = null;
-					queryStr = usuarioHqlHelper.getQuery(UsuarioHqlHelper.RECUPERA_USUARIO_POR_ID);
-					
-					log.debug("queryStr: "+queryStr);
-					Query query = session.createQuery(queryStr);
-					//Query query = session.createSQLQuery(queryStr);
-					log.debug("idUsuario : " + idUsuario);
-					query.setParameter("idUsuario", idUsuario);
-					
-					usuarioDtoAux = (UsuarioDto) query.uniqueResult();
-					log.debug("Fin - Hibernate");
-					return usuarioDtoAux;
-				}
-				
-			});
-			
+			usuarioDto = (UsuarioDto) sessionFactory.getCurrentSession().get(UsuarioDto.class, idUsuario);
+	
 		}catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "recuperar el usuario con id : " + idUsuario + Constants.SALTO_LINEA + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar el usuario con id : " + idUsuario + "\n" + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
 		}
 			
@@ -82,12 +66,11 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements UsuarioDao{
 	}
 
 	@Override
-	public void registrarNuevoUsuario(UsuarioDto usuarioDto) throws RuntimeException {
+	public void guardarUsuario(UsuarioDto usuarioDto) throws RuntimeException {
 		log.debug("Inicio - Dao");
 		
 		String msjEx = null;
 
-		
 		{//Validaciones
 			if(usuarioDto == null) {
 				msjEx = "El identificador del usuario no puede ser nulo.";
@@ -95,32 +78,48 @@ public class UsuarioDaoImpl extends HibernateDaoSupport implements UsuarioDao{
 			}
 		}
 		
-		try {
-			 getHibernateTemplate().execute(new HibernateCallback<Boolean>() {
-
-				@Override
-				public Boolean doInHibernate(Session session) throws HibernateException {
-					log.debug("Inicio - Hibernate");
+		try {			 
+			sessionFactory.getCurrentSession().save(usuarioDto);
 			
-					getHibernateTemplate().save(usuarioDto);
-					
-					
-					
-					getHibernateTemplate().flush();
-					
-					log.debug("Fin - Hibertane");
-					return null;
-				}
-				
-			});
 			
+			
+		}catch(HibernateException he){
+			
+			msjEx = "El correo electrónico : " + usuarioDto.getEmail() + " ya ha sido usado.";
+			throw new RuntimeException(msjEx);
 		}
 		catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "al guardar el usuario con id : " + usuarioDto.getIdUsuario() + Constants.SALTO_LINEA + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "al guardar el usuario." + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
+			//log.debug(ex.getMessage());
 		}
 		
 		log.debug("Fin - Dao");
+	}
+
+	@Override
+	public UsuarioDto recuperarPorEmailYKeyword(String email, String keyword) throws RuntimeException {
+		log.debug("Inicio - Dao");
+		UsuarioDto usuarioDto = null;
+		String msjEx = null;
+		try {			
+			
+			Criteria criteria = sessionFactory.getCurrentSession().createCriteria(UsuarioDto.class);
+			
+			criteria.add(Restrictions.eq("email", email));
+			criteria.add(Restrictions.eq("keyword", keyword));
+			
+			usuarioDto = (UsuarioDto) criteria.uniqueResult();
+		}
+		catch(Exception ex){
+			msjEx = Constants.MSJ_EXCEPTION + "al recuperar el usuario con email : " + email + "\n" + ex.getMessage();
+			throw new RuntimeException(msjEx);
+		}
+		
+		
+		
+		log.debug("Fin - Dao");
+		return usuarioDto;
 	}
 	
 }

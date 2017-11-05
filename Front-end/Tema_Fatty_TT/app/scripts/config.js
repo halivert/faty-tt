@@ -21,19 +21,31 @@ function config($stateProvider, $urlRouterProvider) {
             abstract: true,
             url: "/index",
             templateUrl: "views/common/content.html",
-            authenticate: true
+            authenticate: false
         })
         .state('index.main', {
             url: "/main",
             templateUrl: "views/main.html",
-            authenticate: true,
+            authenticate: false,
             data: { pageTitle: 'Inicial' }
         })
         .state('index.imc', {
             url: "/imc",
             templateUrl: "views/imc/imc.html",
-            authenticate: true,
+            authenticate: false,
             data: { pageTitle: 'Calcular IMC' }
+        })
+        .state('index.glucosa', {
+            url: "/glucosa",
+            templateUrl: "views/glucosa/glucosa.html",
+            authenticate: false,
+            data: { pageTitle: 'Registrar glucosa' }
+        })
+        .state('index.pacientes', {
+            url: "/pacientes",
+            templateUrl: "views/pacientes/pacientes.html",
+            authenticate: false,
+            data: { pageTitle: 'Pacientes' }
         })
         
 }
@@ -44,8 +56,7 @@ angular
         $rootScope.$state = $state;
 
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-            $log.debug("toState.authenticate : " + toState.authenticate);
-            $log.debug("$cookies.get(auth) : " + $cookies.get("auth"));
+      
         if (toState.authenticate && $cookies.get("auth")!="true"){
             // User isn’t authenticated
             $state.transitionTo("login");

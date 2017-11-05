@@ -1,0 +1,76 @@
+<div ng-controller="pacientesCtrl" ng-init="verPacientes()">
+
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h3>Lista de pacientes</h3>
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+
+<div class="row">
+<div class="col-lg-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+        
+          Selecciona un paciente para ver detalles
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                
+                <!--<div class="col-sm-3">
+                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                </div>-->
+            </div>
+
+           
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+
+                        <th></th>
+                        <th>Nombre </th>
+                        <th>Edad </th>
+                        <th>Peso</th>
+                        <th>Estatura</th>
+                        <th>Correo electrónico</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                 
+                    <tr ng-repeat="paciente in pacientes">
+                        <td><input type="radio"  name="radio" value="{{paciente.id_PACIENTE}}"></td>
+                        <td>{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</td>
+                        <td>{{paciente.edad}}</td>
+                        <td>{{paciente.peso}}</td>
+                        <td>{{paciente.estatura}}</td>
+                        <td>{{paciente.email}}</td>
+                        <!--<td><a href="#"><i class="fa fa-check text-navy"></i></a></td>-->
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                
+                <!--<div class="col-sm-3">
+                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                </div>-->
+                <div class="form-group pull-right">
+                  <button class="btn btn-w-md btn-gap-v btn-primary">Ver detalle</button>
+                  <button class="btn btn-w-md btn-gap-v btn-primary">Actualizar información</button>
+                </div>
+                           
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>

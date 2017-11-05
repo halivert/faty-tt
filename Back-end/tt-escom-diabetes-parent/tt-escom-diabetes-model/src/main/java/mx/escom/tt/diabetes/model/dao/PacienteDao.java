@@ -46,5 +46,14 @@ public interface PacienteDao {
 	 */
 	public void actualizarInformacionPaciente(PacienteDto pacienteDto) throws RuntimeException;
 	
+	/**
+	 * Proposito : Recuperar el idPaciente por medio de idIndividuo
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 29/10/2017
+	 * @param Integer
+	 * @throws RuntimeException		-	Si ocurre un error durante la ejecucion
+	 */
+	public Integer recuperarIdPacientePorIdIndividuo(Integer idIndividuo) throws RuntimeException;
+	
 
 }

@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.model.dao.UsuarioDao;
 import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 import lombok.extern.apachecommons.CommonsLog;
@@ -36,13 +37,13 @@ public class UsuarioDaoImplTestCase {
 		log.debug("Inicio - Test");
 		UsuarioDto usuarioDto = null;
 		
-		Integer idUsuario = 5;
+		Integer idUsuario = 118;
 		
 		usuarioDto = clienteDao.recuperarUsuarioPorId(idUsuario);
 
 		if(usuarioDto != null) {
 			XStream xStream = new XStream();
-			log.debug("xStream.toXML(usuarioDto): " + xStream.toXML(usuarioDto));
+			log.debug("xStream.toXML(usuarioDto): \n" + xStream.toXML(usuarioDto));
 		}
 		log.debug("Fin - Test");
 	}
@@ -60,15 +61,53 @@ public class UsuarioDaoImplTestCase {
 		log.debug("Inicio - Test");
 		
 		UsuarioDto usuarioDto = new UsuarioDto();
-		String nombre = "Adrian";
+		String nombre = "Edgar";
+		String apellidoPaterno = "Prueba";
+		String apellidoMaterno = "Datos";
+		String email = "sdf";
+		String keyword = "otro";
+		String sexo = "Masculino";
 		Date fechaNac = new Date();
-		Integer idUsuario = 5;
 		
-		usuarioDto.setIdUsuario(idUsuario);
+		
 		usuarioDto.setNombre(nombre);
-		usuarioDto.setFechaNac(fechaNac);
+		usuarioDto.setApellidoPaterno(apellidoPaterno);
+		usuarioDto.setApellidoMaterno(apellidoMaterno);
+		usuarioDto.setEmail(email);
+		usuarioDto.setKeyword(keyword);
+		usuarioDto.setFechaNacimiento(fechaNac);
+		usuarioDto.setSexo(sexo);
 		
-		clienteDao.registrarNuevoUsuario(usuarioDto);
+		/*MedicoDto medicoDto = new MedicoDto();
+		
+		medicoDto.setCedulaProfesional("ONETOMANY");
+		
+		usuarioDto.setMedicoDto(medicoDto);*/
+		
+		clienteDao.guardarUsuario(usuarioDto);
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarPorEmailYKeyword()
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 31/10/2017
+	 */
+	@Test
+	public void recuperarPorEmailYKeyword() {
+		log.debug("Inicio - Test");
+		
+		UsuarioDto usuarioDto = null;
+		String email = "edgarivancs@gmail.com";
+		String keyword = "keyword";
+		
+		usuarioDto = clienteDao.recuperarPorEmailYKeyword(email, keyword);
+		
+		if(usuarioDto != null) {
+			XStream xStream = new XStream();
+			log.debug("xStream.toXML(usuarioDto): " + Constants.SALTO_LINEA + xStream.toXML(usuarioDto));
+		}
 		
 		log.debug("Fin - Test");
 	}

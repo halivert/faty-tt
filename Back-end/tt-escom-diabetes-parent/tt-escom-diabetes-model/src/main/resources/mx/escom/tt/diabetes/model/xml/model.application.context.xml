@@ -10,13 +10,22 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
 		
 <!-- Datasource -->
-	<bean id="DataSourceCliente" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		
+	<bean id="DataSourceCliente" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">	
 		<property name="driverClassName"><value>${driver}</value></property>
 		<property name="url"><value>${url}</value></property> 
 		<property name="username"><value>${username}</value></property>
-		<property name="password"><value>${password}</value></property> 
+		<property name="password"><value>${password}</value></property>
+		<property name="validationQuery"><value>${validationQuery}</value></property>
+		<property name="logAbandoned"><value>true</value></property>
+		<property name="maxActive"><value>50</value></property>
+		<property name="maxIdle"><value>20</value></property>
+		<property name="maxWait"><value>10000</value></property>
+		<property name="removeAbandoned"><value>true</value></property>
+		<property name="removeAbandonedTimeout"><value>60</value></property>
+		<property name="testOnBorrow"><value>true</value></property>
+		<property name="testOnReturn"><value>true</value></property>
+		<property name="timeBetweenEvictionRunsMillis"><value>10000</value></property>
+		<property name="testWhileIdle"><value>true</value></property> 
 		
 	</bean>
 <!-- /Datasource -->
@@ -33,14 +42,16 @@
                 <value>mx.escom.tt.diabetes.model.dto.UsuarioDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.IndividuoDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.PacienteDto</value>
+                <value>mx.escom.tt.diabetes.model.dto.MedicoDto</value>
+                <value>mx.escom.tt.diabetes.model.dto.HistorialClinicoDto</value>                
             </list>
         </property>
 		
 		<property name="hibernateProperties">
 			<props>
-				<!-- <prop key="hibernate.dialect">${dialect}</prop>   -->
-				<prop key="hibernate.show_sql">false</prop>
-				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.dialect">${dialect}</prop>  
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.connection.SetBigStringTryClob">true</prop>
 			</props>
 		</property>
@@ -63,11 +74,18 @@
 	</bean>
 	
 	<bean id="IndividuoDao" class="mx.escom.tt.diabetes.model.dao.impl.IndividuoDaoImpl">
-  <property name="sessionFactory" ref="SessionFactoryCliente"/>
- </bean>
- <bean id="PacienteDao" class="mx.escom.tt.diabetes.model.dao.impl.PacienteDaoImpl">
-  <property name="sessionFactory" ref="SessionFactoryCliente"/>
- </bean>
+  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+ 	</bean>
+ 	<bean id="PacienteDao" class="mx.escom.tt.diabetes.model.dao.impl.PacienteDaoImpl">
+  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+ 	</bean>
+ 	<bean id="MedicoDao" class="mx.escom.tt.diabetes.model.dao.impl.MedicoDaoImpl">
+  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+  		<property name="ql" ref="MedicoQlHelper"/>  
+ 	</bean>
+ 	<bean id="HistorialClinicoDao" class="mx.escom.tt.diabetes.model.dao.impl.HistorialClinicoDaoImpl">
+  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+ 	</bean>
 <!-- /DECLARACION DE DAO's -->	
 	
 	
@@ -81,6 +99,32 @@
 						SELECT usuarioDto
 						FROM UsuarioDto usuarioDto
 						WHERE usuarioDto.idUsuario = :idUsuario
+					</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="MedicoQlHelper" class="mx.escom.tt.diabetes.model.hql.MedicoQlHelper">
+		<property name="queries">
+			<map>
+				<entry key="RECUPERA_PACIENTES_DE_MEDICO_POR_ID_MEDICO">
+					<value>
+					<![CDATA[
+						SELECT P.ID_PACIENTE,
+						       P.ID_INDIVIDUO,
+						       P.ID_MEDICO,
+						       P.PESO,
+						       P.ESTATURA,
+						       I.NOMBRE,
+						       I.APELLIDO_PATERNO AS AP_PAT,
+						       I.APELLIDO_MATERNO AS AP_MAT,
+						       I.EMAIL,
+						       I.FECHA_NACIMIENTO AS FEC_NAC
+						FROM PACIENTE P
+						JOIN MEDICO M ON (P.ID_MEDICO = M.ID_MEDICO && M.ID_MEDICO = :idMedico)
+						JOIN INDIVIDUO I ON I.ID_INDIVIDUO = P.ID_INDIVIDUO
+					]]>
 					</value>
 				</entry>
 			</map>

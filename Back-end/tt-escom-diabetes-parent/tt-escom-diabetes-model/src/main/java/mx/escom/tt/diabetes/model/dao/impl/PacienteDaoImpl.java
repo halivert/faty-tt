@@ -1,7 +1,9 @@
 package mx.escom.tt.diabetes.model.dao.impl;
 
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -78,6 +80,21 @@ public class PacienteDaoImpl  implements PacienteDao{
 		
 
 		log.debug("Fin - Dao");
+	}
+
+	//-TODO ELIMINAR METODO
+	@Override
+	public Integer recuperarIdPacientePorIdIndividuo(Integer idIndividuo) throws RuntimeException {
+		log.debug("Inicio - Dao");
+		
+		PacienteDto pacienteDto = null;
+		
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(PacienteDto.class);
+		criteria.add(Restrictions.eq("idIndividuo", idIndividuo));
+		pacienteDto = (PacienteDto) criteria.uniqueResult();
+		
+		log.debug("Fin - Dao");
+		return pacienteDto.getIdUsuario();
 	}
 
 	

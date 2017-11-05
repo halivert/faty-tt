@@ -1,4 +1,9 @@
+
 package mx.escom.tt.diabetes.business.service.test;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +15,7 @@ import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.UsuarioAppService;
+import mx.escom.tt.diabetes.model.dto.MedicoDto;
 import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 
 @CommonsLog
@@ -29,13 +35,13 @@ public class UsuarioAppServiceTestCase {
 	 * @see UsuarioAppService#recuperarUsuarioPorIdAppService(Integer)
 	 */
 	@Test
-	public void recuperarUsuarioPorIdAppServiceTestCase() {
+	public void recuperarUsuarioPorId() {
 		log.debug("Inicio - Test");
 		
 		UsuarioDto usuarioDto = null;
 		Integer idUsuario = 4;
 		
-		usuarioDto = usuarioAppService.recuperarUsuarioPorIdAppService(idUsuario);
+		usuarioDto = usuarioAppService.recuperarUsuarioPorId(idUsuario);
 
 		if(usuarioDto != null) {
 			XStream xStream = new XStream();
@@ -44,4 +50,76 @@ public class UsuarioAppServiceTestCase {
 		
 		log.debug("Fin - Test");
 	}
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarPorEmailYKeyword(), de la clase UsuarioAppService
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 02/11/2017
+	 */
+	@Test
+	public void recuperarPorEmailYKeyword() {
+		log.debug("Inicio - Test");
+		
+		UsuarioDto usuarioDto = null;
+		String email = "enrique@gmail.com";
+		String keyword = "enrique1234";
+		
+		usuarioDto = usuarioAppService.recuperarPorEmailYKeyword(email, keyword);
+
+		if(usuarioDto != null) {
+			XStream xStream = new XStream();
+			log.debug("xStream.toXML(usuarioDto): \n" + xStream.toXML(usuarioDto));
+		}
+		
+		log.debug("Fin - Test");
+	}
+	
+	
+	/**
+	 * 
+	 * Proposito : Validar el correcto funcionamiento del metodo guardarUsuario(), de la clase UsuarioAppService
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 02/11/2017
+	 * @throws ParseException
+	 */
+	@Test
+	public void guardarUsuario() throws ParseException{
+		log.debug("Inicio - Test");
+		
+		UsuarioDto usuarioDto = new UsuarioDto();
+		String nombre = "Kevin";
+		String apellidoPaterno = "Hurtado";
+		String apellidoMaterno = "Guzman";
+		String email = "kevin@hotmail.com";
+		String keyword = "enrique1234";
+		String sexo = "Masculino";
+		String fechaNacStr = "18/06/2004";
+		
+		
+		String expectedPattern = "dd/MM/yyyy";
+	    SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern);
+		Date fechaNacimiento = formatter.parse(fechaNacStr);
+		
+		{//SE ARMA EL DTO
+			
+			usuarioDto.setNombre(nombre);
+			usuarioDto.setApellidoPaterno(apellidoPaterno);
+			usuarioDto.setApellidoMaterno(apellidoMaterno);
+			usuarioDto.setEmail(email);
+			usuarioDto.setKeyword(keyword);
+			usuarioDto.setFechaNacimiento(fechaNacimiento);
+			usuarioDto.setSexo(sexo);
+			
+		}
+		
+		MedicoDto medicoDto = new MedicoDto();
+		String cedulaProfesional = "CEDULA134";
+		
+		medicoDto.setCedulaProfesional(cedulaProfesional );
+		
+		usuarioAppService.guardarUsuario(usuarioDto, medicoDto, null);
+		
+		log.debug("Inicio - Test");
+	}
+	
+	
 }

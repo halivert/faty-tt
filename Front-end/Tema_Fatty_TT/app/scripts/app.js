@@ -7,6 +7,8 @@
         'ui.router',                    // Routing
         'ui.bootstrap',                 // Bootstrap
         'toastr',
-        'ngCookies'
+        'ngCookies',
+        'blockUI',
+        'ui.bootstrap.datetimepicker'
     ])
 })();

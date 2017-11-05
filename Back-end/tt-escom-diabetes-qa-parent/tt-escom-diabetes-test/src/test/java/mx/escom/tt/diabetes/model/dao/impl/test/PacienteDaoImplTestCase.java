@@ -34,23 +34,18 @@ public class PacienteDaoImplTestCase {
 		
 		PacienteDto pacienteDto = new PacienteDto();
 		
-		Integer idIndividuo = 1;
-		Integer idMedico = 1;
-		double peso = 73.5;
+		Integer idUsuario = 96;
+		Integer idMedico = 98;
+		/*double peso = 73.5;
 		double talla = 70;
 		double estatura = 170;
 		double imc = 23.45;
 		double carbohidratos = 3.4;
-		double proteinas = 2.5;
+		double proteinas = 2.5;*/
 		
-		pacienteDto.setIdIndividuo(idIndividuo);
+		pacienteDto.setIdUsuario(idUsuario);
 		pacienteDto.setIdMedico(idMedico);
-		pacienteDto.setPeso(peso);		
-		pacienteDto.setTalla(talla);		
-		pacienteDto.setEstatura(estatura);		
-		pacienteDto.setImc(imc);		
-		pacienteDto.setCarbohidratos(carbohidratos);		
-		pacienteDto.setProteinas(proteinas);
+		
 	
 		try {
 			pacienteDao.guardarPaciente(pacienteDto);
@@ -73,7 +68,7 @@ public class PacienteDaoImplTestCase {
 		log.debug("Inicio - Test");
 		
 		PacienteDto pacienteDto = null;
-		Integer idPaciente = 2;
+		Integer idPaciente = 96;
 		
 		pacienteDto = pacienteDao.recuperarPacientePorIdPaciente(idPaciente);
 		
@@ -122,10 +117,7 @@ public class PacienteDaoImplTestCase {
 		double peso = 12;
 		double proteinas = 235;
 		
-		{//Se actualiza la informacion
-			pacienteDto.setPeso(peso);
-			pacienteDto.setProteinas(proteinas);
-		}
+		
 		
 		//Se envia el DTO con la nueva informacion
 		pacienteDao.actualizarInformacionPaciente(pacienteDto);

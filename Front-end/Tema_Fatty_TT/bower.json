@@ -30,7 +30,9 @@
     "metisMenu": "~2.0.2",
     "fontawesome": "~4.7.0",
     "jquery": "^3.1.1",
-    "angular-toastr":"2.1.1"
+    "angular-toastr":"2.1.1",
+	"angular-block-ui":"~0.2.0",
+	"angular-bootstrap-datetimepicker":"~1.0.0"
   },
   "resolutions": {
     "angular": "~1.5.0",

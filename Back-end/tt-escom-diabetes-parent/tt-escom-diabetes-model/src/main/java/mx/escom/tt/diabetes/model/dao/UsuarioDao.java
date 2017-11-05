@@ -18,13 +18,24 @@ public interface UsuarioDao {
 	
 	
 	/**
-	 * Proposito : Registrar un nuevo Usuario
+	 * Proposito : Guardar informacion de un Usuario
 	 *
 	 * @author Edgar, ESCOM
 	 * @version 1.0.0, 07/10/2017
 	 * @param usuarioDto			- Objeto con la informacion que se debe guardar.
 	 * @throws RuntimeException		- Si ocurre un error en tiempo de ejecucion.
 	 */
-	public void registrarNuevoUsuario(UsuarioDto usuarioDto) throws RuntimeException;
+	public void guardarUsuario(UsuarioDto usuarioDto) throws RuntimeException;
+	
+	/**
+	 * Proposito : Recuperar un usuario por medio de su email y keyword
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 31/10/2017
+	 * @param email				-	email del usuario	
+	 * @param keyword			-	keyword del usuario
+	 * @return					-	Informacion del usuario
+	 * @throws RuntimeException	-	Si ocurre un error en la persistencia de datos
+	 */
+	public UsuarioDto recuperarPorEmailYKeyword(String email, String keyword) throws RuntimeException;
 
 }

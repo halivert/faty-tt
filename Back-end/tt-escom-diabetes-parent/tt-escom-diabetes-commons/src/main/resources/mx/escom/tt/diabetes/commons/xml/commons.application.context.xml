@@ -15,4 +15,10 @@
 		</property>
 	</bean>
 
+	<bean id="FormatoFechaNacimiento" class="java.text.SimpleDateFormat">
+    	<constructor-arg index="0">
+    		<value>${formato.fecha}</value>
+    	</constructor-arg>
+    </bean>
+    
 </beans>

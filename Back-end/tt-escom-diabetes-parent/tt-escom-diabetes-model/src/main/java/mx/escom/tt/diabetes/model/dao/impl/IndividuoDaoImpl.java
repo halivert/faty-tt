@@ -1,5 +1,7 @@
 package mx.escom.tt.diabetes.model.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -55,6 +57,22 @@ public class IndividuoDaoImpl implements IndividuoDao {
 		criteria.add(Restrictions.eq("keyword", keyword));
 		
 		individuoDto = (IndividuoDto) criteria.uniqueResult();
+		
+		log.debug("Fin - Dao");
+		return individuoDto;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<IndividuoDto> recuperarPorEmail(String email) throws RuntimeException {
+		log.debug("Inicio - Dao");
+		List<IndividuoDto> individuoDto = null;
+		
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(IndividuoDto.class);
+		
+		criteria.add(Restrictions.eq("email", email));
+		
+		individuoDto = criteria.list();
 		
 		log.debug("Fin - Dao");
 		return individuoDto;
