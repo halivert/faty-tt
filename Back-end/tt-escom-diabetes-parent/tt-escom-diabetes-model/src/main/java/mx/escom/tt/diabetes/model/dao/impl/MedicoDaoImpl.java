@@ -2,12 +2,9 @@ package mx.escom.tt.diabetes.model.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -104,18 +101,5 @@ public class MedicoDaoImpl implements MedicoDao{
 		return result;
 	}
 
-	@Override
-	public Integer recuperarIdMedicoPorIdIndividuo(Integer idIndividuo) throws RuntimeException {
-		log.debug("Inicio - Dao");
-		
-		MedicoDto medicoDto = null;
-		
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(MedicoDto.class);
-		criteria.add(Restrictions.eq("idIndividuo", idIndividuo));
-		medicoDto = (MedicoDto) criteria.uniqueResult();
-		
-		log.debug("Fin - Dao");
-		return null;
-	}
 	
 }

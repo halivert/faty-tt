@@ -3,7 +3,6 @@ package mx.escom.tt.diabetes.model.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -16,7 +15,6 @@ import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.model.dao.HistorialClinicoDao;
 import mx.escom.tt.diabetes.model.dto.HistorialClinicoDto;
-import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 
 @CommonsLog
 @Repository("HistorialClinicoDao")
@@ -78,6 +76,7 @@ public class HistorialClinicoDaoImpl implements HistorialClinicoDao{
 		return historialClinicoDto;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<HistorialClinicoDto> recuperarListaHistorialClinicoPorIdPaciente(Integer idPaciente) throws RuntimeException {
 		log.debug("Inicio - Dao");

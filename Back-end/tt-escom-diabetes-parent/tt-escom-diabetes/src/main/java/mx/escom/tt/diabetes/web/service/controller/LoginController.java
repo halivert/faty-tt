@@ -65,9 +65,9 @@ public class LoginController {
 		ResponseEntity<?> result = null;
 	
 		RespuestaVo respuestaVo = null;
-		
+		log.debug("usuarioVo : " + usuarioVo.toString());
 		try {
-			log.debug("usuarioVo : " + usuarioVo.toString());
+			
 			respuestaVo = usuarioFacade.guardarUsuario(usuarioVo);
 			result = new ResponseEntity<RespuestaVo>(respuestaVo, HttpStatus.OK);
 			

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.vo.MedicoPacientesVo;
 import mx.escom.tt.diabetes.web.facade.MedicoFacade;
-import mx.escom.tt.diabetes.web.vo.RespuestaVo;
+import mx.escom.tt.diabetes.web.vo.RespuestaErrorVo;
 
 @CommonsLog
 @RestController
@@ -27,7 +27,7 @@ public class MedicoController {
 		log.debug("Inicio - Controller");
 		ResponseEntity<?> result = null;
 		List<MedicoPacientesVo> medicoPacientes = null;
-		RespuestaVo respuestaError=null;
+		RespuestaErrorVo respuestaError=null;
 		
 		log.debug("idMedico :" + idMedico);
 		try {
@@ -35,10 +35,12 @@ public class MedicoController {
 			
 			result = new ResponseEntity<List<MedicoPacientesVo>>(medicoPacientes, HttpStatus.OK);
 		} catch (Exception ex) {
-			respuestaError = new RespuestaVo();
+			
+			respuestaError = new RespuestaErrorVo();
+			respuestaError.setRespuesta("ERROR");
 			respuestaError.setMensaje(ex.getMessage());
-			log.debug("respuestaError.getMensaje() : " + respuestaError.getMensaje());
-			result = new ResponseEntity<RespuestaVo>(respuestaError, HttpStatus.INTERNAL_SERVER_ERROR);
+			
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		log.debug("Fin - Controller");
 		return result;

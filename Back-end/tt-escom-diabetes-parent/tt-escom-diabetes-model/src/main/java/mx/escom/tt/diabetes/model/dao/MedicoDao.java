@@ -26,16 +26,6 @@ public interface MedicoDao {
 	 */
 	public MedicoDto recuperarMedico(Integer idMedico) throws RuntimeException;
 	
-	/**
-	 * Proposito : Recuperar informacion de un medico por el id de Individuo
-	 * @author Edgar, ESCOM
-	 * @version 1,0,0. 29/10/2017
-	 * @param idIndividuo			-	idIndividuo del medico
-	 * @return Integer				-	idMedico
-	 * @throws RuntimeException		-	Si ocurre un error durante la ejecucion
-	 */
-	//TODO- Eliminar metodo	
-	public Integer recuperarIdMedicoPorIdIndividuo(Integer idIndividuo) throws RuntimeException;
 	
 	
 	/**

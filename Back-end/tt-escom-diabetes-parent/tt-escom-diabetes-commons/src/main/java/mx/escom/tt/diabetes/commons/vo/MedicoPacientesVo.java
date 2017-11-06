@@ -10,14 +10,12 @@ public class MedicoPacientesVo implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Getter @Setter private Integer ID_PACIENTE;
-	@Getter @Setter private Integer ID_INDIVIDUO;
 	@Getter @Setter private Integer ID_MEDICO;
+	@Getter @Setter private Integer ID_USUARIO;
 	@Getter @Setter private String 	NOMBRE;
 	@Getter @Setter private String 	AP_PAT;
 	@Getter @Setter private String 	AP_MAT;
 	@Getter @Setter private String 	EMAIL;
 	@Getter @Setter private	Date	FEC_NAC;
-	@Getter @Setter private	double	PESO;
-	@Getter @Setter private	double	ESTATURA;
+	@Getter @Setter private	String	SEXO;
 }

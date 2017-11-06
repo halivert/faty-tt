@@ -12,8 +12,16 @@ angular.module('trabajoTerminal')
         email:'',
         password:''
   };
-  $scope.datosI={
-
+  $scope.datosU={
+    nombre:'',
+    apellidoPaterno:'',
+    apellidoMaterno:'',
+    idSexo:'',
+    email:'',
+    keyword:'',
+    rol:'',
+    cedula:'',
+    codigoM:''
   };
 
   $scope.limpiaInfo = function(){
@@ -21,53 +29,39 @@ angular.module('trabajoTerminal')
   //$cookies.put("idIndividuo","");
    $cookies.put("rol","");
    $cookies.put("nombre","");
+   $cookies.put("idUsuario","");
  }
   
-//var informacionIndividuo = {};
     $scope.iniciarSesion = function(){
-      $log.debug("iniciarSesion");
       
       loginService.iniciaSesionService($scope.usuarioObject.email,$scope.usuarioObject.password).then(
       	function successCallback(d) {
-          //$cookies.put("idIndividuo",d.idIndividuo);
-          
           blockUI.start();
           
-          $cookies.put("auth","true");
-          $cookies.put("rol",d.individuoRol);
-	        toastr.success(d.mensaje,'Ok');
-	        $state.transitionTo('index.main');
+              $cookies.put("auth","true");
+              $cookies.put("idUsuario",d.idUsuario);
+    	        toastr.success(d.mensaje,'Ok');
+    	        $state.transitionTo('index.main');
 
-
-          loginService.recuperarInformacionInd(d.idIndividuo,d.individuoRol).then(
-
-                                  function successCallback(infoIndividuo){
-                                   // var informacionIndividuo = infoIndividuo;
-                                    $log.debug("informacionIndividuo.nombreCompleto : " + infoIndividuo.nombreCompleto);
-                                    var nombre = infoIndividuo.nombreCompleto;
-                                    $cookies.put("nombre",nombre);
-                                    if(d.individuoRol == 1){
-                                        $cookies.put("idMedico",infoIndividuo.idMedico);
-                                    }
-                                    if(d.individuoRol == 0){
-                                        $cookies.put("idPaciente",infoIndividuo.idPaciente);
-                                    }
-                                    
-                                });
+              loginService.recuperarInformacionUsuario(d.idUsuario).then( 
+                    function successCallback(informacionUsuario){
+                      var nombreCompleto = informacionUsuario.nombre + " " + informacionUsuario.apellidoPaterno + " " + informacionUsuario.apellidoMaterno;
+                      $log.debug("nombreCompleto : " + nombreCompleto);
+                      $log.debug("informacionUsuario.idRol : " + informacionUsuario.idRol);
+                      $cookies.put("rol",informacionUsuario.idRol);
+                      $cookies.put("nombre",nombreCompleto);                 
+                  });
          blockUI.stop();
 	       
         },
         function errorCallback(d) {
-
         	if(d.data == null)
             toastr.warning("Servicio no disponible", 'Advertencia');
           else{
             $log.debug("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
 			      toastr.error(d.data.mensaje, 'Error');
           }
-        });
-       
-
+        }); 
     };
 
     $scope.validaForm =function(){
@@ -79,19 +73,18 @@ angular.module('trabajoTerminal')
     }
 
     $scope.validaPasword = function(){
-        return  ($scope.datosI.keyword === $scope.datosI.confirmpass ? true : false); 
+        return  ($scope.datosU.keyword === $scope.datosU.confirmpass ? true : false); 
     }
 
-    $scope.registrarP = function(){
-      $log.debug("JSON.stringify($scope.datosI)" + JSON.stringify($scope.datosI));
+    $scope.registrarUsuario = function(){
+      $log.debug("JSON.stringify($scope.datosU)" + JSON.stringify($scope.datosU));
       // Enviar la fecha de nacimiento
-      loginService.guardarIndividuo($scope.datosI.nombre,$scope.datosI.apellidoPaterno,$scope.datosI.apellidoMaterno,$scope.datosI.email,$scope.datosI.keyword,"",$scope.datosI.idSexo,$scope.datosI.rol,$scope.datosI.cedula).then(
+      loginService.guardarUsuario($scope.datosU.nombre,$scope.datosU.apellidoPaterno,$scope.datosU.apellidoMaterno,$scope.datosU.email,$scope.datosU.keyword,"",$scope.datosU.idSexo,$scope.datosU.rol,$scope.datosU.cedula,$scope.datosU.codigoM).then(
         function successCallback(d) {
             $log.debug("d" + JSON.stringify(d));
             toastr.success(d, 'Ok');
             angular.element('#modal-form').modal('hide');
-            $scope.datosI={};
-            //$state.transitionTo('login');
+            $scope.datosU={};
          
         },
         function errorCallback(d) {

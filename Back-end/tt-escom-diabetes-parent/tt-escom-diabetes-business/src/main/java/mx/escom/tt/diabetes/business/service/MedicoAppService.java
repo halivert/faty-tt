@@ -73,31 +73,6 @@ public class MedicoAppService {
 		return medicoDto;
 	}
 	
-	/**
-	 * 
-	 * Proposito : Recuperar el identificador del individuo por su IdMedico
-	 * @author Edgar, ESCOM
-	 * @version 1,0,0. 29/10/2017
-	 * @param idIndividuo			-	id Individuo del medico
-	 * @return Integer				-	id Medico
-	 * @throws RuntimeException		-	Si ocurre un error durante la ejecucion
-	 */
-	public Integer recuperarIdMedicoPorIdIndividuo(Integer idIndividuo) throws RuntimeException{
-		log.debug("Inicio - Service");
-		
-		String msjEx = null;
-		Integer idMedico = null;
-		
-		if(idIndividuo == null) {
-			msjEx = "El identificador del medico no puede ser nulo";
-			throw new RuntimeException(msjEx);
-		}
-		
-		idMedico = medicoDao.recuperarIdMedicoPorIdIndividuo(idIndividuo);
-		
-		log.debug("Fin - Service");
-		return idMedico;
-	}
 	
 	/**
 	 * 

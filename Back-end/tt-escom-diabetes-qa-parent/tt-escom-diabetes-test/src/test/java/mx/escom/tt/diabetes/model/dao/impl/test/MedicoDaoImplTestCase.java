@@ -66,28 +66,6 @@ public class MedicoDaoImplTestCase {
 	}
 	
 	/**
-	 * Proposito : Validar el correcto funcionamiento del metodo recuperarIdMedicoPorIdIndividuo
-	 * @author Edgar, ESCOM
-	 * @version 1,0,0. 29/10/2017
-	 */
-	@Test
-	public void recuperarMedicoPorIdIndividuo() {
-		log.debug("Inicio - Test");
-		
-		Integer idIndividuo = 1;
-		Integer idMedico = null;
-		
-		idMedico = medicoDao.recuperarIdMedicoPorIdIndividuo(idIndividuo);
-		
-		if(idMedico != null) {
-		
-			log.debug("idMedico : " + idMedico);
-		}
-		
-		log.debug("Fin - Test");
-	}
-	
-	/**
 	 * Proposito : Validar el correcto funcionamiento del metodo recuperarPacientesDeMedico
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 29/10/2017
@@ -97,7 +75,7 @@ public class MedicoDaoImplTestCase {
 		log.debug("Inicio - Test");
 		
 		List<MedicoPacientesVo> result = null;
-		Integer idMedico = 2;
+		Integer idMedico = 113;
 		
 		
 		result = medicoDao.recuperarPacientesDeMedico(idMedico);
@@ -106,6 +84,7 @@ public class MedicoDaoImplTestCase {
 			XStream xStream = new XStream();
 			log.debug("xStream.toXML(medicoDto) : \n" + xStream.toXML(result));
 		}
+		
 		log.debug("El médico aun no tiene pacientes");
 		
 		log.debug("Fin - Test");

@@ -111,19 +111,21 @@
 				<entry key="RECUPERA_PACIENTES_DE_MEDICO_POR_ID_MEDICO">
 					<value>
 					<![CDATA[
-						SELECT P.ID_PACIENTE,
-						       P.ID_INDIVIDUO,
-						       P.ID_MEDICO,
-						       P.PESO,
-						       P.ESTATURA,
-						       I.NOMBRE,
-						       I.APELLIDO_PATERNO AS AP_PAT,
-						       I.APELLIDO_MATERNO AS AP_MAT,
-						       I.EMAIL,
-						       I.FECHA_NACIMIENTO AS FEC_NAC
+						SELECT
+							P.ID_MEDICO,
+							U.ID_USUARIO,
+							U.NOMBRE,
+							U.APELLIDO_PATERNO AS AP_PAT,
+							U.APELLIDO_MATERNO AS AP_MAT,
+							U.EMAIL AS EMAIL,
+							U.FECHA_NACIMIENTO AS FEC_NAC,
+							U.SEXO AS SEXO
 						FROM PACIENTE P
-						JOIN MEDICO M ON (P.ID_MEDICO = M.ID_MEDICO && M.ID_MEDICO = :idMedico)
-						JOIN INDIVIDUO I ON I.ID_INDIVIDUO = P.ID_INDIVIDUO
+						JOIN MEDICO M
+						ON (M.ID_USUARIO = P.ID_MEDICO
+						AND M.ID_USUARIO = :idMedico)
+						JOIN USUARIO U
+						ON U.ID_USUARIO = P.ID_USUARIO
 					]]>
 					</value>
 				</entry>

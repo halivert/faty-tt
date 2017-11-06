@@ -1,7 +1,7 @@
 angular
     .module('trabajoTerminal')
 
-.controller('navigationCtrl', function($scope,$cookies){
+.controller('navigationCtrl', function($scope,$cookies,$log){
 	
 	//$log.debug("navigationCtrl");
 	$scope.obtenerNombre = function(){
@@ -10,10 +10,14 @@ angular
 
 	
 
-	if($cookies.get("rol") == "1")
+	if($cookies.get("rol") == "1"){
 		$scope.rol = "M";
-	else
+		$log.debug("Es medico");
+	}
+	else{
 		$scope.rol = "P";
+			$log.debug("Es paciente");
+	}
 
 	
 
