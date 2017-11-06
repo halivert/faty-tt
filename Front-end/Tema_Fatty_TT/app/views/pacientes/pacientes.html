@@ -12,7 +12,7 @@
     <div class="ibox float-e-margins">
         <div class="ibox-title">
         
-          Selecciona un paciente para ver detalles
+          Selecciona un paciente para ver su historial clínico
         </div>
         <div class="ibox-content">
             <div class="row">
@@ -32,8 +32,8 @@
                         <th></th>
                         <th>Nombre </th>
                         <th>Edad </th>
-                        <th>Peso</th>
-                        <th>Estatura</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Sexo</th>
                         <th>Correo electrónico</th>
                     </tr>
                     </thead>
@@ -41,11 +41,11 @@
 
                  
                     <tr ng-repeat="paciente in pacientes">
-                        <td><input type="radio"  name="radio" value="{{paciente.id_PACIENTE}}"></td>
+                        <td><input type="radio" ng-model="usuario"  name="radio" value="{{paciente.id_USUARIO}}"></td>
                         <td>{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</td>
-                        <td>{{paciente.edad}}</td>
-                        <td>{{paciente.peso}}</td>
-                        <td>{{paciente.estatura}}</td>
+                        <td ng-model="calcularEdar(paciente.edad)"></td>
+                        <td>{{paciente.fec_NAC}}</td>
+                        <td>{{paciente.sexo}}</td>
                         <td>{{paciente.email}}</td>
                         <!--<td><a href="#"><i class="fa fa-check text-navy"></i></a></td>-->
                     </tr>
@@ -61,7 +61,7 @@
                         <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
                 </div>-->
                 <div class="form-group pull-right">
-                  <button class="btn btn-w-md btn-gap-v btn-primary">Ver detalle</button>
+                  <button class="btn btn-w-md btn-gap-v btn-primary" ng-click="verHistorial()">Ver Historial Clínico</button>
                   <button class="btn btn-w-md btn-gap-v btn-primary">Actualizar información</button>
                 </div>
                            
