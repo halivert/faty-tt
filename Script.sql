@@ -98,7 +98,7 @@ BEGIN
   DECLARE vI INT;
   DECLARE nvoId INT;
 
-  SELECT COALESCE(MAX(ID_USUARIO), 1) INTO nvoId
+  SELECT COALESCE(MAX(ID_USUARIO) + 1, 1) INTO nvoId
   FROM USUARIO;
 
   SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 8) INTO vSalt;
@@ -131,6 +131,67 @@ BEGIN
     nvoId,
     _cedulaProfesional
   );
+
+END //
+
+CREATE PROCEDURE SP_PACIENTE_ALTA (
+  IN _nombre VARCHAR(50),
+  IN _apellidoPaterno VARCHAR(50),
+  IN _apellidoMaterno VARCHAR(50),
+  IN _email VARCHAR(50),
+  IN _keyword VARCHAR(100),
+  IN _fechaNacimiento DATE,
+  IN _sexo VARCHAR(10),
+  IN _codigoMedico VARCHAR(10)
+)
+BEGIN
+  DECLARE vSalt VARCHAR(10);
+  DECLARE vKeyConv VARCHAR(100);
+  DECLARE vDigPass VARCHAR(100);
+  DECLARE vKeyTr VARCHAR(100);
+  DECLARE vI INT;
+  DECLARE nvoId INT;
+  DECLARE _idMedico INT DEFAULT -1;
+
+  SELECT COALESCE(MAX(ID_USUARIO) + 1, 1) INTO nvoId
+  FROM USUARIO;
+
+  SELECT SUBSTRING(MD5(RAND()) FROM 1 FOR 8) INTO vSalt;
+  SET vKeyConv = CONVERT(_keyword, BINARY);
+
+  SET vKeyTr = CONCAT(vKeyConv, vSalt);
+
+  SET vI = 0;
+  REPEAT
+    SET vKeyTr = MD5(vKeyTr);
+    SET vI = vI + 1;
+  UNTIL vI > 2330 END REPEAT;
+
+  SET vDigPass = TO_BASE64(CONCAT(vSalt, vKeyTr));
+  
+  SELECT COALESCE(ID_MEDICO, -1) INTO _idMedico
+  FROM TOKEN_MEDICO WHERE TOKEN = _codigoMedico;
+  
+  INSERT INTO USUARIO
+  VALUES(
+    nvoId,
+    _nombre,
+    _apellidoPaterno,
+    _apellidoMaterno,
+    _email,
+    vDigPass,
+    _fechaNacimiento,
+    _sexo
+  );
+
+  INSERT INTO PACIENTE
+  VALUES(
+    nvoId,
+    _idMedico
+  );
+
+  DELETE FROM TOKEN_MEDICO 
+  WHERE TOKEN = _codigoMedico;
 
 END //
 
