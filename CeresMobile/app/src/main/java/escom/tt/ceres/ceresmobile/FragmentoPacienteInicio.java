@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
@@ -47,11 +48,13 @@ public class FragmentoPacienteInicio extends Fragment {
     View main = inflater.inflate(R.layout.fragment_paciente_inicio, container, false);
 
     SharedPreferences preferences = getActivity().getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
-    String nombreUsuario = preferences.getString(NOMBRE_COMPLETO, null);
+    String nombreUsuario = preferences.getString(NOMBRE, null);
+    String apPaterno = preferences.getString(APELLIDO_PATERNO, null);
+    String apMaterno = preferences.getString(APELLIDO_MATERNO, null);
 
     TextView textView = main.findViewById(R.id.textNombre);
     if (textView != null)
-      textView.setText(nombreUsuario);
+      textView.setText(nombreUsuario + ' ' + apPaterno + ' ' + apMaterno);
 
     return main;
   }

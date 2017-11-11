@@ -48,4 +48,6 @@
     <string name="email_ya_registrado">El correo electrónico ya fue usado</string>
     <string name="cedula_profesional">Cédula profesional</string>
     <string name="falta_cedula_prof">Falta cédula profesional</string>
+    <string name="hola_medico">Hola medico</string>
+    <string name="hola_paciente">Hola paciente</string>
 </resources>

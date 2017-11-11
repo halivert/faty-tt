@@ -14,10 +14,9 @@ import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static escom.tt.ceres.ceresmobile.Vars.Ints.MEDICO;
 import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_INDIVIDUO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_ROL;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ROL;
 
 public class ActividadPrincipal extends AppCompatActivity
         implements FragmentoLogin.OnLoginInteraction {
@@ -25,8 +24,8 @@ public class ActividadPrincipal extends AppCompatActivity
   @Override
   public void onResume() {
     SharedPreferences preferences = getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
-    int idUsuario = preferences.getInt(ID_INDIVIDUO, -1);
-    int rol = preferences.getInt(ROL, -1);
+    int idUsuario = preferences.getInt(ID_USUARIO, -1);
+    int rol = preferences.getInt(ID_ROL, -1);
 
     if (idUsuario > -1 && rol > -1) {
       accesoExitoso(idUsuario, rol);
@@ -40,8 +39,8 @@ public class ActividadPrincipal extends AppCompatActivity
     setContentView(R.layout.actividad_principal);
 
     SharedPreferences preferences = getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
-    final int idUsuario = preferences.getInt(ID_INDIVIDUO, -1);
-    final int rol = preferences.getInt(ROL, -1);
+    final int idUsuario = preferences.getInt(ID_USUARIO, -1);
+    final int rol = preferences.getInt(ID_ROL, -1);
 
     if (idUsuario > -1 && rol > -1) {
       accesoExitoso(idUsuario, rol);

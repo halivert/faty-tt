@@ -18,21 +18,28 @@ import org.json.JSONObject;
 
 import java.net.URLEncoder;
 
-import static escom.tt.ceres.ceresmobile.Vars.Ints.SEXO_HOMBRE;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.SEXO_MUJER;
+import static escom.tt.ceres.ceresmobile.Vars.Ints.MEDICO;
+import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
+import static escom.tt.ceres.ceresmobile.Vars.Ints.SEXO_FEMENINO;
+import static escom.tt.ceres.ceresmobile.Vars.Ints.SEXO_MASCULINO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.CEDULA_PROFESIONAL;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_ERROR;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_MEDICO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.EMAIL;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_CONEXION;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.FECHA_NACIMIENTO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_SEXO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_ROL;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.INFO_GUARDADA;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.KEYWORD;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ROL;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.OK;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.SEXO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_REGISTRO;
 
 
 public class FragmentoMedicoRegistro extends Fragment {
@@ -139,78 +146,49 @@ public class FragmentoMedicoRegistro extends Fragment {
     if (validar()) {
       Activity ac = getActivity();
       Context ctx = ac.getApplicationContext();
-      String url = "http://35.188.191.232/tt-escom-diabetes/sesion/individuos/";
       try {
-        String nombre, apPaterno, apMaterno, codigoMed, email, keyword, fechaNac, idSexo;
+        String nombre, apPaterno, apMaterno, cedulaProf, email, keyword, fechaNac, sexo;
         nombre = ((EditText) ac.findViewById(R.id.editNombre)).getText().toString();
         apPaterno = ((EditText) ac.findViewById(R.id.editApPat)).getText().toString();
         apMaterno = ((EditText) ac.findViewById(R.id.editApMat)).getText().toString();
-        // codigoMed = ((EditText) ac.findViewById(R.id.editTokenMed)).getText().toString();
+        cedulaProf = ((EditText) ac.findViewById(R.id.editCedulaProf)).getText().toString();
         email = ((EditText) ac.findViewById(R.id.editEmail)).getText().toString();
         keyword = ((EditText) ac.findViewById(R.id.editKeyword)).getText().toString();
         fechaNac = ((EditText) ac.findViewById(R.id.dtpFechaNac)).getText().toString();
 
         if (((RadioButton) ac.findViewById(R.id.radioSexoHombre)).isChecked()) {
-          idSexo = String.valueOf(SEXO_HOMBRE);
-        } else idSexo = String.valueOf(SEXO_MUJER);
+          sexo = String.valueOf(SEXO_MASCULINO);
+        } else sexo = String.valueOf(SEXO_FEMENINO);
 
+        JSONObject request = new JSONObject();
+        request.put(NOMBRE, nombre);
+        request.put(APELLIDO_PATERNO, apPaterno);
+        request.put(APELLIDO_MATERNO, apMaterno);
+        request.put(EMAIL, email);
+        request.put(KEYWORD, keyword);
+        request.put(FECHA_NACIMIENTO, fechaNac);
+        request.put(SEXO, sexo);
+        request.put(ID_ROL, MEDICO);
+        request.put(CEDULA_PROFESIONAL, cedulaProf);
+        request.put(CODIGO_MEDICO, null);
 
-        StringBuilder data = new StringBuilder();
-        data.append(URLEncoder.encode(NOMBRE, "UTF-8"));
-        data.append("=");
-        data.append(URLEncoder.encode(nombre, "UTF-8"));
-        data.append("&");
-        data.append(URLEncoder.encode(APELLIDO_PATERNO, "UTF-8"));
-        data.append("=");
-        data.append(URLEncoder.encode(apPaterno, "UTF-8"));
-        data.append("&");
-        data.append(URLEncoder.encode(APELLIDO_MATERNO, "UTF-8"));
-        data.append("=");
-        data.append(URLEncoder.encode(apMaterno, "UTF-8"));
-        data.append("&");
-        data.append(URLEncoder.encode(EMAIL, "UTF-8"));
-        data.append("=");
-        data.append(URLEncoder.encode(email, "UTF-8"));
-        data.append("&");
-        data.append(URLEncoder.encode(KEYWORD, "UTF-8"));
-        data.append("=");
-        data.append(URLEncoder.encode(keyword, "UTF-8"));
-        data.append("&");
-        data.append(URLEncoder.encode(ROL, "UTF-8"));
-        data.append("=");
-        data.append(URLEncoder.encode(String.valueOf(Vars.Ints.PACIENTE), "UTF-8"));
-        data.append("&");
-        data.append(URLEncoder.encode(FECHA_NACIMIENTO, "UTF-8"));
-        data.append("=");
-        data.append(URLEncoder.encode(fechaNac, "UTF-8"));
-        data.append("&");
-        data.append(URLEncoder.encode(ID_SEXO, "UTF-8"));
-        data.append("=");
-        data.append(URLEncoder.encode(idSexo, "UTF-8"));
-
-        String resultado = new PostReq().execute(url + '?' + data.toString(), data.toString()).get();
+        String resultado = new PostJSONReq().execute(URL_REGISTRO, request.toString()).get();
         JSONObject jsonObject = new JSONObject(resultado);
+        String mensaje = ERROR;
 
-        if (jsonObject.has(CODIGO_ERROR)) {
-          switch (jsonObject.getInt(CODIGO_ERROR)) {
-            case 200:
-              Toast.makeText(ctx, ERROR_CONEXION, Toast.LENGTH_SHORT).show();
-              break;
-            case 100:
-              Toast.makeText(ctx, R.string.email_ya_registrado, Toast.LENGTH_SHORT).show();
-              break;
-            default:
-              Toast.makeText(ctx, ERROR, Toast.LENGTH_SHORT).show();
+        if (jsonObject.has(RESPUESTA)) {
+          String respuesta = jsonObject.getString(RESPUESTA);
+          if (jsonObject.has(MENSAJE)) {
+            mensaje = jsonObject.getString(MENSAJE);
           }
-        } else if (jsonObject.has(MENSAJE)) {
-          String mensaje = jsonObject.getString(MENSAJE);
-
-          if (mensaje.equals(INFO_GUARDADA)) {
-            Toast.makeText(ctx, INFO_GUARDADA, Toast.LENGTH_SHORT).show();
-
+          if (respuesta.equals(ERROR)) {
+            Toast.makeText(ctx, mensaje, Toast.LENGTH_SHORT).show();
+          } else if (respuesta.equals(OK)) {
+            Toast.makeText(ctx, mensaje, Toast.LENGTH_SHORT).show();
             mListener.registroExitoso(email, keyword);
           }
-        } else {
+        }
+        else {
           Toast.makeText(ctx, resultado, Toast.LENGTH_SHORT).show();
         }
       } catch (Exception e) {
@@ -236,7 +214,7 @@ public class FragmentoMedicoRegistro extends Fragment {
     final EditText fechaNac = ac.findViewById(R.id.dtpFechaNac);
     datePickerFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
       @Override
-      public void onDateSet(DatePicker datePicker, int dia, int mes, int year) {
+      public void onDateSet(DatePicker datePicker, int year, int mes, int dia) {
         final String fecha = dia + "/" + (mes + 1) + "/" + year;
         fechaNac.setText(fecha);
       }

@@ -1,15 +1,14 @@
 package escom.tt.ceres.ceresmobile;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -19,7 +18,6 @@ import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_CONEXION;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_GENERAL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_IO;
 
 /**
  * Created by hali on 26/10/17.
@@ -37,15 +35,10 @@ public class PostJSONReq extends AsyncTask<String, Integer, String> {
     if (urlString == null || data == null)
       return "Faltan parámetros";
 
-    OutputStream out = null;
-    HttpURLConnection urlConnection = null;
-    String error = null;
-    JSONObject jsonError = new JSONObject();
-    BufferedReader bufferedReader = null;
-
     try {
       URL url = new URL(urlString);
 
+      HttpURLConnection urlConnection;
       urlConnection = (HttpURLConnection) url.openConnection();
 
       urlConnection.addRequestProperty("Accept", "application/json");
@@ -54,13 +47,14 @@ public class PostJSONReq extends AsyncTask<String, Integer, String> {
       urlConnection.setDoInput(true);
       urlConnection.setDoOutput(true);
 
-      DataOutputStream wr = new DataOutputStream(urlConnection.getOutputStream());
-      wr.writeBytes(data);
-      wr.flush();
-      wr.close();
+      BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(urlConnection.getOutputStream(), "UTF-8"));
+      bw.write(data);
+      bw.flush();
+      bw.close();
 
       int status = urlConnection.getResponseCode();
-      //if (status != 500) {
+      if (status == 200) {
+        BufferedReader bufferedReader;
         bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
         StringBuilder result = new StringBuilder();
         String line;
@@ -68,28 +62,14 @@ public class PostJSONReq extends AsyncTask<String, Integer, String> {
         result.append(line);
         bufferedReader.close();
 
-        if (status == 200)
-          return new JSONObject(result.toString()).toString();
-      //}
+        return new JSONObject(result.toString()).toString();
+      }
     } catch (ConnectException ce) {
-      try {
-        jsonError.put(ERROR, ERROR_CONEXION);
-        jsonError.put(CODIGO_ERROR, Vars.Ints.ERROR_CONEXION);
-        return jsonError.toString();
-      } catch (Exception jsne) {
-
-      }
-    } catch (IOException ioe) {
-      Log.e(ERROR, String.valueOf(bufferedReader != null));
-      return "{" + qString(ERROR) + ":" + qString(ERROR_IO) + "," +
-              qString(CODIGO_ERROR) + ":" + Vars.Ints.ERROR_IO + "}";
+      return "{" + qString(ERROR) + ":" + qString(ERROR_CONEXION) + "," +
+              qString(CODIGO_ERROR) + ":" + Vars.Ints.ERROR_CONEXION + "}";
     } catch (Exception e) {
-      try {
-        jsonError.put(ERROR, ERROR_GENERAL);
-        jsonError.put(CODIGO_ERROR, Vars.Ints.ERROR_GENERAL);
-        return jsonError.toString();
-      } catch (Exception jsne) {
-      }
+      return "{" + qString(ERROR) + ":" + qString(ERROR_GENERAL) + "," +
+              qString(CODIGO_ERROR) + ":" + Vars.Ints.ERROR_GENERAL + "}";
     }
     return "{" + qString(ERROR) + ":" + qString(ERROR_GENERAL) + "," +
             qString(CODIGO_ERROR) + ":" + Vars.Ints.ERROR_GENERAL + "}";

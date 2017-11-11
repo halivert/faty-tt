@@ -13,7 +13,6 @@ import android.view.View;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_INDIVIDUO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
 

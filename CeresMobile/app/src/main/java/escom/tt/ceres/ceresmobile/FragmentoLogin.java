@@ -10,22 +10,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import org.json.JSONObject;
 
 import java.util.Iterator;
 
-import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.EMAIL;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_CONEXION;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_INDIVIDUO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_ROL;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.KEYWORD;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ROL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ROL_INDIVIDUO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.OK;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_DATOS;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_LOGIN;
 
 public class FragmentoLogin extends Fragment {
   private OnLoginInteraction mListener;
@@ -101,36 +102,34 @@ public class FragmentoLogin extends Fragment {
   public void login(String email, String key) {
     Activity act = getActivity();
     Context context = act.getApplicationContext();
-    String url = "http://35.188.191.232/tt-escom-diabetes/sesion/login/";
-    String urlDatos = "http://35.188.191.232/tt-escom-diabetes/sesion/individuos/?idIndividuo=";
+    String urlDatos = URL_DATOS;
     try {
       JSONObject dataS = new JSONObject();
       dataS.put(EMAIL, email);
       dataS.put(KEYWORD, key);
 
-      String resultado = new PostJSONReq().execute(url, dataS.toString()).get();
+      String resultado = new PostJSONReq().execute(URL_LOGIN, dataS.toString()).get();
       JSONObject jsonObject = new JSONObject(resultado);
+      String respuesta;
 
-      if (jsonObject.has(CODIGO_ERROR)) {
-        Toast.makeText(context, jsonObject.getString(ERROR), Toast.LENGTH_SHORT).show();
-      } else if (jsonObject.has(ID_INDIVIDUO)) {
-        int idUsuario = jsonObject.getInt(ID_INDIVIDUO);
-        String sIdUsuario = String.valueOf(idUsuario);
-        int rolUsuario = jsonObject.getInt(ROL_INDIVIDUO);
-        String sRolUsuario = String.valueOf(rolUsuario);
-/*
-        Log.e(ERROR, urlDatos + sIdUsuario + "&idRol=" + sRolUsuario);
-*/
-        resultado = new GetReq().execute(urlDatos + sIdUsuario + "&idRol=" + sRolUsuario).get();
+      String mensaje = jsonObject.has(MENSAJE) ? jsonObject.getString(MENSAJE) : ERROR;
+      if (jsonObject.has(RESPUESTA)) {
+        respuesta = jsonObject.getString(RESPUESTA);
+        if (respuesta.equals(OK)) {
+          int idUsuario = jsonObject.has(ID_USUARIO) ? jsonObject.getInt(ID_USUARIO) : -1;
+          resultado = new GetReq().execute(urlDatos + String.valueOf(idUsuario)).get();
 
-        SharedPreferences preferences = act.getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
-        JSONObject guardar = new JSONObject(resultado);
-        guardar.put(ROL, rolUsuario);
-        guardarDatosUsuario(preferences, guardar);
+          SharedPreferences preferences = act.getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
+          JSONObject guardar = new JSONObject(resultado);
+          int idRol = guardar.has(ID_ROL) ? guardar.getInt(ID_ROL) : -1;
+          guardarDatosUsuario(preferences, guardar);
 
-        mListener.accesoExitoso(idUsuario, rolUsuario);
+          mListener.accesoExitoso(idUsuario, idRol);
+        } else {
+          Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show();
+        }
       } else {
-        Toast.makeText(context, ERROR, Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show();
       }
     } catch (Exception e) {
       Toast.makeText(context, ERROR, Toast.LENGTH_SHORT).show();
