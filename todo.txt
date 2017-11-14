@@ -1,0 +1,26 @@
+Este alimento se puede combinar con otro para que llegue a un valor calórico
+y el usuario no se aburra
+
+No hubo tiempo de revisar el documento
+Tenemos que enviar la presentación
+
+Quiere ver la formula dieto-sintética
+Cumplir con el cronograma
+
+Mostrar y reflejar en el documento
+
+Sprint 2
+Tablas y datos nutrimentales
+
+Que algoritmos proponemos
+OMS algoritmo básico
+
+Para que utilizar objetos?
+
+Si se utiliza una api debemos saber como funciona el algoritmo
+el proceso y todo eso
+
+Considerar base de datos de los alimentos
+de donde está saliendo
+
+
