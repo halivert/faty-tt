@@ -57,15 +57,15 @@ public class UsuarioFacadeTestCase {
 		UsuarioVo usuarioVo = new UsuarioVo();
 		
 		{//SE ARMA EL VO
-			usuarioVo.setNombre("Ivan");
+			usuarioVo.setNombre("Token");
 			usuarioVo.setApellidoPaterno("Hurtado");
 			usuarioVo.setApellidoMaterno("Guzman");
-			usuarioVo.setEmail("edgar@gmail.commm");
+			usuarioVo.setEmail("token@gmail.comm");
 			usuarioVo.setFechaNacimiento("27/02/1994");
-			usuarioVo.setKeyword("050077");
-			usuarioVo.setSexo("1");
+			usuarioVo.setKeyword("alejandra");
+			usuarioVo.setSexo("0");
 			usuarioVo.setIdRol("0");
-			usuarioVo.setCodigoMedico("98");
+			usuarioVo.setCodigoMedico("CAMBIO1234");
 			usuarioVo.setCedulaProfesional("IVAN1234");
 		}
 		usuarioFacade.guardarUsuario(usuarioVo);

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.vo.MedicoPacientesVo;
 import mx.escom.tt.diabetes.web.facade.MedicoFacade;
+import mx.escom.tt.diabetes.web.facade.TokenMedicoFacade;
 import mx.escom.tt.diabetes.web.vo.RespuestaErrorVo;
 
 @CommonsLog
@@ -21,6 +22,7 @@ import mx.escom.tt.diabetes.web.vo.RespuestaErrorVo;
 public class MedicoController {
 	
 	@Autowired MedicoFacade medicoFacade;
+	@Autowired TokenMedicoFacade tokenMedicoFacade;
 
 	@RequestMapping(value = "{idMedico}/pacientes/", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	public ResponseEntity<?> obtenerIndividuo(@PathVariable("idMedico") String idMedico) {
@@ -40,9 +42,41 @@ public class MedicoController {
 			respuestaError.setRespuesta("ERROR");
 			respuestaError.setMensaje(ex.getMessage());
 			
-			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.INTERNAL_SERVER_ERROR);
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.OK);
 		}
 		log.debug("Fin - Controller");
 		return result;
 	}
+	
+	@RequestMapping(value = "{idMedico}/token/", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> generarToken(@PathVariable("idMedico") String idMedico) {
+		log.debug("Inicio - Controller");
+		ResponseEntity<?> result = null;
+		String token = null;
+		RespuestaErrorVo respuestaError=null;
+		RespuestaErrorVo respuestaToken=null;
+		
+		log.debug("idMedico :" + idMedico);
+		try {
+			token = tokenMedicoFacade.generarToken(idMedico);
+			
+			//Se reutiliza la clasr RespuestaErrorVo
+			respuestaToken = new RespuestaErrorVo();
+			
+			respuestaToken.setRespuesta("TOKEN");
+			respuestaToken.setMensaje(token);
+			
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaToken, HttpStatus.OK);
+		} catch (Exception ex) {
+			
+			respuestaError = new RespuestaErrorVo();
+			respuestaError.setRespuesta("ERROR");
+			respuestaError.setMensaje(ex.getMessage());
+			
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.OK);
+		}
+		log.debug("Fin - Controller");
+		return result;
+	}
+	
 }

@@ -13,7 +13,9 @@ import com.thoughtworks.xstream.XStream;
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.vo.MedicoPacientesVo;
 import mx.escom.tt.diabetes.model.dao.MedicoDao;
+import mx.escom.tt.diabetes.model.dao.TokenMedicoDao;
 import mx.escom.tt.diabetes.model.dto.MedicoDto;
+import mx.escom.tt.diabetes.model.dto.TokenMedicoDto;
 
 @CommonsLog
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,6 +24,7 @@ import mx.escom.tt.diabetes.model.dto.MedicoDto;
 public class MedicoDaoImplTestCase {
 	
 	@Autowired MedicoDao medicoDao;
+	@Autowired TokenMedicoDao tokenMedicoDao;
 	
 	/**
 	 * Proposito : Validar el correcto funcionamiento del metodo guardarMedico()
@@ -86,6 +89,70 @@ public class MedicoDaoImplTestCase {
 		}
 		
 		log.debug("El médico aun no tiene pacientes");
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarTokenPorIdMedico() de la clase TokenMedicoDao
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 07/11/2017
+	 */
+	@Test
+	public void recuperarTokenMedicoPorId() {
+		log.debug("Inicio - Test");
+		
+		TokenMedicoDto tokenMedicoDto = null;
+		String token = "CAMBIO1234";
+		
+		tokenMedicoDto = tokenMedicoDao.recuperarToken(token);
+		
+		if(tokenMedicoDto != null) {
+			XStream xStream = new XStream();
+			log.debug("xStream.toXML(tokenMedicoDto) : \n" + xStream.toXML(tokenMedicoDto));
+		}
+		
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Guardar Token Medico
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 07/11/2017
+	 */
+	@Test
+	public void guardarTokenMedico() {
+		log.debug("Inicio - Test");
+		
+		TokenMedicoDto tokenMedicoDto = new TokenMedicoDto();
+		
+		Integer idMedico = 97;
+		String token = "nuevotoken";
+		
+		tokenMedicoDto.setIdMedico(idMedico);
+		tokenMedicoDto.setToken(token);
+		
+		tokenMedicoDao.guardarToken(tokenMedicoDto);
+		
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del medoto borrarToken() de la clase TokenMedicoDao
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 07/11/2017
+	 */
+	@Test
+	public void borrarTokenMedico() {
+		log.debug("Inicio - Test");
+		
+		String token = "nuevotoken";
+		
+		
+		tokenMedicoDao.borrarToken(token);
+		
 		
 		log.debug("Fin - Test");
 	}

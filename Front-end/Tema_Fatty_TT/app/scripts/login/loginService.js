@@ -16,7 +16,7 @@ angular.module('trabajoTerminal')
                 }
             }
             var url = 'http://35.188.191.232/tt-escom-diabetes/session/login';
-            //var url = 'http://localhost:8080/tt-escom-diabetes/sesion/login/';
+            //var url = 'http://localhost:8080/tt-escom-diabetes/session/login';
             return $http.post(url,data,config)
 						.then(function successCallback(response) {
 						  

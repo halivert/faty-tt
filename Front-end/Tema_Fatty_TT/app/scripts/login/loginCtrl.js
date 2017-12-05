@@ -24,13 +24,13 @@ angular.module('trabajoTerminal')
     codigoM:''
   };
 
-  $scope.limpiaInfo = function(){
-  $cookies.put("auth","false");
-  //$cookies.put("idIndividuo","");
-   $cookies.put("rol","");
-   $cookies.put("nombre","");
-   $cookies.put("idUsuario","");
- }
+	$scope.limpiaInfo = function(){
+		$cookies.put("auth","false");
+		
+		$cookies.remove("rol");
+		$cookies.remove("nombre","");
+		$cookies.remove("idUsuario","");
+	}
   
     $scope.iniciarSesion = function(){
       
@@ -41,7 +41,7 @@ angular.module('trabajoTerminal')
               $cookies.put("auth","true");
               $cookies.put("idUsuario",d.idUsuario);
     	        toastr.success(d.mensaje,'Ok');
-    	        $state.transitionTo('index.main');
+    	        //$state.transitionTo('index.main');
 
               loginService.recuperarInformacionUsuario(d.idUsuario).then( 
                     function successCallback(informacionUsuario){
@@ -49,7 +49,9 @@ angular.module('trabajoTerminal')
                       $log.debug("nombreCompleto : " + nombreCompleto);
                       $log.debug("informacionUsuario.idRol : " + informacionUsuario.idRol);
                       $cookies.put("rol",informacionUsuario.idRol);
-                      $cookies.put("nombre",nombreCompleto);                 
+                      $cookies.put("nombre",nombreCompleto);  
+						$state.transitionTo('index.main');
+						
                   });
          blockUI.stop();
 	       

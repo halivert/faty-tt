@@ -24,12 +24,12 @@ public class MedicoFacade {
 	 * @throws RuntimeException			-	Si ocurre un error durante la ejecucion
 	 */
 	public List<MedicoPacientesVo> recuperarPacientesDeMedico(String idMedico) throws RuntimeException{
-		log.debug("Inicio - Service");
+		log.debug("Inicio - Facade");
 		
 		List<MedicoPacientesVo> result = null;
 		Integer idMedicoInt = null;
 		
-		if(idMedico == null || !idMedico.trim().equals("")) {
+		if(idMedico != null && !idMedico.trim().equals("")) {
 			idMedicoInt = new Integer(idMedico);
 		}
 	
@@ -44,7 +44,7 @@ public class MedicoFacade {
 			throw new RuntimeException(ex.getMessage());
 		}
 
-		log.debug("Fin - Service");
+		log.debug("Fin - Facade");
 		return result;
 	}
 

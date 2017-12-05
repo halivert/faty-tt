@@ -10,7 +10,9 @@ import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.MedicoAppService;
+import mx.escom.tt.diabetes.business.service.TokenMedicoAppService;
 import mx.escom.tt.diabetes.model.dto.MedicoDto;
+import mx.escom.tt.diabetes.model.dto.TokenMedicoDto;
 
 @CommonsLog
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,6 +22,8 @@ import mx.escom.tt.diabetes.model.dto.MedicoDto;
 public class MedicoAppServiceTestCase {
 	
 	@Autowired MedicoAppService medicoAppService;
+	
+	@Autowired TokenMedicoAppService tokenMedicoAppService;
 	
 	/**
 	 * Proposito : Validar el correcto funcionamiento del metodo recuperarMedico()
@@ -59,6 +63,63 @@ public class MedicoAppServiceTestCase {
 		medicoDto.setCedulaProfesional("SDFSD");
 		
 		medicoAppService.guardarMedico(medicoDto);
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo generarToken(), de la clase TokenMedicoAppService
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 07/11/2017
+	 */
+	@Test
+	public void generarToken() {
+		log.debug("Inicio - Test");
+		
+		Integer idMedico = 97;
+		String token = null;
+		
+		token = tokenMedicoAppService.generarToken(idMedico);
+		
+		log.debug("token : " + token);
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarToken(), de la clase TokenMedicoAppService
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 07/11/2017
+	 */
+	@Test
+	public void recupearToken() {
+		log.debug("Inicio - Test");
+		
+		String token = "UXYFZ2";
+		TokenMedicoDto tokenMedicoDto = null;
+		
+		tokenMedicoDto = tokenMedicoAppService.recuperarToken(token);
+		
+		if(tokenMedicoDto != null) {
+			XStream xStream = new XStream();
+			log.debug("xStream.toXML(tokenMedicoDto): " + xStream.toXML(tokenMedicoDto));
+		}
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo borrarToken(), de la clase TokenMedicoAppService
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 07/11/2017
+	 */
+	@Test
+	public void borrarToken() {
+		log.debug("Inicio - Test");
+		
+		String token = "UXYFZ2";
+		
+		tokenMedicoAppService.borrarToken(token);
 		
 		log.debug("Fin - Test");
 	}

@@ -10,7 +10,7 @@ angular.module('trabajoTerminal')
 	$scope.helloText = 'Pagina de inicio';
   	$scope.descriptionText = 'Descripcion del trabajo terminal';
 
-  	var idIndividuo = $cookies.get("idIndividuo");
+  	
 	$scope.informacionIndividuo = {};  	
 
     $scope.prueba = function(){
@@ -20,5 +20,18 @@ angular.module('trabajoTerminal')
     var nombre = "";
 
     $scope.date = new Date();
+	
+	$scope.obtenerRol = function(){
+		if($cookies.get("rol") == "1"){
+			$log.debug("Es medico");
+			return "M";
+		}
+		else{
+			$log.debug("Es paciente");
+			return "P";
+		}
+ 	}
+	
+	$scope.fecha = new Date();
     
 });

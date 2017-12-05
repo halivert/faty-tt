@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.MedicoAppService;
 import mx.escom.tt.diabetes.business.service.PacienteAppService;
+import mx.escom.tt.diabetes.business.service.TokenMedicoAppService;
 import mx.escom.tt.diabetes.business.service.UsuarioAppService;
 import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.commons.utils.NumberHelper;
 import mx.escom.tt.diabetes.model.dto.MedicoDto;
+import mx.escom.tt.diabetes.model.dto.TokenMedicoDto;
 import mx.escom.tt.diabetes.model.dto.PacienteDto;
 import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
@@ -30,6 +32,7 @@ public class UsuarioFacade extends NumberHelper{
 	@Autowired UsuarioAppService usuarioAppService;
 	@Autowired MedicoAppService medicoAppService;
 	@Autowired PacienteAppService pacienteAppService;
+	@Autowired TokenMedicoAppService tokenMedicoAppService;
 	
 	/**
 	 * Proposito :  Recuperar la informacion de un usuario por su Id
@@ -140,6 +143,7 @@ public class UsuarioFacade extends NumberHelper{
 		log.debug("Inicio - Facade");
 		
 		RespuestaVo result=null;
+		TokenMedicoDto tokenMedicoDto = null;
 		String msjError=null;
 		UsuarioDto usuarioDto = null;
 		MedicoDto medicoDto = null;
@@ -190,9 +194,14 @@ public class UsuarioFacade extends NumberHelper{
 			else if(usuarioVo.getIdRol().equals("0")){
 				log.debug("espaciente");
 				pacienteDto = new PacienteDto();
+				
+				//Se recupera el idMedico con el su token
+				tokenMedicoDto = tokenMedicoAppService.recuperarToken(usuarioVo.getCodigoMedico());
+				
 				{//SE ARMA EL DTO PARA GUARDAR UN PACIENTE
-					pacienteDto.setIdMedico(usuarioVo.getCodigoMedico() != null ? new Integer(usuarioVo.getCodigoMedico()) : null);
+					pacienteDto.setIdMedico(tokenMedicoDto.getIdMedico() != null ? new Integer(tokenMedicoDto.getIdMedico()) : null);
 				}
+				
 			}
 			
 			idUsuario = usuarioAppService.guardarUsuario(usuarioDto, medicoDto, pacienteDto);
@@ -202,6 +211,13 @@ public class UsuarioFacade extends NumberHelper{
 			result.setIdUsuario(idUsuario.toString());
 			result.setRespuesta("OK");
 			result.setMensaje("La información se guardó con éxito.");
+			
+			//Si el usuario es paciente se borra el token que usó
+			if(usuarioVo.getIdRol().equals("0")){
+				log.debug("borrar TOKEN");
+				
+				tokenMedicoAppService.borrarToken(usuarioVo.getCodigoMedico());
+			}
 			
 		}catch(ParseException pEx) {
 			msjEx = Constants.MSJ_EXCEPTION + "guardar la fecha de nacimiento.";

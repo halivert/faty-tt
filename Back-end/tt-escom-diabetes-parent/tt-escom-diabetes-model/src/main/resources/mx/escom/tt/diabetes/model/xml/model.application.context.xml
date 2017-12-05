@@ -43,7 +43,8 @@
                 <value>mx.escom.tt.diabetes.model.dto.IndividuoDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.PacienteDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.MedicoDto</value>
-                <value>mx.escom.tt.diabetes.model.dto.HistorialClinicoDto</value>                
+                <value>mx.escom.tt.diabetes.model.dto.HistorialClinicoDto</value>      
+                <value>mx.escom.tt.diabetes.model.dto.TokenMedicoDto</value>                          
             </list>
         </property>
 		
@@ -84,6 +85,9 @@
   		<property name="ql" ref="MedicoQlHelper"/>  
  	</bean>
  	<bean id="HistorialClinicoDao" class="mx.escom.tt.diabetes.model.dao.impl.HistorialClinicoDaoImpl">
+  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+ 	</bean>
+ 	<bean id="TokenMedicoDao" class="mx.escom.tt.diabetes.model.dao.impl.TokenMedicoDaoImpl">
   		<property name="sessionFactory" ref="SessionFactoryCliente"/>
  	</bean>
 <!-- /DECLARACION DE DAO's -->	

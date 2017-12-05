@@ -21,30 +21,30 @@ function config($stateProvider, $urlRouterProvider) {
             abstract: true,
             url: "/index",
             templateUrl: "views/common/content.html",
-            authenticate: false
+            authenticate: true
         })
         .state('index.main', {
             url: "/main",
             templateUrl: "views/main.html",
-            authenticate: false,
+            authenticate: true,
             data: { pageTitle: 'Inicial' }
         })
         .state('index.imc', {
             url: "/imc",
             templateUrl: "views/imc/imc.html",
-            authenticate: false,
+            authenticate: true,
             data: { pageTitle: 'Calcular IMC' }
         })
         .state('index.glucosa', {
             url: "/glucosa",
             templateUrl: "views/glucosa/glucosa.html",
-            authenticate: false,
+            authenticate: true,
             data: { pageTitle: 'Registrar glucosa' }
         })
         .state('index.pacientes', {
             url: "/pacientes",
             templateUrl: "views/pacientes/pacientes.html",
-            authenticate: false,
+            authenticate: true,
             data: { pageTitle: 'Pacientes' }
         })
         

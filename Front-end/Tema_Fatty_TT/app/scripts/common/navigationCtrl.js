@@ -10,14 +10,14 @@ angular
 
 	
 
-	if($cookies.get("rol") == "1"){
+	/*if($cookies.get("rol") == "1"){
 		$scope.rol = "M";
 		$log.debug("Es medico");
 	}
 	else{
 		$scope.rol = "P";
 			$log.debug("Es paciente");
-	}
+	}*/
 
 	
 
