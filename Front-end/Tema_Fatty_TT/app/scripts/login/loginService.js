@@ -42,7 +42,7 @@ angular.module('trabajoTerminal')
                         apellidoMaterno: apellidoMaterno,
                         email: email,
                         keyword: keyword,
-                        fechaNacimiento: "27/02/1994",
+                        fechaNacimiento: fechaNacimiento,
                         sexo: sexo,
                         idRol: idRol,
                         cedulaProfesional: cedulaProfesional,

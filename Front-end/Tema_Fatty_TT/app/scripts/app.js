@@ -8,7 +8,6 @@
         'ui.bootstrap',                 // Bootstrap
         'toastr',
         'ngCookies',
-        'blockUI',
-        'ui.bootstrap.datetimepicker'
+        'blockUI' 
     ])
 })();

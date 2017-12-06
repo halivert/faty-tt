@@ -12,6 +12,7 @@ angular.module('trabajoTerminal')
         email:'',
         password:''
   };
+  
   $scope.datosU={
     nombre:'',
     apellidoPaterno:'',
@@ -21,6 +22,7 @@ angular.module('trabajoTerminal')
     keyword:'',
     rol:'',
     cedula:'',
+	fechaNac:'',
     codigoM:''
   };
 
@@ -79,9 +81,9 @@ angular.module('trabajoTerminal')
     }
 
     $scope.registrarUsuario = function(){
-      $log.debug("JSON.stringify($scope.datosU)" + JSON.stringify($scope.datosU));
+      console.log("JSON.stringify($scope.datosU)" + JSON.stringify($scope.datosU));
       // Enviar la fecha de nacimiento
-      loginService.guardarUsuario($scope.datosU.nombre,$scope.datosU.apellidoPaterno,$scope.datosU.apellidoMaterno,$scope.datosU.email,$scope.datosU.keyword,"",$scope.datosU.idSexo,$scope.datosU.rol,$scope.datosU.cedula,$scope.datosU.codigoM).then(
+      loginService.guardarUsuario($scope.datosU.nombre,$scope.datosU.apellidoPaterno,$scope.datosU.apellidoMaterno,$scope.datosU.email,$scope.datosU.keyword,$scope.datosU.fechaNac,$scope.datosU.idSexo,$scope.datosU.rol,$scope.datosU.cedula,$scope.datosU.codigoM).then(
         function successCallback(d) {
             $log.debug("d" + JSON.stringify(d));
             toastr.success(d, 'Ok');
