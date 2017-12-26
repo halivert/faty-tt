@@ -1,24 +1,16 @@
+/**
+* navigationCtrl	-	Controlador que se usa en el menu lateral
+*/
 angular
-    .module('trabajoTerminal')
+.module('trabajoTerminal')
 
 .controller('navigationCtrl', function($scope,$cookies,$log){
-	
-	//$log.debug("navigationCtrl");
+
+/**
+* obtenerNombre	-	Funcion usada para obtener el nombre del usuario con base en la sesión iniciada
+*/
 	$scope.obtenerNombre = function(){
 		return $cookies.get("nombre");
- 	}
-
-	
-
-	/*if($cookies.get("rol") == "1"){
-		$scope.rol = "M";
-		$log.debug("Es medico");
 	}
-	else{
-		$scope.rol = "P";
-			$log.debug("Es paciente");
-	}*/
-
-	
 
 });

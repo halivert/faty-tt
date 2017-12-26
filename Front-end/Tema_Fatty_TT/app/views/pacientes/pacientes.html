@@ -1,138 +1,126 @@
 <div ng-controller="pacientesCtrl" ng-init="verPacientes()">
-
-<div class="row wrapper border-bottom white-bg page-heading">
- <div class="col-lg-10">
-    <h2>Pacientes</h2>
-  </div>
-</div>
+	
+    <div class="row wrapper border-bottom white-bg page-heading">
+		<div class="col-lg-10">
+			<h2>Pacientes</h2>
+		</div>
+	</div>
+	
 <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                  Selecciona un paciente para ver su historial clínico
+				</div>
+             
+				<div class="ibox-content">
+					<div class="row">
 
-<div class="row">
-<div class="col-lg-12">
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-        
-          Selecciona un paciente para ver su historial clínico
-        </div>
-        <div class="ibox-content">
-            <div class="row">
-                
-                <!--<div class="col-sm-3">
-                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
-                </div>-->
-            </div>
+					<!--<div class="col-sm-3">
+						<div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+							<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span>
+						</div>
+					</div>-->
+					</div>
 
-           
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
 
-                        <th></th>
-                        <th>Nombre </th>
-                        <th>Edad </th>
-                        <th>Fecha Nacimiento</th>
-                        <th>Sexo</th>
-                        <th>Correo electrónico</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Nombre </th>
+									<th>Edad </th>
+									<th>Fecha Nacimiento</th>
+									<th>Sexo</th>
+									<th>Correo electrónico</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="paciente in pacientes">
+									<td><input type="radio" ng-model="usuario.id"  name="radio" value="{{paciente.id_USUARIO}}"></td>
+									<td>{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</td>
+									<td>{{ calculateAge(paciente.fec_NAC)}}</td>
+									<td>{{paciente.fec_NAC | date:'dd/MM/yyyy'}}</td>
+									<td>{{paciente.sexo}}</td>
+									<td>{{paciente.email}}</td>
+									<!--<td><a href="#"><i class="fa fa-check text-navy"></i></a></td>-->
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-                 
-                    <tr ng-repeat="paciente in pacientes">
-                        <td><input type="radio" ng-model="usuario.id"  name="radio" value="{{paciente.id_USUARIO}}"></td>
-                        <td>{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</td>
-                        <td>{{ calculateAge(paciente.fec_NAC)}}</td>
-                        <td>{{paciente.fec_NAC | date:'dd/MM/yyyy'}}</td>
-                        <td>{{paciente.sexo}}</td>
-                        <td>{{paciente.email}}</td>
-                        <!--<td><a href="#"><i class="fa fa-check text-navy"></i></a></td>-->
-                    </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="row">
-                
-                <!--<div class="col-sm-3">
-                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
-                </div>-->
-                <div class="form-group pull-right">
-                  <button class="btn btn-w-md btn-gap-v btn-primary" ng-click="verHistorial()">Ver Historial Clínico</button>
-                  <button data-toggle="modal" class="btn btn-w-md btn-gap-v btn-primary" data-target="#modal-paciente" ng-click="recuperaPaciente()">Actualizar información</button>
-                </div>
-                           
-            </div>
-
-        </div>
-    </div>
-</div>
-
-</div>
+					<div class="row">
+						<!--<div class="col-sm-3">
+							<div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+								<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+						</div>-->
+						<div class="form-group pull-right">
+						  <button class="btn btn-w-md btn-gap-v btn-primary" ng-click="verHistorial()">Ver Historial Clínico</button>
+						  <button data-toggle="modal" class="btn btn-w-md btn-gap-v btn-primary" data-target="#modal-paciente" ng-click="recuperaPaciente()">Actualizar información</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="modal-paciente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
     <div class="modal-dialog model-sm">
-	
+
 		<!--<div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h1><i class="glyphicon glyphicon-thumbs-up"></i> Primary Modal</h1>
         </div>-->
-		
+
         <div class="modal-content"> 
-        <div class="modal-body">
-            <div class="row">
-            <h3 class="m-t-none m-b">Actualizar historial clínico de : {{currentPaciente[0].nombre}}</h3> 
-
-               
-                <form role="form" name="formRegistro" novalidate>
+            <div class="modal-body">
                 <div class="row">
-                <div class="col-sm-6 b-r">
-                    <div class="form-group "><label>Peso</label> 
-					<input type="text" name="peso" placeholder="Peso (kg)" ng-model = "historial.peso" class="form-control" required></div>
-           
-                    <div class="form-group "><label>Talla</label> 
-					<input type="text" name="talla" placeholder="Talla (cm)"  ng-model = "historial.talla" class="form-control" required></div>
-  
-                    <div class="form-group "><label>Estatura</label> 
-					<input type="text" name ="estatura" placeholder="Estatura (cm)" ng-model = "historial.estatura" class="form-control" required></div>
-					
-					<div class="form-group"><label>IMC</label> 
-					<input type="text" name="imc" placeholder="IMC" ng-model = "historial.imc" class="form-control" required></div>
-					
+                    <h3 class="m-t-none m-b">Actualizar historial clínico de : {{currentPaciente[0].nombre}}</h3> 
+
+
+                    <form role="form" name="formRegistro" novalidate>
+                        <div class="row">
+                            <div class="col-sm-6 b-r">
+                                <div class="form-group "><label>Peso</label> 
+									<input type="text" name="peso" placeholder="Peso (kg)" ng-model = "historial.peso" class="form-control" required>
+								</div>
+                                <div class="form-group "><label>Talla</label> 
+                                    <input type="text" name="talla" placeholder="Talla (cm)"  ng-model = "historial.talla" class="form-control" required>
+								</div>
+								<div class="form-group "><label>Estatura</label> 
+									 <input type="text" name ="estatura" placeholder="Estatura (cm)" ng-model = "historial.estatura" class="form-control" required>
+								</div>
+								<div class="form-group"><label>IMC</label> 
+									<input type="text" name="imc" placeholder="IMC" ng-model = "historial.imc" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group"><label>Lípidos</label> 
+									<input type="text" name="lipidos" placeholder="Lípidos" class="form-control" ng-model = "historial.lipidos" required>
+								</div>
+								<div class="form-group"><label>Carbohidratos</label> 
+									<input type="text" name="carbohidratos" ng-model = "historial.carbohidratos" placeholder="Carbohidratos" class="form-control" required>
+								</div>
+								<div class="form-group"><label>Azúcar</label> 
+									<input type="text" name="carbohidratos" ng-model = "historial.azucar" placeholder="Azúcar" class="form-control" required>
+								</div>
+							</div>
+						</div>
+						<br/>
+						<div class="row">
+							<div class="col-sm-12">
+							</div>
+						</div>
+					</form>
+					<div>
+						<button class="btn btn-sm btn-success pull-right m-t-n-xs" type="submit" ><strong>Guardar</strong></button> 
+					</div>
 				</div>
-                <div class="col-sm-6">
-                    
-                    <div class="form-group"><label>Lípidos</label> 
-                    <input type="text" name="lipidos" placeholder="Lípidos" class="form-control" ng-model = "historial.lipidos" required></div>
-                    
-                    <div class="form-group"><label>Carbohidratos</label> 
-					<input type="text" name="carbohidratos" ng-model = "historial.carbohidratos" placeholder="Carbohidratos" class="form-control" required></div>
-					
-					<div class="form-group"><label>Azúcar</label> 
-					<input type="text" name="carbohidratos" ng-model = "historial.azucar" placeholder="Azúcar" class="form-control" required></div>
-					
-                </div>
-                </div>
-                <br/>
-                <div class="row">
-                <div class="col-sm-12">
-                   
-                </div>
-                </div>
-
-                </form>
-                <div>
-                    <button class="btn btn-sm btn-success pull-right m-t-n-xs" type="submit" ><strong>Guardar</strong></button> 
-                </div>
-            </div>
-        </div>
-        </div>
+			</div>
+		</div>
     </div>
 </div>
-
 </div>

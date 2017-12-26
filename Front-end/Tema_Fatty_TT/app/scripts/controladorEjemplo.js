@@ -1,5 +1,5 @@
 angular
-    .module('trabajoTerminal')
+.module('trabajoTerminal')
 
 .controller('controladorEjemplo', function($scope){
 	$scope.cadena = "cadena";

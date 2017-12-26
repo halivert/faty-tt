@@ -1,17 +1,18 @@
+/**
+* indiceMasaCorporalCtrl  - Controlador que se usa en la vista imc.html, contiene la funcion para calcular el IMC
+*/
 angular
-    .module('trabajoTerminal')
-
+.module('trabajoTerminal')
 .controller('indiceMasaCorporalCtrl', function($scope,$log){
-  //////////////VARIABLES////////////////////////
+ 
   $scope.nombrePagina = "Calcular el IMC";
   $scope.respuestaObject={
-        peso:'',
-        altura:''
+    peso:'',
+    altura:''
   };
   $scope.imc = '';
 
-  ///////////////////////FUNCIONES/////////////////////////
-
+  
   //edgar.hurtado concluir la validacion
   $scope.validarPesoAltura = function(){
     $log.debug("inicia validarPesoAltura()");
@@ -23,6 +24,9 @@ angular
     }
   };
 
+/**
+* calcularIMC  - Funcion para calcular el indice de masa corporal
+*/
   $scope.calcularIMC = function(){
     $log.debug("inicia calcularIMC()");
     $scope.imc = ($scope.respuestaObject.peso)/Math.pow($scope.respuestaObject.altura,2);

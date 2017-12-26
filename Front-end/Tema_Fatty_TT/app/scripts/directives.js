@@ -1,19 +1,14 @@
-/**
- * INSPINIA - Responsive Admin Theme
- *
- */
-
 
 /**
- * pageTitle - Directive for set Page title - mata title
+ * pageTitle - Directiva para asignar el titulo a cada state (vista)
  */
-function pageTitle($rootScope, $timeout) {
+ function pageTitle($rootScope, $timeout) {
     return {
         link: function(scope, element) {
             var listener = function(event, toState, toParams, fromState, fromParams) {
-                // Default title - load on Dashboard 1
+                // Titulo que se pone por default
                 var title = 'Trabajo Terminal';
-                // Create your own title pattern
+                // Se arma el titulo de la pagina con base en el titulo de cada state (vista)
                 if (toState.data && toState.data.pageTitle) title = 'Trabajo Terminal | ' + toState.data.pageTitle;
                 $timeout(function() {
                     element.text(title);
@@ -27,7 +22,7 @@ function pageTitle($rootScope, $timeout) {
 /**
  * sideNavigation - Directive for run metsiMenu on sidebar navigation
  */
-function sideNavigation($timeout) {
+ function sideNavigation($timeout) {
     return {
         restrict: 'A',
         link: function(scope, element) {
@@ -60,7 +55,7 @@ function sideNavigation($timeout) {
 /**
  * iboxTools - Directive for iBox tools elements in right corner of ibox
  */
-function iboxTools($timeout) {
+ function iboxTools($timeout) {
     return {
         restrict: 'A',
         scope: true,
@@ -85,14 +80,14 @@ function iboxTools($timeout) {
                     var ibox = $element.closest('div.ibox');
                     ibox.remove();
                 }
-        }
+            }
+        };
     };
-};
 
 /**
  * minimalizaSidebar - Directive for minimalize sidebar
  */
-function minimalizaSidebar($timeout) {
+ function minimalizaSidebar($timeout) {
     return {
         restrict: 'A',
         template: '<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="" ng-click="minimalize()"><i class="fa fa-bars"></i></a>',
@@ -125,7 +120,7 @@ function minimalizaSidebar($timeout) {
 /**
  * iboxTools with full screen - Directive for iBox tools elements in right corner of ibox with full screen option
  */
-function iboxToolsFullScreen($timeout) {
+ function iboxToolsFullScreen($timeout) {
     return {
         restrict: 'A',
         scope: true,
@@ -171,10 +166,10 @@ function iboxToolsFullScreen($timeout) {
  *
  * Pass all functions into module
  */
-angular
-    .module('trabajoTerminal')
-    .directive('pageTitle', pageTitle)
-    .directive('sideNavigation', sideNavigation)
-    .directive('iboxTools', iboxTools)
-    .directive('minimalizaSidebar', minimalizaSidebar)
-    .directive('iboxToolsFullScreen', iboxToolsFullScreen);
+ angular
+ .module('trabajoTerminal')
+ .directive('pageTitle', pageTitle)
+ .directive('sideNavigation', sideNavigation)
+ .directive('iboxTools', iboxTools)
+ .directive('minimalizaSidebar', minimalizaSidebar)
+ .directive('iboxToolsFullScreen', iboxToolsFullScreen);

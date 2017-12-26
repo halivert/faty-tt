@@ -1,6 +1,5 @@
 /**
- * INSPINIA - Responsive Admin Theme
- * 2.7
+ * Trabajo terminal - CERES
  *
  * Custom scripts
  */
@@ -54,7 +53,6 @@ $(document).ready(function () {
     });
 
 });
-
 
 // Minimalize menu when screen is less than 768px
 $(window).bind("load resize", function () {
