@@ -21,6 +21,14 @@ angular.module('trabajoTerminal')
     pacientesService.recuperarListaPacientes(idUsuario).then(
       function successCallback(d) {
         $scope.pacientes=d;
+
+        //Integracion de los elementos recuperados por Angular con el plugin Datatable de JQuery
+        angular.element(document).ready(function() {  
+          dTable = $('#dataTables-example')  
+          dTable.DataTable({"language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            }});  
+        });  
       },
       function errorCallback(d){
         if(d.data == null)

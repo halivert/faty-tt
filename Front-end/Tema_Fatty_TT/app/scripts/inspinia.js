@@ -4,7 +4,7 @@
  * Custom scripts
  */
 
-$(document).ready(function () {
+ $(document).ready(function () {
 
 
     // Full height of sidebar
@@ -51,6 +51,19 @@ $(document).ready(function () {
     setTimeout(function(){
         fix_height();
     });
+
+//Script para mostrar el calendario en el form de nuevo usuario
+    $(document).ready(function(){
+         $('#data_2 .input-group.date').datepicker({
+            startView: 1,
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true,
+            format: "dd/mm/yyyy",
+            language: 'es'
+        });   
+    });    
 
 });
 
