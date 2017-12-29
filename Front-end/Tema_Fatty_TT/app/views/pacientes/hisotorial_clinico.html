@@ -27,19 +27,19 @@
 									<th></th>
 									<th>Fecha </th>
 									<th>Niveles de glucosa </th>
-									<th>Lípidos</th>
-									<th>Carbohidratos</th>
-									<th>Proteinas</th>
+									<th>Peso</th>
+									<th>Talla</th>
+									
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="paciente in pacientes">
-									<td><input type="radio" ng-model="usuario.id"  name="radio" value="{{paciente.id_USUARIO}}"></td>
-									<td>{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</td>
-									<td>{{ calculateAge(paciente.fec_NAC)}}</td>
-									<td>{{paciente.fec_NAC | date:'dd/MM/yyyy'}}</td>
-									<td>{{paciente.sexo}}</td>
-									<td>{{paciente.email}}</td>
+								<tr ng-repeat="historial in listhistorialclinico">
+									<td><input type="radio" ng-model="historial.idHistorialClinico"  name="radio" value="{{historial.idHistorialClinico}}"></td>
+									<td>{{historial.fecha}}</td>
+									<td>{{historial.azucar}}</td>
+									<td>{{historial.peso}}</td>
+									<td>{{historial.talla}}</td>
+									
 									<!--<td><a href="#"><i class="fa fa-check text-navy"></i></a></td>-->
 								</tr>
 							</tbody>
@@ -57,7 +57,7 @@
 								<button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
 						</div>-->
 						<div class="form-group pull-right">
-						  <button class="btn btn-w-md btn-gap-v btn-primary" ng-click="verHistorial()">Ver Detalle</button>
+						  <button class="btn btn-w-md btn-gap-v btn-primary">Ver Detalle</button>
 						  <button data-toggle="modal" class="btn btn-w-md btn-gap-v btn-primary">Regresar</button>
 						</div>
 					</div>
