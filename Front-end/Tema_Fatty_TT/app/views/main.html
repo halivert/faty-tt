@@ -2,92 +2,64 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
     <h2>{{nombrePagina}}</h2>
-  </div>
+</div>
 </div>
 
 <div class="wrapper wrapper-content animated fadeInRight"> <!--wrapper wrapper-content -->
-  <div class="row" ng-if="obtenerRol() == 'M'">
-  <div class="col-lg-6">
-        
-        <div class="profile-info">
-            <div class="">
-                <div>
-                    <h3 class="no-margins">
-                       <!-- {{informacionIndividuo.nombre}}-->
-                    </h3>
-                    <!--<h4>{{informacionIndividuo.email}}</h4>-->
-                   <small ng-if="obtenerRol() == 'P'">
-                      Paciente
-                    </small>
-                    <small ng-if="obtenerRol() == 'M'">
-                      Médico
-                    </small>                    
-                </div>
+
+	
+<div class="row" ng-if="obtenerRol() == 'P'">    
+    <div class="col-lg-3">
+         <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <span class="label label-success pull-right">Fecha : {{fecha | date:'dd/MM/yyyy'}}</span>
+                <h5>Azúcar</h5>
+            </div>
+            <div class="ibox-content">
+                <h1 class="no-margins">90 mg/dl</h1>
+                <!--<div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>-->
+                <small>Miligramo por decilitro</small>
             </div>
         </div>
     </div>
-
-    <div class="col-lg-6">
-      <div class="text-center m-t-lg"></div>
-	</div> 
-	</div>
-	
-	<div class="row" ng-if="obtenerRol() == 'P'">
-	
-	  <div class="col-lg-3">
-                       <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <span class="label label-success pull-right">Fecha : {{fecha | date:'dd/MM/yyyy'}}</span>
-                                <h5>Azúcar</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">90 mg/dl</h1>
-                                <!--<div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>-->
-                                <small>Miligramo por decilitro</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <span class="label label-info pull-right">Fecha : {{fecha | date:'dd/MM/yyyy'}}</span>
-                                <h5>Lípidos</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">13 mg/d</h1>
-                                <div class="stat-percent font-bold text-danger"> <i class="fa fa-level-up"></i></div>
-                                <small>Miligramo por decilitro</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <span class="label label-primary pull-right">Fecha : {{fecha | date:'dd/MM/yyyy'}}</span>
-                                <h5>Carbohidratos</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins"> - </h1>
-                                <!--<div class="stat-percent font-bold text-navy"> <i class="fa fa-level-up"></i></div>-->
-                                <small>No se tiene información</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <span class="label label-danger pull-right">Fecha : {{fecha | date:'dd/MM/yyyy'}}</span>
-                                <h5>Proteinas</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">8 mg/dl</h1>
-                                <div class="stat-percent font-bold text-danger"><i class="fa fa-level-up"></i></div>
-                                <small>Miligramo por decilitro</small>
-                            </div>
-                        </div>
-					</div>
-					
-		        
-				
-	</div>
+    <div class="col-lg-3">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <span class="label label-info pull-right">Fecha : {{fecha | date:'dd/MM/yyyy'}}</span>
+                <h5>Lípidos</h5>
+            </div>
+            <div class="ibox-content">
+                <h1 class="no-margins">13 mg/d</h1>
+                <div class="stat-percent font-bold text-danger"> <i class="fa fa-level-up"></i></div>
+                <small>Miligramo por decilitro</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <span class="label label-primary pull-right">Fecha : {{fecha | date:'dd/MM/yyyy'}}</span>
+                <h5>Carbohidratos</h5>
+            </div>
+            <div class="ibox-content">
+                <h1 class="no-margins"> - </h1>
+                <!--<div class="stat-percent font-bold text-navy"> <i class="fa fa-level-up"></i></div>-->
+                <small>No se tiene información</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <span class="label label-danger pull-right">Fecha : {{fecha | date:'dd/MM/yyyy'}}</span>
+                <h5>Proteinas</h5>
+            </div>
+            <div class="ibox-content">
+                <h1 class="no-margins">8 mg/dl</h1>
+                <div class="stat-percent font-bold text-danger"><i class="fa fa-level-up"></i></div>
+                <small>Miligramo por decilitro</small>
+            </div>
+        </div>
+    </div>		
+</div>
 </div>

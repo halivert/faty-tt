@@ -2,7 +2,7 @@
 * pacientesCtrl - Controlador ligado a la vista pacientes.html
 */
 angular.module('trabajoTerminal')
-.controller('pacientesCtrl', function($scope,$log,pacientesService,toastr,blockUI,$cookies,$filter){
+.controller('pacientesCtrl', function($scope,$log,pacientesService,toastr,blockUI,$cookies,$filter,$state){
 
   $scope.pacientes = [];
   $scope.historialclinico = [];
@@ -24,7 +24,7 @@ angular.module('trabajoTerminal')
 
         //Integracion de los elementos recuperados por Angular con el plugin Datatable de JQuery
         angular.element(document).ready(function() {  
-          dTable = $('#dataTables-example')  
+          dTable = $('#dataTable-pacientes')  
           dTable.DataTable({"language": {
                 "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
             }});  
@@ -55,9 +55,14 @@ angular.module('trabajoTerminal')
     $log.debug("$scope.usuario" + $scope.usuario.id);
     pacientesService.recuperarListaHistorialClinico($scope.usuario.id).then(
       function successCallback(d) {
+        $state.transitionTo('index.historialClinico');
         if(d.length == 0){
           toastr.warning("El paciente aún no tiene historial clínico.", 'Atención');
         }
+        dTable = $('#dataTable-historial-clinico')  
+          dTable.DataTable({"language": {
+              "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+          }});  
       },
       function errorCallback(d) {
         if(d.data == null)

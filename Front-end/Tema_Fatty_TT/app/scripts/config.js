@@ -44,6 +44,12 @@
         authenticate: true,
         data: { pageTitle: 'Pacientes' }
     })
+    .state('index.historialClinico', {
+        url: "/historialClinico",
+        templateUrl: "views/pacientes/hisotorial_clinico.html",
+        authenticate: true,
+        data: { pageTitle: 'Historial Clinico' }
+    })
 
 }
 /**

@@ -6,7 +6,7 @@
 */
 angular.module('trabajoTerminal')
 
-.controller('MainCtrl', function($scope,loginService,$log,$cookies,toastr){
+.controller('MainCtrl', function($scope,loginService,$cookies,toastr){
 
 	$scope.nombrePagina = "Página principal";
 	$scope.userName = "Nombre del usuario";
@@ -30,14 +30,8 @@ angular.module('trabajoTerminal')
 * obtenerRol()	-	Función para recuperar el rol de usuario.
 */
 	$scope.obtenerRol = function(){
-		if($cookies.get("rol") == "1"){
-			$log.debug("Es medico");
-			return "M";
-		}
-		else{
-			$log.debug("Es paciente");
-			return "P";
-		}
+		console.log("obtenerRol()");
+		return ($cookies.get("rol") == "1" ? "M" : "P")
 	}
 
 });

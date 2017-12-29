@@ -2,8 +2,14 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    <div ng-include="'views/common/navigation.html'"></div>
-
+    
+        <div ng-if="obtenerRol() == 'P'">
+            <div ng-include="'views/common/navigationPaciente.html'"></div>
+        </div>
+        <div ng-if="obtenerRol () == 'M'">
+            <div ng-include="'views/common/navigationMedico.html'"></div>
+        </div>
+   
     <!-- Page wraper -->
     <!-- ng-class with current state name give you the ability to extended customization your view -->
     <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
