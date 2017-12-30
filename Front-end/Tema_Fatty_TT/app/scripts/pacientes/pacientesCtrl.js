@@ -53,22 +53,23 @@ $scope.recuperaPaciente = function(){
 * verHistorial  - Recuperar la informacion del historial clinico del paciente seleccionado
 */
 $scope.verHistorial = function(){
-  $cookies.put("idCurrentPaciente",$scope.usuario.id);
-  $log.debug("$scope.usuario" + $scope.usuario.id);
-  pacientesService.recuperarListaHistorialClinico($cookies.get("idCurrentPaciente")).then(
-    function successCallback(d) {
 
-      $state.transitionTo('index.historialClinico');
+  var idCurrentPaciente =  $cookies.get("idCurrentPaciente");
+  pacientesService.recuperarListaHistorialClinico(idCurrentPaciente).then(
+    function successCallback(d) {
       if(d.length == 0){
         toastr.warning("El paciente aún no tiene historial clínico.", 'Atención');
-      }else{
+      }//else{
         $scope.listhistorialclinico = d;
         $log.debug("JSON.stringify(d)" + JSON.stringify(d));
-      }
-      dTable = $('#dataTable-historial-clinico')  
-      dTable.DataTable({"language": {
-        "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-      }});  
+      //}
+      
+      angular.element(document).ready(function() {  
+          dTable = $('#dataTable-historial-clinico')  
+          dTable.DataTable({"language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+          }});  
+        });
     },
     function errorCallback(d) {
       if(d.data == null)
@@ -78,6 +79,14 @@ $scope.verHistorial = function(){
         toastr.error(d.data.mensaje, 'Error');
       }
     });
+},
+
+/**
+* setCurrentPaciente  - 
+*/
+$scope.setCurrentPaciente = function(){
+  $cookies.put("idCurrentPaciente",$scope.usuario.id);
+  $state.transitionTo('index.historialClinico');
 },
 
 /**
