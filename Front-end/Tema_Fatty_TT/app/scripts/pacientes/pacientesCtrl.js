@@ -11,6 +11,7 @@ angular.module('trabajoTerminal')
     id:''
   };
   $scope.currentPaciente={};
+  $scope.numero=0;
 
 /**
 * verPacientes  - Funcion que se ejecuta cuando se carga la vista de pacientes.html, lista los pacientes asociados a un medico
@@ -40,6 +41,29 @@ $scope.verPacientes = function(){
       });
 },
 
+$scope.numeroPacientes = function(){
+      $log.debug("numero pacientes");
+
+      var idUsuario =  $cookies.get("idUsuario")
+
+      $log.debug("idUsuario : " + idUsuario);
+
+       pacientesService.recuperarNumeroPacientes(idUsuario).then(
+          function successCallback(d) {
+			  $log.debug("d.length : " + d.length);
+             $scope.numero=d.length;
+          },
+        
+          function errorCallback(d) {
+            if(d.data == null)
+              toastr.warning("Servicio no disponible", 'Advertencia');
+            else{
+              toastr.error(d.data.mensaje, 'Error');
+            }
+          });
+        
+    },
+	
 /**
 * recuperaPaciente  - Seleccionar la infor de un paciente un paciente
 */
