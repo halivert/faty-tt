@@ -12,7 +12,9 @@
         url: "/login",
         templateUrl: "views/login/login.html",
         authenticate: false,
-        data: { pageTitle: 'Inicio sesion' }
+        class : "gray-bg",
+        data: { pageTitle: 'Inicio sesion',
+        bodyClass: 'gray-bg' }
     })
     .state('index', {
         abstract: true,
@@ -60,6 +62,7 @@ angular.module('trabajoTerminal')
 .config(config)
 .run(function($rootScope, $state,$log,$cookies) {
     $rootScope.$state = $state;
+
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
 
