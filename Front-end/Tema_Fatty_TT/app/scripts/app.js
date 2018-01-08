@@ -9,6 +9,7 @@
         'ui.bootstrap',                 // Bootstrap
         'toastr',
         'ngCookies',
-        'blockUI' 
+        'blockUI',
+        'chart.js' 
         ])
  })();

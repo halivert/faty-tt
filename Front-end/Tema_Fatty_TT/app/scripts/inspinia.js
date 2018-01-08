@@ -53,8 +53,8 @@
     });
 
 //Script para mostrar el calendario en el form de nuevo usuario
-    $(document).ready(function(){
-         $('#data_2 .input-group.date').datepicker({
+    /*$(document).ready(function(){
+         $('.data_2 .input-group.date').datepicker({
             startView: 1,
             todayBtn: "linked",
             keyboardNavigation: false,
@@ -63,7 +63,7 @@
             format: "dd/mm/yyyy",
             language: 'es'
         });   
-    });    
+    });*/
 
 });
 

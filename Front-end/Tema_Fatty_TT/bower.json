@@ -25,14 +25,16 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.5.0",
-	"angular-cookies": "~1.4.0",
+    "angular-cookies": "~1.4.0",
     "pace": "~1.0.2",
     "metisMenu": "~2.0.2",
     "fontawesome": "~4.7.0",
     "jquery": "^3.1.1",
-    "angular-toastr":"2.1.1",
-	"angular-block-ui":"~0.2.0",
-	#"angularjs-datepicker"
+    "angular-toastr": "2.1.1",
+    "angular-block-ui": "~0.2.0",
+    "angular-chart.js": "1.1.1",
+    "datatables.net": "1.10.16",
+    "datatables.net-dt": "^3.2.2"
   },
   "resolutions": {
     "angular": "~1.5.0",

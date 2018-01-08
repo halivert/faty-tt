@@ -42,25 +42,25 @@ $scope.verPacientes = function(){
 },
 
 $scope.numeroPacientes = function(){
-      $log.debug("numero pacientes");
+  $log.debug("numero pacientes");
 
-      var idUsuario =  $cookies.get("idUsuario")
+  var idUsuario =  $cookies.get("idUsuario")
 
-      $log.debug("idUsuario : " + idUsuario);
+  $log.debug("idUsuario : " + idUsuario);
 
-       pacientesService.recuperarNumeroPacientes(idUsuario).then(
-          function successCallback(d) {
-			  $log.debug("d.length : " + d.length);
-             $scope.numero=d.length;
-          },
-        
-          function errorCallback(d) {
-            if(d.data == null)
-              toastr.warning("Servicio no disponible", 'Advertencia');
-            else{
-              toastr.error(d.data.mensaje, 'Error');
-            }
-          });
+   pacientesService.recuperarNumeroPacientes(idUsuario).then(
+      function successCallback(d) {
+	  $log.debug("d.length : " + d.length);
+         $scope.numero=d.length;
+      },
+    
+      function errorCallback(d) {
+        if(d.data == null)
+          toastr.warning("Servicio no disponible", 'Advertencia');
+        else{
+          toastr.error(d.data.mensaje, 'Error');
+        }
+      });
         
     },
 	
@@ -77,7 +77,6 @@ $scope.recuperaPaciente = function(){
 * verHistorial  - Recuperar la informacion del historial clinico del paciente seleccionado
 */
 $scope.verHistorial = function(){
-
   var idCurrentPaciente =  $cookies.get("idCurrentPaciente");
   pacientesService.recuperarListaHistorialClinico(idCurrentPaciente).then(
     function successCallback(d) {
@@ -117,7 +116,6 @@ $scope.setCurrentPaciente = function(){
 * guardarHistorialClinico  - Guardar la informacion del historial clinico del paciente seleccionado
 */
 $scope.guardarHistorialClinico = function(){
-
   console.log("guardarHistorialClinico()");
   var date = new Date();
     console.log("date : " + date);
@@ -137,15 +135,50 @@ $scope.guardarHistorialClinico = function(){
         toastr.error(d.data.mensaje, 'Error');
       }
     });
+},
+
+/**
+* recuperarRegistrosGlucosa  - Recupera los registros de glucosa de un paciente, por medio del idUsuario
+*/
+$scope.recuperarRegistrosGlucosa = function(){
+  console.log("recuperarRegistrosGlucosa()");
+  var date = new Date();
+    console.log("date : " + date);
+
+  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  $scope.series = ['Series A'];
+  $scope.data = [
+    [65, 59, 80, 81, 56, 55, 40]
+  ];
+  $scope.onClick = function (points, evt) {
+    console.log(points, evt);
+  };
+  $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
+  $scope.options = {
+    scales: {
+      yAxes: [
+        {
+          id: 'y-axis-1',
+          type: 'linear',
+          display: true,
+          position: 'left'
+        }
+      ]
+    }
+  };  
+      
 },  
 
 /**
 * calculateAge  - Calcular la edad de los pacientes con base en su fecha de nacimiento
 */
-	$scope.calculateAge = function calculateAge(birthday) { // birthday is a date
-    var birthDate = new Date(birthday);
-    var ageDifMs = Date.now() - birthDate.getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }
+$scope.calculateAge = function calculateAge(birthday) { // birthday is a date
+  var birthDate = new Date(birthday);
+  var ageDifMs = Date.now() - birthDate.getTime();
+  var ageDate = new Date(ageDifMs); // miliseconds from epoch
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
 });
+
+
