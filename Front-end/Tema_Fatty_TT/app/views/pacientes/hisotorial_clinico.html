@@ -6,7 +6,7 @@
 		</div>
 	</div>
 	<div class="wrapper wrapper-content animated fadeInRight">
-		<div class="row">
+		<div class="row collapse in collapseExample">
 			<div class="col-lg-12">
 				<div class="ibox float-e-margins">
 					<div class="ibox-title">
@@ -47,8 +47,27 @@
 
 							<div class="row">
 								<div class="form-group pull-right">
-								<button ui-sref="index.pacientes" class="btn btn-w-md btn-gap-v btn-primary" >Regresar</button>
-								<button class="btn btn-w-md btn-gap-v btn-primary" ng-disabled="esValido()">Ver Detalle</button>
+									<button ui-sref="index.pacientes" class="btn btn-w-md btn-gap-v btn-primary" >Regresar</button>
+									<button class="btn btn-w-md btn-gap-v btn-primary" ng-disabled="esValido()" data-toggle="collapse" data-target=".collapseExample">Ver Detalle</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row collapse collapseExample">
+				<div class="col-lg-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							DETALLLE DEL HISTORIAL
+						</div>			
+						<div class="ibox-content">
+							<div class="row">
+							</div>
+							<div class="row">
+								<div class="form-group pull-right">
+									<button class="btn btn-w-md btn-gap-v btn-primary" data-toggle="collapse" data-target=".collapseExample">Regresar</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -56,4 +75,3 @@
 			</div>
 		</div>
 	</div>
-</div>
