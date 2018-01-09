@@ -12,6 +12,7 @@ angular.module('trabajoTerminal')
   };
   $scope.currentPaciente={};
   $scope.numero=0;
+  $scope.desactivarBoton=true;
 
 /**
 * verPacientes  - Funcion que se ejecuta cuando se carga la vista de pacientes.html, lista los pacientes asociados a un medico
@@ -177,6 +178,20 @@ $scope.calculateAge = function calculateAge(birthday) { // birthday is a date
   var ageDifMs = Date.now() - birthDate.getTime();
   var ageDate = new Date(ageDifMs); // miliseconds from epoch
   return Math.abs(ageDate.getUTCFullYear() - 1970);
+},
+
+/**
+* activarBoton  - 
+*/
+$scope.activarBoton = function activarBoton() { 
+    $scope.desactivarBoton=false;
+},
+
+/**
+* activarBoton  - 
+*/
+$scope.esValido = function esValido() { 
+    return $scope.desactivarBoton;
 }
 
 });

@@ -30,7 +30,7 @@
 									</thead>
 									<tbody>
 										<tr ng-repeat="historial in listhistorialclinico">
-											<td><input type="radio" ng-model="historial.idHistorialClinico"  name="radio" value="{{historial.idHistorialClinico}}"></td>
+											<td><input type="radio" ng-model="historial.idHistorialClinico"  ng-click="activarBoton()" name="radio" value="{{historial.idHistorialClinico}}"></td>
 											<td>{{historial.fecha}}</td>
 											<td>{{historial.azucar}}</td>
 											<td>{{historial.peso}}</td>
@@ -47,8 +47,8 @@
 
 							<div class="row">
 								<div class="form-group pull-right">
-								<button ui-sref="index.pacientes" class="btn btn-w-md btn-gap-v btn-primary">Regresar</button>
-								<button class="btn btn-w-md btn-gap-v btn-primary">Ver Detalle</button>
+								<button ui-sref="index.pacientes" class="btn btn-w-md btn-gap-v btn-primary" >Regresar</button>
+								<button class="btn btn-w-md btn-gap-v btn-primary" ng-disabled="esValido()">Ver Detalle</button>
 							</div>
 						</div>
 					</div>
