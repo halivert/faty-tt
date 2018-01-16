@@ -14,7 +14,7 @@ recuperarListaPacientes: function(idMedico) {
     headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
   }
 
-  var url = 'http://35.188.191.232/tt-escom-diabetes/ceres/medico/'+idMedico+'/pacientes/';
+  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/medico/'+idMedico+'/pacientes/';
       //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'/pacientes/';
 
       return $http.get(url,data,config).then(
@@ -41,7 +41,7 @@ recuperarNumeroPacientes: function(idMedico) {
           }
 
 
-		var url = 'http://35.188.191.232/tt-escom-diabetes/ceres/medico/'+idMedico+'/pacientes/';
+		var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/medico/'+idMedico+'/pacientes/';
 		
       //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'/pacientes/';
 		
@@ -73,7 +73,7 @@ recuperarListaHistorialClinico: function(idPaciente) {
     headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
   }
 
-  var url = 'http://35.188.191.232/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/';  
+  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/';  
       //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/';
       return $http.get(url,data,config).then(
         function successCallback(response) {
@@ -119,7 +119,7 @@ guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos
     headers : {'Content-Type': 'application/json'}
   }
 
-  var url = 'http://35.188.191.232/tt-escom-diabetes/ceres/pacientes/historialclinico';  
+  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/historialclinico';  
 
   console.log("data : " + JSON.stringify(data));
 
@@ -150,7 +150,7 @@ recuperarDetallHistorialClinico: function(idPaciente) {
     headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
   }
 
-  var url = 'http://35.188.191.232/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/1';  
+  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/1';  
       //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'pacientes/;
 
       return $http.get(url,data,config).then(

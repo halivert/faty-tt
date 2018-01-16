@@ -14,7 +14,7 @@ angular.module('trabajoTerminal')
     var config = {
       headers : {'Content-Type': 'application/json'}
     }
-    var url = 'http://35.188.191.232/tt-escom-diabetes/session/login';
+    var url = 'http://35.202.245.109/tt-escom-diabetes/session/login';
     //var url = 'http://localhost:8080/tt-escom-diabetes/session/login';
     
     return $http.post(url,data,config)
@@ -57,7 +57,7 @@ angular.module('trabajoTerminal')
       headers : {'Content-Type': 'application/json'}
     }
 
-    var url = 'http://35.188.191.232/tt-escom-diabetes/session/usuarios';
+    var url = 'http://35.202.245.109/tt-escom-diabetes/session/usuarios';
     //var url = 'http://localhost:8080/tt-escom-diabetes/session/usuarios';
 
     console.log("data : " + JSON.stringify(data));
@@ -89,7 +89,7 @@ angular.module('trabajoTerminal')
       headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
     }
 
-    var url = 'http://35.188.191.232/tt-escom-diabetes/ceres/usuarios/'+idUsuario;  
+    var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/usuarios/'+idUsuario;  
     //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/usuarios/'+idUsuario;
 
     return $http.get(url,data,config)
