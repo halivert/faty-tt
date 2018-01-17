@@ -48,7 +48,7 @@
     })
     .state('index.historialClinico', {
         url: "/historialClinico",
-        templateUrl: "views/pacientes/hisotorial_clinico.html",
+        templateUrl: "views/pacientes/historial_clinico.html",
         authenticate: true,
         data: { pageTitle: 'Historial Clinico' }
     })
