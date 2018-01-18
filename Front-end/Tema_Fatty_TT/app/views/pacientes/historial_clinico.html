@@ -16,141 +16,161 @@
 						<div class="row">
 						</div>
 						<div class="table-responsive">
-							<!--<table class="table table-striped">-->
-								<table id="dataTable-historial-clinico" class="table table-striped table-bordered table-hover">
-									<thead>
-										<tr>
-											<th></th>
-											<th>Fecha </th>
-											<th>Niveles de glucosa </th>
-											<th>Peso</th>
-											<th>Talla</th>
-											
-										</tr>
-									</thead>
-									<tbody>
-										<tr ng-repeat="historial in listhistorialclinico">
-											<td><input type="radio" ng-model="historial.idHistorialClinico"  ng-click="activarBoton()" name="radio" value="{{historial.idHistorialClinico}}"></td>
-											<td>{{historial.fecha}}</td>
-											<td>{{historial.azucar}}</td>
-											<td>{{historial.peso}}</td>
-											<td>{{historial.talla}}</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											
-										</tr>
-									</tfoot>
-								</table>
-							</div>
+							<table id="dataTable-historial-clinico" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Fecha</th>
+										<th>Niveles de glucosa</th>
+										<th>Peso</th>
+										<th>Talla</th>
 
-							<div class="row">
-								<div class="form-group pull-right">
-									<button ui-sref="index.pacientes" class="btn btn-w-md btn-gap-v btn-primary" >Regresar</button>
-									<button class="btn btn-w-md btn-gap-v btn-primary" ng-disabled="esValido()" data-toggle="collapse" data-target=".collapseExample">Ver Detalle</button>
-								</div>
-							</div>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="historial in listhistorialclinico">
+										<td><input type="radio" ng-model="historial.idHistorialClinico"  ng-click="activarBoton()" name="radio" value="{{historial.idHistorialClinico}}"></td>
+										<td>{{historial.fecha}}</td>
+										<td>{{historial.azucar}}</td>
+										<td>{{historial.peso}}</td>
+										<td>{{historial.talla}}</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+									</tr>
+								</tfoot>
+							</table>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row collapse collapseExample">
-				<div class="col-lg-12">
-					<div class="ibox float-e-margins">
-						<div class="ibox-title">
-							Detalle del historial clínico
-						</div>			
-						<div class="ibox-content">
-							<div class="row">
+						<div class="row">
+							<div class="form-group pull-right">
+								<button ui-sref="index.pacientes" class="btn btn-w-md btn-gap-v btn-primary">Regresar</button>
+								<button class="btn btn-w-md btn-gap-v btn-primary" ng-disabled="esValido()" data-toggle="collapse" data-target=".collapseExample">Ver Detalle</button>
 							</div>
-							<div class="row">
-								<!--<div class="col-md-6">
-									<div class="profile-image">
-										<img src="" class="img-circle circle-border m-b-md" alt="imagenPerfil">
-									</div>
-									<div class="profile-info">
-										<div class="">
-											<div>
-												<h2 class="no-margins">
-													Nombre Del Paciente
-												</h2>
-												<h4></h4>
-												<small>
-													
-												</small>
-											</div>
-										</div>
-									</div>
-								</div> -->
-								
-								<div class="col-md-12">
-									
-									<div class="panel-body hb-sub-panel-background">
-										<div class="row">
-											<h4><label class="col-md-1">Nombre:</label></h4>
-											<h4><span class="col-md-11 text-center ng-binding">Edgar Ivan Hurtado</span></h4>
-										</div>
-										<hr>
-										<div class="col-sm-4">
-											<label for="">Dato1:</label>
-											<input class="form-control" value="34101-274307" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato2:</label>
-											<input class="form-control" value="0000000000001-0" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato3:</label>
-											<!--<input class="form-control" value="- - -" disabled="disabled">-->
-											<input class="form-control ng-pristine ng-untouched ng-valid" ng-model="numeroDeSiniestro" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato4:</label>
-											<!--<input class="form-control" value="- - -" disabled="disabled">-->
-											<input class="form-control" value="35000" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato6:</label>
-											<input class="form-control" value="TRANSFERENCIA" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato7:</label>
-											<input class="form-control" value="602" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato8:</label>
-											<input class="form-control" value="2015/10/22" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato9:</label>
-											<input class="form-control" value="1997/08/26" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato10:</label>
-											<input class="form-control" value="1997/08/26" disabled="disabled">
-										</div>
-										<div class="col-sm-4">
-											<label for="">Dato11:</label>
-											<input class="form-control" value="35000" disabled="disabled">
-										</div>
-									</div>	
-									
-								</div>
-								
-							</div>
-
-							<br><br>
-							<div class="row">
-								<div class="form-group pull-right">
-									<button class="btn btn-w-md btn-gap-v btn-primary" data-toggle="collapse" data-target=".collapseExample">Regresar</button>
-								</div>
-							</div>	
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="row  collapse collapseExample"> <!--collapse-->
+			<div class="col-lg-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						Detalle del historial clínico
+					</div>			
+					<div class="ibox-content">
+						
+						<div class="row">
+							<div class="col-md-4">
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label class="col-lg-4 control-label">Nombre</label>
+										<div class="col-lg-8">
+											<p class="form-control-static">{{nombreCompletoPaciente}}</p>
+										</div>
+										<label class="col-lg-4 control-label">A. Paterno</label>
+										<div class="col-lg-8">
+											<p class="form-control-static">{{nombreCompletoPaciente}}</p>
+										</div>
+										<label class="col-lg-4 control-label">A. Paterno</label>
+										<div class="col-lg-8">
+											<p class="form-control-static">{{nombreCompletoPaciente}}</p>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label">Peso</label>
+	                                    <div class="col-lg-3">
+											<input type="email" placeholder="70" class="form-control" disabled="disabled"> 
+	                                    </div>
+	                                    <label class="control-label">Kgs</label>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label">Talla</label>
+	                                    <div class="col-lg-3">
+											<input  placeholder="100" class="form-control" disabled="disabled"> 
+	                                    </div>
+	                                    <label class="control-label">cm</label>
+									</div>
+									
+								</form>
+							</div>
+							<div class="col-md-4">
+								<div class="panel-body hb-sub-panel-background">
+									<div>
+										<label>Fecha de Nacimiento</label>
+										<div class="input-group date col-lg-8">
+											<input type="text" class="form-control" placeholder="22/09/1994" disabled="disabled" required>
+											<span class="input-group-addon"><i class="fa fa-calendar"></i></span>						
+										</div>
+									</div>
+									<form class="form-horizontal">
+										<div class="form-group">
+											<label class="col-lg-4 control-label">Edad</label>
+											<div class="col-lg-8">
+												<p class="form-control-static">24</p>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-lg-4 control-label">Estatura</label>
+		                                    <div class="col-lg-3">
+												<input placeholder="180" class="form-control" disabled="disabled"> 
+		                                    </div>
+		                                    <label class="control-label">cm</label>
+										</div>
+										<div class="form-group">
+											<label class="col-lg-4 control-label">IMC</label>
+											<div class="col-lg-8">
+												<p class="form-control-static">21.6</p>
+											</div>
+										</div>
+									</form>
+									
+								</div>	
+							</div>
+							<div class="col-md-4">
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label class="col-lg-4 control-label">%Proteinas</label>
+	                                    <div class="col-lg-3">
+											<input type="email" placeholder="40" class="form-control" disabled="disabled"> 
+	                                    </div>
+	                                
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label">%Lípidos</label>
+	                                    <div class="col-lg-3">
+											<input type="email" placeholder="40" class="form-control" disabled="disabled"> 
+	                                    </div>
+	                                    
+									</div>
+									<div class="form-group">
+										<label class="col-lg-4 control-label">%CH</label>
+	                                    <div class="col-lg-3">
+											<input  placeholder="20" class="form-control" disabled="disabled"> 
+	                                    </div>
+	                                 
+									</div>
+									
+								</form>
+							</div>
+						</div>
+
+						<br><br>
+						<div class="row">
+							
+							<div class="form-group pull-left">
+								<button class="btn btn-w-md btn-gap-v btn-primary" data-toggle="collapse" data-target=".collapseExample">Regresar</button>
+							</div>
+							<div class="form-group pull-right">
+								<button class="btn btn-w-md btn-gap-v btn-primary">Editar</button>
+								<button class="btn btn-w-md btn-gap-v btn-primary">Guardar</button>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 
 
