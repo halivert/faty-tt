@@ -50,4 +50,6 @@
     <string name="falta_cedula_prof">Falta cédula profesional</string>
     <string name="hola_medico">Hola medico</string>
     <string name="hola_paciente">Hola paciente</string>
+    <string name="frutas">Frutas</string>
+    <string name="nuevo_token">Nuevo token</string>
 </resources>

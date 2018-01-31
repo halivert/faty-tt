@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import java.util.Iterator;
-
+import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.EMAIL;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_ROL;
@@ -23,6 +23,8 @@ import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.KEYWORD;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE_COMPLETO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.OK;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_DATOS;
@@ -88,10 +90,6 @@ public class FragmentoLogin extends Fragment {
 
   public void btnLoginPress() {
     Activity act = getActivity();
-    /*
-    ProgressBar progressBar = act.findViewById(R.id.progressBar);
-    progressBar.setVisibility(View.VISIBLE);
-    */
     String email = ((EditText) act.findViewById(R.id.editEmail)).getText().toString();
     String key = ((EditText) act.findViewById(R.id.editKeyword)).getText().toString();
 
@@ -103,16 +101,16 @@ public class FragmentoLogin extends Fragment {
     Activity act = getActivity();
     Context context = act.getApplicationContext();
     String urlDatos = URL_DATOS;
+    String resultado, respuesta, mensaje, nombre, apellidoPaterno, apellidoMaterno, nombreCompleto;
     try {
       JSONObject dataS = new JSONObject();
       dataS.put(EMAIL, email);
       dataS.put(KEYWORD, key);
 
-      String resultado = new PostJSONReq().execute(URL_LOGIN, dataS.toString()).get();
+      resultado = new PostJSONReq().execute(URL_LOGIN, dataS.toString()).get();
       JSONObject jsonObject = new JSONObject(resultado);
-      String respuesta;
 
-      String mensaje = jsonObject.has(MENSAJE) ? jsonObject.getString(MENSAJE) : ERROR;
+      mensaje = jsonObject.has(MENSAJE) ? jsonObject.getString(MENSAJE) : ERROR;
       if (jsonObject.has(RESPUESTA)) {
         respuesta = jsonObject.getString(RESPUESTA);
         if (respuesta.equals(OK)) {
@@ -120,9 +118,21 @@ public class FragmentoLogin extends Fragment {
           resultado = new GetReq().execute(urlDatos + String.valueOf(idUsuario)).get();
 
           SharedPreferences preferences = act.getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
+          SharedPreferences.Editor editor = preferences.edit();
           JSONObject guardar = new JSONObject(resultado);
           int idRol = guardar.has(ID_ROL) ? guardar.getInt(ID_ROL) : -1;
-          guardarDatosUsuario(preferences, guardar);
+          nombre = guardar.has(NOMBRE) ? guardar.getString(NOMBRE) : ERROR;
+          apellidoPaterno = guardar.has(APELLIDO_PATERNO) ? guardar.getString(APELLIDO_PATERNO) : ERROR;
+          apellidoMaterno = guardar.has(APELLIDO_MATERNO) ? guardar.getString(APELLIDO_MATERNO) : ERROR;
+          nombreCompleto = nombre + " " + apellidoPaterno + " " + apellidoMaterno;
+
+          editor.putInt(ID_USUARIO, idUsuario);
+          editor.putString(NOMBRE_COMPLETO, nombreCompleto);
+          editor.putString(NOMBRE, nombre);
+          editor.putString(APELLIDO_PATERNO, apellidoPaterno);
+          editor.putString(APELLIDO_MATERNO, apellidoMaterno);
+          editor.putInt(ID_ROL, idRol);
+          editor.apply();
 
           mListener.accesoExitoso(idUsuario, idRol);
         } else {
@@ -160,25 +170,6 @@ public class FragmentoLogin extends Fragment {
     }
 
     return true;
-  }
-
-  public void guardarDatosUsuario(SharedPreferences preferences, JSONObject jsonObject)
-          throws Exception {
-    SharedPreferences.Editor editor = preferences.edit();
-    editor.clear();
-
-    Iterator<String> iter = jsonObject.keys();
-    while (iter.hasNext()) {
-      String key = iter.next();
-      Object value = jsonObject.get(key);
-      try {
-        editor.putInt(key, Integer.parseInt(value.toString()));
-      } catch (Exception e) {
-        editor.putString(key, value.toString());
-      }
-    }
-
-    editor.apply();
   }
 
   public interface OnLoginInteraction {

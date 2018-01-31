@@ -30,10 +30,13 @@ public class Vars {
     public static final String INDIVIDUO_ROL = "individuoRol";
     public static final String ERROR = "ERROR";
     public static final String OK = "OK";
+    public static final String TOKEN = "TOKEN";
+    public static final String VOID = "VOID";
 
-    public static final String URL_REGISTRO = "http://35.188.191.232/tt-escom-diabetes/session/usuarios";
-    public static final String URL_LOGIN = "http://35.188.191.232/tt-escom-diabetes/session/login";
-    public static final String URL_DATOS = "http://35.188.191.232/tt-escom-diabetes/ceres/usuarios/";
+    public static final String URL_SERVIDOR = "http://35.202.245.109";
+    public static final String URL_REGISTRO = URL_SERVIDOR + "/tt-escom-diabetes/session/usuarios";
+    public static final String URL_LOGIN = URL_SERVIDOR + "/tt-escom-diabetes/session/login";
+    public static final String URL_DATOS = URL_SERVIDOR + "/tt-escom-diabetes/ceres/usuarios/";
 
     public static final String USUARIO = "Usuario";
     public static final String LOGIN = "Login";
