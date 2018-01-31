@@ -23,3 +23,6 @@ commons-logging.properties
 
 ~$TT1.docx
 package-lock.json
+
+# APK de android
+*.apk
