@@ -1,6 +1,8 @@
 package escom.tt.ceres.ceresmobile;
 
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import org.json.JSONObject;
 
@@ -17,6 +19,37 @@ import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_GENERAL;
  */
 
 public class GetReq extends AsyncTask<String, Integer, String> {
+  ProgressBar bar = null;
+
+  public void setProgressBar(ProgressBar progressBar) {
+    bar = progressBar;
+    bar.setProgress(0);
+  }
+
+  @Override
+  protected void onPostExecute(String s) {
+    super.onPostExecute(s);
+    if (bar != null) {
+      bar.setVisibility(View.GONE);
+    }
+  }
+
+  @Override
+  protected void onPreExecute() {
+    super.onPreExecute();
+    if (bar != null) {
+      bar.setVisibility(View.VISIBLE);
+    }
+  }
+
+  @Override
+  protected void onProgressUpdate(Integer... values) {
+    super.onProgressUpdate(values);
+    if (bar != null) {
+      bar.setProgress(values[0]);
+    }
+  }
+
   @Override
   protected String doInBackground(String... params) {
     String urlString;

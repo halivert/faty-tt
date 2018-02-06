@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
@@ -52,7 +53,7 @@ public class FragmentoPacienteInicio extends Fragment {
     String apPaterno = preferences.getString(APELLIDO_PATERNO, null);
     String apMaterno = preferences.getString(APELLIDO_MATERNO, null);
 
-    TextView textView = main.findViewById(R.id.textNombre);
+    TextView textView = getActivity().findViewById(R.id.userName);
     if (textView != null)
       textView.setText(nombreUsuario + ' ' + apPaterno + ' ' + apMaterno);
 

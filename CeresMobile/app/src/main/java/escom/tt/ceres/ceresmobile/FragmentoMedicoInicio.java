@@ -10,24 +10,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
 import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_IO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.TOKEN;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.VOID;
 
 public class FragmentoMedicoInicio extends Fragment {
+  RequestQueue requestQueue;
   private ComunicacionFMI mListener;
 
   public FragmentoMedicoInicio() {
@@ -47,7 +53,7 @@ public class FragmentoMedicoInicio extends Fragment {
     String apPaterno = preferences.getString(APELLIDO_PATERNO, null);
     String apMaterno = preferences.getString(APELLIDO_MATERNO, null);
 
-    ImageView imageView = main.findViewById(R.id.imageView);
+    ImageView imageView = main.findViewById(R.id.ivFruits);
     imageView.setImageResource(R.drawable.fruits);
 
     TextView textView = main.findViewById(R.id.textNombre);
@@ -61,6 +67,7 @@ public class FragmentoMedicoInicio extends Fragment {
         crearToken();
       }
     });
+    requestQueue = Volley.newRequestQueue(getActivity());
 
     return main;
   }
@@ -76,24 +83,47 @@ public class FragmentoMedicoInicio extends Fragment {
   }
 
   public void crearToken() {
-    Activity act = getActivity();
-    Context context = act.getApplicationContext();
+    final Activity act = getActivity();
+    final Context context = act.getApplicationContext();
     SharedPreferences preferences = act.getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
     int idMedico = preferences.getInt(ID_USUARIO, -1);
-    String urlToken = FuncionesPrincipales.urlTokenMedico(idMedico), token = VOID;
+    String urlToken = FuncionesPrincipales.urlTokenMedico(idMedico);
+    final ProgressBar progressBar = act.findViewById(R.id.pbHeaderProgress);
+    progressBar.setProgress(0);
+    progressBar.setVisibility(View.VISIBLE);
 
-    try {
-      String resultado = new GetReq().execute(urlToken).get();
-      JSONObject respuesta = new JSONObject(resultado);
+    JsonObjectRequest request = new JsonObjectRequest(urlToken, null,
+            new Response.Listener<JSONObject>() {
+              @Override
+              public void onResponse(JSONObject response) {
+                try {
+                  String token = "Error";
+                  if (response.has(MENSAJE) && response.has(RESPUESTA)) {
+                    token = (response.getString(RESPUESTA).equals(TOKEN) ? response.getString(MENSAJE) : ERROR);
+                  }
+                  TextView textView = act.findViewById(R.id.textTokenMedico);
+                  textView.setText(token);
+                } catch (Exception e) {
+                  Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                progressBar.setVisibility(View.GONE);
+              }
+            },
+            new Response.ErrorListener() {
+              @Override
+              public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, ERROR, Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
+              }
+            }
+    );
 
-      if (respuesta.has(MENSAJE) && respuesta.has(RESPUESTA)) {
-        token = (respuesta.getString(RESPUESTA).equals(TOKEN) ? respuesta.getString(MENSAJE) : ERROR);
-      }
-      TextView textView = act.findViewById(R.id.textTokenMedico);
-      textView.setText(token);
-    } catch (Exception e) {
-      Toast.makeText(context, ERROR, Toast.LENGTH_SHORT).show();
-    }
+    requestQueue.add(request);
+
+    // GetReq req = new GetReq();
+    // req.setProgressBar(pbHeaderProgress);
+    // String resultado = req.execute(urlToken).get();
+    // JSONObject respuesta = new JSONObject(resultado);
   }
 
   @Override

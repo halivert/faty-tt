@@ -6,14 +6,12 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.Toast;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static escom.tt.ceres.ceresmobile.Vars.Ints.MEDICO;
 import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 
 public class ActividadRegistro extends AppCompatActivity
@@ -59,7 +57,7 @@ public class ActividadRegistro extends AppCompatActivity
       FragmentoMedicoRegistro fragment = new FragmentoMedicoRegistro();
       ft.replace(R.id.frameFragment, fragment);
     } else {
-      Toast.makeText(this, R.string.tipoUsuarioIncorrecto, Toast.LENGTH_SHORT).show();
+      Toast.makeText(this, R.string.tipo_usuario_incorrecto, Toast.LENGTH_SHORT).show();
       return;
     }
     ft.addToBackStack(null);

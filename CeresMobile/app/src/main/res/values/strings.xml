@@ -30,10 +30,8 @@
     <string name="ap_materno">Apellido materno</string>
     <string name="ap_paterno">Apellido paterno</string>
     <string name="nombre">Nombre</string>
-    <string name="tipoUsuarioIncorrecto">Tipo de usuario incorrecto</string>
+    <string name="tipo_usuario_incorrecto">Tipo de usuario incorrecto</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="falta_nombre">Falta nombre</string>
     <string name="falta_ap_materno">Falta apellido materno</string>
     <string name="falta_ap_paterno">Falta apellido paterno</string>
@@ -52,4 +50,8 @@
     <string name="hola_paciente">Hola paciente</string>
     <string name="frutas">Frutas</string>
     <string name="nuevo_token">Nuevo token</string>
+    <string name="s_glucosa">Glucosa</string>
+    <string name="s_lipidos">Lípidos</string>
+    <string name="s_carbohidratos">Carbohidratos</string>
+    <string name="s_proteinas">Proteínas</string>
 </resources>
