@@ -9,7 +9,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
@@ -20,7 +19,7 @@ import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
 
 public class ActividadPrincipal extends AppCompatActivity
-        implements FragmentoLogin.OnLoginInteraction {
+        implements LoginFragment.OnLoginInteraction {
 
   @Override
   public void onResume() {
@@ -52,7 +51,7 @@ public class ActividadPrincipal extends AppCompatActivity
       actionBar.setDisplayShowTitleEnabled(false);
 
       FragmentTransaction ft = getFragmentManager().beginTransaction();
-      FragmentoLogin fragment = new FragmentoLogin();
+      LoginFragment fragment = new LoginFragment();
       ft.replace(R.id.frameFragment, fragment);
       ft.commit();
     }
@@ -78,7 +77,7 @@ public class ActividadPrincipal extends AppCompatActivity
     if (rolUsuario == PACIENTE) {
       intent = new Intent(this, ActividadPacientePrincipal.class);
     } else if (rolUsuario == MEDICO) {
-      intent = new Intent(this, ActividadMedicoPrincipal.class);
+      intent = new Intent(this, MedicoPrincipalActivity.class);
     }
     intent.putExtra(ID_USUARIO, idUsuario);
     intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);

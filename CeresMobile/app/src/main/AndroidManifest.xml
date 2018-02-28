@@ -25,10 +25,13 @@
             android:launchMode="singleTop"
             android:parentActivityName=".ActividadPrincipal">
         </activity>
-        <activity android:name=".ActividadPacientePrincipal"
-            android:launchMode="singleTop">
+        <activity
+            android:name=".ActividadPacientePrincipal"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity android:name=".ActividadMedicoPrincipal"
+        <activity
+            android:name=".MedicoPrincipalActivity"
             android:launchMode="singleTop">
         </activity>
     </application>

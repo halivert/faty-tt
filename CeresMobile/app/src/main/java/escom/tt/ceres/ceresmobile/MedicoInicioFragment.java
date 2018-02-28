@@ -32,11 +32,11 @@ import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.TOKEN;
 
-public class FragmentoMedicoInicio extends Fragment {
+public class MedicoInicioFragment extends Fragment {
   RequestQueue requestQueue;
   private ComunicacionFMI mListener;
 
-  public FragmentoMedicoInicio() {
+  public MedicoInicioFragment() {
   }
 
   @Override
@@ -87,7 +87,9 @@ public class FragmentoMedicoInicio extends Fragment {
     final Context context = act.getApplicationContext();
     SharedPreferences preferences = act.getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
     int idMedico = preferences.getInt(ID_USUARIO, -1);
-    String urlToken = FuncionesPrincipales.urlTokenMedico(idMedico);
+    // TODO: Agregar url de token
+    String urlToken = "http://";
+    // String urlToken = FuncionesPrincipales.urlTokenMedico(idMedico);
     final ProgressBar progressBar = act.findViewById(R.id.pbHeaderProgress);
     progressBar.setProgress(0);
     progressBar.setVisibility(View.VISIBLE);

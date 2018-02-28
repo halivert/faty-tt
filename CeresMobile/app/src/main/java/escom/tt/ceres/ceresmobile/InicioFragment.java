@@ -13,14 +13,14 @@ import static escom.tt.ceres.ceresmobile.Vars.Ints.NULL;
 import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
 
-public class FragmentoInicio extends Fragment {
+public class InicioFragment extends Fragment {
   private EnSeleccionUsuario mListener;
 
-  public FragmentoInicio() {
+  public InicioFragment() {
   }
 
-  public static FragmentoInicio newInstance(int arg1) {
-    FragmentoInicio fragment = new FragmentoInicio();
+  public static InicioFragment newInstance(int arg1) {
+    InicioFragment fragment = new InicioFragment();
     return fragment;
   }
 

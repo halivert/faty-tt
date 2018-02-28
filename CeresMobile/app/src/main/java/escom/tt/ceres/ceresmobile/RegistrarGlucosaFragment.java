@@ -1,87 +1,190 @@
 package escom.tt.ceres.ceresmobile;
 
+import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
-import android.net.Uri;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RegistrarGlucosaFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RegistrarGlucosaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+
+import static com.android.volley.Request.Method.POST;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.AZUCAR;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.FECHA_REGISTRO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.OK;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
+import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_PACIENTE;
+
 public class RegistrarGlucosaFragment extends Fragment {
-  // TODO: Rename parameter arguments, choose names that match
-  // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-  private static final String ARG_PARAM1 = "param1";
-  private static final String ARG_PARAM2 = "param2";
-
-  // TODO: Rename and change types of parameters
-  private String mParam1;
-  private String mParam2;
-
-  private OnFragmentInteractionListener mListener;
+  private String urlRegistroGlucosa = URL_PACIENTE + "/";
+  private OnRegistrarGlucosaListener mListener;
+  private RequestQueue requestQueue;
 
   public RegistrarGlucosaFragment() {
-    // Required empty public constructor
   }
 
-  /**
-   * Use this factory method to create a new instance of
-   * this fragment using the provided parameters.
-   *
-   * @param param1 Parameter 1.
-   * @param param2 Parameter 2.
-   * @return A new instance of fragment RegistrarGlucosaFragment.
-   */
-  // TODO: Rename and change types and number of parameters
-  public static RegistrarGlucosaFragment newInstance(String param1, String param2) {
+  public static RegistrarGlucosaFragment newInstance() {
     RegistrarGlucosaFragment fragment = new RegistrarGlucosaFragment();
+    /*
     Bundle args = new Bundle();
     args.putString(ARG_PARAM1, param1);
-    args.putString(ARG_PARAM2, param2);
     fragment.setArguments(args);
+    */
     return fragment;
   }
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    /*
     if (getArguments() != null) {
       mParam1 = getArguments().getString(ARG_PARAM1);
-      mParam2 = getArguments().getString(ARG_PARAM2);
     }
+    */
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
-    // Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_registrar_glucosa, container, false);
+    View view = inflater.inflate(R.layout.fragment_registrar_glucosa, container, false);
+
+    requestQueue = Volley.newRequestQueue(view.getContext());
+    SharedPreferences preferences = getActivity().getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
+    int idPaciente = preferences.getInt(ID_USUARIO, -1);
+    if (idPaciente >= 0) {
+      urlRegistroGlucosa += String.valueOf(idPaciente) + "/registroglucosa";
+    } else {
+      urlRegistroGlucosa = "";
+    }
+
+    Button guardar = view.findViewById(R.id.btnGuardarAzucar);
+    guardar.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Activity activity = getActivity();
+        InputMethodManager inputMethodManager = (InputMethodManager) activity
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        View focusedView = activity.getCurrentFocus();
+        if (focusedView != null) {
+          inputMethodManager.hideSoftInputFromWindow(focusedView.getWindowToken(), 0);
+        }
+        guardarAzucar();
+      }
+    });
+
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    String currentDate = dateFormat.format(Calendar.getInstance().getTime());
+    dateFormat = new SimpleDateFormat("HH:mm");
+    String currentTime = dateFormat.format(Calendar.getInstance().getTime());
+
+    final EditText fechaAzucar = view.findViewById(R.id.etFechaAzucar);
+    final EditText horaAzucar = view.findViewById(R.id.etHoraAzucar);
+    fechaAzucar.setText(currentDate);
+    horaAzucar.setText(currentTime);
+    fechaAzucar.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Vars.showDatePicker(getActivity(), fechaAzucar);
+      }
+    });
+    horaAzucar.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Vars.showTimePicker(getActivity(), horaAzucar);
+      }
+    });
+
+    return view;
   }
 
-  // TODO: Rename method, update argument and hook method into UI event
-  public void onButtonPressed(Uri uri) {
-    if (mListener != null) {
-      mListener.onFragmentInteraction(uri);
+  private void guardarAzucar() {
+    final Activity activity = getActivity();
+    final Context context = activity.getApplicationContext();
+    final Toast toast = new Toast(context);
+
+    HashMap<String, String> parametros = new HashMap<>();
+    EditText azucar = getActivity().findViewById(R.id.etAzucar);
+    EditText fecha = getActivity().findViewById(R.id.etFechaAzucar);
+    EditText hora = getActivity().findViewById(R.id.etHoraAzucar);
+
+    if (azucar.getText().toString().isEmpty()) {
+      toast.makeText(context, "Falta ázucar", Toast.LENGTH_LONG).show();
+      return;
     }
+    if (fecha.getText().toString().isEmpty()) {
+      toast.makeText(context, "Falta fecha", Toast.LENGTH_LONG).show();
+      return;
+    }
+    if (hora.getText().toString().isEmpty()) {
+      toast.makeText(context, "Falta hora", Toast.LENGTH_LONG).show();
+      return;
+    }
+
+    parametros.put(AZUCAR, azucar.getText().toString());
+    // parametros.put(FECHA_REGISTRO, fecha + " " + hora + ":00.0");
+    parametros.put(FECHA_REGISTRO, fecha.getText().toString() + " " + hora.getText().toString());
+    JSONObject jsonObject = new JSONObject(parametros);
+
+    JsonObjectRequest request = new JsonObjectRequest(POST, urlRegistroGlucosa, jsonObject,
+            new Response.Listener<JSONObject>() {
+              @Override
+              public void onResponse(JSONObject response) {
+                try {
+                  if (response.has(RESPUESTA)) {
+                    String respuesta = response.getString(RESPUESTA);
+                    if (respuesta.equals(OK) && response.has(MENSAJE)) {
+                      toast.makeText(context, response.getString(MENSAJE), Toast.LENGTH_LONG).show();
+                    }
+                  }
+
+                  mListener.finRegistroGlucosa();
+                } catch (Exception e) {
+                  e.printStackTrace();
+                }
+              }
+            },
+            new Response.ErrorListener() {
+              @Override
+              public void onErrorResponse(VolleyError error) {
+                toast.makeText(context, ERROR, Toast.LENGTH_SHORT).show();
+                error.printStackTrace();
+              }
+            }
+    );
+
+    requestQueue.add(request);
   }
 
   @Override
-  public void onAttach(Context context) {
-    super.onAttach(context);
-    if (context instanceof OnFragmentInteractionListener) {
-      mListener = (OnFragmentInteractionListener) context;
+  public void onAttach(Activity activity) {
+    super.onAttach(activity);
+    if (activity instanceof OnRegistrarGlucosaListener) {
+      mListener = (OnRegistrarGlucosaListener) activity;
     } else {
-      throw new RuntimeException(context.toString()
-              + " must implement OnFragmentInteractionListener");
+      throw new RuntimeException(activity.toString()
+              + " must implement OnRegistrarGlucosaListener");
     }
   }
 
@@ -91,18 +194,7 @@ public class RegistrarGlucosaFragment extends Fragment {
     mListener = null;
   }
 
-  /**
-   * This interface must be implemented by activities that contain this
-   * fragment to allow an interaction in this fragment to be communicated
-   * to the activity and potentially other fragments contained in that
-   * activity.
-   * <p>
-   * See the Android Training lesson <a href=
-   * "http://developer.android.com/training/basics/fragments/communicating.html"
-   * >Communicating with Other Fragments</a> for more information.
-   */
-  public interface OnFragmentInteractionListener {
-    // TODO: Update argument type and name
-    void onFragmentInteraction(Uri uri);
+  public interface OnRegistrarGlucosaListener {
+    int finRegistroGlucosa();
   }
 }

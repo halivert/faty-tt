@@ -5,18 +5,17 @@ import android.os.AsyncTask;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static escom.tt.ceres.ceresmobile.FuncionesPrincipales.qString;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_CONEXION;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_GENERAL;
+import static escom.tt.ceres.ceresmobile.Vars.qString;
 
 /**
  * Created by hali on 30/10/17.

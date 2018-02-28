@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
@@ -16,7 +15,6 @@ import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE_COMPLETO;
 
 
 public class FragmentoPacienteInicio extends Fragment {

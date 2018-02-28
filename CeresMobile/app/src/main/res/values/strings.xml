@@ -54,4 +54,12 @@
     <string name="s_lipidos">Lípidos</string>
     <string name="s_carbohidratos">Carbohidratos</string>
     <string name="s_proteinas">Proteínas</string>
+    <string name="registrar_glucosa">Registrar glucosa</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="azucar">Azúcar</string>
+    <string name="guardar">Guardar</string>
+    <string name="fecha">Fecha</string>
+    <string name="hora">Hora</string>
 </resources>

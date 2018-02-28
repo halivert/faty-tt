@@ -15,10 +15,10 @@ import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 
 public class ActividadRegistro extends AppCompatActivity
-        implements FragmentoInicio.EnSeleccionUsuario,
+        implements InicioFragment.EnSeleccionUsuario,
         FragmentoPacienteRegistro.CFPacienteRegistro,
         FragmentoMedicoRegistro.CFMedicoRegistro,
-        FragmentoLogin.OnLoginInteraction {
+        LoginFragment.OnLoginInteraction {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class ActividadRegistro extends AppCompatActivity
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     FragmentTransaction ft = getFragmentManager().beginTransaction();
-    FragmentoInicio fragment = new FragmentoInicio();
+    InicioFragment fragment = new InicioFragment();
     ft.replace(R.id.frameFragment, fragment);
     ft.commit();
   }
@@ -67,7 +67,7 @@ public class ActividadRegistro extends AppCompatActivity
   @Override
   public void registroExitoso(String email, String keyword) {
     FragmentTransaction ft = getFragmentManager().beginTransaction();
-    FragmentoLogin fragment = FragmentoLogin.newInstance(email, keyword);
+    LoginFragment fragment = LoginFragment.newInstance(email, keyword);
     ft.replace(R.id.frameFragment, fragment);
     ft.commit();
   }
@@ -78,7 +78,7 @@ public class ActividadRegistro extends AppCompatActivity
     if (rolUsuario == PACIENTE) {
       intent = new Intent(this, ActividadPacientePrincipal.class);
     } else if (rolUsuario == MEDICO) {
-      intent = new Intent(this, ActividadMedicoPrincipal.class);
+      intent = new Intent(this, MedicoPrincipalActivity.class);
     }
     intent.putExtra(ID_USUARIO, idUsuario);
     intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);

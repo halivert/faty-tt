@@ -6,10 +6,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
@@ -17,7 +19,8 @@ import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
 
 public class ActividadPacientePrincipal extends AppCompatActivity
-        implements FragmentoPacienteInicio.ComunicacionFPacienteI {
+        implements FragmentoPacienteInicio.ComunicacionFPacienteI,
+        RegistrarGlucosaFragment.OnRegistrarGlucosaListener {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,18 @@ public class ActividadPacientePrincipal extends AppCompatActivity
       ft.replace(R.id.frameFragment, fragment);
       ft.commit();
     }
+
+    ConstraintLayout clGlucosa = findViewById(R.id.clRegistrarGlucosa);
+    clGlucosa.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        RegistrarGlucosaFragment fragment = RegistrarGlucosaFragment.newInstance();
+        ft.replace(R.id.frameFragment, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+      }
+    });
   }
 
   @Override
@@ -67,5 +82,11 @@ public class ActividadPacientePrincipal extends AppCompatActivity
             })
             .setNegativeButton(R.string.no, null)
             .show();
+  }
+
+  @Override
+  public int finRegistroGlucosa() {
+    onBackPressed();
+    return 0;
   }
 }

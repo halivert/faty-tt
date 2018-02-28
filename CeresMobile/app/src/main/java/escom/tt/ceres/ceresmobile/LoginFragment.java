@@ -30,15 +30,15 @@ import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_DATOS;
 import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_LOGIN;
 
-public class FragmentoLogin extends Fragment {
+public class LoginFragment extends Fragment {
   private OnLoginInteraction mListener;
   private String email, keyword;
 
-  public FragmentoLogin() {
+  public LoginFragment() {
   }
 
-  public static FragmentoLogin newInstance(String email, String keyword) {
-    FragmentoLogin fragment = new FragmentoLogin();
+  public static LoginFragment newInstance(String email, String keyword) {
+    LoginFragment fragment = new LoginFragment();
     Bundle args = new Bundle();
     args.putString(EMAIL, email);
     args.putString(KEYWORD, keyword);

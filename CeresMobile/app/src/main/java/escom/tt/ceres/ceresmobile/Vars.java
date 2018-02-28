@@ -1,10 +1,56 @@
 package escom.tt.ceres.ceresmobile;
 
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TimePicker;
+
 /**
  * Created by hali on 27/10/17.
  */
 
 public class Vars {
+  public static String qString(String s) {
+    return "\"" + s + "\"";
+  }
+
+  public static String urlTokenMedico(int idMedico) {
+    return "http://35.188.191.232/tt-escom-diabetes/ceres/medico/" + String.valueOf(idMedico) + "/token/";
+  }
+
+  public static void showDatePicker(Activity activity, final EditText dtp, final String separator) {
+    DatePickerFragment datePickerFragment;
+    datePickerFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+      @Override
+      public void onDateSet(DatePicker datePicker, int year, int mes, int dia) {
+        // final String fecha = year + separator + (mes + 1) + separator + dia;
+        final String fecha = dia + separator + (mes + 1) + separator + year;
+        dtp.setText(fecha);
+      }
+    });
+
+    datePickerFragment.show(activity.getFragmentManager(), "datePicker");
+  }
+
+  public static void showDatePicker(Activity activity, final EditText dtp) {
+    showDatePicker(activity, dtp, "/");
+  }
+
+  public static void showTimePicker(Activity activity, final EditText dtp) {
+    TimePickerFragment timePickerFragment;
+    timePickerFragment = TimePickerFragment.newInstance(new TimePickerDialog.OnTimeSetListener() {
+      @Override
+      public void onTimeSet(TimePicker timePicker, int i, int i1) {
+        final String hora = i + ":" + i1;
+        dtp.setText(hora);
+      }
+    });
+
+    timePickerFragment.show(activity.getFragmentManager(), "datePicker");
+  }
+
   public static class Ints {
     public static final int MEDICO = 1, PACIENTE = 0, BORRAR = 2, NULL = -1;
     public static final int ERROR_CONEXION = 200;
@@ -14,6 +60,8 @@ public class Vars {
   }
 
   public static class Strings {
+    public static final String AZUCAR = "azucar";
+    public static final String FECHA_REGISTRO = "fechaRegistro";
     public static final String NOMBRE = "nombre";
     public static final String APELLIDO_PATERNO = "apellidoPaterno";
     public static final String APELLIDO_MATERNO = "apellidoMaterno";
@@ -37,6 +85,7 @@ public class Vars {
     public static final String URL_REGISTRO = URL_SERVIDOR + "/tt-escom-diabetes/session/usuarios";
     public static final String URL_LOGIN = URL_SERVIDOR + "/tt-escom-diabetes/session/login";
     public static final String URL_DATOS = URL_SERVIDOR + "/tt-escom-diabetes/ceres/usuarios/";
+    public static final String URL_PACIENTE = URL_SERVIDOR + "/tt-escom-diabetes/ceres/pacientes";
 
     public static final String USUARIO = "Usuario";
     public static final String LOGIN = "Login";
