@@ -27,5 +27,6 @@ package-lock.json
 # APK de android
 *.apk
 
-# Datos de prueba
+# Datos de prueba y texto plano
 data.json
+enlace-ceres.txt
