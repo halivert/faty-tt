@@ -26,3 +26,6 @@ package-lock.json
 
 # APK de android
 *.apk
+
+# Datos de prueba
+data.json
