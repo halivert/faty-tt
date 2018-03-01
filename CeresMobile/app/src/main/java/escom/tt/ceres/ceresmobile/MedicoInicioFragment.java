@@ -22,15 +22,15 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.TOKEN;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.APELLIDO_MATERNO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.APELLIDO_PATERNO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_USUARIO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.LOGIN;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.MENSAJE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.NOMBRE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.RESPUESTA;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.TOKEN;
 
 public class MedicoInicioFragment extends Fragment {
   RequestQueue requestQueue;
@@ -47,20 +47,20 @@ public class MedicoInicioFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
-    View main = inflater.inflate(R.layout.fragment_medico_inicio, container, false);
+    View view = inflater.inflate(R.layout.fragment_medico_inicio, container, false);
     SharedPreferences preferences = getActivity().getSharedPreferences(LOGIN, Context.MODE_PRIVATE);
     String nombreUsuario = preferences.getString(NOMBRE, null);
     String apPaterno = preferences.getString(APELLIDO_PATERNO, null);
     String apMaterno = preferences.getString(APELLIDO_MATERNO, null);
 
-    ImageView imageView = main.findViewById(R.id.ivFruits);
+    ImageView imageView = view.findViewById(R.id.ivFruits);
     imageView.setImageResource(R.drawable.fruits);
 
-    TextView textView = main.findViewById(R.id.textNombre);
+    TextView textView = view.findViewById(R.id.textNombre);
     if (textView != null)
       textView.setText(nombreUsuario + ' ' + apPaterno + ' ' + apMaterno);
 
-    Button btnCrearToken = main.findViewById(R.id.btnNuevoToken);
+    Button btnCrearToken = view.findViewById(R.id.btnNuevoToken);
     btnCrearToken.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -69,7 +69,7 @@ public class MedicoInicioFragment extends Fragment {
     });
     requestQueue = Volley.newRequestQueue(getActivity());
 
-    return main;
+    return view;
   }
 
   @Override

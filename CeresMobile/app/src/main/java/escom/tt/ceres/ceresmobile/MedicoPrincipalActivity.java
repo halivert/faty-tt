@@ -13,7 +13,7 @@ import android.view.View;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.LOGIN;
 
 public class MedicoPrincipalActivity extends AppCompatActivity
         implements MedicoInicioFragment.ComunicacionFMI {

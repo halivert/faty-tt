@@ -16,36 +16,30 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import java.net.URLEncoder;
-
-import static escom.tt.ceres.ceresmobile.Vars.Ints.MEDICO;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.SEXO_FEMENINO;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.SEXO_MASCULINO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.CEDULA_PROFESIONAL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_MEDICO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.EMAIL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_CONEXION;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.FECHA_NACIMIENTO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_ROL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.INFO_GUARDADA;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.KEYWORD;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.OK;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.SEXO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_REGISTRO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.MEDICO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.SEXO_FEMENINO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.SEXO_MASCULINO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.APELLIDO_MATERNO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.APELLIDO_PATERNO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.CEDULA_PROFESIONAL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.CODIGO_MEDICO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.EMAIL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.FECHA_NACIMIENTO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_ROL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.KEYWORD;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.MENSAJE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.NOMBRE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.OK;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.RESPUESTA;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.SEXO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.URL_REGISTRO;
 
 
-public class FragmentoMedicoRegistro extends Fragment {
+public class MedicoRegistroFragment extends Fragment {
   private CFMedicoRegistro mListener;
 
-  public FragmentoMedicoRegistro() {
+  public MedicoRegistroFragment() {
   }
 
   @Override
@@ -56,23 +50,23 @@ public class FragmentoMedicoRegistro extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
-    View main = inflater.inflate(R.layout.fragmento_medico_registro, container, false);
+    View view = inflater.inflate(R.layout.fragmento_medico_registro, container, false);
 
-    main.findViewById(R.id.btnRegistro).setOnClickListener(new View.OnClickListener() {
+    view.findViewById(R.id.btnRegistro).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         registrarse();
       }
     });
 
-    main.findViewById(R.id.dtpFechaNac).setOnClickListener(new View.OnClickListener() {
+    view.findViewById(R.id.dtpFechaNac).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         showDatePicker();
       }
     });
 
-    return main;
+    return view;
   }
 
   private boolean verifEditText(int stringId, int idElem) {
@@ -187,8 +181,7 @@ public class FragmentoMedicoRegistro extends Fragment {
             Toast.makeText(ctx, mensaje, Toast.LENGTH_SHORT).show();
             mListener.registroExitoso(email, keyword);
           }
-        }
-        else {
+        } else {
           Toast.makeText(ctx, resultado, Toast.LENGTH_SHORT).show();
         }
       } catch (Exception e) {

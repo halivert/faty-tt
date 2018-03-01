@@ -62,4 +62,6 @@
     <string name="guardar">Guardar</string>
     <string name="fecha">Fecha</string>
     <string name="hora">Hora</string>
+    <string name="inicio">Inicio</string>
+    <string name="generar_dieta">Generar dieta</string>
 </resources>

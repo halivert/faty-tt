@@ -17,28 +17,28 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.SEXO_FEMENINO;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.SEXO_MASCULINO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_MEDICO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.EMAIL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.FECHA_NACIMIENTO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_ROL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.KEYWORD;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.OK;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.SEXO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_REGISTRO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.PACIENTE;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.SEXO_FEMENINO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.SEXO_MASCULINO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.APELLIDO_MATERNO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.APELLIDO_PATERNO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.CODIGO_MEDICO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.EMAIL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.FECHA_NACIMIENTO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_ROL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.KEYWORD;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.MENSAJE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.NOMBRE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.OK;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.RESPUESTA;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.SEXO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.URL_REGISTRO;
 
-public class FragmentoPacienteRegistro extends Fragment {
+public class PacienteRegistroFragment extends Fragment {
   private CFPacienteRegistro mListener;
 
-  public FragmentoPacienteRegistro() {
+  public PacienteRegistroFragment() {
   }
 
   @Override
@@ -49,23 +49,23 @@ public class FragmentoPacienteRegistro extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
-    View main = inflater.inflate(R.layout.fragmento_paciente_registro, container, false);
+    View view = inflater.inflate(R.layout.fragmento_paciente_registro, container, false);
 
-    main.findViewById(R.id.btnRegistro).setOnClickListener(new View.OnClickListener() {
+    view.findViewById(R.id.btnRegistro).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         registrarse();
       }
     });
 
-    main.findViewById(R.id.dtpFechaNac).setOnClickListener(new View.OnClickListener() {
+    view.findViewById(R.id.dtpFechaNac).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         showDatePicker();
       }
     });
 
-    return main;
+    return view;
   }
 
   @Override

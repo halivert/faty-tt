@@ -10,14 +10,14 @@ import android.widget.Toast;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.MEDICO;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.MEDICO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.PACIENTE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_USUARIO;
 
 public class ActividadRegistro extends AppCompatActivity
         implements InicioFragment.EnSeleccionUsuario,
-        FragmentoPacienteRegistro.CFPacienteRegistro,
-        FragmentoMedicoRegistro.CFMedicoRegistro,
+        PacienteRegistroFragment.CFPacienteRegistro,
+        MedicoRegistroFragment.CFMedicoRegistro,
         LoginFragment.OnLoginInteraction {
 
   @Override
@@ -51,10 +51,10 @@ public class ActividadRegistro extends AppCompatActivity
   public void seleccionUsuario(int usuario) {
     FragmentTransaction ft = getFragmentManager().beginTransaction();
     if (usuario == PACIENTE) {
-      FragmentoPacienteRegistro fragment = new FragmentoPacienteRegistro();
+      PacienteRegistroFragment fragment = new PacienteRegistroFragment();
       ft.replace(R.id.frameFragment, fragment);
     } else if (usuario == MEDICO) {
-      FragmentoMedicoRegistro fragment = new FragmentoMedicoRegistro();
+      MedicoRegistroFragment fragment = new MedicoRegistroFragment();
       ft.replace(R.id.frameFragment, fragment);
     } else {
       Toast.makeText(this, R.string.tipo_usuario_incorrecto, Toast.LENGTH_SHORT).show();

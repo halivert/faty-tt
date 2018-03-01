@@ -12,11 +12,11 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_CONEXION;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_GENERAL;
-import static escom.tt.ceres.ceresmobile.Vars.qString;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.CODIGO_ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR_CONEXION;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR_GENERAL;
+import static escom.tt.ceres.ceresmobile.Functions.qString;
 
 /**
  * Created by hali on 26/10/17.
@@ -65,12 +65,12 @@ public class PostJSONReq extends AsyncTask<String, Integer, String> {
       }
     } catch (ConnectException ce) {
       return "{" + qString(ERROR) + ":" + qString(ERROR_CONEXION) + "," +
-              qString(CODIGO_ERROR) + ":" + Vars.Ints.ERROR_CONEXION + "}";
+              qString(CODIGO_ERROR) + ":" + Functions.Ints.ERROR_CONEXION + "}";
     } catch (Exception e) {
       return "{" + qString(ERROR) + ":" + qString(ERROR_GENERAL) + "," +
-              qString(CODIGO_ERROR) + ":" + Vars.Ints.ERROR_GENERAL + "}";
+              qString(CODIGO_ERROR) + ":" + Functions.Ints.ERROR_GENERAL + "}";
     }
     return "{" + qString(ERROR) + ":" + qString(ERROR_GENERAL) + "," +
-            qString(CODIGO_ERROR) + ":" + Vars.Ints.ERROR_GENERAL + "}";
+            qString(CODIGO_ERROR) + ":" + Functions.Ints.ERROR_GENERAL + "}";
   }
 }

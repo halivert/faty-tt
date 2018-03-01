@@ -12,11 +12,11 @@ import android.view.View;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.MEDICO;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_ROL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.MEDICO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.PACIENTE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_ROL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_USUARIO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.LOGIN;
 
 public class ActividadPrincipal extends AppCompatActivity
         implements LoginFragment.OnLoginInteraction {

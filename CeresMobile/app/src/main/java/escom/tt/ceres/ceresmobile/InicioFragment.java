@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import static escom.tt.ceres.ceresmobile.Vars.Ints.MEDICO;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.NULL;
-import static escom.tt.ceres.ceresmobile.Vars.Ints.PACIENTE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.MEDICO;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.NULL;
+import static escom.tt.ceres.ceresmobile.Functions.Ints.PACIENTE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR;
 
 public class InicioFragment extends Fragment {
   private EnSeleccionUsuario mListener;
@@ -32,7 +32,7 @@ public class InicioFragment extends Fragment {
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
-    View main = inflater.inflate(R.layout.fragment_inicio, container, false);
+    View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
       @Override
@@ -41,12 +41,12 @@ public class InicioFragment extends Fragment {
       }
     };
 
-    TextView textView = main.findViewById(R.id.soyPaciente);
+    TextView textView = view.findViewById(R.id.soyPaciente);
     textView.setOnClickListener(onClickListener);
-    textView = main.findViewById(R.id.soyMedico);
+    textView = view.findViewById(R.id.soyMedico);
     textView.setOnClickListener(onClickListener);
 
-    return main;
+    return view;
   }
 
   @Override

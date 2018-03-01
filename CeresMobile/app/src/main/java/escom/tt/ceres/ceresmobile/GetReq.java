@@ -11,8 +11,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_GENERAL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.CODIGO_ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR_GENERAL;
 
 /**
  * Created by hali on 26/10/17.

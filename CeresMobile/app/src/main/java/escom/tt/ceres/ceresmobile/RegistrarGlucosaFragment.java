@@ -26,15 +26,15 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 import static com.android.volley.Request.Method.POST;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.AZUCAR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.FECHA_REGISTRO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.OK;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_PACIENTE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.AZUCAR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.FECHA_REGISTRO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_USUARIO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.LOGIN;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.MENSAJE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.OK;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.RESPUESTA;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.URL_PACIENTE;
 
 public class RegistrarGlucosaFragment extends Fragment {
   private String urlRegistroGlucosa = URL_PACIENTE + "/";
@@ -106,13 +106,13 @@ public class RegistrarGlucosaFragment extends Fragment {
     fechaAzucar.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Vars.showDatePicker(getActivity(), fechaAzucar);
+        Functions.showDatePicker(getActivity(), fechaAzucar);
       }
     });
     horaAzucar.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Vars.showTimePicker(getActivity(), horaAzucar);
+        Functions.showTimePicker(getActivity(), horaAzucar);
       }
     });
 

@@ -11,11 +11,11 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import static escom.tt.ceres.ceresmobile.Vars.Strings.CODIGO_ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_CONEXION;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR_GENERAL;
-import static escom.tt.ceres.ceresmobile.Vars.qString;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.CODIGO_ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR_CONEXION;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR_GENERAL;
+import static escom.tt.ceres.ceresmobile.Functions.qString;
 
 /**
  * Created by hali on 30/10/17.
@@ -70,20 +70,20 @@ public class PostReq extends AsyncTask<String, Integer, String> {
     } catch (ConnectException ce) {
       try {
         jsonError.put(ERROR, ERROR_CONEXION);
-        jsonError.put(CODIGO_ERROR, Vars.Ints.ERROR_CONEXION);
+        jsonError.put(CODIGO_ERROR, Functions.Ints.ERROR_CONEXION);
         return jsonError.toString();
       } catch (Exception jsne) {
       }
     } catch (Exception e) {
       try {
         jsonError.put(ERROR, ERROR_GENERAL);
-        jsonError.put(CODIGO_ERROR, Vars.Ints.ERROR_GENERAL);
+        jsonError.put(CODIGO_ERROR, Functions.Ints.ERROR_GENERAL);
         return jsonError.toString();
       } catch (Exception jsne) {
       }
     }
     return "{" + qString(ERROR) + ":" + qString(ERROR_GENERAL) + "," +
-            qString(CODIGO_ERROR) + ":" + Vars.Ints.ERROR_GENERAL + "}";
+            qString(CODIGO_ERROR) + ":" + Functions.Ints.ERROR_GENERAL + "}";
   }
 }
 
