@@ -114,11 +114,6 @@ public class PacienteDaoImplTestCase {
 		
 		pacienteDto = pacienteDao.recuperarPacientePorIdPaciente(idPaciente);
 		
-		double peso = 12;
-		double proteinas = 235;
-		
-		
-		
 		//Se envia el DTO con la nueva informacion
 		pacienteDao.actualizarInformacionPaciente(pacienteDto);
 		

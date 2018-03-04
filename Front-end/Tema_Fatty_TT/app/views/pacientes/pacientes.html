@@ -4,8 +4,7 @@
 		<div class="col-lg-10">
 			<h2>Pacientes</h2>
 		</div>
-	</div>
-	
+	</div>	
 	<div class="wrapper wrapper-content animated fadeInRight">
 		<div class="row">
 			<div class="col-lg-12">
@@ -13,7 +12,6 @@
 					<div class="ibox-title">
 						Selecciona un paciente para ver su historial clínico
 					</div>
-
 					<div class="ibox-content">
 						<div class="row">
 						</div>
@@ -31,8 +29,10 @@
 								</thead>
 								<tbody>
 									<tr ng-repeat="paciente in pacientes">
-										<td><input type="radio" ng-model="usuario.id"  name="radio" value="{{paciente.id_USUARIO}}" ng-click="activarBoton()"></td>
-										<td>{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</td>
+										<td>
+											<input type="radio" ng-model="usuario.id"  name="radio" value="{{paciente.id_USUARIO}}" ng-click="activarBoton()"/>
+										</td>
+										<td><button type="button" ng-click="verUltimoHistorial(paciente.id_USUARIO)"  class="btn btn-outline btn-success boton-paciente">{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</button></td>
 										<td>{{ calculateAge(paciente.fec_NAC)}}</td>
 										<td>{{paciente.fec_NAC | date:'dd/MM/yyyy'}}</td>
 										<td>{{paciente.sexo}}</td>
@@ -69,16 +69,26 @@
         				<div class="row">
         					<div class="col-sm-6 b-r">
         						<div class="form-group "><label>Peso</label> 
-        							<input type="text" name="peso" placeholder="Peso (kg)" ng-model = "historial.peso" class="form-control" required>
+        							<div class="input-group m-b">
+        								<input type="text" name="peso" placeholder="Peso" ng-model = "historial.peso" class="form-control" required>
+        								<span class="input-group-addon">Kg</span>
+        							</div>
         						</div>
         						<div class="form-group "><label>Talla</label> 
-        							<input type="text" name="talla" placeholder="Talla (cm)"  ng-model = "historial.talla" class="form-control" required>
+        							<div class="input-group m-b">
+        								<input type="text" name="talla" placeholder="Talla"  ng-model = "historial.talla" class="form-control" required>
+        								<span class="input-group-addon">cm</span>
+        							</div>
+        							
         						</div>
         						<div class="form-group "><label>Estatura</label> 
-        							<input type="text" name ="estatura" placeholder="Estatura (cm)" ng-model = "historial.estatura" class="form-control" required>
+        							<div class="input-group m-b">
+        								<input type="text" name ="altura" placeholder="Estatura" ng-model = "historial.altura" class="form-control" required>
+        								<span class="input-group-addon">m</span>
+        							</div>
         						</div>
-        						<div class="form-group"><label>IMC</label> 
-        							<input type="text" name="imc" placeholder="IMC" ng-model = "historial.imc" class="form-control" required>
+        						<div class="form-group"><label>I.M.C</label> 
+        							<input type="text" name="imc" placeholder="{{historial.imc}}"  ng-model = "historial.imc" class="form-control" disabled="disabled">
         						</div>
         					</div>
         					<div class="col-sm-6">
@@ -103,7 +113,7 @@
         				</div>
         			</form>
         			<div>
-        				<button class="btn btn-sm btn-success pull-right m-t-n-xs" ng-click="guardarHistorialClinico()" ><strong>Guardar</strong></button> 
+        				<button class="btn btn-sm btn-success pull-right m-t-n-xs" type="submit" ng-disabled="!validaForm()" ng-click="guardarHistorialClinico()" ><strong>Guardar</strong></button> 
         			</div>
         		</div>
         	</div>

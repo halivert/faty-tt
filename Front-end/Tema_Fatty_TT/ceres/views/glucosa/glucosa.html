@@ -1,0 +1,11 @@
+<div class="row wrapper border-bottom white-bg page-heading"> <div class="col-lg-10"> <h2>Registrar glucosa</h2> </div> </div> <div class="wrapper wrapper-content animated fadeInRight" ng-controller="glucosaCtrl"> <div class="ibox float-e-margins"> <div class="row"> <div class="col-lg-12"> <div class="tabs-container"> <ul class="nav nav-tabs"> <li class="active"><a data-toggle="tab" data-target="#tab-1">Registrar Glucosa</a></li> <li class=""><a data-toggle="tab" data-target="#tab-2">Ver registros</a></li> </ul> <div class="tab-content"> <div id="tab-1" class="tab-pane active"> <div class="panel-body"> <h5>Ingrese los datos del glucometro<small></small></h5> <div class="ibox-content"> <div class="row"> <div class="col-sm-6 b-r"> <form role="form"> <div class="form-group" id="data_2"> <label class="font-normal">Fecha</label> <div class="input-group date"> <span class="input-group-addon"><i class="fa fa-calendar"></i></span> <input type="text" ng-model="registroGlucosa.fechaReg" class="form-control" value="dd/MM/yyyy" required> <small class="text-danger" ng-show=""></small> </div> </div> <div class="form-group"><label>Resultados</label> <input ng-model="registroGlucosa.azucar" type="text" placeholder="mg/dL" class="form-control"></div> </form> </div> <div class="col-sm-6"><h4>Registrar</h4> <p class="text-center"> <a ng-click="guardarRegistroGlucosa()"><i class="fa fa-sign-in big-icon"></i></a> </p> </div> </div> </div> </div> </div> <div id="tab-2" class="tab-pane"> <div class="panel-body"> <strong>REGISTROS</strong> CONTENIDO </div> </div> </div> </div> </div> </div> </div> <script>$(document).ready(function(){
+		$('#data_2 .input-group.date').datepicker({
+			startView: 1,
+			todayBtn: "linked",
+			keyboardNavigation: false,
+			forceParse: false,
+			autoclose: true,
+			format: "dd/mm/yyyy",
+			language: 'es'
+		});
+	});</script> </div>

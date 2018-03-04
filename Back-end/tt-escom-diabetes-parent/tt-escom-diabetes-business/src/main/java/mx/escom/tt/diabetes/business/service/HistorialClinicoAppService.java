@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.utils.Constants;
+import mx.escom.tt.diabetes.commons.vo.UltimoHistorialClinicoVo;
 import mx.escom.tt.diabetes.model.dao.HistorialClinicoDao;
 import mx.escom.tt.diabetes.model.dto.HistorialClinicoDto;
 
@@ -126,6 +127,93 @@ public class HistorialClinicoAppService {
 			msjEx = Constants.MSJ_EXCEPTION + "al guardar la información del historial clínico. \n" + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
 		}
+		
+		log.debug("Fin - Service");
+	}
+	
+	public UltimoHistorialClinicoVo recuperarUltimoHistorialClinicoPorIdPaciente(Integer idPaciente) throws RuntimeException{
+		log.debug("Inicio - Service");
+		
+		String msjEx = null;
+		UltimoHistorialClinicoVo ultimoHistorialClinicoVo = null; 
+		if(idPaciente == null) {
+			msjEx = "El identificador del paciente no puede ser nulo.";
+			throw new RuntimeException(msjEx);
+		}
+		
+		try {
+			
+			ultimoHistorialClinicoVo = historialClinicoDao.recuperarUltimoHistorialClinicoPorIdPaciente(idPaciente);	
+			
+			if(ultimoHistorialClinicoVo == null) {
+				msjEx = "No se encontró la información para el paciente con id: " + idPaciente + "." ;
+				throw new RuntimeException(msjEx);
+			}
+			
+		}catch(RuntimeException ex) {
+			throw new RuntimeException(msjEx);
+		}catch(Exception ex){
+			msjEx = Constants.MSJ_EXCEPTION + "al recuperar el historial clinico.";
+			throw new RuntimeException(msjEx,ex.getCause());
+		}
+		log.debug("Fin - Service");
+		return ultimoHistorialClinicoVo;
+	}
+	
+	/**
+	 * Proposito :  Actualizar un historial clinico
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 05/02/2018
+	 * @param historialClinicoDto		-	Informacion del historial que se quiere actualizar
+	 * @throws RuntimeException			-	Si ocurre un error durante la ejecucion
+	 */
+	public void actualizarHistorialClinico(HistorialClinicoDto historialClinicoDto) throws RuntimeException{
+		log.debug("Inicio - Service");
+		
+		String msjEx = null;
+		HistorialClinicoDto aux = null;
+		
+		if(historialClinicoDto == null) {
+			msjEx = "La información del historial no puede ser nula.";
+			throw new RuntimeException(msjEx);
+		}
+		
+		try{
+			aux = historialClinicoDao.recuperarHistorialClinicoPorId(historialClinicoDto.getIdHistorialClinico());
+			
+			if(aux == null) {
+				msjEx = "No se encontró información del historial con id : " + historialClinicoDto.getIdHistorialClinico() + "\n No se puede actualizar la información";
+				throw new RuntimeException(msjEx);
+			}
+			
+			if(aux.getIdPaciente() != historialClinicoDto.getIdPaciente()){
+				msjEx = "El historial clinico no pertenece al paciente con id :" + historialClinicoDto.getIdPaciente();
+				throw new RuntimeException(msjEx);
+			}
+			
+			
+			
+			{//Se arma el DTO que se quiere actualizar
+				aux.setAzucar(historialClinicoDto.getAzucar());
+				aux.setCarbohidratos(historialClinicoDto.getCarbohidratos());
+				aux.setEstatura(historialClinicoDto.getEstatura());
+				aux.setImc(historialClinicoDto.getImc());
+				aux.setLipidos(historialClinicoDto.getLipidos());
+				aux.setPeso(historialClinicoDto.getPeso());
+				aux.setProteinas(historialClinicoDto.getProteinas());
+				aux.setTalla(historialClinicoDto.getTalla());
+			}
+			
+			historialClinicoDao.actualizarHistorialClinico(aux);
+			
+		}catch(RuntimeException ex) {
+			throw ex;
+		}catch(Exception ex){
+			msjEx = Constants.MSJ_EXCEPTION + "al actualizar la información del registro. \n" + ex.getMessage();
+			throw new RuntimeException(msjEx,ex.getCause());
+		}
+		
+
 		
 		log.debug("Fin - Service");
 	}

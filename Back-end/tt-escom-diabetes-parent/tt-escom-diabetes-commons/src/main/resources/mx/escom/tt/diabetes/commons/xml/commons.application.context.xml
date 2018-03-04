@@ -11,14 +11,19 @@
 	<bean id="systemConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
-			<value>file:/opt/SUNWappserver/conf/config.tt.diabetes.properties</value>
+			<value>file:/opt/SUNWappserver/conf/config.tt.diabetes.properties
+			</value>
 		</property>
 	</bean>
 
 	<bean id="FormatoFechaNacimiento" class="java.text.SimpleDateFormat">
-    	<constructor-arg index="0">
-    		<value>${formato.fecha}</value>
-    	</constructor-arg>
-    </bean>
-    
+		<constructor-arg index="0">
+			<value>${formato.fecha}</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="FormatoTimpeStamp" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd hh:mm:ss.SSS"></constructor-arg>
+	</bean>
+
 </beans>

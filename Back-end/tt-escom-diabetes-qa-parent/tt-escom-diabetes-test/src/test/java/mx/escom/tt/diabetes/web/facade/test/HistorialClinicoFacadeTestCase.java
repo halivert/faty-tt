@@ -11,11 +11,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
-import mx.escom.tt.diabetes.model.dto.HistorialClinicoDto;
 import mx.escom.tt.diabetes.web.facade.HistorialClinicoFacade;
 import mx.escom.tt.diabetes.web.vo.HistorialClinicoListVo;
 import mx.escom.tt.diabetes.web.vo.HistorialClinicoVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
+import mx.escom.tt.diabetes.web.vo.UltimoHistorialFacadeVo;
 
 @CommonsLog
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -37,14 +37,36 @@ public class HistorialClinicoFacadeTestCase {
 	public void recuperarHistorialClinicoPorId() {
 		log.debug("Inicio - Test");
 		
-		HistorialClinicoDto historialClinicoDto = null;
+		HistorialClinicoVo historialClinicoVo = null;
 		String idHistorialClinicoStr = "4";
 		
-		historialClinicoDto = historialClinicoFacade.recuperarHistorialClinicoPorId(idHistorialClinicoStr);
+		historialClinicoVo = historialClinicoFacade.recuperarHistorialClinicoPorId(idHistorialClinicoStr);
 
-		if(historialClinicoDto != null) {
+		if(historialClinicoVo != null) {
 			XStream xStream = new XStream();
-			log.debug("xStream.toXML(historialClinicoDto): \n" + xStream.toXML(historialClinicoDto));
+			log.debug("xStream.toXML(historialClinicoDto): \n" + xStream.toXML(historialClinicoVo));
+		}
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarUltimoHistorialClinicoPorIdPaciente
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 18/02/2018
+	 * @see HistorialClinicoFacade#recuperarUltimoHistorialClinicoPorIdPaciente(String)	|
+	 */
+	@Test
+	public void recuperarUltimoHistorialClinicoPorIdPaciente() {
+		log.debug("Inicio - Test");
+		
+		UltimoHistorialFacadeVo ultimoHistorialFacadeVo = null;
+		String idPacienteStr = "117";
+		
+		ultimoHistorialFacadeVo = historialClinicoFacade.recuperarUltimoHistorialClinicoPorIdPaciente(idPacienteStr);
+
+		if(ultimoHistorialFacadeVo != null) {
+			XStream xStream = new XStream();
+			log.debug("xStream.toXML(ultimoHistorialFacadeVo): \n" + xStream.toXML(ultimoHistorialFacadeVo));
 		}
 		log.debug("Fin - Test");
 	}
@@ -112,6 +134,50 @@ public class HistorialClinicoFacadeTestCase {
 		
 		
 		respuestaVo = historialClinicoFacade.guardarHistorialClinico(historialClinicoVo);
+		
+		log.debug("respuestaVo : " + respuestaVo.toString());
+		
+		log.debug("Fin - Test");
+	}
+	
+	@Test
+	public void actualizarHistorialClinico() {
+		log.debug("Inicio - Test");
+		
+		HistorialClinicoVo historialClinicoVo = new HistorialClinicoVo();
+		RespuestaVo respuestaVo = null;
+		
+		String idPaciente = "96";
+		String idHistorialClinico = "11";
+		
+		String peso = "72.5";
+		String talla = "70";
+		String estatura = "170";
+		String imc = "22";
+		
+		String lipidos = "2.44";
+		String carbohidratos = "3.4";
+		String proteinas = "2.5";
+		String azucar = "100";
+		
+		
+		{//SE ARMA EL VO
+			historialClinicoVo.setIdHistorialClinico(idHistorialClinico);
+			historialClinicoVo.setIdPaciente(idPaciente);
+			historialClinicoVo.setPeso(peso);
+			historialClinicoVo.setTalla(talla);
+			historialClinicoVo.setEstatura(estatura);
+			historialClinicoVo.setImc(imc);
+			historialClinicoVo.setLipidos(lipidos);
+			historialClinicoVo.setCarbohidratos(carbohidratos);
+			historialClinicoVo.setProteinas(proteinas);
+			historialClinicoVo.setAzucar(azucar);		
+		}	
+		
+		
+		respuestaVo = historialClinicoFacade.actualizarHistorialClinico(historialClinicoVo);
+		
+		log.debug("respuestaVo : " + respuestaVo.toString());
 		
 		log.debug("Fin - Test");
 	}

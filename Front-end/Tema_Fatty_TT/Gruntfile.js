@@ -17,7 +17,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         // Project settings
-        inspinia: appConfig,
+        trabajoTerminal: appConfig,
 
         // The grunt server settings
         connect: {
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     open: true,
-                    base: '<%= inspinia.dist %>'
+                    base: '<%= trabajoTerminal.dist %>'
                 }
             }
         },
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
                 },
             },
             js: {
-                files: ['<%= inspinia.app %>/scripts/{,*/}*.js'],
+                files: ['<%= trabajoTerminal.app %>/scripts/{,*/}*.js'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 }
@@ -81,9 +81,9 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= inspinia.app %>/**/*.html',
+                    '<%= trabajoTerminal.app %>/**/*.html',
                     '.tmp/styles/{,*/}*.css',
-                    '<%= inspinia.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                    '<%= trabajoTerminal.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
         },
@@ -102,8 +102,8 @@ module.exports = function (grunt) {
                     dot: true,
                     src: [
                         '.tmp',
-                        '<%= inspinia.dist %>/{,*/}*',
-                        '!<%= inspinia.dist %>/.git*'
+                        '<%= trabajoTerminal.dist %>/{,*/}*',
+                        '!<%= trabajoTerminal.dist %>/.git*'
                     ]
                 }]
             },
@@ -116,8 +116,8 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         dot: true,
-                        cwd: '<%= inspinia.app %>',
-                        dest: '<%= inspinia.dist %>',
+                        cwd: '<%= trabajoTerminal.app %>',
+                        dest: '<%= trabajoTerminal.dist %>',
                         src: [
                             '*.{ico,png,txt}',
                             '.htaccess',
@@ -132,20 +132,20 @@ module.exports = function (grunt) {
                         dot: true,
                         cwd: 'bower_components/fontawesome',
                         src: ['fonts/*.*'],
-                        dest: '<%= inspinia.dist %>'
+                        dest: '<%= trabajoTerminal.dist %>'
                     },
                     {
                         expand: true,
                         dot: true,
                         cwd: 'bower_components/bootstrap',
                         src: ['fonts/*.*'],
-                        dest: '<%= inspinia.dist %>'
+                        dest: '<%= trabajoTerminal.dist %>'
                     },
                 ]
             },
             styles: {
                 expand: true,
-                cwd: '<%= inspinia.app %>/styles',
+                cwd: '<%= trabajoTerminal.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
             }
@@ -154,9 +154,9 @@ module.exports = function (grunt) {
         filerev: {
             dist: {
                 src: [
-                    '<%= inspinia.dist %>/scripts/{,*/}*.js',
-                    '<%= inspinia.dist %>/styles/{,*/}*.css',
-                    '<%= inspinia.dist %>/styles/fonts/*'
+                    '<%= trabajoTerminal.dist %>/scripts/{,*/}*.js',
+                    '<%= trabajoTerminal.dist %>/styles/{,*/}*.css',
+                    '<%= trabajoTerminal.dist %>/styles/fonts/*'
                 ]
             }
         },
@@ -171,9 +171,9 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= inspinia.dist %>',
+                    cwd: '<%= trabajoTerminal.dist %>',
                     src: ['*.html', 'views/{,*/}*.html'],
-                    dest: '<%= inspinia.dist %>'
+                    dest: '<%= trabajoTerminal.dist %>'
                 }]
             }
         },

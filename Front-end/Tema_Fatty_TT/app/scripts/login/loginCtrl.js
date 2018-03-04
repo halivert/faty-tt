@@ -32,6 +32,8 @@ angular.module('trabajoTerminal')
     //TODO revisar si se elimina correctamente la informacion de las cookies
     $cookies.remove("nombre","");
     $cookies.remove("idUsuario","");
+    $cookies.remove("idCurrentPaciente","");
+
   }
 
 /**
@@ -44,6 +46,7 @@ angular.module('trabajoTerminal')
 
       $cookies.put("auth","true");
       $cookies.put("idUsuario",d.idUsuario);
+      $cookies.put("idCurrentPaciente",d.idUsuario);
       toastr.success(d.mensaje,'Ok');
               loginService.recuperarInformacionUsuario(d.idUsuario).then( 
                 function successCallback(informacionUsuario){
@@ -55,7 +58,7 @@ angular.module('trabajoTerminal')
                   $state.transitionTo('index.main');
 
                 });
-              blockUI.stop();
+      blockUI.stop();
 
             },
             function errorCallback(d) {

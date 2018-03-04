@@ -32,6 +32,9 @@ recuperarListaPacientes: function(idMedico) {
         });
     },
 
+/**
+* recuperarNumeroPacientes - Recuperar el numero de pacientes asociados a un medico 
+*/
 recuperarNumeroPacientes: function(idMedico) {
       
       var data = $.param({idMedico: idMedico});
@@ -143,32 +146,49 @@ guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos
 /**
 * recuperarDetallHistorialClinico - Recuperar la informacion detallada de un historial clinico 
 */
-recuperarDetallHistorialClinico: function(idPaciente) {
+recuperarDetallHistorialClinico: function(idPaciente,idHistorialClinico) {
 
-  var data = $.param({idPaciente: idPaciente});
+  var data = $.param({idPaciente: idPaciente, idHistorialClinico:idHistorialClinico});
   var config = {
     headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
   }
 
-  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/1';  
+  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/'+idHistorialClinico;  
       //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'pacientes/;
 
       return $http.get(url,data,config).then(
         function successCallback(response) {
-          if(response.data.respuesta === "OK"){
-            console.log("response OK : " + JSON.stringify(response.data));
-            return response.data;
-          }
-          else if (response.data.respuesta === "ERROR"){
-            console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
-            return $q.reject(response);
-          }                   
+            return response.data;                           
+        },
+        function errorCallback(response) {
+          console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
+          return $q.reject(response);
+        });
+    },
+
+/**
+* recuperaUltimoHistorial - Recupera el ultimo historial de un paciente
+*/
+ recuperaUltimoHistorial: function(idPaciente) {
+
+  //var data = $.param({idPaciente: idPaciente, idHistorialClinico:idHistorialClinico});
+  var config = {
+    headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
+  }
+
+  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/ultimoHistorialclinico' 
+      //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'pacientes/;
+
+      return $http.get(url,config).then(
+        function successCallback(response) {
+            return response.data;                           
         },
         function errorCallback(response) {
           console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
           return $q.reject(response);
         });
     }
-  }
+       
+}
 
 })

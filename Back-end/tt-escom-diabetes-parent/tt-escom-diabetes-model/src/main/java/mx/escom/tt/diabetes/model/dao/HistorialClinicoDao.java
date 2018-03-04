@@ -2,6 +2,7 @@ package mx.escom.tt.diabetes.model.dao;
 
 import java.util.List;
 
+import mx.escom.tt.diabetes.commons.vo.UltimoHistorialClinicoVo;
 import mx.escom.tt.diabetes.model.dto.HistorialClinicoDto;
 
 public interface HistorialClinicoDao {
@@ -26,6 +27,16 @@ public interface HistorialClinicoDao {
 	public HistorialClinicoDto recuperarHistorialClinicoPorId(Integer idHistorialClinico) throws RuntimeException;
 	
 	/**
+	 * Proposito : Obtener el ultimo historial clinico registrado de un paciente por medio de su id
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 18/02/2018
+	 * @param idPaciente				-	Identificador del paciente
+	 * @return UltimoHistorialClinicoVo	-	Informacion del registro buscado
+	 * @throws RuntimeException			-	Si ocurre un error durante la ejecucion
+	 */
+	public UltimoHistorialClinicoVo recuperarUltimoHistorialClinicoPorIdPaciente(Integer idPaciente) throws RuntimeException;
+	
+	/**
 	 * Proposito : Recuperar la lista de registros de historial clinico de un Usuario-Paciente. 
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 04/11/2017
@@ -35,5 +46,13 @@ public interface HistorialClinicoDao {
 	 */
 	public List<HistorialClinicoDto> recuperarListaHistorialClinicoPorIdPaciente(Integer idPaciente) throws RuntimeException;
 
-	
+	/**
+	 * Proposito : Actualizar la informacion de un histotial clinico 
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 05/02/2018
+	 * @param historialClinicoDto			-	Objeto con la informacion que se quiere actualizar 
+	 * @throws RuntimeException				-	Si ocurre un error durante la ejecucion
+	 */
+	public void actualizarHistorialClinico(HistorialClinicoDto historialClinicoDto) throws RuntimeException;
+
 }

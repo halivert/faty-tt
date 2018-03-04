@@ -21,7 +21,6 @@ angular.module('trabajoTerminal')
     .then(function successCallback(response) {
 
       if(response.data.respuesta === "OK"){
-        console.log("response OK : " + JSON.stringify(response.data));
         return response.data;  
       }
       else{

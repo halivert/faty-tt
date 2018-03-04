@@ -44,7 +44,8 @@
                 <value>mx.escom.tt.diabetes.model.dto.PacienteDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.MedicoDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.HistorialClinicoDto</value>      
-                <value>mx.escom.tt.diabetes.model.dto.TokenMedicoDto</value>                          
+                <value>mx.escom.tt.diabetes.model.dto.TokenMedicoDto</value>                         
+                <value>mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto</value>                          
             </list>
         </property>
 		
@@ -86,8 +87,12 @@
  	</bean>
  	<bean id="HistorialClinicoDao" class="mx.escom.tt.diabetes.model.dao.impl.HistorialClinicoDaoImpl">
   		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+  		<property name="ql" ref="HistorialClinicoQlHelper"/>  
  	</bean>
  	<bean id="TokenMedicoDao" class="mx.escom.tt.diabetes.model.dao.impl.TokenMedicoDaoImpl">
+  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+ 	</bean>
+ 	<bean id="RegistroGlucosaDao" class="mx.escom.tt.diabetes.model.dao.impl.RegistroGlucosaDaoImpl">
   		<property name="sessionFactory" ref="SessionFactoryCliente"/>
  	</bean>
 <!-- /DECLARACION DE DAO's -->	
@@ -103,6 +108,26 @@
 						SELECT usuarioDto
 						FROM UsuarioDto usuarioDto
 						WHERE usuarioDto.idUsuario = :idUsuario
+					</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="HistorialClinicoQlHelper" class="mx.escom.tt.diabetes.model.hql.HistorialClinicoQlHelper">
+		<property name="queries">
+			<map>
+				<entry key="RECUPERA_ULTIMO_HISTORIAL_CLINICO_POR_ID_PACIENTE">
+					<value>
+						SELECT 
+							ID_HISTORIAL_CLINICO, ID_PACIENTE, 
+							NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO, EMAIL, FECHA_NACIMIENTO, SEXO,
+							FECHA, 
+							PESO, TALLA, ESTATURA, IMC, LIPIDOS, CARBOHIDRATOS, 
+							PROTEINAS, AZUCAR 
+						FROM HISTORIAL_CLINICO, USUARIO 
+						WHERE (ID_PACIENTE = :idPaciente AND ID_USUARIO=ID_PACIENTE) 
+						ORDER BY FECHA DESC LIMIT 1;
 					</value>
 				</entry>
 			</map>

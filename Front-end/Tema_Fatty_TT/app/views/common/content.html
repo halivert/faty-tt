@@ -2,14 +2,16 @@
 <div id="wrapper">
 
     <!-- Navigation -->
-    
-        <div ng-if="obtenerRol() == 'P'">
-            <div ng-include="'views/common/navigationPaciente.html'"></div>
+
+    <div ng-switch on="obtenerRol()">
+        <div ng-switch-when='P'>
+        <div ng-include="'views/common/navigationPaciente.html'"></div>
         </div>
-        <div ng-if="obtenerRol () == 'M'">
-            <div ng-include="'views/common/navigationMedico.html'"></div>
+        <div ng-switch-default>
+        <div ng-include="'views/common/navigationMedico.html'"></div>
         </div>
-   
+    </div>
+
     <!-- Page wraper -->
     <!-- ng-class with current state name give you the ability to extended customization your view -->
     <div id="page-wrapper" class="gray-bg {{$state.current.name}}">

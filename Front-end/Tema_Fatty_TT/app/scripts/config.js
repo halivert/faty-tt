@@ -52,6 +52,24 @@
         authenticate: true,
         data: { pageTitle: 'Historial Clinico' }
     })
+    .state('index.informacionGeneral', {
+        url: "/informacionGeneral",
+        templateUrl: "views/pacientes/informacion_general.html",
+        authenticate: true,
+        data: { pageTitle: 'Información Paciente' }
+    })
+    .state('index.dieta', {
+        url: "/dieta",
+        templateUrl: "views/dieta/dieta.html",
+        authenticate: true,
+        data: { pageTitle: 'Dieta' }
+    })
+    .state('index.dietaRigurosa', {
+        url: "/dietaRigurosa",
+        templateUrl: "views/dieta/dieta_rigurosa.html",
+        authenticate: true,
+        data: { pageTitle: 'Generar Dieta' }
+    })
 
 }
 /**

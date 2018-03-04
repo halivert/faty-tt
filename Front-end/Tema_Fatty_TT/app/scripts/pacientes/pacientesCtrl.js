@@ -2,19 +2,26 @@
 * pacientesCtrl - Controlador ligado a la vista pacientes.html
 */
 angular.module('trabajoTerminal')
-.controller('pacientesCtrl', function($scope,$log,pacientesService,loginService,toastr,blockUI,$cookies,$filter,$state,$cookies){
+.controller('pacientesCtrl', function($scope,$log,pacientesService,loginService,toastr,blockUI,$cookies,$filter,$state,$cookies,glucosaService){
 
   $scope.pacientes = [];
   $scope.listhistorialclinico = [];
-  //$scope.historial = {};
   $scope.usuario = {
     id:''
   };
-  var idCurrentPaciente;
+  var idHistorial = "";
+  var idCurrentPaciente = "";
   $scope.nombreCompletoPaciente;
   $scope.currentPaciente={};
   $scope.numero=0;
   $scope.desactivarBoton=true;
+  $scope.historialDetalle={};
+  $scope.imc;
+  $scope.historial={
+    peso:'',
+    altura:''
+  }
+  
 
 /**
 * verPacientes  - Funcion que se ejecuta cuando se carga la vista de pacientes.html, lista los pacientes asociados a un medico
@@ -80,18 +87,11 @@ $scope.recuperaInfoPaciente = function(idCurrentPaciente){
 
   var nombre = loginService.recuperarInformacionUsuario(idCurrentPaciente).then( 
     function successCallback(informacionUsuario){
-      $scope.nombreCompletoPaciente = informacionUsuario.nombre + " " + informacionUsuario.apellidoPaterno + " " + informacionUsuario.apellidoMaterno;
-      //$log.debug("nombreCompletoPaciente : " + nombreCompletoPaciente);
-      //$log.debug("informacionUsuario.idRol : " + informacionUsuario.idRol);
-      //$cookies.put("rol",informacionUsuario.idRol);
-      //$cookies.put("nombre",nombreCompleto);  
-      //$state.transitionTo('index.main');
-
-      //return nombreCompletoPaciente;
-
+      $scope.currentPaciente.nombreCompletoPaciente = informacionUsuario.nombre + " " + informacionUsuario.apellidoPaterno + " " + informacionUsuario.apellidoMaterno;
+      $scope.currentPaciente.fechaNac = informacionUsuario.fechaNacimiento;
+      $scope.currentPaciente.edad = $scope.calculateAge(informacionUsuario.fechaNacimiento); 
+      console.log("$scope.currentPaciente.nombreCompletoPaciente " + $scope.currentPaciente.nombreCompletoPaciente); 
     });
-
-  //return nombre;
 }
 /**
 * verHistorial  - Recuperar la informacion del historial clinico del paciente seleccionado
@@ -109,7 +109,8 @@ $scope.verHistorial = function(){
         toastr.warning("El paciente aún no tiene historial clínico.", 'Atención');
       }//else{
         $scope.listhistorialclinico = d;
-        $log.debug("JSON.stringify(d)" + JSON.stringify(d));
+        //$log.debug("JSON.stringify(d)" + JSON.stringify(d));
+        console.log("JSON.stringify(d)" + JSON.stringify(d));
       //}
       
       angular.element(document).ready(function() {  
@@ -131,6 +132,37 @@ $scope.verHistorial = function(){
 },
 
 /**
+* verUltimoHistorial - Establece el idCurrentPaciente y despues redirecciona a la pagina informacion_general
+*/
+$scope.verUltimoHistorial = function(idCurrentPaciente){
+
+  $cookies.put("idCurrentPaciente",idCurrentPaciente);
+  $state.transitionTo('index.informacionGeneral');
+},
+/**
+* mostrarInformacionGeneral - Funcion que se ejecuta cuando carga la pagina informacion_general, la info que se mostrara es el ultimo historial clinico del paciente
+*/
+$scope.mostrarInformacionGeneral = function(){
+  blockUI.start();
+  pacientesService.recuperaUltimoHistorial($cookies.get("idCurrentPaciente")).then(
+
+    function successCallback(d) {
+      $scope.historialDetalle = d;
+    },
+    function errorCallback(d) {
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        $log.debug("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
+        toastr.error(d.data.mensaje, 'Error');
+      }
+    });
+
+
+  blockUI.stop();
+},
+
+/**
 * setCurrentPaciente  - Funcion que guarda el id del paciente en una cookie y hace la transicion para la vista historialClinico 
 */
 $scope.setCurrentPaciente = function(){
@@ -143,10 +175,8 @@ $scope.setCurrentPaciente = function(){
 */
 $scope.guardarHistorialClinico = function(){
   console.log("guardarHistorialClinico()");
-  var date = new Date();
-  console.log("date : " + date);
 
-  pacientesService.guardarInfoHistorialClinico($scope.usuario.id,$scope.historial.peso,$scope.historial.talla,$scope.historial.estatura,$scope.historial.imc,$scope.historial.lipidos,$scope.historial.carbohidratos,$scope.historial.proteinas,$scope.historial.azucar).then(
+  pacientesService.guardarInfoHistorialClinico($scope.usuario.id,$scope.historial.peso,$scope.historial.talla,$scope.historial.altura,$scope.historial.imc,$scope.historial.lipidos,$scope.historial.carbohidratos,$scope.historial.proteinas,$scope.historial.azucar).then(
 
     function successCallback(d) {
       angular.element('#modal-paciente').modal('hide');
@@ -164,34 +194,83 @@ $scope.guardarHistorialClinico = function(){
 },
 
 /**
+* recuperaHistorial  - Recuperar la informacion del historial clinico del paciente seleccionado
+*/
+$scope.recuperaHistorial = function(idHistorial){
+  console.log("recuperaHistorial()");
+  console.log("idHistorial : " + idHistorial);
+  blockUI.start();
+  idCurrentPaciente = $cookies.get("idCurrentPaciente")
+
+  pacientesService.recuperarDetallHistorialClinico(idCurrentPaciente,idHistorial).then(
+
+    function successCallback(d) {
+      console.log(JSON.stringify(d));
+      $scope.historialDetalle = d;
+      $scope.activarBoton();
+    },
+    function errorCallback(d) {
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        $log.debug("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
+        toastr.error(d.data.mensaje, 'Error');
+      }
+    });
+  blockUI.stop();
+},
+
+/**
 * recuperarRegistrosGlucosa  - Recupera los registros de glucosa de un paciente, por medio del idUsuario
 */
 $scope.recuperarRegistrosGlucosa = function(){
   console.log("recuperarRegistrosGlucosa()");
-  var date = new Date();
-  console.log("date : " + date);
 
-  $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-  $scope.series = ['Series A'];
-  $scope.data = [
-  [65, 59, 80, 81, 56, 55, 40]
-  ];
-  $scope.onClick = function (points, evt) {
-    console.log(points, evt);
-  };
-  $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
-  $scope.options = {
-    scales: {
-      yAxes: [
-      {
-        id: 'y-axis-1',
-        type: 'linear',
-        display: true,
-        position: 'left'
+  blockUI.start();
+  var idPaciente =  $cookies.get("idCurrentPaciente")
+
+  glucosaService.recuperarRegistrosGlucosaService(idPaciente).then(
+
+    function successCallback(d) {
+      $scope.series = ['Nivel de glucosa'];
+
+      $scope.labels = [];
+      $scope.data = [[]];
+
+      
+        d.forEach(function (data) {
+          $scope.labels.push(data.fechaRegistro);
+          $scope.data[0].push(data.azucar);
+        });
+
+      $scope.onClick = function (points, evt) {
+        console.log(points, evt);
+      };
+      $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
+      $scope.options = {
+        scales: {
+          yAxes: [
+          {
+            id: 'y-axis-1',
+            type: 'linear',
+            display: true,
+            position: 'left'
+          }
+          ]
+        }
+      };
+
+
+    },
+    function errorCallback(d) {
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        $log.debug("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
+        toastr.error(d.data.mensaje, 'Error');
       }
-      ]
-    }
-  };  
+    });
+  blockUI.stop();
 
 },  
 
@@ -217,7 +296,26 @@ $scope.activarBoton = function activarBoton() {
 */
 $scope.esValido = function esValido() { 
   return $scope.desactivarBoton;
+},
+
+/**
+* validaForm  - Funcion que valida el formulario del modal para agregar un nuevo historial clinico 
+*/
+$scope.validaForm =function(){
+  if($scope.formHistorial.$valid){
+    console.log($scope.historial.imc = ($scope.historial.peso)/Math.pow($scope.historial.altura,2));
+    return  true;
+  }
+  else{
+    if($scope.historial.peso && $scope.historial.altura){
+      $scope.historial.imc=  ($scope.historial.peso)/Math.pow($scope.historial.altura,2);
+    }else{
+      $scope.historial.imc = "IMC"
+    }
+    return false   
+  }
 }
+
 
 });
 

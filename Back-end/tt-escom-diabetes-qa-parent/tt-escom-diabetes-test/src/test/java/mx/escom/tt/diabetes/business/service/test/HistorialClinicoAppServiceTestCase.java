@@ -13,6 +13,7 @@ import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.HistorialClinicoAppService;
+import mx.escom.tt.diabetes.commons.vo.UltimoHistorialClinicoVo;
 import mx.escom.tt.diabetes.model.dto.HistorialClinicoDto;
 
 @CommonsLog
@@ -58,6 +59,41 @@ public class HistorialClinicoAppServiceTestCase {
 			historialClinicoDto.setAzucar(azucar);		
 		}	
 		historialClinicoAppService.guardarHistorialClinico(historialClinicoDto);
+
+		log.debug("Fin - Test");
+	}
+	
+	@Test
+	public void actualizarHistorialClinico(){
+		log.debug("Inicio - Test");
+		
+		HistorialClinicoDto historialClinicoDto = new HistorialClinicoDto();
+		
+		Integer idPaciente = 96;
+		Integer idHistorialClinico = 1;
+		//Timestamp fecha = new Timestamp(System.currentTimeMillis());
+		double peso = 72.5;
+		double talla = 80;
+		double estatura = 170;
+		double lipidos = 2.44;
+		double carbohidratos = 3.4;
+		double proteinas = 2.5;
+		double azucar = 112;
+		
+		{//SE ARMA EL DTO
+			historialClinicoDto.setIdPaciente(idPaciente);
+			historialClinicoDto.setIdHistorialClinico(idHistorialClinico);
+			//historialClinicoDto.setFecha(fecha);
+			historialClinicoDto.setPeso(peso);
+			historialClinicoDto.setTalla(talla);
+			historialClinicoDto.setEstatura(estatura);
+			//historialClinicoDto.setImc(imc);
+			historialClinicoDto.setLipidos(lipidos);
+			historialClinicoDto.setCarbohidratos(carbohidratos);
+			historialClinicoDto.setProteinas(proteinas);
+			historialClinicoDto.setAzucar(azucar);		
+		}	
+		historialClinicoAppService.actualizarHistorialClinico(historialClinicoDto);
 
 		log.debug("Fin - Test");
 	}
@@ -109,4 +145,28 @@ public class HistorialClinicoAppServiceTestCase {
 		log.debug("Fin - Test");
 	}
 
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarUltimoHistorialClinicoPorIdPaciente
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 18/02/2018
+	 * @see HistorialClinicoAppService#recuperarUltimoHistorialClinicoPorIdPaciente(Integer)
+	 */
+	@Test
+	public void recuperarUltimoHistorialClinicoPorIdPacienteTestCase() {
+		log.debug("Inicio - Test");
+		
+		UltimoHistorialClinicoVo ultimoHistorialClinicoVo = null; 
+		Integer idPaciente = 117;
+	
+		try{
+			ultimoHistorialClinicoVo = historialClinicoAppService.recuperarUltimoHistorialClinicoPorIdPaciente(idPaciente);
+			if(ultimoHistorialClinicoVo != null) {
+				XStream xStream = new XStream();
+				log.debug("xStream.toXML(listHistorialClinicoDto): \n" + xStream.toXML(ultimoHistorialClinicoVo));
+			}					
+		}catch(RuntimeException ex){
+			log.debug("ex : " + ex.getMessage());
+		}
+		log.debug("Fin - Test");
+	}
 }
