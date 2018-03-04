@@ -44,14 +44,27 @@
 
                 <TextView
                     android:id="@+id/textBienvenida"
-                    android:layout_width="0dp"
-                    android:layout_height="21dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:gravity="center_vertical"
                     android:text="@string/bienvenida"
                     android:textSize="19sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginStart="24dp"
+                    android:gravity="center_vertical|right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/textBienvenida"
                     app:layout_constraintTop_toTopOf="parent"/>
 
             </android.support.constraint.ConstraintLayout>
@@ -65,15 +78,6 @@
             android:background="@android:color/black"/>
 
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/frameFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarContainer"/>
 
     <LinearLayout
         android:id="@+id/bottomBar"
@@ -88,48 +92,192 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black"
-            android:fitsSystemWindows="true"/>
-
-        <android.support.v7.widget.Toolbar
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="center"
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="0dp">
 
             <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:id="@+id/clInicio"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/clDieta"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/tvInicio"
                     android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/inicio"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivInicio"/>
+
+                <ImageView
+                    android:id="@+id/ivInicio"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintBottom_toTopOf="@id/tvInicio"
+                    app:layout_constraintEnd_toEndOf="@id/tvInicio"
+                    app:layout_constraintStart_toStartOf="@id/tvInicio"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fa_th_large_selected"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clDieta"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/clRegistrarGlucosa"
+                app:layout_constraintStart_toEndOf="@id/clInicio"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvDieta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/generar_dieta"
+                    android:textColor="#0D5748"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/ivDieta"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvDieta"
+                    app:layout_constraintEnd_toEndOf="@+id/tvDieta"
+                    app:layout_constraintStart_toStartOf="@+id/tvDieta"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fa_hospital"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clRegistrarGlucosa"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/clSalir"
+                app:layout_constraintStart_toEndOf="@id/clDieta"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvRegistrarGlucosa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/registrar_glucosa"
+                    android:textColor="#0D5748"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivRegistrarGlucosa"
+                    app:layout_constraintVertical_bias="1.0"/>
+
+                <ImageView
+                    android:id="@+id/ivRegistrarGlucosa"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvRegistrarGlucosa"
+                    app:layout_constraintEnd_toEndOf="@+id/tvRegistrarGlucosa"
+                    app:layout_constraintStart_toStartOf="@+id/tvRegistrarGlucosa"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fa_edit"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/clSalir"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/clRegistrarGlucosa"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvSalir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/roboto"
                     android:gravity="center"
                     android:onClick="logOut"
                     android:text="@string/cerrar_session"
-                    android:textSize="14sp"
+                    android:textColor="#0D5748"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/ivSalir"
+                    android:layout_width="24dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvSalir"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/fa_sign_out"/>
 
             </android.support.constraint.ConstraintLayout>
 
 
-        </android.support.v7.widget.Toolbar>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black"/>
+        </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarContainer"
+        app:layout_constraintVertical_bias="0.0">
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

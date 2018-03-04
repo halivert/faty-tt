@@ -1,58 +1,43 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="escom.tt.ceres.ceresmobile.FragmentoPacienteInicio">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            tools:context="escom.tt.ceres.ceresmobile.PacienteInicioFragment">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textBienvenida"
-            android:layout_width="0dp"
+            android:id="@+id/tvGlucosa"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/hola_paciente"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="36sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:text="@string/s_glucosa"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
         <TextView
-            android:id="@+id/textNombre"
-            android:layout_width="0dp"
+            android:id="@+id/tvLipidos"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textBienvenida"
-            app:layout_constraintVertical_chainStyle="spread_inside"/>
+            app:layout_constraintTop_toBottomOf="@id/tvGlucosa"
+            android:text="@string/s_lipidos"/>
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="384dp"
-            android:layout_height="135dp"
-            android:layout_marginBottom="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:contentDescription="@string/frutas"
-            android:src="@drawable/fruits"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textNombre"/>
+        <TextView
+            android:id="@+id/tvCarbohidratos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvLipidos"
+            android:text="@string/s_carbohidratos"/>
+
+        <TextView
+            android:id="@+id/tvProteinas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tvCarbohidratos"
+            android:text="@string/s_proteinas"/>
+
     </android.support.constraint.ConstraintLayout>
+
 </ScrollView>

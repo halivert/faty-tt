@@ -25,12 +25,19 @@
             android:launchMode="singleTop"
             android:parentActivityName=".ActividadPrincipal">
         </activity>
-        <activity android:name=".ActividadPacientePrincipal"
+        <activity
+            android:name=".ActividadPacientePrincipal"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:name=".MedicoPrincipalActivity"
             android:launchMode="singleTop">
         </activity>
-        <activity android:name=".ActividadMedicoPrincipal"
-            android:launchMode="singleTop">
-        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts"/>
     </application>
 
 </manifest>

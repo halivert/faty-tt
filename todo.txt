@@ -23,3 +23,9 @@ el proceso y todo eso
 Considerar base de datos de los alimentos
 de donde está saliendo
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+Generar código automáticamente.
+Mostrar primero y último, una estadística.
+Un control de médico en la dieta, arrastrar y soltar.
+

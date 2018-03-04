@@ -14,31 +14,31 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_MATERNO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.APELLIDO_PATERNO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.EMAIL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ERROR;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_ROL;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.ID_USUARIO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.KEYWORD;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.LOGIN;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.MENSAJE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.NOMBRE_COMPLETO;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.OK;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.RESPUESTA;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_DATOS;
-import static escom.tt.ceres.ceresmobile.Vars.Strings.URL_LOGIN;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.APELLIDO_MATERNO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.APELLIDO_PATERNO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.EMAIL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ERROR;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_ROL;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.ID_USUARIO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.KEYWORD;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.LOGIN;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.MENSAJE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.NOMBRE;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.NOMBRE_COMPLETO;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.OK;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.RESPUESTA;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.URL_DATOS;
+import static escom.tt.ceres.ceresmobile.Functions.Strings.URL_LOGIN;
 
-public class FragmentoLogin extends Fragment {
+public class LoginFragment extends Fragment {
   private OnLoginInteraction mListener;
   private String email, keyword;
 
-  public FragmentoLogin() {
+  public LoginFragment() {
   }
 
-  public static FragmentoLogin newInstance(String email, String keyword) {
-    FragmentoLogin fragment = new FragmentoLogin();
+  public static LoginFragment newInstance(String email, String keyword) {
+    LoginFragment fragment = new LoginFragment();
     Bundle args = new Bundle();
     args.putString(EMAIL, email);
     args.putString(KEYWORD, keyword);

@@ -3,7 +3,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="escom.tt.ceres.ceresmobile.FragmentoMedicoInicio">
+            tools:context="escom.tt.ceres.ceresmobile.MedicoInicioFragment">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -38,19 +38,34 @@
             app:layout_constraintTop_toBottomOf="@id/textBienvenida"/>
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivFruits"
             android:layout_width="0dp"
             android:layout_height="132dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/fruits"
             android:contentDescription="@string/frutas"
+            android:src="@drawable/fruits"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textNombre"/>
+
+        <LinearLayout
+            android:id="@+id/linlaHeaderProgress"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ProgressBar
+                android:id="@+id/pbHeaderProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+            </ProgressBar>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textTokenMedico"
@@ -63,7 +78,7 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView"/>
+            app:layout_constraintTop_toBottomOf="@id/ivFruits"/>
 
         <Button
             android:id="@+id/btnNuevoToken"
