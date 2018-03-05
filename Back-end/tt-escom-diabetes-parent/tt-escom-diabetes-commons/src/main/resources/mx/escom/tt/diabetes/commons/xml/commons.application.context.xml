@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 
-	<context:component-scan base-package="mx.escom" />
+	<context:component-scan base-package="mx.escom.tt.diabetes.commons" />
 
 	<bean id="systemConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -15,7 +15,35 @@
 			</value>
 		</property>
 	</bean>
-
+	
+	<!-- JAVAMAIL SENDER & VELOCITY -->
+    <bean name="Correo" id="Correo" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    	<property name="host"><value>${mail.smtp.host}</value></property>
+        <property name="port"><value>${mail.smtp.port}</value></property> 
+        <property name="username"><value>${mail.from.username}</value></property>
+        <property name="password"><value>${mail.from.password}</value></property>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.debug">${mail.debug}</prop>
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <prop key="mail.transport.protocol">${mail.transport.protocol}</prop>
+                <prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+                <prop key="mail.smtp.ssl.trust">${mail.smtp.ssl.trust}</prop>
+            </props>
+		</property>
+    </bean>
+    
+    <bean name="VelocityEngine" id="VelocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+    	<property name="velocityProperties">
+    		<value>
+    			resource.loader=class
+    			class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+    		</value>
+    	</property>
+    </bean>
+    <!-- JAVAMAIL SENDER & VELOCITY -->
+	
+	<!-- FECHAS -->
 	<bean id="FormatoFechaNacimiento" class="java.text.SimpleDateFormat">
 		<constructor-arg index="0">
 			<value>${formato.fecha}</value>
@@ -25,5 +53,7 @@
 	<bean id="FormatoTimpeStamp" class="java.text.SimpleDateFormat">
 		<constructor-arg value="yyyy-MM-dd hh:mm:ss.SSS"></constructor-arg>
 	</bean>
+	
+	<!-- /FECHAS -->
 
 </beans>

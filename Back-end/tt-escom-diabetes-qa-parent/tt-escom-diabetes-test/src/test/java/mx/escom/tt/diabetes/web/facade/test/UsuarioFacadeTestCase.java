@@ -9,7 +9,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
+import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 import mx.escom.tt.diabetes.web.facade.UsuarioFacade;
+import mx.escom.tt.diabetes.web.vo.RespuestaVo;
+import mx.escom.tt.diabetes.web.vo.UsuarioLoginVo;
 import mx.escom.tt.diabetes.web.vo.UsuarioVo;
 
 @CommonsLog
@@ -43,6 +46,38 @@ public class UsuarioFacadeTestCase {
 		
 		log.debug("Fin - Test");
 	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo login
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 04/03/2018
+	 */
+	@Test
+	public void recuperarPorEmailYKeyword() {
+		log.debug("Inicio - Test");
+		
+		UsuarioDto usuarioDto = null;
+		String email = "enrique@gmail.com";
+		String keyword = "enrique123'4";
+		
+		try{
+
+			UsuarioLoginVo usuarioVo = new UsuarioLoginVo();
+			
+			usuarioVo.setEmail(email);
+			usuarioVo.setKeyword(keyword);
+			
+			RespuestaVo respuestaVo = usuarioFacade.login(usuarioVo);
+			
+			if(respuestaVo != null) {
+				
+				log.debug("respuestaVo: \n" + respuestaVo);
+			}
+			
+		}catch(RuntimeException ex) {
+			log.debug("ex :" + ex);
+		}
+}
 	
 	/**
 	 * 

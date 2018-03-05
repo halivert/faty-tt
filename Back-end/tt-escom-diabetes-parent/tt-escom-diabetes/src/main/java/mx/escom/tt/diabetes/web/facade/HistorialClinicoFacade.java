@@ -76,7 +76,7 @@ public class HistorialClinicoFacade {
 		
 		}
 		catch (RuntimeException ex) {
-			throw new RuntimeException(ex);
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "guardar la información." + ex.getMessage();
 			throw new RuntimeException(msjEx);
@@ -138,7 +138,7 @@ public class HistorialClinicoFacade {
 		
 		}
 		catch (RuntimeException ex) {
-			throw new RuntimeException(ex);
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "actualizar la información." + ex.getMessage();
 			throw new RuntimeException(msjEx);
@@ -192,6 +192,8 @@ public class HistorialClinicoFacade {
 				lisHistorialClinicoVo.add(historialClinicoVo);
 			}
 			
+		}catch (RuntimeException ex) {
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico." + ex.getMessage();
 			throw new RuntimeException(msjEx);
@@ -242,6 +244,8 @@ public class HistorialClinicoFacade {
 				historialClinicoVo.setProteinas(String.valueOf(historialClinicoDto.getProteinas()));
 				historialClinicoVo.setAzucar(String.valueOf(historialClinicoDto.getAzucar()));
 			}
+		}catch (RuntimeException ex) {
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico." + ex.getMessage();
 			throw new RuntimeException(msjEx);
@@ -298,7 +302,7 @@ public class HistorialClinicoFacade {
 				ultimoHistorialFacadeVo.setAzucar(String.valueOf(ultimoHistorialClinicoVo.getAZUCAR()));
 			}
 		}catch (RuntimeException ex) {
-			throw new RuntimeException(ex);
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico." + ex.getMessage();
 			throw new RuntimeException(msjEx);

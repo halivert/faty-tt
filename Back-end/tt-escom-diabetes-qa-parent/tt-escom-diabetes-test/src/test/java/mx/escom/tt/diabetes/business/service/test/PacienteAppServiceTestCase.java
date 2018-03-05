@@ -59,8 +59,8 @@ public class PacienteAppServiceTestCase {
 		log.debug("Incio - Test");
 		PacienteDto pacienteDto = new PacienteDto();
 		
-		Integer idIndividuo = 2;
-		Integer idMedico = 1;
+		//Integer idIndividuo = 2;
+		//Integer idMedico = 1;
 		/*double peso = 100;
 		double talla = 80.4;
 		double estatura = 140;

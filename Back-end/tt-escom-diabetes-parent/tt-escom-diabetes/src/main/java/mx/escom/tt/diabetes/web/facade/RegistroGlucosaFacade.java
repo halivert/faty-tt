@@ -82,7 +82,7 @@ public class RegistroGlucosaFacade extends NumberHelper{
 			respuestaVo.setMensaje("La información se guardó correctamente.");
 			
 		}catch(RuntimeException ex){
-			throw new RuntimeException(ex);
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "guardar la información." + ex.getMessage();
 			throw new RuntimeException(msjEx);
@@ -137,7 +137,7 @@ public class RegistroGlucosaFacade extends NumberHelper{
 			respuestaVo.setMensaje("La información se actualizó correctamente.");
 			
 		}catch(RuntimeException ex){
-			throw new RuntimeException(ex);
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "guardar la información." + ex.getMessage();
 			throw new RuntimeException(msjEx);
@@ -189,7 +189,7 @@ public class RegistroGlucosaFacade extends NumberHelper{
 			}
 			
 		}catch(RuntimeException ex){
-			throw new RuntimeException(ex);
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico." + ex.getMessage();
 			throw new RuntimeException(msjEx);
@@ -251,7 +251,7 @@ public class RegistroGlucosaFacade extends NumberHelper{
 			}
 			
 		}catch(RuntimeException ex){
-			throw new RuntimeException(ex);
+			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
 			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico." + ex.getMessage();
 			throw new RuntimeException(msjEx);

@@ -28,7 +28,7 @@ public class RegistroGlucosaAppService {
 		log.debug("Inicio - Service");
 		
 		String msjEx = null;
-		Timestamp fechaRegistro = null;
+		//Timestamp fechaRegistro = null;
 		
 		if(registroGlucosaDto == null) {
 			msjEx = "La información del registro no puede ser nula.";

@@ -61,14 +61,19 @@ public class UsuarioAppServiceTestCase {
 		
 		UsuarioDto usuarioDto = null;
 		String email = "enrique@gmail.com";
-		String keyword = "enrique1234";
+		String keyword = "enrique123'4";
 		
-		usuarioDto = usuarioAppService.recuperarPorEmailYKeyword(email, keyword);
-
-		if(usuarioDto != null) {
-			XStream xStream = new XStream();
-			log.debug("xStream.toXML(usuarioDto): \n" + xStream.toXML(usuarioDto));
+		try{
+			usuarioDto = usuarioAppService.recuperarPorEmailYKeyword(email, keyword);
+			if(usuarioDto != null) {
+				XStream xStream = new XStream();
+				log.debug("xStream.toXML(usuarioDto): \n" + xStream.toXML(usuarioDto));
+			}
+		}catch(RuntimeException ex) {
+			log.debug("ex : " + ex );
 		}
+
+
 		
 		log.debug("Fin - Test");
 	}

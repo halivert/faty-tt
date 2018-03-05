@@ -45,7 +45,8 @@
                 <value>mx.escom.tt.diabetes.model.dto.MedicoDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.HistorialClinicoDto</value>      
                 <value>mx.escom.tt.diabetes.model.dto.TokenMedicoDto</value>                         
-                <value>mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto</value>                          
+                <value>mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto</value>
+                <value>mx.escom.tt.diabetes.model.dto.AlimentoDto</value>                          
             </list>
         </property>
 		
@@ -94,6 +95,10 @@
  	</bean>
  	<bean id="RegistroGlucosaDao" class="mx.escom.tt.diabetes.model.dao.impl.RegistroGlucosaDaoImpl">
   		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+ 	</bean>
+ 	<bean id="AlimentoDao" class="mx.escom.tt.diabetes.model.dao.impl.AlimentoDaoImpl">
+  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+  		<!-- <property name="ql" ref="AlimentoQlHelper"/> -->
  	</bean>
 <!-- /DECLARACION DE DAO's -->	
 	
@@ -160,7 +165,23 @@
 				</entry>
 			</map>
 		</property>
-	</bean>		
+	</bean>	
+	
+<!-- 	<bean id="AlimentoQlHelper" class="mx.escom.tt.diabetes.model.hql.AlimentoQlHelper">
+		<property name="queries">
+			<map>
+				<entry key="RECUPERA_ALIMENTO_POR_TIPO_DE_ALIMENTO">
+					<value>
+					<![CDATA[
+						SELECT * 
+						FROM ALIMENTOS
+						WHERE TIPO_ALIMENTO = :tipoAlimento
+					]]>
+					</value>
+				</entry>
+			</map>
+		</property>
+	</bean>	 -->
 <!-- QUERIES HQL -->
 
 </beans>

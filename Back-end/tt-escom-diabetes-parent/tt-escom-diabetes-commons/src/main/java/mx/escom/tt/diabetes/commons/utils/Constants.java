@@ -6,11 +6,15 @@ public interface Constants {
 	public static final String MSJ_EXCEPTION = "Ocurrió un error inesperado al: ";
 	
 	//SALTO DE LINEA
-    public static final String SALTO_LINEA = " \n"; 
+    public static final String SALTO_LINEA = " \n";
+    public static final String CADENA_BLANCO = " ";
     
     public static final String CADENA_VACIA = "";
     
     public static final String ID_ROL_MEDICO = "1";
     public static final String ID_ROL_PACIENTE = "0";
+    
+    //MENSAJES PARA CORREO ELECTRONICO
+    public static final String PARAMETRO_CORREO_MENSAJE = "MENSAJE";
 
 }

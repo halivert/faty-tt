@@ -49,6 +49,11 @@
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
 		<!-- /PERMITE AGREGAR LAS ANOTACIONES PARA MAPEO DE LOS DTOS -->
 
 		<!-- DEPENDENCIA PARA ESTABLECER LA CONEXION CON LA BD -->
@@ -73,6 +78,23 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+		<!-- /LOG4J -->
+		
+		<!-- MAIL -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${javax.mail.version}</version>
+		</dependency>
+		<!-- /MAIL -->
+		
+		<!-- VELOCITY -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>${org.apache.velocity.version}</version>
+		</dependency>
+		<!-- /VELOCITY -->
 		
 		<!-- Generar Strings -->
 		<dependency>
@@ -80,6 +102,6 @@
     		<artifactId>commons-lang</artifactId>
     		<version>2.6</version>
 		</dependency>		
-		
+		<!-- Generar Strings -->
 	</dependencies>
 </project>
