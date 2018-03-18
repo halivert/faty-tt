@@ -95,7 +95,7 @@ public class UsuarioAppService {
 	}
 	
 	/**
-	 * Proposito : Guardar la informacion de un usuario en la BD.
+	 * Proposito : Guardar la informacion de un usuario en la BD, adicionalmente se guarda la informacion si es un medico o un paciente
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 02/11/2017
 	 * @param usuarioDto			-	Dto con la informacion de un usuario.
@@ -126,7 +126,7 @@ public class UsuarioAppService {
 			}
 			else if(pacienteDto != null) {
 				pacienteDto.setIdUsuario(result.getIdUsuario());
-				pacienteAppService.guardarPaciente(pacienteDto);
+				pacienteAppService.guardarPacienteAppService(pacienteDto);
 			}
 			
 		}catch(RuntimeException ex) {

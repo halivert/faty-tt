@@ -24,12 +24,12 @@ public class IndividuoDaoImpl implements IndividuoDao {
 	SessionFactory  sessionFactory;
 	
 	@Override
-	public void guardarIndividuo(IndividuoDto individuoDto) throws RuntimeException {
+	public void guardarIndividuoX(IndividuoDto individuoDto) throws RuntimeException {
 		sessionFactory.getCurrentSession().save(individuoDto);
 	}
 
 	@Override
-	public void borrarIndividuo(Integer idIndividuo) throws RuntimeException {
+	public void borrarIndividuoX(Integer idIndividuo) throws RuntimeException {
 		sessionFactory.getCurrentSession().delete(
 				sessionFactory.getCurrentSession().load(IndividuoDto.class, idIndividuo)
 				);

@@ -60,7 +60,7 @@ public class MedicoController {
 		try {
 			token = tokenMedicoFacade.generarToken(idMedico);
 			
-			//Se reutiliza la clasr RespuestaErrorVo
+			//Se reutiliza la clase RespuestaErrorVo
 			respuestaToken = new RespuestaErrorVo();
 			
 			respuestaToken.setRespuesta("TOKEN");
@@ -68,11 +68,9 @@ public class MedicoController {
 			
 			result = new ResponseEntity<RespuestaErrorVo>(respuestaToken, HttpStatus.OK);
 		} catch (Exception ex) {
-			
 			respuestaError = new RespuestaErrorVo();
 			respuestaError.setRespuesta("ERROR");
 			respuestaError.setMensaje(ex.getMessage());
-			
 			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.OK);
 		}
 		log.debug("Fin - Controller");

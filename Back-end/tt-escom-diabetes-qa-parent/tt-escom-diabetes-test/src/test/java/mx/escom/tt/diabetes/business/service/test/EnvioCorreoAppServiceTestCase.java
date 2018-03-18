@@ -23,10 +23,11 @@ public class EnvioCorreoAppServiceTestCase {
 		log.debug("Inicio - Test");
 		
 		String asunto = "Correo Final";
-		String[] arrayPara = {"edgar.hurtado@habilgroup.net"};
+		String[] arrayPara = {"edgarivancs@gmail.com"};
 		String mensaje = "Se modifica el cuerpo del mensaje";
+		String remitente = "edgar.hurtado@habilgroup.com";
 		try {
-			envioCorreoAppService.enviarCorreoElectronico(asunto, arrayPara, mensaje);
+			envioCorreoAppService.enviarCorreoElectronico(asunto, arrayPara, null, mensaje,remitente);
 		}catch(Exception ex) {
 			throw (ex);
 		}

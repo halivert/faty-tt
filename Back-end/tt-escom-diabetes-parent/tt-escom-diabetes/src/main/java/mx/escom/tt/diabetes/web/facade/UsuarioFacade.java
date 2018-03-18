@@ -63,7 +63,7 @@ public class UsuarioFacade extends NumberHelper{
 			usuarioDto = usuarioAppService.recuperarUsuarioPorId(idUsuario);
 			
 			medicoDto = medicoAppService.recuperarMedico(idUsuario);
-			pacienteDto = pacienteAppService.recuperarPaciente(idUsuario);
+			pacienteDto = pacienteAppService.recuperarPacientePorIdPacienteAppService(idUsuario);
 			
 			{//Se transforma el DTO al VO			
 				usuarioVo = new UsuarioVo();
@@ -195,8 +195,8 @@ public class UsuarioFacade extends NumberHelper{
 				log.debug("espaciente");
 				pacienteDto = new PacienteDto();
 				
-				//Se recupera el idMedico con el su token
-				tokenMedicoDto = tokenMedicoAppService.recuperarToken(usuarioVo.getCodigoMedico());
+				//Se recupera el idMedico con  su token
+				tokenMedicoDto = tokenMedicoAppService.recuperarTokenAppService(usuarioVo.getCodigoMedico());
 				
 				{//SE ARMA EL DTO PARA GUARDAR UN PACIENTE
 					pacienteDto.setIdMedico(tokenMedicoDto.getIdMedico() != null ? new Integer(tokenMedicoDto.getIdMedico()) : null);
@@ -212,11 +212,11 @@ public class UsuarioFacade extends NumberHelper{
 			result.setRespuesta("OK");
 			result.setMensaje("La información se guardó con éxito.");
 			
-			//Si el usuario es paciente se borra el token que usó
+			//Si el usuario es paciente se borra el token que uso
 			if(usuarioVo.getIdRol().equals("0")){
 				log.debug("borrar TOKEN");
 				
-				tokenMedicoAppService.borrarToken(usuarioVo.getCodigoMedico());
+				tokenMedicoAppService.borrarTokenAppService(usuarioVo.getCodigoMedico());
 			}
 			
 		}catch(ParseException pEx) {

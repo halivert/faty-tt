@@ -5,10 +5,8 @@ import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 import lombok.extern.apachecommons.CommonsLog;
 import org.apache.velocity.app.VelocityEngine;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -21,7 +19,7 @@ import org.springframework.ui.velocity.VelocityEngineUtils;
 public class EmailSenderHelper {
 	
 	@Resource(name="Correo") private JavaMailSender javaMailSender;
-	//@Autowired Correo correo;
+	//@Autowired JavaMailSenderImpl javaMailSender;
 	@Resource(name="VelocityEngine") private VelocityEngine velocityEngine;
 	
 		
@@ -40,7 +38,7 @@ public class EmailSenderHelper {
 	 * @param plantilla Plantilla del correo electronico
 	 * @throws RuntimeException Si ocurre un error en tiempo de ejecucion
 	 */
-	public void enviarMail(final String asunto, final String [] arrayPara, final String [] arrayConCopia, final String [] arrayConCopiaOculta, final String from, 
+	/*public void enviarMail(final String asunto, final String [] arrayPara, final String [] arrayConCopia, final String [] arrayConCopiaOculta, final String from, 
 							final Map<String, Object> parametros, final Map<String, InputStreamSource> parametrosImagen, final String plantilla) throws RuntimeException{
 		log.debug("Inicio");
 		
@@ -58,7 +56,7 @@ public class EmailSenderHelper {
 		}
 		
 		log.debug("Fin");
-	}
+	}*/
 	
 	
 	/**
@@ -191,8 +189,9 @@ public class EmailSenderHelper {
 					log.debug("Fin");
 				}
 			};
+			log.debug("javaMailSender.send(preparator);");
 			javaMailSender.send(preparator);
-		    
+			log.debug("javaMailSender.send(preparator);");
 		}catch (MailException ex) {
 			log.debug(ex.getMessage());
 		}catch(Exception ex){

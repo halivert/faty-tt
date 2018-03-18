@@ -68,7 +68,7 @@ public class MedicoAppServiceTestCase {
 	}
 	
 	/**
-	 * Proposito : Validar el correcto funcionamiento del metodo generarToken(), de la clase TokenMedicoAppService
+	 * Proposito : Validar el correcto funcionamiento del metodo generarTokenAppService(), de la clase TokenMedicoAppService
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 07/11/2017
 	 */
@@ -79,7 +79,7 @@ public class MedicoAppServiceTestCase {
 		Integer idMedico = 97;
 		String token = null;
 		
-		token = tokenMedicoAppService.generarToken(idMedico);
+		token = tokenMedicoAppService.generarTokenAppService(idMedico);
 		
 		log.debug("token : " + token);
 		
@@ -87,7 +87,7 @@ public class MedicoAppServiceTestCase {
 	}
 	
 	/**
-	 * Proposito : Validar el correcto funcionamiento del metodo recuperarToken(), de la clase TokenMedicoAppService
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarTokenAppService(), de la clase TokenMedicoAppService
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 07/11/2017
 	 */
@@ -98,7 +98,7 @@ public class MedicoAppServiceTestCase {
 		String token = "UXYFZ2";
 		TokenMedicoDto tokenMedicoDto = null;
 		
-		tokenMedicoDto = tokenMedicoAppService.recuperarToken(token);
+		tokenMedicoDto = tokenMedicoAppService.recuperarTokenAppService(token);
 		
 		if(tokenMedicoDto != null) {
 			XStream xStream = new XStream();
@@ -109,7 +109,7 @@ public class MedicoAppServiceTestCase {
 	}
 	
 	/**
-	 * Proposito : Validar el correcto funcionamiento del metodo borrarToken(), de la clase TokenMedicoAppService
+	 * Proposito : Validar el correcto funcionamiento del metodo borrarTokenAppService(), de la clase TokenMedicoAppService
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 07/11/2017
 	 */
@@ -119,7 +119,7 @@ public class MedicoAppServiceTestCase {
 		
 		String token = "UXYFZ2";
 		
-		tokenMedicoAppService.borrarToken(token);
+		tokenMedicoAppService.borrarTokenAppService(token);
 		
 		log.debug("Fin - Test");
 	}
