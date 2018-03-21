@@ -55,13 +55,13 @@ public class TokenMedicoFacade {
 	 * @param nombreMedico						-	Nombre del medico
 	 * @throws RuntimeException					-	Si ocurre un error durante la ejecucion del metodo 
 	 */
-	public void enviarTokenEmail(String[] destinatario, String token, String nombreMedico) throws RuntimeException{
+	public void enviarTokenEmail(String[] destinatario, String token, String nombreMedico, String remitente) throws RuntimeException{
 		log.debug("Inicio - Facade");
 		
 		if(destinatario == null || destinatario.length == 0) {
 			throw new RuntimeException("El destinatario no puede ser nulo o vacío.");
 		}
-		if(destinatario == null || token.isEmpty()) {
+		if(token == null || token.isEmpty()) {
 			throw new RuntimeException("El código del médico no puede ser nulo o vacío.");
 		}
 		if(nombreMedico == null || nombreMedico.isEmpty()) {
@@ -69,7 +69,7 @@ public class TokenMedicoFacade {
 		}
 		
 		try {
-			tokenMedicoAppService.enviarTokenEmailAppService(destinatario, token, nombreMedico);
+			tokenMedicoAppService.enviarTokenEmailAppService(destinatario, token, nombreMedico, remitente);
 		}catch (RuntimeException ex) {
 			throw new RuntimeException(ex.getMessage());
 		}

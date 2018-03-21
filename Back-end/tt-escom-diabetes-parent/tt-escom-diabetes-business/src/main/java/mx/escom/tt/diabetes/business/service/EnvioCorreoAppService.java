@@ -61,8 +61,8 @@ public class EnvioCorreoAppService {
 			{//Se arma la tarea de envio de correo electronico
 				emailSenderTask = new EmailSenderTask(emailSenderHelper);
 				emailSenderTask.setArrayPara(arrayPara);
-				//emailSenderTask.setArrayConCopia(arrayConCopia);
-				//emailSenderTask.setArrayConCopiaOculta(arrayConCopiaOculta);
+				emailSenderTask.setArrayConCopia(null);
+				emailSenderTask.setArrayConCopiaOculta(null);
 				emailSenderTask.setAsunto(asunto);
 				emailSenderTask.setPlantilla(plantilla);
 				emailSenderTask.setParametros(parametros);
@@ -70,7 +70,7 @@ public class EnvioCorreoAppService {
 			}
 			taskExecutorEnvioCorreo.execute(emailSenderTask);
 			
-			emailSenderHelper.enviarMail(asunto, arrayPara, null, null, remitente, parametros, null, plantilla, null);
+			//emailSenderHelper.enviarMail(asunto, arrayPara, null, null, remitente, parametros, null, plantilla, null);
 			
 		}catch(RuntimeException ex){
 			throw ex;

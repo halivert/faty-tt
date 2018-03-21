@@ -16,8 +16,8 @@ public interface Constants {
     
     //MENSAJES PARA CORREO ELECTRONICO
     public static final String PARAMETRO_CORREO_MENSAJE = "MENSAJE";
-    public static final String PARAMETRO_CORREO_TOKEN = "TOKEN";
-    public static final String PARAMETRO_CORREO_NOMBRE_MEDICO = "TOKEN";
+    public static final String PARAMETRO_CORREO_TOKEN = "CODIGO";
+    public static final String PARAMETRO_CORREO_NOMBRE_MEDICO = "NOMBRE_MEDICO";
     public static final String PARAMETRO_CORREO_ENVIO_TOKEN_ASUNTO = "Código de registro CERES";
     
     

@@ -114,7 +114,7 @@ public class TokenMedicoAppService {
 	 * @param nombreMedico					-	Nombre del medico que envia el token 
 	 * @throws RuntimeException				-	Si ocurre un error durante la ejecucion del metodo 
 	 */
-	public void enviarTokenEmailAppService(String[]  email, String token, String nombreMedico) throws RuntimeException{
+	public void enviarTokenEmailAppService(String[]  email, String token, String nombreMedico,  String remitente) throws RuntimeException{
 		log.debug("Inicio - Service");
 		Map<String, Object> parametros = null;
 		String msjEx = null;
@@ -124,7 +124,7 @@ public class TokenMedicoAppService {
 		parametros.put(Constants.PARAMETRO_CORREO_NOMBRE_MEDICO, nombreMedico);
 		
 		try {
-			envioCorreoAppService.enviarCorreoElectronico(Constants.PARAMETRO_CORREO_ENVIO_TOKEN_ASUNTO, email, null, null, Constants.PLANTILLA_ENVIO_TOKEN);			
+			envioCorreoAppService.enviarCorreoElectronico(Constants.PARAMETRO_CORREO_ENVIO_TOKEN_ASUNTO, email, parametros, remitente, Constants.PLANTILLA_ENVIO_TOKEN);			
 		}catch(RuntimeException rtExc) { 
 			throw rtExc;
 		}catch (Exception ex) {

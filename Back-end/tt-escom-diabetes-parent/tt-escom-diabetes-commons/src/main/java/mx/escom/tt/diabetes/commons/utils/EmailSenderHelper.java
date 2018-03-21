@@ -38,7 +38,7 @@ public class EmailSenderHelper {
 	 * @param plantilla Plantilla del correo electronico
 	 * @throws RuntimeException Si ocurre un error en tiempo de ejecucion
 	 */
-	/*public void enviarMail(final String asunto, final String [] arrayPara, final String [] arrayConCopia, final String [] arrayConCopiaOculta, final String from, 
+	public void enviarMail(final String asunto, final String [] arrayPara, final String [] arrayConCopia, final String [] arrayConCopiaOculta, final String from, 
 							final Map<String, Object> parametros, final Map<String, InputStreamSource> parametrosImagen, final String plantilla) throws RuntimeException{
 		log.debug("Inicio");
 		
@@ -56,7 +56,7 @@ public class EmailSenderHelper {
 		}
 		
 		log.debug("Fin");
-	}*/
+	}
 	
 	
 	/**
