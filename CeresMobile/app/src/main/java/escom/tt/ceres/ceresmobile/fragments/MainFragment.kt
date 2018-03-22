@@ -19,7 +19,7 @@ class MainFragment : Fragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
-    val view = inflater.inflate(R.layout.fragment_inicio, container, false)
+    val view = inflater.inflate(R.layout.main_fragment, container, false)
 
     val onClickListener = View.OnClickListener { view -> goToMain(view) }
 

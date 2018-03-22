@@ -64,4 +64,7 @@
     <string name="hora">Hora</string>
     <string name="inicio">Inicio</string>
     <string name="generar_dieta">Generar dieta</string>
+    <string name="s_fecha_glucosa">Fecha</string>
+    <string name="pacientes">Pacientes</string>
+    <string name="generar_codigo">Generar código</string>
 </resources>

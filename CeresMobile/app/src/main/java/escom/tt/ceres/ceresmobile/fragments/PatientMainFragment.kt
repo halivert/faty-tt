@@ -29,7 +29,7 @@ class PatientMainFragment : Fragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
-    val view = inflater.inflate(R.layout.fragment_paciente_inicio, container, false)
+    val view = inflater.inflate(R.layout.patient_main_fragment, container, false)
 
     val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
     val userName = preferences.getString(NOMBRE, null)
@@ -69,7 +69,7 @@ class PatientMainFragment : Fragment() {
   interface OnPatientMainInteraction
 
   companion object {
-    private const val ARG1 = "ID_USER"
+    const val ARG1 = "ID_USER"
 
     fun newInstance(idUser: Int): PatientMainFragment {
       val fragment = PatientMainFragment()

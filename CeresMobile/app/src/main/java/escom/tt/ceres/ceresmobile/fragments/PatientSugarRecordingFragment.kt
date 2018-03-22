@@ -30,20 +30,20 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PatientSugarRegisterFragment : Fragment() {
-  private var urlSugarRegister = "$URL_PACIENTE/"
+class PatientSugarRecordingFragment : Fragment() {
+  private var urlSugarRecording = "$URL_PACIENTE/"
   private var mListener: OnSugarRegisterListener? = null
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
-    val view = inflater.inflate(R.layout.fragment_registrar_glucosa, container, false)
+    val view = inflater.inflate(R.layout.patient_sugar_recording_fragment, container, false)
 
     val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
     val idPatient = preferences.getInt(ID_USUARIO, -1)
     if (idPatient >= 0)
-      urlSugarRegister += idPatient.toString() + "/registroglucosa"
+      urlSugarRecording += idPatient.toString() + "/registroglucosa"
     else
-      urlSugarRegister = ""
+      urlSugarRecording = ""
 
     val save = view.findViewById<Button>(R.id.btnGuardarAzucar)
     save.setOnClickListener {
@@ -98,7 +98,7 @@ class PatientSugarRegisterFragment : Fragment() {
     parameters[FECHA_REGISTRO] = date.text.toString() + " " + hour.text.toString()
     val jsonObject = JSONObject(parameters)
 
-    val request = JsonObjectRequest(POST, urlSugarRegister, jsonObject,
+    val request = JsonObjectRequest(POST, urlSugarRecording, jsonObject,
         Response.Listener { response ->
           try {
             if (response.has(RESPUESTA)) {
@@ -148,13 +148,13 @@ class PatientSugarRegisterFragment : Fragment() {
   }
 
   companion object {
-    fun newInstance(): PatientSugarRegisterFragment {
+    fun newInstance(): PatientSugarRecordingFragment {
 /*
     Bundle args = new Bundle();
     args.putString(ARG_PARAM1, param1);
     fragment.setArguments(args);
     */
-      return PatientSugarRegisterFragment()
+      return PatientSugarRecordingFragment()
     }
   }
 }

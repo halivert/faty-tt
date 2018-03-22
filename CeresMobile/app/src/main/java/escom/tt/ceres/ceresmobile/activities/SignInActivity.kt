@@ -24,7 +24,7 @@ class SignInActivity : AppCompatActivity(),
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.actividad_registro)
+    setContentView(R.layout.sign_in_activity)
 
     val myToolbar = findViewById<Toolbar>(R.id.appBar)
     setSupportActionBar(myToolbar)

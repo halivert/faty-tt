@@ -174,5 +174,7 @@ object Functions {
     const val INFO_GUARDADA = "Información guardada."
     const val NOMBRE_COMPLETO = "nombreCompleto"
     const val ERROR_IO = "Error IO"
+    const val PACIENTES = "Pacientes"
+    const val GENERAR_CODIGO = "GenerarCodigo"
   }
 }

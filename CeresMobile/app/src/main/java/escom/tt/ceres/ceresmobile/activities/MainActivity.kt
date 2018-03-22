@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.actividad_principal)
+    setContentView(R.layout.main_activity)
 
     val preferences = getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
     val idUsuario = preferences.getInt(ID_USUARIO, -1)

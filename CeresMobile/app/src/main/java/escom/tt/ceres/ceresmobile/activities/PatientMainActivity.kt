@@ -16,7 +16,7 @@ import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.fragments.PatientDietFragment
 import escom.tt.ceres.ceresmobile.fragments.PatientMainFragment
-import escom.tt.ceres.ceresmobile.fragments.PatientSugarRegisterFragment
+import escom.tt.ceres.ceresmobile.fragments.PatientSugarRecordingFragment
 import escom.tt.ceres.ceresmobile.tools.Functions
 import escom.tt.ceres.ceresmobile.tools.Functions.Strings.DIETA
 import escom.tt.ceres.ceresmobile.tools.Functions.Strings.GLUCOSA
@@ -26,7 +26,7 @@ import escom.tt.ceres.ceresmobile.tools.Functions.Strings.LOGIN
 
 class PatientMainActivity : AppCompatActivity(),
     PatientMainFragment.OnPatientMainInteraction,
-    PatientSugarRegisterFragment.OnSugarRegisterListener,
+    PatientSugarRecordingFragment.OnSugarRegisterListener,
     PatientDietFragment.OnDietListener {
 
   private val texts = intArrayOf(
@@ -52,7 +52,7 @@ class PatientMainActivity : AppCompatActivity(),
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.actividad_principal_paciente)
+    setContentView(R.layout.patient_main_activity)
     setSupportActionBar(findViewById(R.id.appBar))
     supportActionBar!!.setDisplayShowTitleEnabled(false)
 
@@ -81,7 +81,7 @@ class PatientMainActivity : AppCompatActivity(),
       var fragment = fragmentManager.findFragmentByTag(INICIO) as PatientMainFragment?
       val fragmentVisible = fragment?.isVisible ?: false
 
-      if (fragmentVisible) {
+      if (!fragmentVisible) {
         val ft = fragmentManager.beginTransaction()
         fragment = PatientMainFragment.newInstance(idUser)
         ft.replace(R.id.frameFragment, fragment, INICIO)
@@ -97,12 +97,12 @@ class PatientMainActivity : AppCompatActivity(),
       Functions.deselectElement(activity, texts, images, unselected)
       Functions.selectElement(activity, sugarRegistration, imageView, R.drawable.fa_edit_selected)
 
-      var fragment = fragmentManager.findFragmentByTag(GLUCOSA) as PatientSugarRegisterFragment?
+      var fragment = fragmentManager.findFragmentByTag(GLUCOSA) as PatientSugarRecordingFragment?
       val fragmentVisible = fragment?.isVisible ?: false
 
       if (!fragmentVisible) {
         val ft = fragmentManager.beginTransaction()
-        fragment = PatientSugarRegisterFragment.newInstance()
+        fragment = PatientSugarRecordingFragment.newInstance()
         ft.replace(R.id.frameFragment, fragment, GLUCOSA)
         ft.addToBackStack(null)
         ft.commit()
@@ -154,7 +154,7 @@ class PatientMainActivity : AppCompatActivity(),
     var image = findViewById<ImageView>(R.id.ivInicio)
     var drawable = R.drawable.fa_th_large_selected
 
-    val sugar = fragmentManager.findFragmentByTag(GLUCOSA) as PatientSugarRegisterFragment?
+    val sugar = fragmentManager.findFragmentByTag(GLUCOSA) as PatientSugarRecordingFragment?
     val diet = fragmentManager.findFragmentByTag(DIETA) as PatientDietFragment?
     val sugarVisible = sugar?.isVisible ?: false
     val dietVisible = diet?.isVisible ?: false
