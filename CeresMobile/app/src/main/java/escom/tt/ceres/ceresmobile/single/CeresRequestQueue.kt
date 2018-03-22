@@ -1,4 +1,4 @@
-package escom.tt.ceres.ceresmobile.singleton
+package escom.tt.ceres.ceresmobile.single
 
 import android.content.Context
 import com.android.volley.Request

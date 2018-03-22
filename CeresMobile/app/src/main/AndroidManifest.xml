@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="escom.tt.ceres.ceresmobile">
+    package="escom.tt.ceres.ceresmobile"
+    android:installLocation="auto">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,32 +13,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ActividadPrincipal"
+            android:name=".activities.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActividadRegistro"
+            android:name=".activities.SignInActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".ActividadPrincipal">
-        </activity>
+            android:parentActivityName=".activities.MainActivity"></activity>
         <activity
-            android:name=".ActividadPacientePrincipal"
+            android:name=".activities.PatientMainActivity"
             android:launchMode="singleTop"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity
-            android:name=".MedicoPrincipalActivity"
-            android:launchMode="singleTop">
-        </activity>
+            android:name=".activities.DoctorMainActivity"
+            android:launchMode="singleTop"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts"/>
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -1,21 +1,16 @@
 package escom.tt.ceres.ceresmobile.activities
 
 import android.app.AlertDialog
-import android.app.FragmentTransaction
-import android.content.DialogInterface
+import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
+import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
-import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.View
-
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.fragments.DoctorMainFragment
-
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import escom.tt.ceres.ceresmobile.tools.Functions.Strings.LOGIN
 
 class DoctorMainActivity : AppCompatActivity(), DoctorMainFragment.OnDoctorMainInteraction {

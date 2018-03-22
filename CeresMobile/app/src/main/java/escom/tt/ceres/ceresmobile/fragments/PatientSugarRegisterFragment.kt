@@ -1,5 +1,6 @@
 package escom.tt.ceres.ceresmobile.fragments
 
+import android.app.Activity
 import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
@@ -29,7 +30,7 @@ import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SugarRegisterFragment : Fragment() {
+class PatientSugarRegisterFragment : Fragment() {
   private var urlSugarRegister = "$URL_PACIENTE/"
   private var mListener: OnSugarRegisterListener? = null
 
@@ -107,7 +108,7 @@ class SugarRegisterFragment : Fragment() {
               }
             }
 
-            mListener!!.endSugarRegister()
+            mListener?.endSugarRegister()
           } catch (e: Exception) {
             e.printStackTrace()
           }
@@ -129,6 +130,14 @@ class SugarRegisterFragment : Fragment() {
       throw RuntimeException(context.toString() + " must implement OnSugarRegisterListener")
   }
 
+  override fun onAttach(activity: Activity) {
+    super.onAttach(activity)
+    if (activity is OnSugarRegisterListener)
+      mListener = activity
+    else
+      throw RuntimeException(activity.toString() + " must implement OnSugarRegisterListener")
+  }
+
   override fun onDetach() {
     super.onDetach()
     mListener = null
@@ -139,13 +148,13 @@ class SugarRegisterFragment : Fragment() {
   }
 
   companion object {
-    fun newInstance(): SugarRegisterFragment {
+    fun newInstance(): PatientSugarRegisterFragment {
 /*
     Bundle args = new Bundle();
     args.putString(ARG_PARAM1, param1);
     fragment.setArguments(args);
     */
-      return SugarRegisterFragment()
+      return PatientSugarRegisterFragment()
     }
   }
 }

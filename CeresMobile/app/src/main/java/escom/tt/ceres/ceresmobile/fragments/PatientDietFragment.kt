@@ -1,5 +1,6 @@
 package escom.tt.ceres.ceresmobile.fragments
 
+import android.app.Activity
 import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import escom.tt.ceres.ceresmobile.R
 
-class DietFragment : Fragment() {
+class PatientDietFragment : Fragment() {
   private var mListener: OnDietListener? = null
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +27,15 @@ class DietFragment : Fragment() {
     }
   }
 
+  override fun onAttach(activity: Activity) {
+    super.onAttach(activity)
+    if (activity is OnDietListener) {
+      mListener = activity
+    } else {
+      throw RuntimeException(activity.toString() + " must implement OnDietListener")
+    }
+  }
+
   override fun onDetach() {
     super.onDetach()
     mListener = null
@@ -34,8 +44,8 @@ class DietFragment : Fragment() {
   interface OnDietListener
 
   companion object {
-    fun newInstance(): DietFragment {
-      return DietFragment()
+    fun newInstance(): PatientDietFragment {
+      return PatientDietFragment()
     }
   }
 }

@@ -1,5 +1,6 @@
-package escom.tt.ceres.ceresmobile.Fragments
+package escom.tt.ceres.ceresmobile.fragments
 
+import android.app.Activity
 import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
@@ -8,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.Tools.Functions.Ints.*
-import escom.tt.ceres.ceresmobile.Tools.Functions.Strings.ERROR
+import escom.tt.ceres.ceresmobile.tools.Functions.Ints.MEDICO
+import escom.tt.ceres.ceresmobile.tools.Functions.Ints.NULL
+import escom.tt.ceres.ceresmobile.tools.Functions.Ints.PACIENTE
+import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ERROR
 
 class MainFragment : Fragment() {
   private var mListener: OnMainInteraction? = null
@@ -32,6 +35,15 @@ class MainFragment : Fragment() {
     super.onAttach(context)
     if (context is OnMainInteraction) {
       mListener = context
+    } else {
+      throw RuntimeException(ERROR)
+    }
+  }
+
+  override fun onAttach(activity: Activity) {
+    super.onAttach(activity)
+    if (activity is OnMainInteraction) {
+      mListener = activity
     } else {
       throw RuntimeException(ERROR)
     }

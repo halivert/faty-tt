@@ -1,5 +1,6 @@
-package escom.tt.ceres.ceresmobile.Fragments
+package escom.tt.ceres.ceresmobile.fragments
 
+import android.app.Activity
 import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.Tools.Functions.Strings.*
+import escom.tt.ceres.ceresmobile.tools.Functions.Strings.APELLIDO_MATERNO
+import escom.tt.ceres.ceresmobile.tools.Functions.Strings.APELLIDO_PATERNO
+import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ERROR
+import escom.tt.ceres.ceresmobile.tools.Functions.Strings.LOGIN
+import escom.tt.ceres.ceresmobile.tools.Functions.Strings.NOMBRE
 
 
 class PatientMainFragment : Fragment() {
@@ -38,10 +43,19 @@ class PatientMainFragment : Fragment() {
     return view
   }
 
-  override fun onAttach(context: Context?) {
+  override fun onAttach(context: Context) {
     super.onAttach(context)
     if (context is OnPatientMainInteraction) {
       mListener = context
+    } else {
+      throw RuntimeException(ERROR)
+    }
+  }
+
+  override fun onAttach(activity: Activity) {
+    super.onAttach(activity)
+    if (activity is OnPatientMainInteraction) {
+      mListener = activity
     } else {
       throw RuntimeException(ERROR)
     }

@@ -3,27 +3,15 @@ package escom.tt.ceres.ceresmobile.fragments
 import android.app.Activity
 import android.app.Fragment
 import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
-
-import com.android.volley.RequestQueue
+import android.widget.*
 import com.android.volley.Response
-import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
-
-import org.json.JSONObject
-
 import escom.tt.ceres.ceresmobile.R
-
+import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Functions.Strings.APELLIDO_MATERNO
 import escom.tt.ceres.ceresmobile.tools.Functions.Strings.APELLIDO_PATERNO
 import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ERROR
@@ -35,53 +23,53 @@ import escom.tt.ceres.ceresmobile.tools.Functions.Strings.RESPUESTA
 import escom.tt.ceres.ceresmobile.tools.Functions.Strings.TOKEN
 
 class DoctorMainFragment : Fragment() {
-  internal var requestQueue: RequestQueue
-  private var mListener: ComunicacionFMI? = null
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-  }
+  private var mListener: OnDoctorMainInteraction? = null
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                            savedInstanceState: Bundle): View? {
+                            savedInstanceState: Bundle?): View? {
     val view = inflater.inflate(R.layout.fragment_medico_inicio, container, false)
     val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
-    val nombreUsuario = preferences.getString(NOMBRE, null)
-    val apPaterno = preferences.getString(APELLIDO_PATERNO, null)
-    val apMaterno = preferences.getString(APELLIDO_MATERNO, null)
+    val userName = preferences.getString(NOMBRE, null)
+    val lastName = preferences.getString(APELLIDO_PATERNO, null)
+    val mothersLastName = preferences.getString(APELLIDO_MATERNO, null)
 
     val imageView = view.findViewById<ImageView>(R.id.ivFruits)
     imageView.setImageResource(R.drawable.fruits)
 
     val textView = view.findViewById<TextView>(R.id.textNombre)
     if (textView != null)
-      textView.text = nombreUsuario + ' '.toString() + apPaterno + ' '.toString() + apMaterno
+      textView.text = userName + ' '.toString() + lastName + ' '.toString() + mothersLastName
 
-    val btnCrearToken = view.findViewById<Button>(R.id.btnNuevoToken)
-    btnCrearToken.setOnClickListener { crearToken() }
-    requestQueue = Volley.newRequestQueue(activity)
+    val createTokenButton = view.findViewById<Button>(R.id.btnNuevoToken)
+    createTokenButton.setOnClickListener { createToken() }
 
     return view
   }
 
-  override fun onAttach(activity: Activity) {
-    super.onAttach(activity)
-    if (activity is ComunicacionFMI) {
-      mListener = activity
-    } else {
+  override fun onAttach(context: Context) {
+    super.onAttach(context)
+    if (context is OnDoctorMainInteraction)
+      mListener = context
+    else
       throw RuntimeException(getString(R.string.error))
-    }
   }
 
-  fun crearToken() {
-    val act = activity
-    val context = act.applicationContext
-    val preferences = act.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
-    val idMedico = preferences.getInt(ID_USUARIO, -1)
+  override fun onAttach(activity: Activity) {
+    super.onAttach(activity)
+    if (activity is OnDoctorMainInteraction)
+      mListener = activity
+    else
+      throw RuntimeException(getString(R.string.error))
+  }
+
+  private fun createToken() {
+    val context = activity.applicationContext
+    val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
+    val idDoctor = preferences.getInt(ID_USUARIO, -1)
     // TODO: Agregar url de token
     val urlToken = "http://"
-    // String urlToken = FuncionesPrincipales.urlTokenMedico(idMedico);
-    val progressBar = act.findViewById<ProgressBar>(R.id.pbHeaderProgress)
+    // String urlToken = FuncionesPrincipales.urlTokenMedico(idDoctor);
+    val progressBar = activity.findViewById<ProgressBar>(R.id.pbHeaderProgress)
     progressBar.progress = 0
     progressBar.visibility = View.VISIBLE
 
@@ -92,7 +80,7 @@ class DoctorMainFragment : Fragment() {
             if (response.has(MENSAJE) && response.has(RESPUESTA)) {
               token = if (response.getString(RESPUESTA) == TOKEN) response.getString(MENSAJE) else ERROR
             }
-            val textView = act.findViewById<TextView>(R.id.textTokenMedico)
+            val textView = activity.findViewById<TextView>(R.id.textTokenMedico)
             textView.text = token
           } catch (e: Exception) {
             Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
@@ -106,7 +94,7 @@ class DoctorMainFragment : Fragment() {
         }
     )
 
-    requestQueue.add(request)
+    CeresRequestQueue.getInstance(context).addToRequestQueue(request)
 
     // GetRequest req = new GetRequest();
     // req.setProgressBar(pbHeaderProgress);
@@ -119,5 +107,5 @@ class DoctorMainFragment : Fragment() {
     mListener = null
   }
 
-  interface ComunicacionFMI
+  interface OnDoctorMainInteraction
 }

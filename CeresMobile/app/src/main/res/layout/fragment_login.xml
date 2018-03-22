@@ -3,7 +3,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="escom.tt.ceres.ceresmobile.LoginFragment">
+             tools:context="escom.tt.ceres.ceresmobile.fragments.LoginFragment">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

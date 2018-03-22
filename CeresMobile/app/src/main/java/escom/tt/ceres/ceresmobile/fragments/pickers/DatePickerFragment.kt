@@ -1,4 +1,4 @@
-package escom.tt.ceres.ceresmobile.fragments
+package escom.tt.ceres.ceresmobile.fragments.pickers
 
 import android.app.DatePickerDialog
 import android.app.Dialog

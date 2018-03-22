@@ -4,18 +4,14 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.support.constraint.ConstraintLayout
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.TimePicker
-
+import escom.tt.ceres.ceresmobile.fragments.pickers.DatePickerFragment
+import escom.tt.ceres.ceresmobile.fragments.pickers.TimePickerFragment
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.Calendar
-
-import escom.tt.ceres.ceresmobile.fragments.DatePickerFragment
-import escom.tt.ceres.ceresmobile.fragments.TimePickerFragment
+import java.util.*
 
 /**
  * Created by hali on 27/10/17.
@@ -35,7 +31,7 @@ object Functions {
     val datePickerFragment: DatePickerFragment
     val calendar = Calendar.getInstance()
     val sdf = SimpleDateFormat("dd" + separator + "MM" + separator + "yyyy")
-    if (!dtp.text.toString().isEmpty()) {
+    if (!dtp.text.toString().isBlank()) {
       try {
         calendar.time = sdf.parse(dtp.text.toString())
       } catch (e: ParseException) {
@@ -43,7 +39,7 @@ object Functions {
       }
 
     }
-    datePickerFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { datePicker, year, mes, dia ->
+    datePickerFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, mes, dia ->
       // final String fecha = year + separator + (mes + 1) + separator + dia;
       val fecha = dia.toString() + separator + (mes + 1) + separator + year
       dtp.setText(fecha)
@@ -56,15 +52,15 @@ object Functions {
     val timePickerFragment: TimePickerFragment
     val calendar = Calendar.getInstance()
     val sdf = SimpleDateFormat("HH:mm")
-    if (!dtp.text.toString().isEmpty()) {
+    if (!dtp.text.toString().isBlank()) {
       try {
         calendar.time = sdf.parse(dtp.text.toString())
       } catch (e: ParseException) {
         e.printStackTrace()
       }
-
     }
-    timePickerFragment = TimePickerFragment.newInstance({ timePicker, i, i1 ->
+
+    timePickerFragment = TimePickerFragment.newInstance(TimePickerDialog.OnTimeSetListener { _, i, i1 ->
       val hora = i.toString() + ":" + i1
       dtp.setText(hora)
     }, calendar)
@@ -91,10 +87,9 @@ object Functions {
     originalImage.setImageResource(resourceId)
   }
 
-  fun unselectElements(activity: Activity, texts: IntArray, imageViews: IntArray, resourceIds: IntArray) {
-    if (texts.size != imageViews.size || texts.size != resourceIds.size) {
+  fun deselectElement(activity: Activity, texts: IntArray, imageViews: IntArray, resourceIds: IntArray) {
+    if (texts.size != imageViews.size || texts.size != resourceIds.size)
       return
-    }
 
     var textViewMargin: ConstraintLayout.LayoutParams
     var imageMargin: ConstraintLayout.LayoutParams
@@ -122,62 +117,62 @@ object Functions {
     }
   }
 
-  fun dpsToPixel(activity: Activity, sizeInDp: Int): Int {
+  private fun dpsToPixel(activity: Activity, sizeInDp: Int): Int {
     val scale = activity.resources.displayMetrics.density
     return (sizeInDp * scale + 0.5f).toInt()
   }
 
   object Ints {
-    val MEDICO = 1
-    val PACIENTE = 0
-    val BORRAR = 2
-    val NULL = -1
-    val ERROR_CONEXION = 200
-    val ERROR_GENERAL = 100
-    val SEXO_MASCULINO = 1
-    val SEXO_FEMENINO = 0
-    val ERROR_IO = 300
+    const val MEDICO = 1
+    const val PACIENTE = 0
+    const val BORRAR = 2
+    const val NULL = -1
+    const val ERROR_CONEXION = 200
+    const val ERROR_GENERAL = 100
+    const val SEXO_MASCULINO = 1
+    const val SEXO_FEMENINO = 0
+    const val ERROR_IO = 300
   }
 
   object Strings {
-    val AZUCAR = "azucar"
-    val DIETA = "Dieta"
-    val DATE_FORMAT = "dd/MM/yyyy"
-    val GLUCOSA = "Glucosa"
-    val INICIO = "Inicio"
-    val FECHA_REGISTRO = "fechaRegistro"
-    val NOMBRE = "nombre"
-    val APELLIDO_PATERNO = "apellidoPaterno"
-    val APELLIDO_MATERNO = "apellidoMaterno"
-    val EMAIL = "email"
-    val KEYWORD = "keyword"
-    val FECHA_NACIMIENTO = "fechaNacimiento"
-    val SEXO = "sexo"
-    val ID_ROL = "idRol"
-    val CEDULA_PROFESIONAL = "cedulaProfesional"
-    val CODIGO_MEDICO = "codigoMedico"
-    val ID_USUARIO = "idUsuario"
-    val RESPUESTA = "respuesta"
-    val MENSAJE = "mensaje"
-    val INDIVIDUO_ROL = "individuoRol"
-    val ERROR = "ERROR"
-    val OK = "OK"
-    val TOKEN = "TOKEN"
-    val VOID = "VOID"
+    const val AZUCAR = "azucar"
+    const val DIETA = "Dieta"
+    const val DATE_FORMAT = "dd/MM/yyyy"
+    const val GLUCOSA = "Glucosa"
+    const val INICIO = "Inicio"
+    const val FECHA_REGISTRO = "fechaRegistro"
+    const val NOMBRE = "nombre"
+    const val APELLIDO_PATERNO = "apellidoPaterno"
+    const val APELLIDO_MATERNO = "apellidoMaterno"
+    const val EMAIL = "email"
+    const val KEYWORD = "keyword"
+    const val FECHA_NACIMIENTO = "fechaNacimiento"
+    const val SEXO = "sexo"
+    const val ID_ROL = "idRol"
+    const val CEDULA_PROFESIONAL = "cedulaProfesional"
+    const val CODIGO_MEDICO = "codigoMedico"
+    const val ID_USUARIO = "idUsuario"
+    const val RESPUESTA = "respuesta"
+    const val MENSAJE = "mensaje"
+    const val INDIVIDUO_ROL = "individuoRol"
+    const val ERROR = "ERROR"
+    const val OK = "OK"
+    const val TOKEN = "TOKEN"
+    const val VOID = "VOID"
 
-    val URL_SERVIDOR = "http://35.202.245.109"
-    val URL_REGISTRO = "$URL_SERVIDOR/tt-escom-diabetes/session/usuarios"
-    val URL_LOGIN = "$URL_SERVIDOR/tt-escom-diabetes/session/login"
-    val URL_DATOS = "$URL_SERVIDOR/tt-escom-diabetes/ceres/usuarios/"
-    val URL_PACIENTE = "$URL_SERVIDOR/tt-escom-diabetes/ceres/pacientes"
+    const val URL_SERVIDOR = "http://35.202.245.109"
+    const val URL_REGISTRO = "$URL_SERVIDOR/tt-escom-diabetes/session/usuarios"
+    const val URL_LOGIN = "$URL_SERVIDOR/tt-escom-diabetes/session/login"
+    const val URL_DATOS = "$URL_SERVIDOR/tt-escom-diabetes/ceres/usuarios/"
+    const val URL_PACIENTE = "$URL_SERVIDOR/tt-escom-diabetes/ceres/pacientes"
 
-    val USUARIO = "Usuario"
-    val LOGIN = "Login"
-    val ERROR_GENERAL = "Error general"
-    val ERROR_CONEXION = "Error de conexión"
-    val CODIGO_ERROR = "CodigoE"
-    val INFO_GUARDADA = "Información guardada."
-    val NOMBRE_COMPLETO = "nombreCompleto"
-    val ERROR_IO = "Error IO"
+    const val USUARIO = "Usuario"
+    const val LOGIN = "Login"
+    const val ERROR_GENERAL = "Error general"
+    const val ERROR_CONEXION = "Error de conexión"
+    const val CODIGO_ERROR = "CodigoE"
+    const val INFO_GUARDADA = "Información guardada."
+    const val NOMBRE_COMPLETO = "nombreCompleto"
+    const val ERROR_IO = "Error IO"
   }
 }
