@@ -40,7 +40,6 @@
         <property name="annotatedClasses">
             <list>
                 <value>mx.escom.tt.diabetes.model.dto.UsuarioDto</value>
-                <value>mx.escom.tt.diabetes.model.dto.IndividuoDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.PacienteDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.MedicoDto</value>
                 <value>mx.escom.tt.diabetes.model.dto.HistorialClinicoDto</value>      
@@ -75,10 +74,6 @@
 		<property name="sessionFactory" ref="SessionFactoryCliente"/>
 		<property name="ql" ref="UsuarioHqlHelper"/>  
 	</bean>
-	
-	<bean id="IndividuoDao" class="mx.escom.tt.diabetes.model.dao.impl.IndividuoDaoImpl">
-  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
- 	</bean>
  	<bean id="PacienteDao" class="mx.escom.tt.diabetes.model.dao.impl.PacienteDaoImpl">
   		<property name="sessionFactory" ref="SessionFactoryCliente"/>
  	</bean>

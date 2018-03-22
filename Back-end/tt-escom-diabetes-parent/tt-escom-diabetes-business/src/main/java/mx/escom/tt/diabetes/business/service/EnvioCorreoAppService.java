@@ -1,6 +1,5 @@
 package mx.escom.tt.diabetes.business.service;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -21,7 +20,7 @@ public class EnvioCorreoAppService {
 	
 	@Autowired private EmailSenderHelper emailSenderHelper;
 	//Beans para envio de correo electronico 
-	//@Resource(name="TaskExecutorEnvioCorreo") private TaskExecutor taskExecutorEnvioCorreo;
+	@Resource(name="TaskExecutorEnvioCorreo") private TaskExecutor taskExecutorEnvioCorreo;
 	
 	@Value("${mail.from}") private String correoRemitente;
 	
@@ -35,47 +34,43 @@ public class EnvioCorreoAppService {
 	 * @param mensaje					-	Cuerpo del correo 
 	 * @throws RuntimeException			-	Si ocurre un error durante la ejecucion
 	 */
-	public void enviarCorreoElectronico(String asunto, String[] arrayPara, String mensaje) throws RuntimeException{
+	public void enviarCorreoElectronico(String asunto, String[] arrayPara, Map<String, Object> parametros, String remitente, String plantilla) throws RuntimeException{
 		log.debug("Inicio - Service");
 
 		String msjError = null;
 		
 		//Variables para el envio de correo electronico
 		EmailSenderTask emailSenderTask = null;
-		Map<String, Object> parametros = null;
-		String plantilla = null;
+		
+		//Map<String, Object> parametros = null;
 		
 		{//Validaciones 
 			if(asunto == null || asunto.trim().isEmpty()){
-				msjError = "El asunto del correo no debe ser nulo o vacío.";
+				msjError = "El asunto del correo no debe ser nulo o vacï¿½o.";
 				throw new RuntimeException(msjError);
 			}
 			if(arrayPara == null || arrayPara.length == 0){
-				msjError = "El listado de correos 'para' no debe ser nulo o vacío.";
+				msjError = "El listado de correos 'para' no debe ser nulo o vacï¿½o.";
 				throw new RuntimeException(msjError);
 			}
 		}
 		
 		try {
-			parametros = new HashMap<String, Object>();
-			parametros.put(Constants.PARAMETRO_CORREO_MENSAJE, mensaje);
-			
-			plantilla = "mx/escom/tt/diabetes/commons/plantillaMail/plantilla_envio_correo.html";
 
 			//TODO Implementar envio de correo con un task executor
-//			{//Se arma la tarea de envio de correo electronico
-//				emailSenderTask = new EmailSenderTask(emailSenderHelper);
-//				emailSenderTask.setArrayPara(arrayPara);
-//				//emailSenderTask.setArrayConCopia(arrayConCopia);
-//				//emailSenderTask.setArrayConCopiaOculta(arrayConCopiaOculta);
-//				emailSenderTask.setAsunto(asunto);
-//				emailSenderTask.setPlantilla(plantilla);
-//				emailSenderTask.setParametros(parametros);
-//				emailSenderTask.setCorreoRemitente(correoRemitente);
-//			}
-			//taskExecutorEnvioCorreo.execute(emailSenderTask);
+			{//Se arma la tarea de envio de correo electronico
+				emailSenderTask = new EmailSenderTask(emailSenderHelper);
+				emailSenderTask.setArrayPara(arrayPara);
+				emailSenderTask.setArrayConCopia(null);
+				emailSenderTask.setArrayConCopiaOculta(null);
+				emailSenderTask.setAsunto(asunto);
+				emailSenderTask.setPlantilla(plantilla);
+				emailSenderTask.setParametros(parametros);
+				emailSenderTask.setCorreoRemitente(correoRemitente);
+			}
+			taskExecutorEnvioCorreo.execute(emailSenderTask);
 			
-			emailSenderHelper.enviarMail(asunto, arrayPara, null, null, correoRemitente, parametros, null, plantilla, null);
+			//emailSenderHelper.enviarMail(asunto, arrayPara, null, null, remitente, parametros, null, plantilla, null);
 			
 		}catch(RuntimeException ex){
 			throw ex;

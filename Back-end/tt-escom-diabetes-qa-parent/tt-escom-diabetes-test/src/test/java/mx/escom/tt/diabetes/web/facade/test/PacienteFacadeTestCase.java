@@ -23,32 +23,7 @@ public class PacienteFacadeTestCase {
 	
 	@Autowired PacienteFacade pacienteFacade;
 
-	/**
-	 * 
-	 * Proposito : Validar el correcto funcionamiento del metodo guardarPaciente(), de la clase PacienteFacade
-	 * @author Edgar, ESCOM
-	 * @version 1,0,0. 17/10/2017
-	 * @see PacienteFacade#guardarPaciente(String, String, String, String, String, String, String, String, String)
-	 */
-	@Test
-	public void guardarPaciente() {
-		log.debug("Inicio - Test");
-		
-		String idIndividuoStr = "";
-		String idMedicoStr = null;
-		String pesoStr = "65";
-		String tallaStr = null;
-		String estaturaStr = "160";
-		String imcStr = null;
-		String lipidosStr = null;
-		String carbohidratosStr = null;
-		String proteinasStr = null;
-		
-		pacienteFacade.guardarPaciente(idIndividuoStr, idMedicoStr, pesoStr, tallaStr, estaturaStr, imcStr, lipidosStr, carbohidratosStr, proteinasStr);
-		
-		log.debug("Fin - Test");
-	}
-	
+
 	/**
 	 * 
 	 * Proposito : Validar el correcto funcionamiento del metodo eliminarPaciente(), de la clase PacienteFacade
@@ -57,7 +32,7 @@ public class PacienteFacadeTestCase {
 	 * @see PacienteFacade#eliminarPaciente(String)
 	 */
 	@Test
-	public void eliminarPaciente() {
+	public void eliminarPacienteTestCase() {
 		log.debug("Inicio - Test");
 		
 		String idPacienteStr = "3";
@@ -75,13 +50,13 @@ public class PacienteFacadeTestCase {
 	 * @see PacienteFacade#recuperarPaciente(String)
 	 */
 	@Test
-	public void recuperarPaciente() {
+	public void recuperarPacientePorIdTestCase() {
 		log.debug("Inicio - Test");
 		
 		String idPacienteStr = "1";
 		PacienteDto pacienteDto = null;
 		
-		pacienteDto = pacienteFacade.recuperarPaciente(idPacienteStr);
+		pacienteDto = pacienteFacade.recuperarPacientePorId(idPacienteStr);
 		
 		if(pacienteDto != null) {
 			XStream xStream = new XStream();
@@ -92,7 +67,7 @@ public class PacienteFacadeTestCase {
 	}
 	
 	@Test
-	public void actualizarPaciente() {
+	public void actualizarPacienteTestCase() {
 		log.debug("Inicio - Test");
 		
 		String idPacienteStr = "5";

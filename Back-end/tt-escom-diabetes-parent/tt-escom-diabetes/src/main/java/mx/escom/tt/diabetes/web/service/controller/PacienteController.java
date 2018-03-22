@@ -20,6 +20,7 @@ import mx.escom.tt.diabetes.web.facade.PacienteFacade;
 import mx.escom.tt.diabetes.web.facade.RegistroGlucosaFacade;
 import mx.escom.tt.diabetes.web.vo.HistorialClinicoListVo;
 import mx.escom.tt.diabetes.web.vo.HistorialClinicoVo;
+import mx.escom.tt.diabetes.web.vo.PacienteVo;
 import mx.escom.tt.diabetes.web.vo.RegistroGlucosaVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaErrorVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
@@ -53,12 +54,32 @@ public class PacienteController {
 		RespuestaVo respuestaError=null;
 		
 		try {
-			pacienteDto = pacienteFacade.recuperarPaciente(idPaciente);	
+			pacienteDto = pacienteFacade.recuperarPacientePorId(idPaciente);	
 			result = new ResponseEntity<PacienteDto>(pacienteDto, HttpStatus.OK);
 		} catch (Exception ex) {
 			respuestaError = new RespuestaVo();
 			respuestaError.setMensaje(ex.getMessage());
 			result=new ResponseEntity<RespuestaVo>(respuestaError, HttpStatus.OK);
+		}
+		log.debug("Fin - Controller");
+		return result;
+	}
+	
+	@RequestMapping(value = "/{idPaciente}", method = RequestMethod.PUT, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> cambiarMedicoPaciente(@RequestBody PacienteVo pacienteVo) {
+		log.debug("Inicio - Controller");
+		
+		ResponseEntity<?> result = null;
+		RespuestaVo respuestaVo = null;
+		
+		try {
+			respuestaVo = pacienteFacade.cambiarMedicoPaciente(pacienteVo.getIdPaciente(), pacienteVo.getCodigoMedico());
+			result = new ResponseEntity<RespuestaVo>(respuestaVo, HttpStatus.OK);
+		} catch (Exception ex) {
+			respuestaVo = new RespuestaVo();
+			respuestaVo.setRespuesta("ERROR");
+			respuestaVo.setMensaje(ex.getMessage());
+			result=new ResponseEntity<RespuestaVo>(respuestaVo, HttpStatus.OK);
 		}
 		log.debug("Fin - Controller");
 		return result;

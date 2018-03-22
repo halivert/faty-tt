@@ -1,7 +1,6 @@
 package mx.escom.tt.diabetes.web.facade;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,6 +28,9 @@ public class RegistroGlucosaFacade extends NumberHelper{
 	@Qualifier("FormatoTimpeStamp")
 	@Autowired SimpleDateFormat formatoFecha;
 	
+	@Qualifier("FormatoFechaNacimiento")
+	@Autowired SimpleDateFormat formatoFechaNacimiento;
+	
 	/**
 	 * Proposito : Guardar la informacion de un registro que haga el paciente
 	 * @author Edgar, ESCOM
@@ -43,8 +45,8 @@ public class RegistroGlucosaFacade extends NumberHelper{
 		RespuestaVo respuestaVo = null;
 		RegistroGlucosaDto registroGlucosaDto = null;
 		String msjEx = null;
-		//TODO edgar.hurtado Hacer un bean para este formato
-		DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
+		//TODO edgar.hurtado Hacer un bean para este formato - HECHO
+		//DateFormat sourceFormat = new SimpleDateFormat("dd/MM/yyyy");
 		
 		
 		if(registroGlucosaVo == null) {
@@ -63,7 +65,7 @@ public class RegistroGlucosaFacade extends NumberHelper{
 			}
 			
 			{//Se genera el formato de la fecha
-				Date date = sourceFormat.parse(registroGlucosaVo.getFechaRegistro());
+				Date date = formatoFechaNacimiento.parse(registroGlucosaVo.getFechaRegistro());
 				registroGlucosaVo.setFechaRegistro(formatoFecha.format(date));	
 			}
 

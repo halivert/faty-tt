@@ -25,19 +25,19 @@ public class PacienteAppServiceTestCase {
 	
 	/**
 	 * 
-	 * Proposito : Validar el correcto funcionamiento del metodo recuperarPaciente, de la clase PacienteAppService
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarPaciente, de la clase recuperarPacientePorIdPacienteAppService
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 16/10/2017
 	 * @see PacienteAppService#recuperarPaciente(Integer)
 	 */
 	@Test
-	public void recuperarPaciente() {
+	public void recuperarPacientePorIdPacienteAppServiceTestCase() {
 		log.debug("Incio - Test");
 		
 		Integer idPaciente = 2;
 		PacienteDto pacienteDto = null;
 		
-		pacienteDto = pacienteAppService.recuperarPaciente(idPaciente);
+		pacienteDto = pacienteAppService.recuperarPacientePorIdPacienteAppService(idPaciente);
 				
 		if(pacienteDto != null) {
 			XStream xStream = new XStream();
@@ -49,13 +49,13 @@ public class PacienteAppServiceTestCase {
 	
 	/**
 	 * 
-	 * Proposito : Validar el correcto funcionamiento del metodo guardarPaciente, de la clase PacienteAppService
+	 * Proposito : Validar el correcto funcionamiento del metodo guardarPaciente, de la clase guardarPacienteAppService
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 16/10/2017
 	 * @see PacienteAppService#guardarPaciente(PacienteDto)
 	 */
 	@Test
-	public void guardarPaciente() {
+	public void guardarPacienteAppServiceTestCase() {
 		log.debug("Incio - Test");
 		PacienteDto pacienteDto = new PacienteDto();
 		
@@ -77,48 +77,42 @@ public class PacienteAppServiceTestCase {
 		pacienteDto.setCarbohidratos(carbohidratos);		
 		pacienteDto.setProteinas(proteinas);*/
 		
-		pacienteAppService.guardarPaciente(pacienteDto);
+		pacienteAppService.guardarPacienteAppService(pacienteDto);
 		log.debug("Fin - Test");
 	}
 	
 	/**
 	 * 
-	 * Proposito : Validar el correcto funcionamiento del metodo eliminarPaciente, de la clase PacienteAppService 
+	 * Proposito : Validar el correcto funcionamiento del metodo eliminarPacienteAppService, de la clase PacienteAppService 
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 16/10/2017
 	 * @see PacienteAppService#eliminarPaciente(Integer)
 	 */
 	@Test
-	public void eliminarPaciente() {
+	public void eliminarPacienteAppServiceTestCase() {
 		log.debug("Inicio - Test");
 		
 		Integer idPaciente = 2;
 		
-		pacienteAppService.eliminarPaciente(idPaciente);
+		pacienteAppService.eliminarPacienteAppService(idPaciente);
 		
 		log.debug("Fin - Test");
 	}
 	
 	/**
 	 * 
-	 * Proposito : Validar el correcto funcionamiento  
+	 * Proposito : Validar el correcto funcionamiento del metodo actualizarInformacionPacienteAppService
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 16/10/2017
 	 */
 	@Test
-	public void actualizarPaciente() {
+	public void cambiarMedicoPacienteAppServiceTestCase() {
 		log.debug("Inicio - Test");
 		
-		Integer idPaciente = 3;
-		PacienteDto pacienteDto =  null;
+		Integer idPaciente = 129;
+		String codigo = "5T1RM";
 		
-		pacienteDto = pacienteAppService.recuperarPaciente(idPaciente);
-		Integer idMedico = 2;
-		
-		{//Se actualiza la informacion
-			pacienteDto.setIdMedico(idMedico);
-		}
-		pacienteAppService.actualizarInformacionPaciente(pacienteDto);	
+		pacienteAppService.cambiarMedicoPacienteAppService(idPaciente, codigo);	
 		log.debug("Fin - Test");
 	}
 	

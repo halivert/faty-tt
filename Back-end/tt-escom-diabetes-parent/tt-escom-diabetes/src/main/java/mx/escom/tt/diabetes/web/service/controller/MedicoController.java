@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.vo.MedicoPacientesVo;
 import mx.escom.tt.diabetes.web.facade.MedicoFacade;
 import mx.escom.tt.diabetes.web.facade.TokenMedicoFacade;
+import mx.escom.tt.diabetes.web.vo.CorreoTokenVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaErrorVo;
 
 @CommonsLog
@@ -60,7 +62,7 @@ public class MedicoController {
 		try {
 			token = tokenMedicoFacade.generarToken(idMedico);
 			
-			//Se reutiliza la clasr RespuestaErrorVo
+			//Se reutiliza la clase RespuestaErrorVo
 			respuestaToken = new RespuestaErrorVo();
 			
 			respuestaToken.setRespuesta("TOKEN");
@@ -68,15 +70,42 @@ public class MedicoController {
 			
 			result = new ResponseEntity<RespuestaErrorVo>(respuestaToken, HttpStatus.OK);
 		} catch (Exception ex) {
-			
 			respuestaError = new RespuestaErrorVo();
 			respuestaError.setRespuesta("ERROR");
 			respuestaError.setMensaje(ex.getMessage());
-			
 			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.OK);
 		}
 		log.debug("Fin - Controller");
 		return result;
 	}
 	
+	@RequestMapping(value = "{idMedico}/correoToken", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> enviarToken(@PathVariable("idMedico") String idMedico, @RequestBody CorreoTokenVo correoTokenVo) {
+		log.debug("Inicio - Controller");
+		ResponseEntity<?> result = null;
+		RespuestaErrorVo respuestaError=null;
+		RespuestaErrorVo respuestaToken=null;
+		
+		log.debug("idMedico :" + idMedico);
+		log.debug("nombre : "+ correoTokenVo.getNombreMedico());
+		try {
+			//String remitente = "edgar.hurtado@habilgroup.net";
+			tokenMedicoFacade.enviarTokenEmail(correoTokenVo.getDestinatario(), correoTokenVo.getToken(), correoTokenVo.getNombreMedico(), correoTokenVo.getRemitente());
+			
+			//Se reutiliza la clase RespuestaErrorVo
+			respuestaToken = new RespuestaErrorVo();
+			
+			respuestaToken.setRespuesta("OK");
+			respuestaToken.setMensaje("Se envió el mensaje correctamente");
+			
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaToken, HttpStatus.OK);
+		} catch (Exception ex) {
+			respuestaError = new RespuestaErrorVo();
+			respuestaError.setRespuesta("ERROR");
+			respuestaError.setMensaje(ex.getMessage());
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.OK);
+		}
+		log.debug("Fin - Controller");
+		return result;
+	}
 }

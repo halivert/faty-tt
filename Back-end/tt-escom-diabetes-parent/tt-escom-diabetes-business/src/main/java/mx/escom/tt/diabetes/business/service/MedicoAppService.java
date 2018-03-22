@@ -38,11 +38,10 @@ public class MedicoAppService {
 		try{
 			medicoDao.guardarMedico(medicoDto);
 		}catch(RuntimeException ex) {
-			log.debug("ERRORR :::: " + ex.getMessage());
 			msjEx = "La cédula : " + medicoDto.getCedulaProfesional() + " ya está en los registros del sistema.";
 			throw new RuntimeException(msjEx);
 		}catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "al guardar el médico. \n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "al guardar el médico." + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
 		}
 		log.debug("Fin - Service");
