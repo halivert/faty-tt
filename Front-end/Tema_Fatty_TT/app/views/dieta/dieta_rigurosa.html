@@ -5,79 +5,96 @@
 </div>
 
 
-<div class="wrapper wrapper-content animated fadeInRight" ng-controller="dietaCtrl" ng-init="dietaRigurosaSlider()">
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="dietaCtrl" ng-init="recuperarListaAlimentos()">
  <div class="row">
     <div class="col-lg-12">
         <div class="ibox-content">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <h3 class="no-margins ng-binding"><b>Enrique Hurtado G</b></h3>
                     <br>
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 text-center">
                             <small class="stats-label">% Proteinas</small>
-                            <h4>40</h4>
+                            <h4 class="text-center">40</h4>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 text-center">
                             <small class="stats-label">% Lípidos</small>
-                            <h4>40</h4>
+                            <h4 class="text-center">40</h4>
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-xs-4 text-center">
                             <small class="stats-label">% Carbohidratos</small>
-                            <h4>20</h4>
+                            <h4 class="text-center">20</h4>
                         </div>                    
                     </div>
                     <hr>
-                    <div class="product-images text-center tiempo">
-                        <h3>
-                            {{tiempos[0]}}
-                        </h3>
-                        <h3>
-                            {{tiempos[1]}}
-                        </h3>
-                        <h3>
-                            {{tiempos[2]}}
-                        </h3>
-                        <h3>
-                            {{tiempos[3]}}
-                        </h3>
-                        <h3>
-                            {{tiempos[4]}}
-                        </h3>
-                        
+
+                    <div class="row">
+                        <div class="col-xs-4 text-center">
+                        </div>
+                        <div class="col-xs-4 text-center">
+                            <slick  settings="slickConfig" class="col-sm-12">
+                            <div ng-repeat="i in tiempos">
+                                <div class="text-center">
+                                    <h3>{{ i.label }}</h3>
+                                </div>
+                            </div>
+                            </slick>
+                        </div>
+                       
+                        <div class="col-xs-4 text-center">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-2" style="text-align:right;">Tipo de alimento</label>
+                        <div class="col-sm-3">
+                            <select class="form-control m-b" name="tipoAlimento" 
+                                ng-model="selected"
+                                ng-options="item.name for item in Array"
+                                ng-change="clickOptionFun(selected)">
+                            </select>
+                        </div>
+                    </div>
                     </div>
 
-                    <div class="table-responsive">
-                            <table id="dataTable-alimentos" class="table table-striped table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Alimento</th>
-                                        <th>Cantidad Sugerida</th>
-                                        <th>Unidad</th>
-                                        <th>Carbohidratos</th>
-                                        <th>Proteinas</th>
-                                        <th>Lipidos</th>                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="paciente in pacientes">
-                                        <td><button type="button" ng-click="verUltimoHistorial(paciente.id_USUARIO)"  class="btn btn-outline btn-success boton-paciente">{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</button></td>
-                                        <td>{{ calculateAge(paciente.fec_NAC)}}</td>
-                                        <td>{{paciente.fec_NAC | date:'dd/MM/yyyy'}}</td>
-                                        <td>{{paciente.sexo}}</td>
-                                        <td>{{paciente.email}}</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
+                     <div class="table-responsive">
+                        <table ng-table="tableParams" class="table table-striped  table-hover" show-filter="false">
 
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                                              
+                            <tr ng-repeat="alimento in $data">
+                                <td title="'Agregar'" class="text-center">
+                                <button class="btn btn-default btn-circle" type="button" ng-click="agregarAlimento(alimento.idAlimento)"><i class="fa fa-check"></i>
+                                </button>
+                                </td>
+                                <td title="'Alimento'" filter="{ alimento: 'text'}" sortable="'alimento'">
+                                    {{alimento.alimento}}
+                                </td>
+                                <td title="'Cantidad Sugerida'" class="text-center">
+                                    {{alimento.cantidad}}
+                                </td>
+                                <td title="'Unidad'" class="text-center">
+                                    {{alimento.unidad}}
+                                </td>
+                                <td title="'Carbohidratos'" class="text-center">
+                                    {{alimento.carbohidratos}}
+                                </td>
+                                <td title="'Proteinas'" class="text-center">
+                                    {{alimento.proteina}}
+                                </td>
+                                <td title="'Lipidos'" class="text-center">
+                                    {{alimento.lipidos}}
+                                </td>
+                                <td title="'Azucar por equivalente'" class="text-center">
+                                    {{alimento.azucarPe}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>                          
                 </div>
-                <div class="col-md-4" ng-init="iniciaGraficaBarras()">
+                ALIMENTOS
+                {{dieta}}
+                <!--<div class="col-md-4" ng-init="iniciaGraficaBarras()">
                     <div class="ibox float-e-margins">
                         <h5>Gráfica de barras</h5>
                         <div class="ibox-content">
@@ -85,20 +102,10 @@
                             </canvas>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
 </div>
 </div>
 
-
-<!--<script>
-    $(document).ready(function(){
-        $('.tiempo').slick({
-            dots: true,
-            infinite: false,
-        });
-
-    });
-</script>-->

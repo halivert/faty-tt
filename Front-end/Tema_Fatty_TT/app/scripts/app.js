@@ -10,6 +10,8 @@
         'toastr',
         'ngCookies',
         'blockUI',
-        'chart.js' 
+        'chart.js',
+        'ngTable',
+        'slickCarousel'
         ])
  })();

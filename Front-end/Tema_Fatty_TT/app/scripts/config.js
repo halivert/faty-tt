@@ -70,7 +70,12 @@
         authenticate: true,
         data: { pageTitle: 'Generar Dieta' }
     })
-
+    .state('index.codigoMedico', {
+        url: "/codigoMedico",
+        templateUrl: "views/medico/medico_token.html",
+        authenticate: true,
+        data: { pageTitle: 'Generar Dieta' }
+    })
 }
 /**
 * Angular config    - Método para registrar el trabajo que debe realizarse en la carga del módulo.
