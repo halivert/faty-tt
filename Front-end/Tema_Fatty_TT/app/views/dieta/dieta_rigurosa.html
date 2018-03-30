@@ -11,20 +11,20 @@
         <div class="ibox-content">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="no-margins ng-binding"><b>Enrique Hurtado G</b></h3>
+                    <div class="row" ng-controller="pacientesCtrl" ng-init="mostrarInformacionGeneral()">
+                    <h3 class="no-margins ng-binding"><b>{{historialDetalle.nombreComppleto}}</b></h3>
                     <br>
-                    <div class="row">
                         <div class="col-xs-4 text-center">
-                            <small class="stats-label">% Proteinas</small>
-                            <h4 class="text-center">40</h4>
+                            <small class="stats-label">Proteinas</small>
+                            <h4 class="text-center">{{historialDetalle.proteinas}}</h4>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <small class="stats-label">% Lípidos</small>
-                            <h4 class="text-center">40</h4>
+                            <small class="stats-label">Lípidos</small>
+                            <h4 class="text-center">{{historialDetalle.lipidos}}</h4>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <small class="stats-label">% Carbohidratos</small>
-                            <h4 class="text-center">20</h4>
+                            <small class="stats-label">Carbohidratos</small>
+                            <h4 class="text-center">{{historialDetalle.carbohidratos}}</h4>
                         </div>                    
                     </div>
                     <hr>
@@ -92,9 +92,7 @@
                         </table>
                     </div>                          
                 </div>
-                ALIMENTOS
-                {{dieta}}
-                <!--<div class="col-md-4" ng-init="iniciaGraficaBarras()">
+                <div class="col-md-4" ng-init="iniciaGraficaBarras()">
                     <div class="ibox float-e-margins">
                         <h5>Gráfica de barras</h5>
                         <div class="ibox-content">
@@ -102,7 +100,7 @@
                             </canvas>
                         </div>
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
     </div>

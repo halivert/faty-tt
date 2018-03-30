@@ -2,15 +2,15 @@
 * dietaCtrl - Controlador ligado a la vista dieta_rigurosa.html
 */
 angular.module('trabajoTerminal')
-.controller('dietaCtrl', function($scope,$log,alimentoService,$cookies,NgTableParams,$filter){ 
+.controller('dietaCtrl', function($scope,$log,alimentoService,$cookies,NgTableParams,$filter,pacientesService){ 
 
 
 $scope.alimentos = [];
 $scope.dieta ={
   "Desayuno":[],
-  "Colación 1":[],
+  "C1":[],
   "Comida":[],
-  "Colación 2":[],
+  "C2":[],
   "Cena":[]
 };
 $scope.Array = [
@@ -37,9 +37,10 @@ $scope.slickConfig = {
   event: {
       beforeChange: function (event, slick, currentSlide, nextSlide) {
         //console.log("currentSlide" + $scope.tiempos[currentSlide].label);
-        currentTiempo = $scope.tiempos[currentSlide].label;
+        //currentTiempo = $scope.tiempos[currentSlide].label;
       },
       afterChange: function (event, slick, currentSlide, nextSlide) {
+        currentTiempo = $scope.tiempos[currentSlide].label;
       }
   }
 };
@@ -75,18 +76,34 @@ $scope.recuperarListaAlimentos = function(tipoAlimento){
     }
   );
 
-},//Termina dietaRigurosaSlider
+}//Termina dietaRigurosaSlider
 
 $scope.agregarAlimento = function(idAlimento){
-  console.log("iniciaGraficaBarras : " + idAlimento);
   var currentAlimento = {};
   currentAlimento = $filter('filter')($scope.alimentos, {'idAlimento':idAlimento}, true)[0];
 
-  //$scope.dieta = [];
-  //$scope.dieta.push(currentAlimento);
-  console.log(currentTiempo);
-  $scope.dieta.currentTiempo.push(currentAlimento);
-  //console.log(JSON.stringify($scope.dieta));
+  //console.log("currentTiempo " + currentTiempo);
+  switch (currentTiempo) {
+      case 'Desayuno':
+          $scope.dieta.Desayuno.push(currentAlimento);
+          break;
+      case 'Colación 1':
+          $scope.dieta.C1.push(currentAlimento);
+          break;
+      case 'Comida':
+          $scope.dieta.Comida.push(currentAlimento);
+          break;
+      case 'Colación 2':
+          $scope.dieta.C2.push(currentAlimento);
+          break;
+      case 'Cena':
+          $scope.dieta.Cena.push(currentAlimento);
+          break;            
+      default:
+          $scope.dieta.Desayuno.push(currentAlimento);
+  }
+
+  console.log("DIETA : " + JSON.stringify($scope.dieta));
 }
 
 /**
@@ -106,6 +123,24 @@ $scope.iniciaGraficaBarras = function(){
 
 }//Termina iniciaGraficaBarras
 
+$scope.mostrarInformacion = function(tipoAlimento){
+
+ 
+  alimentoService.recuperarAlimentos(tipoAlimento).then(
+    function successCallback(d) {
+      $scope.alimentos = d;
+      $scope.tableParams = new NgTableParams({}, { dataset: d});
+    },
+    function errorCallback(d) {
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        toastr.error(d.data.mensaje, 'Error');
+      }
+    }
+  );
+
+}
 
 });
 
