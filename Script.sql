@@ -57,16 +57,20 @@ CREATE TABLE HISTORIAL_CLINICO (
   CONSTRAINT FK_PACIENTE_HC FOREIGN KEY(ID_PACIENTE) REFERENCES PACIENTE(ID_USUARIO)
 );
 
+DROP TABLE IF EXISTS `DIETA`;
+
 CREATE TABLE DIETA (
   ID_DIETA INT AUTO_INCREMENT PRIMARY KEY,
   ID_PACIENTE INT NOT NULL,
   ID_MEDICO INT NOT NULL,
   DESCRIPCION VARCHAR(50) NOT NULL,
-  ALIMENTOS_DISPONIBLES JSON,
+  ALIMENTOS_DISPONIBLES LONGTEXT,
 
   CONSTRAINT FK_PACIENTE_DIETA FOREIGN KEY(ID_PACIENTE) REFERENCES PACIENTE(ID_USUARIO),
   CONSTRAINT FK_MEDICO_DIETA FOREIGN KEY(ID_MEDICO) REFERENCES MEDICO(ID_USUARIO)
 );
+
+--PRUEBA INSERT INTO DIETA VALUES (NULL,126,97,'Dieta de ejemplo', '{"Desayuno":[{"idAlimento":233,"tipoAlimento":"Verdura","alimento":"Apio cocido","cantidad":"3/4","unidad":"taza","pesoBgr":113,"pesoNgr":113,"energia":20,"proteina":0.9,"lipidos":0.2,"carbohidratos":4.5,"fibraGr":1.8,"vitaminaA":29.3,"acidoAscorbico":6.9,"acidoFolico":24.8,"hierroNo":0.5,"potasio":319.5,"azucarGr":0,"cargaGl":"ND","azucarPe":"ND","colesterol":"ND","agSaturados":"ND","agMsaturados":"ND","agPsaturados":"ND","calcio":"ND","selenio":"ND","fosforo":"ND","potasioP":"ND","hierro":"ND","sodio":"ND","$$hashKey":"object:182"},{"idAlimento":1,"tipoAlimento":"Fruta","alimento":"Agua de coco","cantidad":"1 1/2","unidad":"taza","pesoBgr":360,"pesoNgr":360,"energia":65,"proteina":1.1,"lipidos":0.7,"carbohidratos":16.9,"fibraGr":0,"vitaminaA":0,"acidoAscorbico":7.2,"acidoFolico":0,"hierroNo":4.3,"potasio":529.2,"azucarGr":0,"cargaGl":"ND","azucarPe":"0.0","colesterol":"ND","agSaturados":"ND","agMsaturados":"ND","agPsaturados":"ND","calcio":"ND","selenio":"ND","fosforo":"ND","potasioP":"ND","hierro":"ND","sodio":"ND","$$hashKey":"object:243"}],"C1":[{"idAlimento":1,"tipoAlimento":"Fruta","alimento":"Agua de coco","cantidad":"1 1/2","unidad":"taza","pesoBgr":360,"pesoNgr":360,"energia":65,"proteina":1.1,"lipidos":0.7,"carbohidratos":16.9,"fibraGr":0,"vitaminaA":0,"acidoAscorbico":7.2,"acidoFolico":0,"hierroNo":4.3,"potasio":529.2,"azucarGr":0,"cargaGl":"ND","azucarPe":"0.0","colesterol":"ND","agSaturados":"ND","agMsaturados":"ND","agPsaturados":"ND","calcio":"ND","selenio":"ND","fosforo":"ND","potasioP":"ND","hierro":"ND","sodio":"ND","$$hashKey":"object:243"}],"Comida":[{"idAlimento":5,"tipoAlimento":"Fruta","alimento":"Anona","cantidad":"130","unidad":"g","pesoBgr":130,"pesoNgr":59,"energia":59,"proteina":1,"lipidos":0.4,"carbohidratos":14.7,"fibraGr":2,"vitaminaA":0,"acidoAscorbico":5.3,"acidoFolico":0,"hierroNo":0.4,"potasio":223.5,"azucarGr":0,"cargaGl":"ND","azucarPe":"0.0","colesterol":"ND","agSaturados":"ND","agMsaturados":"ND","agPsaturados":"ND","calcio":"ND","selenio":"ND","fosforo":"ND","potasioP":"ND","hierro":"ND","sodio":"ND","$$hashKey":"object:247"}],"C2":[{"idAlimento":9,"tipoAlimento":"Fruta","alimento":"Blueberries congeladas","cantidad":"3/4","unidad":"taza","pesoBgr":116,"pesoNgr":116,"energia":59,"proteina":0.5,"lipidos":0.8,"carbohidratos":14.2,"fibraGr":3.2,"vitaminaA":1.5,"acidoAscorbico":9,"acidoFolico":8.1,"hierroNo":0.2,"potasio":63,"azucarGr":0,"cargaGl":"ND","azucarPe":"9.8","colesterol":"ND","agSaturados":"ND","agMsaturados":"ND","agPsaturados":"ND","calcio":"ND","selenio":"ND","fosforo":"ND","potasioP":"ND","hierro":"ND","sodio":"ND","$$hashKey":"object:251"}],"Cena":[{"idAlimento":10,"tipoAlimento":"Fruta","alimento":"Blueberries congeladas con azucar","cantidad":"1/4","unidad":"taza","pesoBgr":58,"pesoNgr":58,"energia":47,"proteina":0.2,"lipidos":0.1,"carbohidratos":12.6,"fibraGr":1.3,"vitaminaA":0.5,"acidoAscorbico":3.5,"acidoFolico":4,"hierroNo":0.2,"potasio":34.5,"azucarGr":0,"cargaGl":"ND","azucarPe":"11.4","colesterol":"ND","agSaturados":"ND","agMsaturados":"ND","agPsaturados":"ND","calcio":"ND","selenio":"ND","fosforo":"ND","potasioP":"ND","hierro":"ND","sodio":"ND","$$hashKey":"object:252"}]}');
 
 CREATE TABLE ALIMENTOS (
   ID_ALIMENTO INT AUTO_INCREMENT PRIMARY KEY,
@@ -268,6 +272,12 @@ ALTER TABLE ALIMENTOS ADD COLUMN (
 	HIERRO VARCHAR(5),	
 	SODIO VARCHAR(5)
 );
+ALTER TABLE DIETA ADD COLUMN (
+	FECHA_ASIGNACION TIMESTAMP NOT NULL
+);
+
+UPDATE ALIMENTOS SET UNIDAD = ‘gr’ WHERE UNIDAD = ‘g’;
+UPDATE ALIMENTOS SET UNIDAD = ‘pz’ WHERE UNIDAD = ‘pieza’;
 
 LOAD DATA LOCAL INFILE "C:\\Users\\Edgar\\Desktop\\Comidas-copia.csv" INTO TABLE CERESDV.ALIMENTOS CHARACTER SET 'utf8' FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n'
 

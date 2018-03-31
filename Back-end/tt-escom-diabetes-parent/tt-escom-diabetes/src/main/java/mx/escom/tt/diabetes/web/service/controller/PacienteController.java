@@ -14,7 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import lombok.extern.apachecommons.CommonsLog;
+import mx.escom.tt.diabetes.model.dto.DietaDto;
 import mx.escom.tt.diabetes.model.dto.PacienteDto;
+import mx.escom.tt.diabetes.web.facade.DietaFacade;
 import mx.escom.tt.diabetes.web.facade.HistorialClinicoFacade;
 import mx.escom.tt.diabetes.web.facade.PacienteFacade;
 import mx.escom.tt.diabetes.web.facade.RegistroGlucosaFacade;
@@ -34,6 +36,7 @@ public class PacienteController {
 	@Autowired PacienteFacade pacienteFacade;
 	@Autowired HistorialClinicoFacade historialClinicoFacade;
 	@Autowired RegistroGlucosaFacade registroGlucosaFacade; 
+	@Autowired DietaFacade dietaFacade;
 
 	
 	/**
@@ -348,4 +351,65 @@ public class PacienteController {
 		return result;
 	}
 	
+	/**
+	 * Proposito : Recuperar la informacion completa de una dieta por medio de su identificador
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 30/03/2018
+	 * @param idPaciente						-	Identificador del paciente
+	 * @param idDieta							-	Identificador de la dieta
+	 * @return ResponseEntity<DietaDto>			-	Objeto con la informacion completa de una dieta
+	 */
+	@RequestMapping(value = "/{idPaciente}/dietas/{idDieta}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> recuperarDietaPorId(@PathVariable("idPaciente") String idPaciente, @PathVariable("idDieta") String idDieta) {
+		log.debug("Inicio - Controller");
+		
+		ResponseEntity<?> result = null;
+		DietaDto dietaDto = null;
+		RespuestaErrorVo respuestaErrorVo = null;
+		RespuestaVo respuestaVo = null;
+		
+		try {
+			dietaDto  = dietaFacade.recuperarDietaPorId(idDieta);
+			result = new ResponseEntity<DietaDto>(dietaDto, HttpStatus.OK);
+			
+		}catch (Exception ex) {
+			respuestaVo = new RespuestaVo();
+			respuestaVo.setRespuesta("ERROR");
+			respuestaVo.setMensaje(ex.getMessage());
+			result=new ResponseEntity<RespuestaErrorVo>(respuestaErrorVo, HttpStatus.OK);
+		}
+		log.debug("Fin - Controller");
+		return result;
+	}
+	
+	/**
+	 * Proposito : Recuperar una lista de dietas por medio del identificador del paciente, las dietas solo tendran informacion general
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 31/03/2018
+	 * @param idPaciente						-	Identificador del paciente
+	 * @return ResponseEntity<List<DietaDto>>	-	Objecto con la lista de dietas, error en caso contrario
+	 */
+	@RequestMapping(value = "/{idPaciente}/dietas", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> recuperarDietaPorIdPaciente(@PathVariable("idPaciente") String idPaciente) {
+		log.debug("Inicio - Controller");
+		
+		ResponseEntity<?> result = null;
+		List<DietaDto> dietaDtoList = null;
+		RespuestaErrorVo respuestaErrorVo = null;
+		RespuestaVo respuestaVo = null;
+		
+		try {
+			dietaDtoList  = dietaFacade.recuperaDietaPorIdPaciente(idPaciente);
+			result = new ResponseEntity<List<DietaDto>>(dietaDtoList, HttpStatus.OK);
+			
+		}catch (Exception ex) {
+			respuestaVo = new RespuestaVo();
+			respuestaVo.setRespuesta("ERROR");
+			respuestaVo.setMensaje(ex.getMessage());
+			result=new ResponseEntity<RespuestaErrorVo>(respuestaErrorVo, HttpStatus.OK);
+		}
+		log.debug("Fin - Controller");
+		return result;
+	}
 }

@@ -8,6 +8,7 @@ angular.module('trabajoTerminal')
 
 .controller('MainCtrl', function($scope,loginService,$cookies,toastr){
 
+$scope.nombrePagina = "Página de inicio";
 $scope.informacionIndividuo = {};  	
 $scope.date = new Date();
 $scope.fecha = new Date();

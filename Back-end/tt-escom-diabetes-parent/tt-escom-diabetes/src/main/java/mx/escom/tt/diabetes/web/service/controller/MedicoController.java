@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.vo.MedicoPacientesVo;
+import mx.escom.tt.diabetes.web.facade.DietaFacade;
 import mx.escom.tt.diabetes.web.facade.MedicoFacade;
 import mx.escom.tt.diabetes.web.facade.TokenMedicoFacade;
 import mx.escom.tt.diabetes.web.vo.CorreoTokenVo;
+import mx.escom.tt.diabetes.web.vo.DietaVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaErrorVo;
 
 @CommonsLog
@@ -25,6 +27,7 @@ public class MedicoController {
 	
 	@Autowired MedicoFacade medicoFacade;
 	@Autowired TokenMedicoFacade tokenMedicoFacade;
+	@Autowired DietaFacade dietaFacade;
 
 	@RequestMapping(value = "{idMedico}/pacientes/", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	public ResponseEntity<?> obtenerIndividuo(@PathVariable("idMedico") String idMedico) {
@@ -99,6 +102,31 @@ public class MedicoController {
 			respuestaToken.setMensaje("Se envió el mensaje correctamente");
 			
 			result = new ResponseEntity<RespuestaErrorVo>(respuestaToken, HttpStatus.OK);
+		} catch (Exception ex) {
+			respuestaError = new RespuestaErrorVo();
+			respuestaError.setRespuesta("ERROR");
+			respuestaError.setMensaje(ex.getMessage());
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.OK);
+		}
+		log.debug("Fin - Controller");
+		return result;
+	}
+	
+	@RequestMapping(value = "{idMedico}/pacientes/{idPaciente}/dietas", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> guardarDieta(@PathVariable("idMedico") String idMedico,@PathVariable("idPaciente") String idPaciente, @RequestBody DietaVo dietaVo) {
+		log.debug("Inicio - Controller");
+		ResponseEntity<?> result = null;
+		RespuestaErrorVo respuestaError=null;
+		
+		try {
+
+			dietaFacade.guardarDieta(idMedico, idPaciente, dietaVo.getDescripcion(), dietaVo.getAlimentosDisponibles());
+			//Se reutiliza la clase RespuestaErrorVo
+			respuestaError = new RespuestaErrorVo();
+			respuestaError.setRespuesta("OK");
+			respuestaError.setMensaje("La dieta se generó correctamente");
+			
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaError, HttpStatus.OK);
 		} catch (Exception ex) {
 			respuestaError = new RespuestaErrorVo();
 			respuestaError.setRespuesta("ERROR");

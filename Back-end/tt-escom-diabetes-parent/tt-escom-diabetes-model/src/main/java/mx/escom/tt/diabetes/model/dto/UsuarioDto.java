@@ -40,7 +40,7 @@ public class UsuarioDto implements Serializable {
 	@Column(name = "KEYWORD", unique = true)
 	private @Getter @Setter String keyword;
 
-	@Column(name = "FECHA_NACIMIENTO", unique = true)
+	@Column(name = "FECHA_NACIMIENTO", unique = false)
 	private @Getter @Setter Date fechaNacimiento;
 	
 	@Column(name = "SEXO", unique = false, length = 50)

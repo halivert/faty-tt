@@ -2,7 +2,7 @@
 * dietaCtrl - Controlador ligado a la vista dieta_rigurosa.html
 */
 angular.module('trabajoTerminal')
-.controller('dietaCtrl', function($scope,$log,alimentoService,$cookies,NgTableParams,$filter,pacientesService){ 
+.controller('dietaCtrl', function($scope,$log,alimentoService,$cookies,NgTableParams,$filter,pacientesService,dietaService){ 
 
 
 $scope.alimentos = [];
@@ -82,7 +82,6 @@ $scope.agregarAlimento = function(idAlimento){
   var currentAlimento = {};
   currentAlimento = $filter('filter')($scope.alimentos, {'idAlimento':idAlimento}, true)[0];
 
-  //console.log("currentTiempo " + currentTiempo);
   switch (currentTiempo) {
       case 'Desayuno':
           $scope.dieta.Desayuno.push(currentAlimento);
@@ -140,6 +139,22 @@ $scope.mostrarInformacion = function(tipoAlimento){
     }
   );
 
+}
+
+$scope.mostrarDieta = function(tipoAlimento){
+
+  dietaService.recuperarDieta(1,2).then(
+    function successCallback(d) {
+     $scope.dieta = angular.fromJson(d.alimentosDisponibles);
+    },
+    function errorCallback(d) {
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        toastr.error(d.data.mensaje, 'Error');
+      }
+    }
+  );
 }
 
 });
