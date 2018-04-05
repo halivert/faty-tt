@@ -9,11 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.APELLIDO_MATERNO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.APELLIDO_PATERNO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ERROR
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.LOGIN
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.NOMBRE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.APELLIDO_MATERNO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.APELLIDO_PATERNO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NOMBRE
 
 
 class PatientMainFragment : Fragment() {

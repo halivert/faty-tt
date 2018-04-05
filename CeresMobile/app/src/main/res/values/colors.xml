@@ -5,4 +5,5 @@
     <color name="colorAccent">#1AB394</color>
     <color name="textPrimary">#000000</color>
     <color name="colorBtnRegistro">#1AB394</color>
+    <color name="inactiveItem">#0D5748</color>
 </resources>

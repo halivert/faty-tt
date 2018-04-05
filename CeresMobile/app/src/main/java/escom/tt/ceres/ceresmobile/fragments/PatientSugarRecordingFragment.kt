@@ -16,16 +16,16 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AZUCAR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.FECHA_REGISTRO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PACIENTE
 import escom.tt.ceres.ceresmobile.tools.Functions
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.AZUCAR
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ERROR
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.FECHA_REGISTRO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ID_USUARIO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.LOGIN
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.MENSAJE
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.OK
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.RESPUESTA
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.URL_PACIENTE
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -85,16 +85,16 @@ class PatientSugarRecordingFragment : Fragment() {
       return
     }
     if (date.text.toString().isBlank()) {
-      Toast.makeText(context, "Falta fecha", Toast.LENGTH_LONG).show()
+      Toast.makeText(context, "Falta date", Toast.LENGTH_LONG).show()
       return
     }
     if (hour.text.toString().isBlank()) {
-      Toast.makeText(context, "Falta hora", Toast.LENGTH_LONG).show()
+      Toast.makeText(context, "Falta hour", Toast.LENGTH_LONG).show()
       return
     }
 
     parameters[AZUCAR] = sugar.text.toString()
-    // parametros.put(FECHA_REGISTRO, fecha + " " + hora + ":00.0");
+    // parametros.put(FECHA_REGISTRO, date + " " + hour + ":00.0");
     parameters[FECHA_REGISTRO] = date.text.toString() + " " + hour.text.toString()
     val jsonObject = JSONObject(parameters)
 

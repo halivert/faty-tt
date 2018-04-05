@@ -16,23 +16,23 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.PACIENTE
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.SEXO_FEMENINO
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.SEXO_MASCULINO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.APELLIDO_MATERNO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.APELLIDO_PATERNO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.CODIGO_MEDICO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.EMAIL
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ERROR
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.FECHA_NACIMIENTO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ID_ROL
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.KEYWORD
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.MENSAJE
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.NOMBRE
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.OK
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.RESPUESTA
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.SEXO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.URL_REGISTRO
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.PACIENTE
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.SEXO_FEMENINO
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.SEXO_MASCULINO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.APELLIDO_MATERNO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.APELLIDO_PATERNO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.CODIGO_MEDICO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.EMAIL
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.FECHA_NACIMIENTO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_ROL
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.KEYWORD
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NOMBRE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.SEXO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_REGISTRO
 import escom.tt.ceres.ceresmobile.tools.Functions.showDatePicker
 import org.json.JSONObject
 
@@ -101,36 +101,36 @@ class PatientSignInFragment : Fragment() {
     val birthDate: String = activity.findViewById<EditText>(R.id.dtpFechaNac).text.toString()
 
     if (name.isEmpty())
-      return verifyEditText(R.string.falta_nombre, R.id.editNombre)
+      return verifyEditText(R.string.name_validation, R.id.editNombre)
 
     if (lastName.isEmpty())
-      return verifyEditText(R.string.falta_ap_paterno, R.id.editApPat)
+      return verifyEditText(R.string.last_name_validation, R.id.editApPat)
 
     if (mothersLastName.isEmpty())
-      return verifyEditText(R.string.falta_ap_materno, R.id.editApMat)
+      return verifyEditText(R.string.mothers_last_name_validation, R.id.editApMat)
 
     if (doctorCode.isEmpty())
-      return verifyEditText(R.string.falta_codigo_medico, R.id.editTokenMed)
+      return verifyEditText(R.string.doctor_code_validation, R.id.editTokenMed)
 
     if (email.isEmpty())
-      return verifyEditText(R.string.falta_email, R.id.editEmail)
+      return verifyEditText(R.string.email_validation, R.id.editEmail)
     else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())
-      return verifyEditText(R.string.formato_incorrecto, R.id.editEmail)
+      return verifyEditText(R.string.invalid_format, R.id.editEmail)
 
     when {
       keyword.isEmpty() ->
-        return verifyEditText(R.string.falta_keyword, R.id.editKeyword)
+        return verifyEditText(R.string.password_validation, R.id.editKeyword)
       keywordConfirmation.isEmpty() ->
         return verifyEditText(R.string.falta_confirmacion, R.id.editKeywordConf)
       keyword != keywordConfirmation ->
-        return verifyEditText(R.string.keyword_no_coincide, R.id.editKeyword)
+        return verifyEditText(R.string.passwords_do_not_match, R.id.editKeyword)
       !activity.findViewById<RadioButton>(R.id.radioSexoHombre).isChecked ->
         if (!activity.findViewById<RadioButton>(R.id.radioSexoMujer).isChecked) {
-          return verifyRadioGroup(R.string.falta_sexo, R.id.radioGrupo)
+          return verifyRadioGroup(R.string.sex_validation, R.id.radioGrupo)
         }
     }
 
-    return if (birthDate.isEmpty()) verifyEditText(R.string.falta_fecha_nac, R.id.dtpFechaNac) else true
+    return if (birthDate.isEmpty()) verifyEditText(R.string.birth_date_validation, R.id.dtpFechaNac) else true
 
   }
 

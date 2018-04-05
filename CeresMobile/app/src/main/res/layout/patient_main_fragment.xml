@@ -1,9 +1,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="escom.tt.ceres.ceresmobile.fragments.PatientMainFragment">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="escom.tt.ceres.ceresmobile.fragments.PatientMainFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,13 +22,13 @@
                 android:id="@+id/tvGlucosa"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/s_glucosa"
+                android:text="@string/glucose"
                 android:textAlignment="viewStart"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/tvFechaGlucosa"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/tvFechaGlucosa"
@@ -40,7 +40,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvGlucosa"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 
@@ -50,11 +50,11 @@
             android:layout_height="wrap_content"
             android:text="90 mg/dl"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"/>
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -64,12 +64,12 @@
                 android:id="@+id/tvLipidos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/s_lipidos"
+                android:text="@string/lipids"
                 android:textAlignment="viewStart"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/tvFechaLipidos"
@@ -81,7 +81,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvLipidos"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 
@@ -90,11 +90,11 @@
             android:layout_height="wrap_content"
             android:text="13 mg/dl"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"/>
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -104,12 +104,12 @@
                 android:id="@+id/tvCarbohidratos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/s_carbohidratos"
+                android:text="@string/carbohydrates"
                 android:textAlignment="viewStart"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/tvFechaCarbohidratos"
@@ -121,7 +121,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvCarbohidratos"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 
@@ -130,11 +130,11 @@
             android:layout_height="wrap_content"
             android:text="-"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20dp"/>
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -144,12 +144,12 @@
                 android:id="@+id/tvProteinas"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/s_proteinas"
+                android:text="@string/proteins"
                 android:textAlignment="viewStart"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/tvFechaProteinas"
@@ -161,7 +161,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvProteinas"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 
@@ -170,7 +170,7 @@
             android:layout_height="wrap_content"
             android:text="8 mg/dl"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
     </LinearLayout>
 
 

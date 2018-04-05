@@ -12,9 +12,9 @@ import escom.tt.ceres.ceresmobile.fragments.DoctorSignInFragment
 import escom.tt.ceres.ceresmobile.fragments.LoginFragment
 import escom.tt.ceres.ceresmobile.fragments.MainFragment
 import escom.tt.ceres.ceresmobile.fragments.PatientSignInFragment
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.MEDICO
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.PACIENTE
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ID_USUARIO
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.MEDICO
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.PACIENTE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
 
 class SignInActivity : AppCompatActivity(),
     MainFragment.OnMainInteraction,
@@ -59,7 +59,7 @@ class SignInActivity : AppCompatActivity(),
         ft.replace(R.id.frameFragment, fragment)
       }
       else -> {
-        Toast.makeText(this, R.string.tipo_usuario_incorrecto, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.user_type_invalid, Toast.LENGTH_SHORT).show()
         return
       }
     }

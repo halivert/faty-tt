@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_item"
+        android:icon="@drawable/fa_th_large"
+        android:title="@string/begin"/>
+
+    <item
+        android:id="@+id/patients_item"
+        android:icon="@drawable/fa_address_book"
+        android:title="@string/patients"/>
+
+    <item
+        android:id="@+id/generate_code_item"
+        android:icon="@drawable/fa_user_md"
+        android:title="@string/generate_code"/>
+
+    <item
+        android:id="@+id/sign_out_item"
+        android:icon="@drawable/fa_sign_out"
+        android:title="@string/log_out"/>
+</menu>
