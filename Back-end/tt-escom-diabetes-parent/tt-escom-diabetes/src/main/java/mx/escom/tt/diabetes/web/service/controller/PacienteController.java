@@ -254,8 +254,11 @@ public class PacienteController {
 		RespuestaErrorVo respuestaErrorVo = null;
 		
 		try {
-			registroGlucosaVo.setIdPaciente(idPaciente);
+			log.debug("idPaciente : " + idPaciente);
+			log.debug("fechaRegistro : " + registroGlucosaVo.getFechaRegistro());
+			log.debug("azucar : " + registroGlucosaVo.getAzucar());
 			
+			registroGlucosaVo.setIdPaciente(idPaciente);			
 			respuesta = registroGlucosaFacade.guardaRegistroGlucosa(registroGlucosaVo);
 			result = new ResponseEntity<RespuestaVo>(respuesta, HttpStatus.OK);
 		} catch (Exception ex) {

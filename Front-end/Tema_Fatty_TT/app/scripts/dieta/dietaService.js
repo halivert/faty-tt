@@ -43,10 +43,12 @@ angular.module('trabajoTerminal')
         var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/' + idPaciente + '/dietas';
         return $http.get(url, config)
           .then(function successCallback(response) {
+            
             if (response.data.respuesta === "ERROR") {
               console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
               return $q.reject(response);
             } else {
+              console.log("response  : " + JSON.stringify(response.data));
               return response.data;
             }
 

@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="dietaCtrl" ng-init="mostrarDieta()">
     <div class="row">
         <div class="ibox-content forum-container">
             <div class="forum-title">
@@ -36,18 +36,12 @@
                 </div>
                 <br>
                 <div class="row">
-                     <div class="col-md-5 pull-left">
-                        1 tostada pan integral
-                        <br>
-                        1 cdta. mantequilla o margarina
-                        <br>
-                        1/4  taza requesón bajo en grasa
-                        <br>
-                        1  naranja pequeña
-                        <br>
-                        1  taza de leche descremada
-                        <br>
-                        {{dieta.Desayuno[0].alimento}}
+                     <div class="col-md-5 pull-left">                        
+                        <div ng-repeat="alimentoDesayuno in dieta.Desayuno">
+                            {{alimentoDesayuno.cantidad}}
+                            {{alimentoDesayuno.alimento}}
+                            <br/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,8 +66,11 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">
-                        1 pza fruta
-                        <br>
+                        <div ng-repeat="alimentoC1 in dieta.C1">
+                            {{alimentoC1.cantidad}}
+                            {{alimentoC1.alimento}}
+                            <br/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,15 +95,11 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">
-                        2 rebanadas pan centeno
-                        <br>
-                        2 onzas de pollo sin piel 
-                        <br>
-                        1/2 taza apio picado 
-                        <br>
-                        1  cdta. mayonesa
-                        <br>
-                        1  taza de leche descremada
+                        <div ng-repeat="alimentoComida in dieta.Comida">
+                            {{alimentoComida.cantidad}}
+                            {{alimentoComida.alimento}}
+                            <br/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -131,7 +124,11 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">
-                        1 taza yogurth natural
+                        <div ng-repeat="alimentoC2 in dieta.C2">
+                            {{alimentoC2.cantidad}}
+                            {{alimentoC2.alimento}}
+                            <br/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,15 +153,11 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">
-                        3 onzas carne
-                        <br>
-                        1/2 papa asada 
-                        <br>
-                        1 taza de brocoli al vapor 
-                        <br>
-                        1  taza de fresa
-                        <br>
-                        2 cdas. aderezo bajo en grasa
+                        <div ng-repeat="alimentoCena in dieta.Cena">
+                            {{alimentoCena.cantidad}}
+                            {{alimentoCena.alimento}}
+                            <br/>
+                        </div>
                     </div>
                 </div>
             </div>

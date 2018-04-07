@@ -116,6 +116,10 @@ public class DietaFacade {
 		
 		try {
 			dietaDtoList = dietaAppService.recuperarDietaPorIdPaciente(Integer.valueOf(idPaciente));
+			if(dietaDtoList.isEmpty()) {
+				msjEx = "No se encontraron dietas asignadas.";
+				throw new RuntimeException(msjEx);
+			}
 		}catch (RuntimeException ex) {
 			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {

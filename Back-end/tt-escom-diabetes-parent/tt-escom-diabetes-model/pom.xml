@@ -11,13 +11,11 @@
 
 	<artifactId>tt-escom-diabetes-model</artifactId>
 
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
-	
 		<!-- COMMONS -->
 		<dependency>
 			<groupId>mx.escom</groupId>
@@ -25,6 +23,5 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- /COMMONS -->
-	    
 	</dependencies>
 </project>

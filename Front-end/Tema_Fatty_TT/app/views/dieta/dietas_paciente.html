@@ -1,0 +1,30 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Dietas asignadas</h2>
+  </div>
+</div>
+
+<div class ="wrapper wrapper-content animated fadeInRight" ng-controller="dietaCtrl" ng-init="recuperarDietasPaciente()">
+  <div class="row">
+    
+    <div class="col-lg-4" ng-repeat="dieta in dietas">
+        <div class="contact-box">
+            <a ng-click="seleccionarDieta(dieta.id_DIETA)"><!--ui-sref="index.dieta"-->
+            <div class="col-sm-4">
+                <div class="text-center">
+                    <i class="fa fa-cutlery mid-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <span class="label label-info pull-right">Fecha : {{dieta.fecha_ASIGNACION | date:'dd/MM/yyyy'}}</span>
+                <address>
+                    {{dieta.descripcion}}
+                </address>
+            </div>
+            <div class="clearfix"></div>
+                </a>
+        </div>
+    </div>
+
+  </div>
+</div>

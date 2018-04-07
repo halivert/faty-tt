@@ -74,7 +74,13 @@
         url: "/codigoMedico",
         templateUrl: "views/medico/medico_token.html",
         authenticate: true,
-        data: { pageTitle: 'Generar Dieta' }
+        data: { pageTitle: 'Generar código' }
+    })
+    .state('index.dietasPaciente', {
+        url: "/dietasPaciente",
+        templateUrl: "views/dieta/dietas_paciente.html",
+        authenticate: true,
+        data: { pageTitle: 'Mis dietas' }
     })
 }
 /**

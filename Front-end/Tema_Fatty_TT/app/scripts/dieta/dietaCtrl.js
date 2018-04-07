@@ -2,7 +2,7 @@
  * dietaCtrl - Controlador ligado a la vista dieta_rigurosa.html
  */
 angular.module('trabajoTerminal')
-  .controller('dietaCtrl', function($scope, $log, toastr,alimentoService, $cookies, NgTableParams, $filter, pacientesService, dietaService) {
+  .controller('dietaCtrl', function($scope, $log,$state,toastr,alimentoService, $cookies, NgTableParams, $filter, pacientesService, dietaService) {
 
 
     $scope.alimentos = [];
@@ -153,14 +153,42 @@ angular.module('trabajoTerminal')
       );
 
     }*/
+
+    $scope.seleccionarDieta = function(idDieta) {
+      console.log("idDieta" + idDieta);
+      $cookies.put("idDieta",idDieta);
+      $state.transitionTo('index.dieta');
+    }
+
     /**
     * mostrarDieta  - Funcion que llama al service que recupera una dieta por medio del idDieta
     */
     $scope.mostrarDieta = function() {
-      var idDieta = "";
-      dietaService.recuperarDieta($cookies.get("idUsuario"), idDieta).then(
+      //var idDieta = "";
+      dietaService.recuperarDieta($cookies.get("idUsuario"), $cookies.get("idDieta")).then(
         function successCallback(d) {
           $scope.dieta = angular.fromJson(d.alimentosDisponibles);
+          console.log("$scope.dieta : " + JSON.stringify($scope.dieta));
+        },
+        function errorCallback(d) {
+          if (d.data == null)
+            toastr.warning("Servicio no disponible", 'Advertencia');
+          else {
+            toastr.error(d.data.mensaje, 'Error');
+          }
+        }
+      );
+    }
+
+    /**
+    * mostrarDietasPaciente - Funcion que llama al service que recupera una lista de deitas asociadas a un paciente
+    */
+    $scope.recuperarDietasPaciente = function() {
+      
+      dietaService.recuperarDietasPaciente($cookies.get("idUsuario")).then(
+        function successCallback(d) {
+          //console.log("JSON.stringify(d) : " + JSON.stringify(d)); 
+          $scope.dietas = d;   
         },
         function errorCallback(d) {
           if (d.data == null)
