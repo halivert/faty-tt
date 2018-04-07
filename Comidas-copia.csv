@@ -1,0 +1,929 @@
+1,Fruta,Agua de coco,1 1/2,taza,360,360,65,1.1,0.7,16.9,0.0,0.0,7.2,0.0,4.3,529.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+2,Fruta,Albaricoque en almibar,1/4,taza,65,65,54,0.4,0.1,13.8,1.8,94.3,2.0,1.3,0.2,92.3,ND,ND,12.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+3,Fruta,Albaricoque en mitades enlatados en jugo,1/2,taza,122,122,59,0.8,0.1,15.1,2.0,103.5,6.0,2.5,0.4,201.5,ND,ND,13.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+4,Fruta,Albaricoque en mitades enlatados en agua,1,taza,227,227,61,1.6,0.4,14.5,3.6,167.0,7.0,5.1,0.7,349.0,ND,ND,10.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+5,Fruta,Anona,130,g,130,59,59,1.0,0.4,14.7,2.0,0.0,5.3,0.0,0.4,223.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+6,Fruta,Arándano fresco,1 1/2,taza,150,147,68,0.6,0.2,17.9,6.8,7.4,25.0,8.0,0.7,129.4,ND,ND,5.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+7,Fruta,Arándano seco con azucar,1/2,taza,5,5,51,0.0,0.3,13.6,1.0,0.0,0.0,0.0,0.1,6.5,ND,ND,10.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+8,Fruta,Blueberries,3/4,taza,109,107,61,0.7,0.4,15.4,2.6,0.0,13.9,6.4,0.2,94.9,,ND,10.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+9,Fruta,Blueberries congeladas,3/4,taza,116,116,59,0.5,0.8,14.2,3.2,1.5,9.0,8.1,0.2,63.0,ND,ND,9.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+10,Fruta,Blueberries congeladas con azucar,1/4,taza,58,58,47,0.2,0.1,12.6,1.3,0.5,3.5,4.0,0.2,34.5,ND,ND,11.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+11,Fruta,Blueberries en almibar,1/4,taza,64,64,56,0.4,0.2,14.1,1.0,1.3,0.8,1.3,0.2,25.5,ND,ND,13.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+12,Fruta,Breba,5,pieza,200,192,63,1.0,0.2,16.1,3.3,71.0,1.9,0.0,4.4,372.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+13,Fruta,Caimito blanco o morado,1,pieza,200,130,68,1.7,2.2,12.2,3.8,0.0,15.6,0.0,5.7,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+14,Fruta,Calabaza melón,130,g,130,98,58,2.8,0.9,11.2,1.3,36.1,23.4,0.0,2.6,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+15,Fruta,Cana de azúcar,250,g,250,100,64,0.5,0.5,17.2,1.9,0.0,8.0,0.0,0.7,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+16,Fruta,Capulín,3,taza,480,96,63,1.4,0.0,16.1,0.6,25.0,12.5,0.0,1.3,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+17,Fruta,Carambolo o Carambola,1 1/2,pieza,191,171,53,1.8,0.6,11.5,4.8,83.7,36.5,24.3,0.4,279.5,ND,ND,6.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+18,Fruta,Cereza,20,pieza,136,88,56,0.9,0.2,14.7,2.1,18.2,6.5,3.9,0.4,197.6,22.0,3.2,11.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+19,Fruta,Cereza congeladas,1,taza,155,155,71,1.4,0.7,17.1,2.5,68.0,3.0,7.8,0.8,192.0,ND,ND,14.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+20,Fruta,Cerezas en almibar,1/4,taza,64,64,58,0.5,0.1,14.9,0.7,22.8,1.3,5.1,0.8,59.8,ND,ND,14.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+21,Fruta,Cerezas maschino enlatadas,4,pieza,20,20,64,0.0,0.0,16.8,1.2,0.0,0.0,0.0,0.2,8.0,ND,ND,15.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+22,Fruta,Chabacano,4,pieza,140,126,61,1.8,0.5,14.0,2.5,329.3,13.1,10.7,0.7,373.2,57.0,8.0,11.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+23,Fruta,Chagua,150,g,150,150,114,15.8,1.3,14.0,4.7,0.2,6.8,0.0,4.6,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+24,Fruta,Cherimoya picada,1/2,taza,78,78,58,1.3,0.5,13.8,1.8,3.0,6.0,14.1,0.2,210,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+25,Fruta,Chicozapote,1/2,pieza,85,75,62,0.3,0.8,14.9,4.0,4.4,11.0,10.6,0.6,144.3,40.0,6.0,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+26,Fruta,Chirimoya,1/3,pieza,112,56,53,0.7,0.2,13.4,1.2,0.6,5.0,0.0,0.3,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+27,Fruta,Ciricote,300,g,30,90,59,1.1,0.1,15.0,1.4,25.2,9.9,0.0,1.7,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+28,Fruta,Ciruela criolla roja o amarilla,3,pieza,198,158,73,1.1,0.4,18.1,2.2,50.4,14.4,2.4,0.2,273.6,39.0,7.1,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+29,Fruta,Ciruela negra,1/2,pieza,83,66,50,0.7,0.0,12.5,1.3,ND,4.1,ND,0.0,68.4,ND,ND,10.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+30,Fruta,Ciruela pasa deshuesada,7,pieza,56,56,60,0.5,0.1,15.7,1.7,140.0,0.0,0.0,0.4,0.0,29.0,4.6,14.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+31,Fruta,Cocktail de frutas en almibar,1/4,taza,62,62,44,0.3,0.1,11.7,1.1,8.8,1.3,1.9,0.2,55.8,ND,ND,10.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+32,Fruta,Cocktail de frutas enlatado en agua,1/2,taza,119,119,38,0.5,0.1,10.1,1.2,15.5,2.5,3.6,0.3,111.5,ND,ND,8.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+33,Fruta,Cocktail de frutas enlatado en jugo de frutas,1/2,taza,119,119,55,0.6,0.0,14.1,1.2,18.0,3.0,3.6,0.3,112.5,ND,ND,12.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+34,Fruta,Cocoyol,170,g,170,43,74,2.5,3.8,9.5,2.1,9.8,49.3,0.0,1.9,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+35,Fruta,Coloc,60,g,60,60,61,1.1,0.3,15.4,0.4,0.4,14.8,0.0,3.2,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+36,Fruta,Cundeamor,450,g,450,450,32,3.9,0.7,15.9,5.6,0.3,230.0,0.0,7.7,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+37,Fruta,Dátil seco,2,pieza,17,17,46,0.3,0.0,12.4,1.1,0.8,0.0,2.0,0.2,108.2,103.0,12.8,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+38,Fruta,Durazno amarillo,2,pieza,174,153,60,1.4,0.2,14.6,2.3,82.7,10.6,5.3,0.2,301.0,42.0,6.1,12.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+39,Fruta,Durazno con azúcar congelado,1/4,taza,63,63,59,0.4,0.1,15.0,1.1,8.8,59.0,1.9,0.2,81.3,ND,ND,13.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+40,Fruta,Durazno en almibar,1/2,taza,126,126,68,0.6,0.1,18.3,1.7,22.5,3.0,3.8,0.5,121.5,ND,ND,16.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+41,Fruta,Durazno enlatado en agua,1,taza,244,244,59,1.1,0.1,14.9,3.2,66.0,7.0,7.3,0.8,242.0,ND,ND,11.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+42,Fruta,Durazno enlatado en jugo,1/2,taza,125,125,55,0.8,0.1,14.5,1.6,24.0,4.5,3.8,0.3,160.0,ND,ND,12.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+43,Fruta,Durazno prisco,3,pieza,150,132,51,1.2,0.1,12.5,2.0,46.2,13.2,0.0,0.4,266.6,ND,ND,11.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+44,Fruta,Frambuesa,1,taza,123,123,64,1.5,0.8,14.7,8.0,6.0,31.0,32.0,0.7,187.0,ND,ND,5.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+45,Fruta,Fresa entera,17,pieza med,204,204,65,1.4,0.6,15.7,4.1,55.1,120.0,49.0,0.8,312.1,40.0,6.3,10.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+46,Fruta,Fresa rebanada,1,taza,166,1066,53,1.1,0.5,12.7,3.3,44.8,97.6,39.8,0.7,254.0,ND,ND,8.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+47,Fruta,Fresas congeladas con azucar,1/4,taza,64,64,50,0.3,0.1,13.4,1.2,0.8,25.3,2.6,0.3,62.5,ND,ND,11.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+48,Fruta,Fresas congeladas sin azúcar,1/2,taza,111,111,39,0.5,0.1,10.1,2.3,2,45.2,18.8,0.8,163.5,ND,ND,5.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+49,Fruta,Fruta de la pasión,3,pieza,165,58,56,1.3,0.4,13.5,6.0,41.7,16.0,9.6,0.9,202.1,ND,ND,6.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+50,Fruta,Fruta picada,1,taza,140,140,59,0.7,0.3,14.7,1.4,30.3,37.4,13.1,0.2,213.2,ND,ND,7.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+51,Fruta,Fruto del pan,85,g,85,74,60,1.0,0.4,14.9,1.3,3.0,21.4,0.0,0.4,362.4,38.0,5.6,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+52,Fruta,Gajos de mandarina,1,taza,105,105,56,0.9,0.3,14.0,1.9,113.4,75.6,8.4,0.3,186.9,ND,ND,11.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+53,Fruta,Gajos de naranja,1,taza,150,150,71,1.4,0.2,17.7,3.6,18.0,79.5,45.0,0.2,271.5,ND,ND,14.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+54,Fruta,Gajos de toronja,1,taza,150,150,50,0.8,0.2,12.6,1.7,0.0,0.0,0.0,0.0,0.0,ND,ND,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+55,Fruta,Giotilla,200,g,200,130,66,2.3,1.0,13.9,2.0,0.0,22.1,0.0,4.3,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+56,Fruta,Granada chica,2,pieza,120,67,65,1.5,0.5,15.7,7.3,18.8,20.2,13.4,1.1,233.9,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+57,Fruta,Granada roja,1,pieza,190,87,44,0.9,0.3,15.5,2.4,0.0,5.2,0.0,0.3,226.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+58,Fruta,Grosellas,1,taza,150,150,66,1.3,0.9,15.3,6.4,22.0,42.0,9.0,0.5,297.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+59,Fruta,Grosellas en almibar,1/4,taza,63,63,46,0.4,0.1,11.8,1.5,4.5,6.3,1.9,0.2,48.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+60,Fruta,Grosellas negras,1,taza,112,112,71,1.6,0.5,17.2,0.0,13.0,203.0,0.0,1.7,361.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+61,Fruta,Grosellas rojas o blancas,1,taza,112,112,63,1.6,0.2,15.5,4.8,2.0,46.0,9.0,1.1,308.0,ND,ND,8.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+62,Fruta,Guanábana,1,pieza chica,350,238,90,1.0,3.8,15.5,9.0,92.8,50.0,0.0,5.5,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+63,Fruta,Guayaba,3,pieza,135,124,63,1.0,0.7,14.8,7.0,39.7,227.3,0.0,0.4,252.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+64,Fruta,Guayaba rosa,1,pieza,90,77,52,2.0,0.7,11.0,4.1,6.9,28.0,0.0,0.2,223.2,ND,ND,6.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+65,Fruta,Higo,2,pieza,80,72,53,0.6,0.1,13.8,2.1,10.1,1.4,4.3,0.3,167.0,ND,ND,11.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+66,Fruta,Higo deshidratado,1,pieza,19,19,47,0.6,0.2,11.9,1.8,2.4,0.1,1.4,0.4,133.1,61.0,7.3,9.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+67,Fruta,Jinicuil,250,g,250,50,73,6.0,0.5,13.5,0.5,10.0,14.0,0.0,1.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+68,Fruta,Jugod de limón,3/4,taza,180,180,45,0.7,0.0,15.6,0.7,3.7,82.6,22.9,0.1,223.5,ND,ND,4.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+69,Fruta,Jugo de mamey,1/3,taza,80,80,52,0.6,0.1,12.5,0.2,0.0,0.0,0.0,0.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+70,Fruta,Jugo de mandarina natural,1/2,taza,120,120,46,0.8,0.0,11.3,1.4,0.0,0.0,0.0,0.0,0.0,ND,ND,9.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+71,Fruta,Jugo de mango,1/2,taza,120,120,61,0.1,0.1,15.7,0.4,0,0.0,0.0,0.0,0.0,ND,ND,14.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+72,Fruta,Jugo de naranja natural,1/2,taza,120,120,54,0.8,0.2,12.5,0.2,24.2,60.0,36.3,0.2,240.0,46.0,5.7,10.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+73,Fruta,Jugo de papaya,1/3,taza,79,79,45,0.1,0.1,11.5,0.5,0,0.0,0.0,0.0,0.0,ND,ND,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+74,Fruta,Jugo de toronja natural,1/2,taza,120,120,47,0.6,0.1,11.0,0.1,1.0,45.7,12.1,0.2,194.3,48.0,5.3,10.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+75,Fruta,Kiwi,1 1/2,pieza,132,114,69,1.2,0.6,16.6,3.4,20.9,110.5,43.3,0.5,376.4,53.0,8.8,10.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+76,Fruta,Lichis,12,pieza,180,90,59,0.7,0.3,14.9,1.2,0.0,0.0,0.0,0.0,0.0,79.0,11.8,13.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+77,Fruta,Lima,3,pieza,234,147,44,1.0,0.3,15.5,4.1,5.1,78.8,15.3,0.9,203.3,ND,ND,2.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+78,Fruta,Limón real,4,pieza,232,153,31,1.8,0.5,16.4,7.2,0.0,45.9,0.0,2.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+79,Fruta,Mamey,1/3,pieza,137,85,58,1.4,0.5,13.7,3.8,51.7,19.5,0.0,2.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+80,Fruta,Mandarina,2,pieza,180,128,68,1.0,0.4,17.0,2.3,138.0,92.0,10.2,0.4,227.5,ND,ND,13.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+81,Fruta,Mandarina reyna,1,pieza,200,142,75,1.2,0.4,18.9,2.6,153.4,102.2,11.4,0.4,252.8,ND,ND,15.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+82,Fruta,Mango ataúlfo,1/2,pieza,95,62,40,0.3,0.2,10.5,1.1,84.6,17.3,0.0,0.1,96.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+83,Fruta,Mango criollo,1 1/2,pieza,300,162,57,1.3,0.0,14.6,1.8,388.8,129.6,0.0,2.1,306.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+84,Fruta,Mango en almibar enlatado,1,pieza,61,61,56,0.3,0.1,15.0,0.1,31.7,19.5,0.0,0.5,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+85,Fruta,mango manila,1,pieza,207,145,62,1.2,0.0,16.1,1.6,486.9,110.1,0.0,1.2,273.9,20.0,3.5,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+86,Fruta,Mango petacón,1/2,pieza,200,110,72,0.6,0.3,12.9,1.2,150.7,38.8,0.0,0.1,171.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+87,Fruta,Mango picado,1,taza,165,165,58,1.3,0.0,14.9,1.8,226.1,46.2,0.0,0.2,257.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+88,Fruta,Mangosteno enlatado en jarabe,1/2,taza,98,98,72,0.4,0.6,17.6,1.8,2.0,3.0,30.4,0.3,47.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+89,Fruta,Manzana,1,pieza,138,106,55,0.3,0.2,14.7,2.6,5.4,6.2,3.1,0.2,122.4,38.0,5.6,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+90,Fruta,Manzana al vapor,1/2,taza,86,86,44,0.2,0.1,11.7,2.1,3.5,0.0,0.5,0.2,75.0,ND,ND,8.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+91,Fruta,Manzana amarilla,1,pieza,130,100,65,0.3,0.3,16.5,2.1,10.0,11.0,0.4,0.7,113.1,ND,ND,10.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+92,Fruta,Manzana cocida,1/2,taza,86,86,44,.2.,0.1,11.7,2.1,3.5,0.0,0.5,0.2,75.0,ND,ND,8.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+93,Fruta,Manzana deshidratada,9,orejon,23,23,55,0.2,0.1,15.0,2.0,0.0,0.7,0.0,0.3,102.4,ND,ND,13.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+94,Fruta,Manzana en almibar,1,pieza,24,24,54,0.0,0.0,15.7,2.1,1.2,0.5,0.1,0.0,16.2,ND,ND,13.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+95,Fruta,Manzana en almibar enlatada,1,pieza,24,24,54,0.0,0.0,15.7,2.1,1.2,0.5,0.1,0.0,16.2,ND,ND,13.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+96,Fruta,Manzana golden,1,pieza,130,100,65,0.3,0.3,16.5,2.1,10,11,0.4,0.7,113.1,ND,ND,13.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+97,Fruta,Manzana granny,1/2,pieza,93,71,42,0.2,0.3,10.8,1.9,3.6,4.1,2.1,0.1,82.1,ND,ND,9.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+98,Fruta,Manzana picada,1/2,taza,75,75,44,0.2,0.3,11.4,2.0,3.8,4.3,2.2,0.1,86.4,ND,ND,10,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+99,Fruta,Manzana roja,1,pieza,185,142,84,0.3,0.5,21.7,3.8,7.2,8.3,4.1,0.3,164.1,ND,ND,19.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+100,Fruta,Manzana sin cascara,1,pieza,128,128,73,0.2,0.4,19.0,1.7,5.0,5.0,1.0,0.1,145.0,ND,ND,12.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+101,Fruta,Manzana verde,1/2,pieza,93,71,42,0.2,0.3,10.8,1.9,3.6,4.1,2.1,0.1,82.1,ND,ND,9.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+102,Fruta,Manzana Washington,1/2,pieza,93,71,42,0.2,0.3,10.8,1.9,3.6,4.1,2.1,0.1,82.1,ND,ND,9.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+103,Fruta,Maracuyá,3,pieza,150,53,51,1.2,0.4,12.3,5.5,37.9,14.6,8.8,0.8,183.8,ND,ND,5.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+104,Fruta,Maracuyá  rebanado,1/2,taza,69,69,66,1.5,0.5,16.0,7.1,49.5,19.0,11.4,1.1,239.8,ND,ND,7.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+105,Fruta,Marañon fresco,190,g,190,171,62,1.5,0.5,14.4,4.6,136.8,285.6,0.0,4.1,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+106,Fruta,Melón,1/3,pieza,271,179,61,1.5,0.3,14.6,1.6,225.6,64.5,30.4,0.4,553.4,65.0,9.5,14.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+107,Fruta,Melón cantaloupe,1/3,pieza,271,179,61,1.5,0.3,14.6,1.6,225.6,64.5,30.4,0.4,553.4,ND,ND,14.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+108,Fruta,Melón chico,1/4,pieza,219,144,52,0.8,0.2,13.1,1.2,181.9,52.0,24.5,0.3,446.1,ND,ND,11.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+109,Fruta,Melón picado,1,taza,160,160,54,1.3,0.3,13.1,1.4,201.6,57.6,27.2,0.3,494.4,ND,ND,12.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+110,Fruta,Melón valenciano,1/3,pieza,271,179,61,1.5,0.3,14.6,1.6,5.4,75.2,30.4,0.4,553.4,ND,ND,14.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+111,Fruta,Melón valenciano picado,1,taza,160,160,54,1.3,0.3,13.1,1.4,4.8,67.2,27.2,0.3,494.4,ND,ND,12.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+112,Fruta,Melón verde picado,1,taza,160,160,58,0.9,0.2,14.5,1.3,515.0,68.0,27.0,0.3,494.0,ND,ND,13.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+113,Fruta,Membrillo,1,pieza,163,98,56,0.4,0.1,15.0,1.7,3.9,14.7,0.0,0.7,192.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+114,Fruta,Moras,3/4,taza,108,108,67,2.2,0.6,14.9,8.2,42.1,22.7,27.0,0.7,175.0,ND,ND,7.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+115,Fruta,Nanche agrio,45,pieza,225,122,66,1.3,1.6,13.9,2.4,4.9,86.3,0.0,1.2,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+116,Fruta,Naranja,2,pieza,242,152,72,1.4,0.2,18.0,3.7,18.3,80.8,45.7,0.2,276.0,42.0,7.6,14.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+117,Fruta,Naranja agria,2,pieza,200,126,73,1.9,0.8,14.9,3.0,12.6,39.1,0.0,1.0,252.0,ND,ND,11.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+118,Fruta,Naranja cajera,2,pieza,220,139,69,1.4,1.0,16.4,3.3,15.2,70.7,0.0,3.5,277.2,ND,ND,13.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+119,Fruta,Naranja chica,4,pieza,140,129,48,2.1,0.4,15.2,3.1,36.1,56.7,0.0,1.2,0.0,ND,ND,12.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+120,Fruta,Naranja sin semilla,1,pieza,201,155,72,1.1,0.6,18.3,3.7,0.0,0.0,0.0,0.0,0.0,ND,ND,14.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+121,Fruta,Naranja valenciana,2,pieza,242,162,79,1.7,0.5,19.1,3.9,37.5,79.1,63,0.1,290.8,ND,ND,15.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+122,Fruta,Naranja concentrada,1/2,taza,130,130,57,1,0.2,13.2,0.3,0,0,0,0,7.6,ND,ND,0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+123,Fruta,Nectarina,1,pieza,136,124,54,1.3,0.4,13.1,2.1,91.9,6.4,4.6,0.2,262.1,ND,ND,9.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+124,Fruta,Nispero,25,pieza,350,140,59,0.1,1.2,13.3,0.0,0.0,0.0,0.0,0.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+125,Fruta,Níspero del japón,2,pieza,180,108,52,0.4,0.2,13.4,1.3,56.2,1.1,8.6,0.3,287.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+126,Fruta,Orejones de chabacano,7,pieza,25,25,59,0.8,0.1,15.3,1.8,177.1,0.7,2.8,1.2,337.4,30.0,4.6,13.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+127,Fruta,Orejones de durazno,2,pieza,26,26,62,0.9,0.2,15.9,2.1,56.2,1.2,0.0,1.1,259.0,ND,ND,10.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+128,Fruta,Orejones de manzana,9,pieza,23,23,55,0.2,0.1,14.8,2.0,0.0,0.7,0.0,0.3,101.3,29.0,4.3,12.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+129,Fruta,Orejones de pera,1,pieza,18,18,47,0.3,0.1,12.5,1.3,0.0,1.2,0.0,0.4,96.0,ND,ND,11.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+130,Fruta,Papaya hawaiana,1/2,pieza pequeña,152,114,45,0.7,0.2,11.2,2.1,23.9,70.5,43.3,0.1,292.9,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+131,Fruta,Papaya picada,1,taza,140,140,55,0.8,0.1,13.7,2.5,29.4,86.5,53.2,0.1,359.8,59.0,8.1,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+132,Fruta,Papilla de chabacano con tapioca,3/4,frasco,98,98,61,0.3,0.0,16.9,1.5,70.2,2.0,1.5,0.3,118.0,ND,ND,1.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+133,Fruta,Papilla de ciruela con tapioca,3/4,frasco,98,98,68,0.6,0.1,18.2,2.6,43.9,1.0,0.2,0.4,172.6,ND,ND,10.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+134,Fruta,Papilla de durazno,3/4,frasco,98,98,63,0.9,0.3,14.1,1.3,15.6,2.9,3.8,0.2,158.0,ND,ND,11.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+135,Fruta,Papilla de frutas mixtas,3/4,frasco,98,98,59,0.2,0.0,16.0,ND,0.0,30.2,0.0,0.2,81.9,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+136,Fruta,Papilla de guayaba y papaya con tapioca,3/4,frasco,98,98,61,0.2,0.1,16.6,ND,0.0,100.6,0.0,0.1,146.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+137,Fruta,Papilla de mango con tapioca,2/3,frasco,85,85,59,0.3,0.2,16.1,0.9,56.6,1.7,0.0,0.1,49.9,ND,ND,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+138,Fruta,Papilla de manzana,2/3,frasco,85,85,61,0.3,0.0,16.6,ND,1.7,0.0,0.3,0.2,42.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+139,Fruta,Papilla de manzana y chabacano,1,frasco,130,130,61,0.3,0.3,16.1,2.3,50.7,2.0,1.7,0.1,156.0,ND,ND,11.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+140,Fruta,Papilla de pera,3/4,frasco,98,98,56,0.3,0.1,13.3,1.2,2.9,2.0,3.5,0.2,126.8,ND,ND,8.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+141,Fruta,Papilla de pera y piña,1,frasco,130,130,57,0.4,0.3,14.8,3.4,3.9,2.6,3.6,0.3,150.8,ND,ND,9.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+142,Fruta,Papilla de platano y piña con tapioca,3/4,frasco,98,98,66,0.2,0.1,17.9,1.6,3.9,2.0,5.4,0.1,76.1,ND,ND,8.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+143,Fruta,Pasas,10,pieza,20,20,59,0.5,0.1,15.7,1.4,0.0,1.0,0.6,0.5,165.0,64.0,10.0,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+144,Fruta,Pasitas,10,pieza,20,20,59,0.5,0.1,15.7,1.4,0.0,1.0,0.6,0.5,165.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+145,Fruta,Pasitas en semilla,10,pieza,20,20,60,0.6,0.1,15.8,0.7,0.2,0.6,0.6,0.4,150.2,ND,ND,11.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+146,Fruta,Pera,1/2,pieza,95,81,47,0.3,0.1,12.5,2.5,1.5,3.4,5.8,0.2,101.2,38.0,4.7,7.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+147,Fruta,Pera asiática,1/2,pieza,138,117,49,0.6,0.3,12.4,4.2,0.0,4.4,0.0,0.0,141.8,ND,ND,8.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+148,Fruta,Pera bartlett,1/2,pieza,91,77,45,0.3,0.1,12.0,2.4,1.4,3.3,5.6,0.2,96.9,ND,ND,7.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+149,Fruta,Pera d´anjou,1/2,pieza,95,81,47,0.3,0.1,12.5,2.5,1.5,3.4,5.8,0.2,101.2,ND,ND,7.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+150,Fruta,Pera de agua,1/2,pieza,91,74,43,0.3,0.1,11.4,2.3,1.3,3.1,5.6,0.2,92.4,ND,ND,7.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+151,Fruta,Pera de San Juan,2,pieza,130,105,61,0.4,0.1,16.3,3.3,1.9,4.4,7.6,0.3,131.9,ND,ND,10.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+152,Fruta,Pera deshidratada,1,orejon,18,18,46,0.3,0.1,12.2,1.3,0.0,1.2,0.0,0.4,93.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+153,Fruta,Pera en almibar,1/2,pieza,76,76,44,0.3,0.1,11.7,2.4,0.0,0.6,0.9,0.2,50.3,ND,ND,7.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+154,Fruta,Pera mantequilla,1/2,pieza,83,70,41,0.3,0.1,10.8,2.2,1.3,3.0,5.1,0.2,87.9,ND,ND,6.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+155,Fruta,Pera picada,1,taza,150,150,63,0.8,0.3,16.0,5.4,2.7,6.3,10.8,0.4,188.0,ND,ND,10.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+156,Fruta,Pera piña,1/2,pieza,100,80,46,0.3,0.1,12.4,2.5,1.4,3.4,5.8,0.2,100.2,ND,ND,7.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+157,Fruta,Pera rebanada,2/3,taza,98,98,41,0.5,0.2,10.4,3.5,1.8,4.1,7.0,0.2,122.2,ND,ND,6.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+158,Fruta,Pera roja,1/2,pieza,90,81,47,0.3,0.1,12.5,2.5,0.0,0.6,1.0,0.2,53.6,ND,ND,7.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+159,Fruta,Pera roja rebanada,1/2,taza,80,80,46,0.3,0.1,12.4,2.5,0.0,0.6,1.0,0.2,52.9,ND,ND,7.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+160,Fruta,Perón,1,pieza,150,105,65,0.4,0.4,16.7,2.2,1.1,5.3,0.0,0.8,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+161,Fruta,Perón picado,1,taza,125,125,78,0.5,0.5,19.9,2.6,1.3,6.3,0.0,1.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+162,Fruta,Pérsimo,2,pieza,50,50,64,0.4,0.2,16.8,ND,0.0,34.0,0.0,1.3,156.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+163,Fruta,Pérsimo japonés,1/2,pieza,84,84,59,0.5,0.2,15.6,3.0,182.5,6.5,6.5,0.1,135.0,ND,ND,10.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+164,Fruta,Piña en almibar,1,rebanada,50,50,42,0.2,0.1,10.8,0.4,0.5,2.0,2.3,0.7,51.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+165,Fruta,Piña en almibar,1/3,taza,63,63,53,0.2,0.1,13.6,0.5,0.7,4.7,3.0,0.2,65.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+166,Fruta,Piña picada,3/4,taza,124,124,62,0.7,0.1,16.2,1.7,2.4,19.2,12.8,0.5,139.7,59.0,9.6,12.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+167,Fruta,Piña rebanada,1,rebanada,84,84,42,0.5,0.1,11.0,1.2,1.6,13.0,8.7,0.3,94.8,ND,ND,8.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+168,Fruta,Pitahaya,2,pieza,240,108,52,1.7,0.6,11.2,2.2,0,17.3,0,2.1,0,ND,ND,0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+169,Fruta,Plátano,1/2,pieza,80,54,48,0.6,0.2,12.4,1.4,4.3,4.8,10.5,0.2,215.2,52,6.4,6.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+170,Fruta,Plátano deshidratado,1/4,taza,20,20,69,0.8,0.4,17.7,2,0,0,0,0,0,ND,ND,9.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+171,Fruta,Plátano dominico,3,pieza,105,57,54,0.1,0.1,14.0,1.2,20.4,13.0,12.5,0.7,209.8,ND,ND,7.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+172,Fruta,Plátano machacado,1/4,taza,56,56,50,0.6,0.2,12.8,1.5,34.9,7.3,12.4,0.4,208.1,ND,ND,6.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+173,Fruta,Plátano macho,1/4,pieza,95,49,95,0.5,0.2,11.6,1.0,38.0,4.4,9.4,0.1,195.6,ND,ND,6.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+174,Fruta,Plátano macho rebanado,1/3,taza,51,51,99,0.5,0.3,12.0,1.1,39.5,4.6,9.8,0.2,203.3,ND,ND,6.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+175,Fruta,Plátano manzano,1/2,pieza,90,49,47,0.5,0.3,11.8,1.0,6.8,6.3,10.7,0.6,179.8,ND,ND,5.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+176,Fruta,Plátano morado,1/2,pieza,90,49,41,0.9,0.1,10.3,1.0,20.4,3.9,10.7,0.7,179.8,ND,ND,5.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+177,Fruta,Pomarosa,140,g,140,95,60,0.6,0.2,15.6,1.3,32.4,20.9,0.0,0.4,117.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+178,Fruta,Pomelo,260,g,260,153,58,0.9,0.2,14.7,0.3,0.0,93.6,18.4,0.2,331.3,25.0,3.7,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+179,Fruta,Prisco,3 1/2,pieza,175,154,59,0.9,0.2,14.9,2.2,53.9,15.4,0.0,0.5,311.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+180,Fruta,Pulpa de fresa,2,cucharada,25,25,44,0.1,0.1,11.9,0.2,0.0,0.0,0.0,0.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+181,Fruta,Pulpa de guanabana,2,cucharada,25,25,45,0.1,0.1,12.3,0.1,0.0,0.0,0.0,0.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+182,Fruta,Pulpa de mamey,6,cucharada,75,75,52,1.3,0.5,12.2,3.4,45.8,17.3,0.0,1.8,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+183,Fruta,Pulpa de tamarindo,8,cucharada,100,100,57,0.1,0.1,14.7,0.5,0.0,0.0,0.0,0.0,0.0,ND,ND,12.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+184,Fruta,Pulpa de zapote negro,1/2,taza,105,105,59,0.8,0.1,15.2,1.3,10.5,87.2,0.0,1.7,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+185,Fruta,Puré de ciruela pasa,3,cucharada,41,41,51,0.5,0.1,13.6,0.2,12.0,0.8,0.0,0.4,128.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+186,Fruta,Puré de guayaba,1/2,frasco,65,65,49,0.1,0.1,12.0,1.7,0.0,67.0,0.0,0.1,97.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+187,Fruta,Puré de guayaba gerber 2A etapa,1/2,frasco,65,65,49,0.1,0.1,12.0,1.7,0.0,67.0,0.0,0.1,97.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+188,Fruta,Puré de manzana,6,cucharada,83,83,63,0.1,0.1,16.4,1.0,0.0,1.3,0.0,0.0,60.4,ND,ND,13.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+189,Fruta,Puré de manzana sin azúcar,1/2,taza,122,122,52,0.2,0.1,13.8,1.5,4.0,1.0,1.0,0.2,92.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+190,Fruta,Puré de platano,1/4,taza,56,56,50,0.6,0.2,12.8,1.5,34.9,7.3,12.4,0.4,208.1,ND,ND,6.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+191,Fruta,Rambután,7,pieza,175,88,55,0.6,0.3,15.0,0.9,8.6,3.8,3.8,0.3,167.4,ND,ND,14.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+192,Fruta,Rambután en almibar,1/4,taza,54,54,44,0.4,0.1,11.2,0.5,0.0,2.5,4.3,0.2,22.5,33.0,3.7,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+193,Fruta,Rollo de frutas,1,pieza,21,21,78,0.0,0.6,18.0,0.0,3.0,1.0,2.0,0.2,62.0,ND,ND,10.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+194,Fruta,Salsa de arandanos en gelatina enlatada,1/2,rebanada,29,29,43,0.1,0.1,11.1,0.3,0.5,0.5,0.3,0.1,7.5,ND,ND,10.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+195,Fruta,Sandia picada,1,taza,160,160,48,1.0,0.2,12.1,0.6,59.0,15.0,4.0,0.3,186.0,72.0,8.7,9.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+196,Fruta,Sandia rebanada,1,rebanada,200,200,60,1.3,0.3,15.1,0.8,73.8,18.8,5.0,0.3,232.5,ND,ND,12.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+197,Fruta,Saramuyo,130,g,130,85,63,1.8,0.8,13.8,0.0,7.6,27.0,0.0,0.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+198,Fruta,Semilla de jinicuil,200,g,200,40,58,4.8,0.4,10.8,0.4,8.0,11.2,0.0,0.8,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+199,Fruta,Tamarindo,50,g,50,25,60,0.7,0.1,15.6,1.3,0.8,0.8,3.5,0.7,157.1,ND,ND,14.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+200,Fruta,Tamarindo (pulpa sin azúcar),8,cucharada,100,100,57,0.1,0.1,14.7,0.5,0.0,0.0,0.0,0.0,0.0,ND,ND,12.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+201,Fruta,Tamarindo pelado,1/4,taza,30,30,72,0.9,0.2,18.8,1.5,1.0,1.0,4.3,0.8,188.5,ND,ND,17.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+202,Fruta,Tangerina,2,pieza,180,128,56,0.6,0.3,15.3,0.4,138.0,92.0,10.2,0.4,227.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+203,Fruta,Tejocote,2,pieza,70,60,52,0.5,0.4,13.1,1.6,251.1,27.4,0.0,1.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+204,Fruta,Toronja,1,pieza,246,162,54,0.9,0.2,13.7,1.8,4.9,86.1,16.2,0.2,225.7,25.0,3.4,11.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+205,Fruta,Toronja en gajos,1,taza,150,150,50,0.8,0.2,12.6,1.7,18.3,51.2,15.9,0.1,208.5,ND,ND,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+206,Fruta,Toronja enlatada con jugo,1/2,taza,125,125,46,0.9,0.1,11.5,0.5,0.0,42.0,11.2,0.3,213.5,ND,ND,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+207,Fruta,Toronjas en almibar,1/2,taza,127,127,76,0.7,0.2,19.6,0.5,0.0,27.0,11.5,0.5,164.0,ND,ND,19.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+208,Fruta,Tuna,2,pieza,250,138,56,1.0,0.7,13.2,5.0,6.9,19.3,0.0,0.4,302.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+209,Fruta,Tuna cardona,2,pieza,250,138,56,1.0,0.7,13.2,5.0,6.9,30.3,0.0,3.6,302.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+210,Fruta,Tuna picada,1,taza,150,150,62,1.1,0.8,14.4,5.4,7.5,21.0,0.0,0.5,330.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+211,Fruta,Tuna roja,2,pieza,250,138,56,1.0,0.7,13.2,5.0,6.9,30.3,0.0,3.6,302.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+212,Fruta,Uva,18,pieza,126,86,61,0.6,0.5,15.3,1.1,1.7,9.4,3.4,0.2,158.5,43.0,6.6,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+213,Fruta,Uva blanca,1,taza,92,87,59,0.6,0.3,15.0,0.8,8.6,3.8,3.8,0.3,167.2,ND,ND,14.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+214,Fruta,Uva con semilla,1,taza,10,114,76,0.7,0.4,19.6,1.0,7.8,12.1,4.3,0.3,210.9,ND,ND,18.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+215,Fruta,Uva roja,1,taza,120,114,76,0.7,0.4,19.6,1.0,7.8,12.1,4.3,0.3,210.9,ND,ND,18.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+216,Fruta,Uva sin semilla,1,taza,92,87,55,0.6,0.3,15.0,0.9,8.6,3.8,3.8,0.3,167.2,ND,ND,14.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+217,Fruta,Uva verde,1,taza,92,87,55,0.6,0.3,15.0,0.9,8.6,3.8,3.8,0.3,167.2,ND,ND,14.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+218,Fruta,Uva verde sin semilla,1,taza,92,87,55,0.6,0.3,15,0.9,8.6,3.8,3.8,0.3,167.2,ND,ND,14.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+219,Fruta,Uvas enlatadas en agua,1/2,taza,123,123,49,0.6,0.2,12.6,0.8,2.5,1.0,3.7,1.2,131.0,28,3.5,11.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+220,Fruta,Xocoyol,900,g,900,225,56,0.5,0.2,14.9,2.9,873,58.5,0.0,9.7,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+221,Fruta,Zapote,1/4,pieza,56,51,68,1.1,0.3,17.1,1.3,20.7,10.1,0.0,0.5,174.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+222,Fruta,Zapote amarillo,1/2,pieza,152,94,74,1.1,0.5,18.8,1.0,16.9,55.4,0.0,2.0,44.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+223,Fruta,Zapote blanco,1/2,pieza,152,115,81,2.0,0.8,18.5,1.4,8.1,41.5,0.0,0.2,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+224,Fruta,Zapote borracho,1/4,pieza,75,45,63,0.6,0.4,16.3,0.5,11.3,18.0,0.0,0.3,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+225,Fruta,Zapote negro,1/2,pieza,150,93,52,0.7,0.1,13.5,1.1,9.3,77.2,0.0,1.5,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+226,Fruta,Zapote negro limpio,1/2,taza,115,115,64,0.9,0.1,16.7,1.4,11.5,95.5,0.0,1.8,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+227,Fruta,Zarzamora,1,taza,150,144,75,1.0,0.9,18.4,5.9,56.2,30.2,0.0,0.7,282.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+228,Fruta,Zarzamora congelada sin azúcar,1/2,taza,76,76,49,0.9,0.3,11.9,3.8,4.5,2.5,25.7,0.6,105.5,ND,ND,8.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+229,Fruta,Zarzamora en almibar,1/4,taza,64,64,59,0.9,0.1,14.8,2.2,7.0,1.8,17.3,0.4,63.3,ND,ND,12.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+230,Verdura,Acelga cruda,2,taza,120,98,22,2.2,0.1,4.3,3.6,310.9,29.5,14.8,2.5,749.8,64.0,2.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+231,Verdura,Acelga picada cocida,1/2,taza,72,72,19,1.9,0.1,3.9,2.1,275.8,17.9,10.1,1.4,654.5,64.0,2.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+232,Verdura,Alcachofa mediana cocida,1,pieza,120,48,25,1.4,0.2,5.7,4.1,0.5,3.6,42.7,0.3,137.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+233,Verdura,Apio cocido,3/4,taza,113,113,20,0.9,0.2,4.5,1.8,29.3,6.9,24.8,0.5,319.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+234,Verdura,Apio crudo,1 1/2,taza,152,135,22,0.9,0.2,4.0,2.5,29.7,4.2,48.5,0.3,350.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+235,Verdura,Arúgula cruda,4,taza,80,80,20,2.1,0.5,2.9,3.5,95.2,12.0,77.6,1.2,295.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+236,Verdura,Berenjena picada cocida,1,taza,99,99,35,0.8,0.2,8.6,2.5,2.0,1.3,13.9,0.4,245.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+237,Verdura,Berro crudo,2,taza,68,56,34,1.3,0.1,0.7,0.3,46.3,6.7,35.7,1.2,100.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+238,Verdura,Betabel crudo,1/4,pieza,43,39,19,0.8,0.1,4.3,0.3,0.8,7.8,36.4,0.6,131.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+239,Verdura,Betabel crudo rallado,1/4,taza,38,38,18,0.8,0.1,4.1,0.3,0.8,7.5,34.9,0.6,125.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+240,Verdura,Bledos crudos,150,g,150,95,27,2.4,0.3,3.8,0.9,189.5,40.6,80.3,4.1,577.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+241,Verdura,Brócoli cocido,1/2,taza,92,92,26,2.7,0.4,4.6,2.7,127.4,68.4,46.0,0.8,268.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+242,Verdura,Brócoli crudo,1,taza,88,71,19,2.1,0.3,3.7,2.1,110.2,66.4,50.2,0.6,231.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+243,Verdura,Calabacita alargada cruda,1,pieza,111,91,21,1.6,0.1,3.4,1.4,12.3,11.8,23.7,0.5,183.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+244,Verdura,Calabacita redonda cruda,1,pieza,100,79,18,1.4,0.1,2.9,1.2,10.7,10.3,20.5,0.4,159.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+245,Verdura,Calabacita de Castilla cocida,1/2,taza,110,110,22,0.8,0.1,5.4,1.2,275.0,5.2,9.9,0.6,253.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+246,Verdura,Cebolla blanca rebanada,1/2,taza,58,58,23,0.6,0.1,5.4,1.0,0.0,4.3,10.9,0.1,84.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+247,Verdura,Cebolla cocida,1/4,taza,53,53,23,0.7,0.1,5.3,0.7,0.0,2.7,7.9,0.1,87.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+248,Verdura,Cebolla morada rebanada,1/2,taza,58,58,20,0.5,0.1,4.4,0.7,0.0,6.3,ND,0.8,90.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+249,Verdura,Cebollita de cambray sin raíz,3,pieza,75,72,23,1.3,0.1,5.3,1.9,36.0,13.5,46.1,1.1,198.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+250,Verdura,Cebollita en salmuera,1/2,taza,95,95,24,0.9,0.2,6.7,1.6,0,0.0,0.0,0,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+251,Verdura,Champiñon cocido entero,1/2,taza,78,78,20,2.8,0.3,3.2,1.4,0,0.0,15.6,0.2,308.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+252,Verdura,Champiñon cocido rebanado,1/2,taza,70,70,18,2.5,0.2,2.8,1.3,0,0.0,14.0,0.2,277.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+253,Verdura,Champiñon crudo entero,1,taza,96,93,20,2.9,0.3,3.1,0.9,0,2.0,14.9,0.5,296.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+254,Verdura,Champíñon crudo rebanado,1 1/2,taza,105,105,23,3.2,0.4,3.4,1.1,0,2.2,16.8,0.5,333.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+255,Verdura,Chayote cocido picado,1/2,taza,80,80,19,0.5,0.4,4.1,2.2,1.6,6.4,14.4,0.2,138.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+256,Verdura,Chayote crudo,1/2,pieza,102,100,19,0.8,0.1,4.5,1.7,0.0,7.7,93.5,0.3,125.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+257,Verdura,Chepil crudo,70,g,70,41,26,2.8,0.2,3.0,0.9,135.4,20.3,ND,1.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+258,Verdura,Chícharo cocido sin vaina,1/4,taza,40,40,34,2.1,0.1,6.1,2.2,16.0,5.7,25.2,0.6,108.4,48.0,2.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+259,Verdura,Chicharo cocido con vaina,1/2,taza,73,28,22,1.5,0.1,4.0,1.4,10.5,11.0,17.9,0.4,67.2,48.0,1.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+260,Verdura,Chicharo en vaina cocido,1/3,taza,53,53,21,1.7,0.1,3.4,1.5,27.7,25.5,15.5,1.1,128.0,48.0,1.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+261,Verdura,Chicoria cruda,140,g,140,120,24,1.4,0.2,4.1,1.1,123.4,8.4,171.0,1.0,378.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+262,Verdura,Chalacas crudas,3,pieza,90,76,24,1.1,0.2,5.5,0.7,6.8,134.6,17.4,3.0,257.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+263,Verdura,Chilacayote crudo,150,g,150,135,19,1.6,0.3,3.6,0.4,8.1,9.5,ND,0.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+264,Verdura,Chile chilaca,2,pieza,60,50,20,0.8,0.2,3.7,0.5,48.9,89.7,11.6,2.0,171.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+265,Verdura,Chile chipotle seco,2,pieza,10,8,29,1.2,0.5,4.8,0.6,19.3,0.0,ND,0.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+266,Verdura,Chile costeño,4,pieza,64,54,17,0.9,0.1,3.9,1.1,7.0,135.5,12.4,1.8,182.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+267,Verdura,Chile cristalino,4,pieza,64,54,20,0.9,0.1,3.9,1.1,3.5,135.5,12.4,1.8,182.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+268,Verdura,Chile cuaresmeño,2,pieza,60,50,16,0.8,0.2,3.7,0.5,4.5,89.7,11.6,2.0,171.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+269,Verdura,Chile de árbol seco,4,pieza,8,7,21,0.9,0.4,4.3,2.1,70.9,3.7,0.0,0.3,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+270,Verdura,Chile habanero,5,pieza,80,67,25,1.5,0.5,3.6,1.1,19.8,63.2,15.5,1.6,228.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+271,Verdura,Chile jalapeño,6,pieza,90,78,23,1.1,0.5,4.6,2.2,31.3,34.7,36.8,0.5,168.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+272,Verdura,Chile poblano,1/2,pieza,40,32,15,0.8,0.2,3.3,0.1,5.1,116.5,7.4,1.1,108.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+273,Verdura,Chiles secos,10,g,10,7,23,0.8,0.7,4.3,0.0,124.6,5.2,0.0,0.4,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+274,Verdura,Cilantro picado crudo,2,taza,120,120,28,2.6,0.6,4.4,3.4,404.4,32.4,74.4,2.1,625.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+275,Verdura,Clavito (hongo) crudo,1,taza,75,71,28,4.3,0.4,3.8,1.1,0.0,3.8,0.0,1.5,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+276,Verdura,Col cocida picada,1/2,taza,75,75,17,1.0,0.0,4.1,1.4,3.0,28.1,22.5,0.1,147.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+277,Verdura,Col cruda picada,2,taza,140,112,27,1.4,0.2,6.0,2.6,6.7,47.0,63.8,0.6,275.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+278,Verdura,Col morada cruda picada,1,taza,70,56,17,0.8,0.1,4.1,1.2,31.4,31.9,10.1,0.4,136.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+279,Verdura,Colesita de Bruselas cocida,3,pieza,63,63,23,1.6,0.3,4.5,1.6,24.6,39.1,37.8,0.8,199.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+280,Verdura,Coliflor cocida,1,taza,125,125,28,2.3,0.6,5.1,2.9,1.3,55.4,55.0,0.4,177.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+281,Verdura,Coliflor cruda,2,taza,200,80,20,1.6,0.1,4.2,2.0,0.8,37.1,45.6,0.4,242.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+282,Verdura,Coliflor verde cocida,1/2,taza,68,68,22,2.1,2.1,4.2,2.2,4.7,49.0,27.7,0.5,187.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+283,Verdura,Coliflor verde cruda,2,taza,128,78,24,2.3,2.3,4.8,2.5,6.2,68.8,44.5,0.6,234.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+284,Verdura,Colinabo crudo,90,g,90,66,22,1.1,1.1,4.1,1.4,0.3,40.7,ND,0.3,230.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+285,Verdura,Cozarón de alcachofa crudo,1,pieza,25,25,16,0.6,0.6,4.1,0.3,3.0,1.5,18.5,0.2,84.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+286,Verdura,Corazón de lechuga crudo,1,pieza,130,124,12,1.2,1.2,4.4,1.9,43.2,6.2,67.9,0.6,197.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+287,Verdura,Corazón de palmito crudo,3,pieza,99,99,27,2.4,2.4,4.5,2.4,0.0,9.0,39.0,3.1,174.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+288,Verdura,Cresón cocido,1,taza,135,135,31,2.6,2.6,5.2,1.0,313.2,31.1,50.0,1.1,476.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+289,Verdura,Cresón limpio crudo,2,taza,100,100,32,2.8,2.8,5.6,1.2,346.0,69.0,80.0,1.3,606.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+290,Verdura,Crucetas crudas,150,g,150,117,21,1.3,1.3,4.3,0.8,25.7,28.1,0.0,6.8,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+291,Verdura,Cuitlacoche cocido,1/3,taza,66,66,20,0.8,0.8,4.1,1.2,0.0,2.6,ND,0.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+292,Verdura,Echalot,1,pieza,40,34,25,0.9,0.9,5.8,ND,20.6,2.8,11.7,0.4,119.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+293,Verdura,Ejotes cocidos picados,1/2,taza,63,63,22,1.2,1.2,4.9,2.0,21.9,6.1,20.6,0.4,91.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+294,Verdura,Elotitos de cambray,8,pieza,64,64,26,2.1,2.1,4.3,1.8,14.0,3.9,29.7,0.4,159.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+295,Verdura,Envidia cruda,3,taza,150,129,22,1.6,1.6,4.3,4.0,139.3,8.4,183.2,1.1,405.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+296,Verdura,Espárragos crudos,6,pieza,90,90,22,2.3,2.3,3.8,2.8,49.0,10.0,131.0,0.7,144.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+297,Verdura,Espinaca cocida,1/2,taza,90,90,21,2.7,2.7,3.4,3.2,471.6,8.8,131.1,3.2,419.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+298,Verdura,Espinaca cruda picada,2,taza,120,120,28,3.4,3.4,4.4,2.6,562.8,33.7,232.8,3.3,669.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+299,Verdura,Flor de calabaza cocida,1,taza,134,134,20,1.4,1.4,4.4,1.2,116.6,6.0,54.0,1.2,142.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+300,Verdura,Flor de calabaza cruda picada,4,taza,132,132,20,1.2,1.2,4.4,ND,128.0,36.0,76.0,0.9,228.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+301,Verdura,Flor de colorín cocida,1/2,taza,40,40,24,1.8,1.8,4.0,1.0,2.6,14.8,ND,1.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+302,Verdura,Flor de colorín cruda,1,taza,40,40,24,1.8,1.8,4.0,1.0,2.6,14.8,ND,1.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+303,Verdura,Flor de garambullo cruda,50,g,50,50,19,0.4,0.4,4.1,0.4,10.5,20.0,ND,2.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+304,Verdura,Flor de maguey cruda,60,g,60,60,21,0.5,0.5,4.4,0.4,14.4,35.4,ND,0.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+305,Verdura,Flor de Yuca cruda,75,g,75,75,29,2.0,2.0,4.5,0.5,0.8,204.8,ND,0.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+306,Verdura,Germen de alfalfa cruda,3,taza,99,99,23,4.0,4.0,2.1,1.9,7.9,8.1,35.6,1.0,78.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+307,Verdura,Germen de lenteja crudo,1/4,taza,19,19,20,1.7,1.7,4.3,ND,0.4,3.2,19.3,0.6,62.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+308,Verdura,Germen de soya cocidpo,1/3,taza,31,31,25,2.7,1.4,2.1,0.3,0.6,2.6,25.1,0.4,111.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+309,Verdura,Granos de elote crudos,2,cuchara,21,21,18,0.7,0.2,4.0,0.6,1.9,0.4,9.7,0.1,56.7,54.0,2.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+310,Verdura,Haba verde,4,pieza,32,32,23,1.8,0.2,3.7,1.3,5.8,10.6,30.7,0.6,80.0,55.0,2.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+311,Verdura,Hojas de amaranto cocidas,100,g,100,100,21,2.1,0.2,4.1,ND,139.0,41.1,57.0,2.3,641.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+312,Verdura,Hojas de amaranto crudas,6,hojas,84,84,19,2.1,0.3,3.4,ND,122.6,36.4,71.4,1.9,513.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+313,Verdura,Hojas de chicoria cruda,130,g,130,130,26,1.6,0.3,4.4,1.2,133.3,9.1,184.6,1,408.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+314,Verdura,Hojas de dientes de león,50,g,50,45,24,1.2,0.3,4.1,0.8,49.1,15.8,ND,1.4,178.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+315,Verdura,Hojas de pata de paloma,30,g,30,25,20,0.8,0.4,4.2,0.4,21.9,11.1,ND,1.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+316,Verdura,Hojas de remolacha  crudas,2,hojas,64,64,14,1.4,0.1,2.8,2.4,202.2,19.2,9.6,1.6,487.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+317,Verdura,Hojas de remolacha hervida,1/2,taza,72,72,19,1.9,0.1,3.9,2.1,603.4,17.9,10.1,1.4,654.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+318,Verdura,Hongos porrtobello crudo,1,pieza,84,81,21,2.0,0.2,4.1,1.2,0.0,0.0,17.9,0.5,394.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+319,Verdura,Hongos shiitake deshidratados,1,pieza,4,4,11,0.3,0.0,2.7,0.4,0.0,0.1,5.9,0.1,55.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+320,Verdura,Hongos crudos,1,taza,70,63,17,2.0,0.3,2.8,1.6,0.0,1.9,13.2,2.7,233.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+321,Verdura,Huanzontle,1/2,taza,40,40,24,1.8,0.3,4.8,1.1,50.4,18.0,ND,2.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+322,Verdura,Huitlacoche cocido,1/3,taza,66,66,20,8.0,0.1,4.1,1.2,0.0,2.6,ND,0.3,107.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+323,Verdura,Ibes frescos,30,g,30,17,22,1.7,0.0,3.6,0.5,7.2,2.6,ND,0.2,107.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+324,Verdura,Jicama picada,1/2,taza,60,60,23,4.0,0.1,5.3,2.9,0.6,12.1,7.2,0.4,90.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+325,Verdura,Jitomate,120,g,120,113,20,1.0,0.2,4.4,1.4,47.4,14.3,16.9,0.3,267.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+326,Verdura,Jitomate bola,1,pieza,123,108,19,1.0,0.2,4.2,1.3,45.5,13.7,16.2,0.3,256.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+327,Verdura,Jitomate cereza,4,pieza,100,95,17,0.8,0.2,3.7,1.1,39.9,12.1,14.3,0.3,225.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+328,Verdura,Jitomate deshidratado,5,pieza,10,10,23,1.5,0.5,4.3,2.0,5.0,5.0,0.0,0.5,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+329,Verdura,Jitomate guaje o saladet,2,pieza,130,124,22,1.1,0.2,4.8,1.5,51.9,15.7,18.5,0.3,292.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+330,Verdura,Jitomate verde,1,pieza,123,123,28,1.5,0.2,6.3,1.4,39.4,29.0,11.0,0.6,251.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+331,Verdura,Jitomatillo (miltomate),70,g,70,60,21,0.9,0.1,4.3,0.9,150.5,51.2,5.4,3.6,124.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+332,Verdura,Jugo de tomate,1/2,taza,122,122,21,0.9,0.1,5.1,0.5,27.9,22.2,24.3,0.5,278.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+333,Verdura,Jugo de verduras,1/2,taza,121,121,23,0.8,0.1,5.5,1.0,94.4,33.5,25.4,0.5,233.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+334,Verdura,Jugo de zanahoria,1/4,taza,59,59,24,0.6,0.1,5.5,0.5,564.0,5.0,2.4,0.3,172.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+335,Verdura,Lechuga,3,taza,141,135,23,1.7,0.4,4.5,2.8,392.5,32.5,184.1,1.3,334.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+336,Verdura,Lengua de vaca,110,g,110,99,27,2.0,0.7,3.2,0.8,198.0,47.5,ND,2.4,386.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+337,Verdura,Lenteja germinada cocida,1/4,taza,19,19,19,1.7,0.1,4.1,ND,0.4,2.4,12.9,0.6,54.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+338,Verdura,Malva,100,g,100,85,34,4.1,0.5,3.3,0.8,255.0,29.8,ND,1.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+339,Verdura,Mezcla de verduras congeladas cocidas sin sal,1/2,taza,46,46,30,1.3,0.1,4.6,2.0,97.4,1.5,8.6,0.4,76.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+340,Verdura,Morillas deshidratadas,10,g,10,10,27,3.2,0.4,4.4,2.5,0.0,3.0,21.0,4.3,370.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+341,Verdura,Morillas frescas,110,g,110,94,25,3.0,0.4,4.1,2.3,0.0,2.8,19.6,4.0,346.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+342,Verdura,Nabo cocido,150,g,150,99,22,0.7,0.1,5.0,2.0,0.0,11.5,8.9,0.2,175.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+343,Verdura,Nopal cocido,1,taza,149,149,22,2.0,0.1,4.9,3.0,32.8,7.9,4.5,0.7,291.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+344,Verdura,Nopal crudo,2,pieza,140,134,22,1.8,0.1,4.5,3.2,30.9,12.5,4.0,0.8,345.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+345,Verdura,Nopal crudo de cambray,4,pieza,100,100,27,1.7,0.3,2.9,3.5,0.0,0.0,0.0,0.0,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+346,Verdura,Palmito enlatado,1,pieza,33,33,30,0.8,0.2,1.5,0.8,0.0,2.6,12.9,1.0,58.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+347,Verdura,Papaloquite crudo,2,taza,120,108,24,1.9,0.3,3.1,1.0,69.7,20.5,ND,2.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+348,Verdura,Papilla de verduras mixtas,1/3,frasco,43,43,19,0.5,0.0,4.1,0.6,58.3,1.3,3.4,0.1,51.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+349,Verdura,Pepinillos crudos,1/3,taza,80,80,23,1.1,1.0,3.3,0.0,0.0,0.0,0.0,2.1,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+350,Verdura,Pepinillos dulces,1,cuchara,15,15,20,0.1,0.1,5.3,0.2,2.0,0.0,0.0,0.1,4.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+351,Verdura,Pepino con cáscara rebanado,1,taza,104,104,16,0.7,0.1,3.8,0.5,5.2,2.9,7.3,0.3,152.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+352,Verdura,Perejil crudo picado,1,taza,60,60,22,1.8,0.5,3.8,2.0,252.6,80.0,91.2,3.7,332.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+353,Verdura,Pimiento amarillo crudo chico,1,pieza,75,64,17,0.7,0.1,4.0,0.6,6.4,116.9,16.6,0.3,135.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+354,Verdura,Pimiento cocido,1/2,taza,68,68,19,0.6,0.1,4.6,0.8,40.0,51.0,11.0,0.3,113.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+355,Verdura,Pimiento fresco,1,taza,60,60,17,0.5,0.1,3.8,1.1,38.4,54.0,13.2,0.3,106.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+356,Verdura,Pimiento rojo crudo chico,1,pieza,75,64,17,0.7,0.1,4.0,0.6,100.1,81.4,29.3,0.3,134.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+357,Verdura,Pimiento verde crudo chico,1,pieza,75,64,17,0.7,0.1,4.0,0.6,11.5,51.3,6.4,0.2,111.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+358,Verdura,Poro crudo,1/4,taza,40,32,21,0.5,0.1,4.5,1.2,26.6,3.5,20.5,0.7,57.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+359,Verdura,Puerro crudo,1/4,pieza,22,22,14,0.3,0.1,3.2,0.9,18.5,2.7,14.2,0.5,40.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+360,Verdura,Puerro hervido sin sal,1/2,pieza,62,62,19,0.5,0.1,4.7,0.6,25.4,2.6,14.9,0.7,53.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+361,Verdura,Puré de tomate enlatado,1/4,taza,63,63,24,1.0,0.1,5.6,1.5,16.3,6.6,6.9,1.1,274.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+362,Verdura,Quelite crudo,80,g,80,66,26,3.1,0.3,2.6,0.8,213.2,26.2,ND,2.4,400.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+363,Verdura,Rábano crudo rebanado,1,taza,116,104,17,0.7,0.1,3.5,1.7,0.0,15.5,26.1,0.4,243.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+364,Verdura,Romerito crudo,120,g,120,72,26,2.6,0.1,3.5,0.7,112.0,2.9,ND,1.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+365,Verdura,Salsa de chile,1/2,taza,115,115,28,1.2,0.2,5.2,2.8,4.6,2.3,0.0,0.6,234.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+366,Verdura,Salsifí,35,g,35,23,18,0.3,0.0,4.0,0.4,0.0,1.8,ND,0.2,86.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+367,Verdura,Semilla de guaje verde,5,g,65,29,28,2.5,0.2,4.0,0.5,2.3,11.7,ND,1.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+368,Verdura,Setas cocidas,1/2,taza,78,78,21,2.5,0.3,3.4,2.0,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+369,Verdura,Setas crudas,100,g,100,85,23,2.7,0.3,3.7,2.1,0.0,2.6,17.9,3.7,314.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+370,Verdura,Tomate verde,5,pieza,100,86,21,0.9,0.2,3.9,2.1,1.7,1.7,ND,0.4,175.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+371,Verdura,Tomatitos (tomatiles),75,g,75,65,26,2.3,0.1,4.1,0.8,112.6,29.7,ND,4.5,131.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+372,Verdura,Verdolaga cocida,1,taza,115,115,21,1.7,0.2,4.1,0.9,107.0,12.1,10.4,0.9,561.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+373,Verdura,Verdolaga cruda limpia,2,taza,192,192,31,2.5,0.2,6.6,1.5,126.7,40.3,23.0,3.8,948.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+374,Verdura,Xoconostle,3,pieza,102,71,18,0.1,0.3,3.7,1.6,1.4,15.7,ND,0.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+375,Verdura,Yemitas (hongos) crudas,2,taza,160,160,27,4.8,1.7,6.4,3.6,0.0,6.1,ND,6.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+376,Verdura,Yerbamora cruda,50,g,50,41,21,2.0,0.3,3.6,0.6,13.9,49.2,ND,3.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+377,Verdura,Zanahoria miniatura cruda,4,pieza,60,60,21,0.4,0.1,4.9,1.7,414.0,1.6,16.2,0.5,142.2,47.0,2.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+378,Verdura,Zanahoria picada cruda,1/2,taza,64,64,26,0.6,0.2,4.3,1.8,534.4,3.8,12.2,0.2,204.8,47.0,2.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+379,Verdura,Zanahoria rallada cruda,1/2,taza,55,55,23,0.5,0.1,4.1,1.5,459.3,3.2,10.5,0.2,176.0,47.0,1.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND
+380,Cereales sin grasa,Alegría natural,5,cucharadita,21,21,74,2.7,1.5,13.5,1.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.5,ND,ND,ND,0.7,0.0
+381,Cereales sin grasa,Alegría tostada,4,cucharadita,16,16,63,2.2,1.3,11.7,1.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,47.9,ND,ND,ND,0.3,0.0
+382,Cereales sin grasa,Amaranto cocido,2 1/2,taza,330,330,70,7.0,0.5,13.5,0.0,ND,ND,185.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,690.0,ND,ND,ND,7.5,70.0
+383,Cereales sin grasa,Amaranto tostado,1/4,taza,16,16,63,2.2,1.3,11.6,1.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,47.5,ND,ND,ND,0.3,0.0
+384,Cereales sin grasa,Anillos de trigo azucarados de colores,1/2,taza,16,16,63,1.0,0.6,13.4,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.5,ND,ND,ND,2.3,53.5
+385,Cereales sin grasa,Arroz cocido,1/4,taza,47,47,60,1.1,0.1,13.3,0.1,ND,ND,26.0,ND,ND,64.0,29.8,ND,ND,ND,ND,ND,1.4,ND,ND,ND,0.7,0.0
+386,Cereales sin grasa,Arroz crudo,20,g,20,20,72,1.3,0.1,15.9,ND,ND,ND,1.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.8,ND,ND,ND,0.2,0.2
+387,Cereales sin grasa,Arroz inflado con cocoa,1/2,taza,17,17,64,0.9,0.2,14.7,0.1,ND,ND,58.2,ND,ND,82.0,ND,ND,ND,ND,ND,ND,3.0,ND,ND,ND,1.0,126.2
+388,Cereales sin grasa,Arroz inflado natural,1/2,taza,17,17,65,1.1,0.1,14.6,0.5,ND,ND,58.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.0,ND,ND,ND,1.0,126.2
+389,Cereales sin grasa,Arroz integral cocido,1/3,taza,65,65,73,1.5,0.5,15.3,1.2,ND,ND,2.6,ND,ND,66.0,42.9,ND,ND,ND,ND,ND,6.7,ND,ND,ND,0.3,0.7
+390,Cereales sin grasa,Arroz integral crudo,20,g,20,20,72,0.5,0.5,15.2,0.7,ND,ND,4.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.6,ND,ND,ND,0.4,0.8
+391,Cereales sin grasa,Arroz precocido cocido,1/3,taza,52,52,64,1.5,0.2,13.6,0.5,ND,ND,1.6,ND,ND,48.0,25.0,0.1,ND,ND,ND,ND,9.9,ND,ND,ND,0.1,1.0
+392,Cereales sin grasa,Arroz precocido crudo,20,g,20,20,75,1.6,0.2,16.1,0.4,ND,ND,1.6,ND,ND,ND,ND,0.1,ND,ND,ND,ND,11.0,ND,ND,ND,0.1,0.6
+393,Cereales sin grasa,Arroz pulido crudo,20,g,20,20,72,1.3,0.1,15.9,ND,ND,ND,1.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.8,ND,ND,ND,0.2,0.2
+394,Cereales sin grasa,Arroz salvaje cocido,1/3,taza,54,54,55,2.1,0.2,11.6,1.0,ND,ND,14.1,ND,ND,54.0,29.2,0.4,ND,ND,ND,ND,1.7,ND,ND,ND,0.3,1.7
+395,Cereales sin grasa,Arroz salvaje crudo,20,g,20,20,71,2.9,0.2,15.0,1.2,ND,ND,19.0,ND,ND,ND,ND,0.5,ND,ND,ND,ND,4.2,ND,ND,ND,0.4,1.4
+396,Cereales sin grasa,Atole en polvo,7,cucharadita,18,18,68,0.0,0.0,16.4,0.0,ND,ND,0.0,ND,ND,74.0,13.5,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+397,Cereales sin grasa,Atole en sobre,1/3,sobre,16,16,58,0.0,0.0,14.0,0.0,ND,ND,0.0,ND,ND,51.0,7.9,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+398,Cereales sin grasa,Atole vitaminado,1/3,sobre,16,16,59,0.0,0.0,14.1,0.0,ND,ND,0.0,ND,ND,51.0,8.0,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+399,Cereales sin grasa,Avena cocida,3/4,taza,164,164,66,5.2,1.3,18.8,4.3,ND,ND,10.5,ND,ND,50.0,82.1,ND,ND,ND,ND,ND,16.4,ND,ND,ND,1.4,1.5
+400,Cereales sin grasa,Avena con canela y especias,1/3,sobre,15,15,56,1.3,0.7,11.7,1.0,ND,ND,29.0,ND,ND,65.0,9.9,5.1,ND,ND,ND,ND,36.3,ND,ND,ND,1.3,81.2
+401,Cereales sin grasa,Avena con manzana y canela,1/3,sobre,14,14,53,1.2,0.7,10.9,0.9,ND,ND,27.1,ND,ND,65.0,9.2,4.8,ND,ND,ND,ND,33.9,ND,ND,ND,1.2,75.9
+402,Cereales sin grasa,Avena con pasitas y especias,1/3,sobre,14,14,53,1.2,0.7,10.9,0.9,ND,ND,27.1,ND,ND,65.0,9.2,4.8,ND,ND,ND,ND,33.9,ND,ND,ND,1.2,75.9
+403,Cereales sin grasa,Avena en hojuelas,1/2,taza,20,20,73,3.2,1.3,13.4,2,ND,ND,0.0,ND,ND,65,13,0.2,ND,ND,ND,ND,10.4,ND,ND,ND,0.8,0.8
+404,Cereales sin grasa,Avena instantánea PLUS varios sabores,1/3,sobre,14,14,53,1.3,1.0,9.8,1.2,ND,ND,0.0,ND,ND,ND,ND,3.0,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,38.7
+405,Cereales sin grasa,Avena instantánea preparada,1/3,taza,77,77,53,1.8,1.1,9.0,1.3,ND,ND,54.8,ND,ND,65.0,50.2,0.4,ND,ND,ND,ND,61.8,ND,ND,ND,4.6,37.8
+406,Cereales sin grasa,Avena instantánea varios sabores,1/3,sobre,14,14,51,1.0,1.0,9.4,0.8,ND,ND,0.0,ND,ND,ND,ND,4.3,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,88.9
+407,Cereales sin grasa,Avena integral,1/3,taza,26,26,65,4.6,1.9,17.5,4.1,ND,ND,13.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,15.3,ND,ND,ND,1.4,0.9
+408,Cereales sin grasa,Avena integral con pasitas instantánea preparada,1/2,sobre,22,22,77,1.7,0.9,16.4,1.3,ND,ND,44.1,ND,ND,ND,ND,7.8,ND,ND,ND,ND,55.0,ND,ND,ND,2.0,120.8
+409,Cereales sin grasa,Avena Quaker Old fashion,1/2,pieza,20,20,68,2.8,1.1,11.8,1.9,ND,ND,0.0,ND,ND,ND,ND,0.3,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+410,Cereales sin grasa,Bagel,1/3,pieza,24,24,65,2.5,0.4,12.6,0.5,ND,ND,5.3,ND,ND,72.0,17.0,ND,ND,ND,ND,ND,17.7,ND,ND,ND,0.8,126.3
+411,Cereales sin grasa,Bagel de ajo,1/3,pieza,24,24,67,2.5,0.4,12.9,0.6,ND,ND,5.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,18.1,ND,ND,ND,0.9,129.4
+412,Cereales sin grasa,Bagel de ajonjolí,1/3,pieza,24,24,74,2.7,0.7,12.9,0.6,ND,ND,5.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,145.6
+413,Cereales sin grasa,Bagel de avena,1/3,pieza,24,24,60,2.5,0.3,12.6,0.9,ND,ND,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.0,ND,ND,ND,0.7,120.0
+414,Cereales sin grasa,Bagel de canela y pasas,1/3,pieza,24,24,65,2.3,0.4,13.1,0.5,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.3,ND,ND,ND,0.9,76.3
+415,Cereales sin grasa,Bagel de cebolla,1/3,pieza,24,24,74,2.7,0.7,12.9,0.6,ND,ND,11.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,145.6
+416,Cereales sin grasa,Bagel integral,1/3,pieza,24,24,60,2.5,0.3,12.6,0.9,ND,ND,5.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,120.0
+417,Cereales sin grasa,Baguette,1/7,pieza,27,27,72,2.2,1.0,13.4,0.6,ND,ND,9.7,ND,ND,95.0,25.7,1.0,ND,ND,ND,ND,29.2,ND,ND,ND,0.8,145.8
+418,Cereales sin grasa,Barquillo,1 1/2,pieza,15,15,64,1.1,1.1,12.0,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.8,ND,ND,ND,0.5,22.5
+419,Cereales sin grasa,Barra Special K varios sabores,1,pieza,24,24,90,2.0,1.0,19.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,104.9
+420,Cereales sin grasa,Barra Stila varios sabores,3/4,pieza,19,19,68,1.6,1.3,12.4,1.5,ND,ND,0.0,ND,ND,ND,ND,5.3,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,71.3
+421,Cereales sin grasa,Barrita de avena,1/2,pieza,14,14,56,0.8,1.1,11.1,0.5,ND,ND,2.0,ND,ND,ND,ND,4.8,ND,ND,ND,ND,4.5,ND,ND,ND,0.3,52.5
+422,Cereales sin grasa,Barrita de granola sabor manzana,1/2,pieza,14,14,55,0.8,1.0,11.3,0.7,ND,ND,2.0,ND,ND,ND,ND,5.1,ND,ND,ND,ND,4.5,ND,ND,ND,0.3,39.5
+423,Cereales sin grasa,Birote,1/3,pieza,22,22,67,2.1,0.0,14.1,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,9.1,ND,ND,ND,0.3,123.3
+424,Cereales sin grasa,Bolillo,1/3,pieza,20,20,61,1.9,0.0,12.8,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.3,ND,ND,ND,0.2,112.7
+425,Cereales sin grasa,Bolillo integral,1/3,pieza,20,20,64,2.1,0.1,13.4,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.3,ND,ND,ND,0.6,68.5
+426,Cereales sin grasa,Bolillo integral sin migajón,1/3,pieza,20,20,64,2.1,0.1,13.4,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.3,ND,ND,ND,0.6,68.5
+427,Cereales sin grasa,Bolillo sin migajón,1/3,pieza,20,20,61,1.9,0.0,12.8,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.3,ND,ND,ND,0.2,112.7
+428,Cereales sin grasa,Bollo de hamburguesa,1/3,pieza,25,25,65,2.4,1.1,12.5,0.6,ND,ND,0.0,ND,ND,ND,ND,1.8,ND,ND,ND,ND,25.7,ND,ND,ND,0.7,108.2
+429,Cereales sin grasa,Bollos para hamburguesa,1/3,pieza,25,25,65,2.4,1.1,12.5,0.6,ND,ND,0.0,ND,ND,ND,ND,1.8,ND,ND,ND,ND,25.7,ND,ND,ND,0.7,108.2
+430,Cereales sin grasa,burbujas de maíz azucaradas,1/2,taza,16,16,59,0.7,0.1,14.0,0.2,ND,ND,50.0,ND,ND,80.0,12.4,7.0,ND,ND,ND,ND,2.0,ND,ND,ND,0.9,59.5
+431,Cereales sin grasa,Camote al honor,1/3,taza,70,70,70,1.2,0.1,16.4,1.3,ND,ND,15.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,24.7,ND,ND,ND,0.4,5.6
+432,Cereales sin grasa,Camote amarillo,1/3,taza,69,54,68,0.8,0.4,15.3,1.6,ND,ND,7.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,23.2,ND,ND,ND,1.3,5.4
+433,Cereales sin grasa,Camote cocido,1/3,taza,69,69,73,1.1,0.2,16.8,1.3,ND,ND,7.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,14.4,ND,ND,ND,0.4,8.9
+434,Cereales sin grasa,Camote con miel,1/3,taza,59,59,59,0.3,0.0,14.4,1.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.3,ND,ND,ND,0.2,7.6
+435,Cereales sin grasa,Camote con naranja,1/5,taza,40,40,61,0.2,0.0,15.2,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.3,ND,ND,ND,0.1,4.2
+436,Cereales sin grasa,Camote en dulce,1/5,taza,52,52,71,0.4,1.7,14.5,1.2,ND,ND,5.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,13.4,ND,ND,ND,0.6,36.6
+437,Cereales sin grasa,Camote largo,1/4,pieza,75,59,73,0.8,0.5,16.6,1.7,ND,ND,8.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,25.2,ND,ND,ND,1.4,5.9
+438,Cereales sin grasa,Camote poblano (dulce),3/4,pieza,45,45,62,0.4,1.5,12.6,1.1,ND,ND,5.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,11.6,ND,ND,ND,0.5,31.7
+439,Cereales sin grasa,Canelones,4,pieza,20,20,68,1.9,0.1,14.6,0.4,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.2,ND,ND,ND,0.4,0.4
+440,Cereales sin grasa,Cáscara de papa cruda,2 1/2,taza,125,125,73,3.2,0.1,15.6,3.1,ND,ND,21.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,37.5,ND,ND,ND,4.1,12.5
+441,Cereales sin grasa,Cebada,20,g,20,20,69,2.2,0.5,15.3,2.1,ND,ND,4.6,ND,ND,ND,ND,0.1,ND,ND,ND,ND,5.4,ND,ND,ND,0.4,1.3
+442,Cereales sin grasa,Cebada perla cocida,1/3,taza,52,52,64,1.2,0.2,14.8,2.0,ND,ND,8.3,ND,ND,25.0,13.1,ND,ND,ND,ND,ND,5.7,ND,ND,ND,0.7,1.7
+443,Cereales sin grasa,Centeno,5,cucharadita,22,22,72,2.6,0.4,15.9,0.4,ND,ND,0.0,ND,ND,41.0,8.9,ND,ND,ND,ND,ND,8.2,ND,ND,ND,0.8,0.0
+444,Cereales sin grasa,Cereal Avena Flakes,3/4,taza,19,19,68,1.9,1.1,12.6,1.9,ND,ND,0.0,ND,ND,ND,ND,2.8,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,53.1
+445,Cereales sin grasa,Cereal Chewy para niños varios sabores,1/2,pieza,14,14,52,0.9,0.7,10.5,1.2,ND,ND,0.0,ND,ND,ND,ND,3.3,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,46.7
+446,Cereales sin grasa,Cereal con almendras y pasas,1/3,taza,19,19,70,1.5,0.7,16.5,1.6,ND,ND,33.3,ND,ND,ND,ND,4.0,ND,ND,ND,ND,9.3,ND,ND,ND,2.1,100.0
+447,Cereales sin grasa,Cereal de arroz,1/2,taza,17,17,67,1.4,0.5,14.1,1.1,ND,ND,2.5,ND,ND,ND,ND,0.2,ND,ND,ND,ND,9.1,ND,ND,ND,7.9,2.0
+448,Cereales sin grasa,Cereal de arroz inflado con chocolate,1/2,taza,16,16,62,1.1,0.6,13.8,1.2,ND,ND,3.0,ND,ND,82.0,13.1,1.5,ND,ND,ND,ND,4.5,ND,ND,ND,0.2,1.9
+449,Cereales sin grasa,Cereal con avena con maple,1/3,taza,27,27,65,4.6,1.9,17.6,4.1,ND,ND,13.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,15.5,ND,ND,ND,1.4,0.9
+450,Cereales sin grasa,Cereal de avena integral seco,1/3,taza,19,19,71,2.9,1.0,13.8,2.2,ND,ND,34.7,ND,ND,ND,ND,3.1,ND,ND,ND,ND,10.3,ND,ND,ND,5.4,68.3
+451,Cereales sin grasa,Cereal de galleta de chispa de chocolate,1/2,taza,15,15,60,0.5,0.8,13.0,0.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,50.0,ND,ND,ND,2.3,85.0
+452,Cereales sin grasa,Cereal de maíz reventado  con azúcar,1/2,taza,16,16,59,0.5,0.5,13.6,0.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,25.8,ND,ND,ND,9.9,620.0
+453,Cereales sin grasa,Cereales de maíz reventado sabor chocolate y crema de cacahucate,1/3,taza,14,14,61,0.9,1.6,10.6,0.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,46.7,ND,ND,ND,2.3,93.3
+454,Cereales sin grasa,Cereal de salvado de trigo,1/3,taza,21,21,54,2.6,0.7,15.3,6.7,ND,ND,66.7,ND,ND,42.0,8.7,4.0,ND,ND,ND,ND,66.7,ND,ND,ND,3.0,189.3
+455,Cereales sin grasa,Cereal de trigo con canela,1/3,taza,13,13,58,0.4,1.6,10.7,0.4,ND,ND,44.4,ND,ND,ND,ND,4.4,ND,ND,ND,ND,17.8,ND,ND,ND,2.0,93.3
+456,Cereales sin grasa,Cereal de trigo sabor frutas,1/2,taza,15,15,60,0.5,0.8,13.0,0.0,ND,ND,50.0,ND,ND,69.0,10.4,6.5,ND,ND,ND,ND,10.0,ND,ND,ND,2.1,100.0
+457,Cereales sin grasa,Cereal integral con pasitas,1/3,taza,20,20,66,2.0,0.5,15.7,2.7,ND,ND,33.3,ND,ND,42.0,8.5,6.0,ND,ND,ND,ND,11.7,ND,ND,ND,1.5,130.0
+458,Cereales sin grasa,Cereal Multibran Flakes,3/4,taza,19,19,65,2.4,1.3,11.1,2.6,ND,ND,0.0,ND,ND,ND,ND,0.4,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,90.6
+459,Cereales sin grasa,Cereal Multibran pasas,3/4,taza,19,19,66,2.0,1.0,12.1,2.3,ND,ND,0.0,ND,ND,ND,ND,3.9,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,71.9
+460,Cereales sin grasa,Cereal multigrano,1/4,taza,20,20,67,2.3,0.5,14.7,2.4,ND,ND,5.5,ND,ND,ND,ND,0.1,ND,ND,ND,ND,7.0,ND,ND,ND,0.6,0.5
+461,Cereales sin grasa,Cereal sin azúcar,1/2,taza,14,14,51,1.2,0.1,12.0,0.6,ND,ND,50.0,ND,ND,ND,ND,1.0,ND,ND,ND,ND,0.5,ND,ND,ND,4.1,152.0
+462,Cereales sin grasa,Codito crudo,20,g,20,20,74,2.5,0.2,15.0,0.1,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.4,ND,ND,ND,0.3,0.4
+463,Cereales sin grasa,Coditos con crema deshidratados,1 1/2,cucharada,15,15,61,1.9,1.5,9.6,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.2,122.9
+464,Cereales sin grasa,Couscous,1/3,taza,52,52,58,2.0,0.1,12.0,0.7,ND,ND,ND,ND,ND,ND,ND,0.1,ND,ND,ND,ND,4.3,ND,ND,ND,0.2,2.6
+465,Cereales sin grasa,Crepa,2,pieza,30,30,69,1.6,1.0,13.1,0.5,ND,ND,0.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.3,ND,ND,ND,0.3,147.5
+466,Cereales sin grasa,Crepas para rellenar,2,pieza,30,30,69,2.3,1.4,11.6,0.3,ND,ND,0.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.3,ND,ND,ND,0.3,116.4
+467,Cereales sin grasa,Crepas saladas,2,pieza,30,30,69,1.6,1.0,13.1,0.5,ND,ND,0.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.3,ND,ND,ND,0.3,147.5
+468,Cereales sin grasa,Croutones,1/2,taza,15,15,61,1.8,1.0,11.1,0.8,ND,ND,3.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,11.5,ND,ND,ND,0.6,104.5
+469,Cereales sin grasa,Cuadritos de avena,1/3,taza,19,19,71,2.9,1.0,13.8,2.2,ND,ND,34.7,ND,ND,ND,ND,3.1,ND,ND,ND,ND,10.3,ND,ND,ND,5.4,68.3
+470,Cereales sin grasa,Cuadritos de avena con salvado,1/3,taza,19,19,71,2.9,1.0,13.8,2.2,ND,ND,34.7,ND,ND,ND,ND,3.1,ND,ND,ND,ND,10.3,ND,ND,ND,5.4,68.3
+471,Cereales sin grasa,Cúrcuma,160,g,160,138,73,5.6,0.0,13.2,1.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,70.2,ND,ND,ND,16.8,0.0
+472,Cereales sin grasa,Elote amarillo cocido,1 1/2,pieza,174,66,71,2.2,0.8,16.6,1.9,ND,ND,30.4,ND,ND,53.0,35.0,2.7,ND,ND,ND,ND,1.6,ND,ND,ND,0.3,0.0
+473,Cereales sin grasa,Elote amarillo congelado,1 1/2,pieza,188,71,70,2.3,0.6,16.7,2.0,ND,ND,27.9,ND,ND,47.0,33.5,ND,ND,ND,ND,ND,2.9,ND,ND,ND,0.5,2.3
+474,Cereales sin grasa,Elote amarillo crudo,1 1/3,pieza,186,71,61,2.3,0.9,17.7,2.0,ND,ND,32.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.7,ND,ND,ND,0.4,12.1
+475,Cereales sin grasa,Elote amarillo desgranado cocido,1/2,taza,83,83,66,2.3,0.4,16.2,2.0,ND,ND,38.5,ND,ND,ND,ND,2.6,ND,ND,ND,ND,3.3,ND,ND,ND,0.3,4.2
+476,Cereales sin grasa,Elote amarillo desgranado crudo,1/2,taza,83,83,66,2.3,0.4,16.2,2.0,ND,ND,38.5,ND,ND,ND,ND,2.6,ND,ND,ND,ND,3.3,ND,ND,ND,0.3,4.2
+477,Cereales sin grasa,Elote amarillo enlatado,1/2,taza,82,82,66,2.1,0.8,15.2,1.6,ND,ND,40.0,ND,ND,ND,ND,2.3,ND,ND,ND,ND,4.0,ND,ND,ND,0.7,175.0
+478,Cereales sin grasa,Elote blanco cocido,1 1/2,pieza,215,82,70,2.6,1.0,15.5,2.2,ND,ND,37.5,ND,ND,59.0,48.1,2.6,ND,ND,ND,ND,1.6,ND,ND,ND,0.4,12.2
+479,Cereales sin grasa,elote blanco desgranado,1/2,taza,83,83,66,2.3,0.4,16.2,2.0,ND,ND,38.5,ND,ND,ND,ND,2.6,ND,ND,ND,ND,3.3,ND,ND,ND,0.3,4.2
+480,Cereales sin grasa,Elote crudo,1 1/2,pieza,215,82,70,2.6,1.0,15.5,2.2,ND,ND,37.5,ND,ND,ND,ND,2.6,ND,ND,ND,ND,1.6,ND,ND,ND,0.4,12.2
+481,Cereales sin grasa,Elote desgranado,1/2,taza,83,83,66,2.3,0.4,16.2,2.0,ND,ND,38.5,ND,ND,ND,ND,2.6,ND,ND,ND,ND,3.3,ND,ND,ND,0.3,4.2
+482,Cereales sin grasa,Elote enlatado,1/2,taza,82,82,66,2.1,0.8,15.2,1.6,ND,ND,40.0,ND,ND,46.0,37.7,2.3,ND,ND,ND,ND,4.0,ND,ND,ND,0.7,175.0
+483,Cereales sin grasa,English miffin,1/2,pieza,29,29,67,2.2,0.5,13.1,0.8,ND,ND,10.5,ND,ND,77.0,21.9,ND,ND,ND,ND,ND,49.5,ND,ND,ND,0.7,132.0
+484,Cereales sin grasa,Espagueti cocido,1/3,taza,46,46,57,2.5,0.2,12.3,2.1,ND,ND,2.3,ND,ND,44.0,20.3,0.4,ND,ND,ND,ND,6.9,ND,ND,ND,0.5,1.4
+485,Cereales sin grasa,Espagueti con espinacas cocido,1/3,taza,47,47,61,2.1,0.3,12.2,0.0,ND,ND,5.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,14.0,ND,ND,ND,0.5,6.7
+486,Cereales sin grasa,Espagueti crudo,20,g,20,20,70,2.9,0.3,15.0,0.1,ND,ND,11.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.0,ND,ND,ND,0.7,1.6
+487,Cereales sin grasa,Espagueto integral cocido,1/3,taza,46,46,57,2.5,0.3,12.3,2.1,ND,ND,2.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.9,ND,ND,ND,0.5,1.3
+488,Cereales sin grasa,Espagueti integral crudo,20,g,20,20,70,2.9,0.3,15.0,0.1,ND,ND,11.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.0,ND,ND,ND,0.7,1.6
+489,Cereales sin grasa,Espaguetti cocido,1/3,taza,47,47,58,2.5,0.3,12.4,2.1,ND,ND,2.3,ND,ND,44.0,20.5,0.4,ND,ND,ND,ND,7.0,ND,ND,ND,0.5,1.4
+490,Cereales sin grasa,Espaguetti con espinacas cocido,1/3,taza,47,47,61,2.1,0.3,12.2,0.0,ND,ND,5.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,14.0,ND,ND,ND,0.5,6.7
+491,Cereales sin grasa,Espaguetti crudo,20,g,20,20,70,2.9,0.3,15.0,0.1,ND,ND,11.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.0,ND,ND,ND,0.7,1.6
+492,Cereales sin grasa,Espaguetti integral cocido,1/3,taza,47,47,58,2.5,0.3,12.4,2.1,ND,ND,2.3,ND,ND,ND,ND,0.4,ND,ND,ND,ND,7.0,ND,ND,ND,0.5,1.4
+493,Cereales sin grasa,Fécula de maíz,2,cucharada,16,16,60,0.0,0.0,14.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+494,Cereales sin grasa,Fécula de maíz de sabor,2,cucharada,16,16,60,0.0,0.0,14.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+495,Cereales sin grasa,Fetuccini crudo,20,g,20,20,70,2.7,0.5,14.1,0.6,ND,ND,3.9,ND,ND,ND,ND,0.6,ND,ND,ND,ND,4.3,ND,ND,ND,0.6,3.2
+496,Cereales sin grasa,Fibra uno,1/2,taza,30,30,60,2.0,1.0,25.0,14.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,100.0,ND,ND,ND,4.5,105.0
+497,Cereales sin grasa,Fideo cocido,1/2,taza,20,20,74,2.5,0.2,15.0,0.1,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.4,ND,ND,ND,0.3,0.4
+498,Cereales sin grasa,Fideo con tomate deshidratado,2,cucharada,20,20,72,2.6,1.0,13.3,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.3,399.4
+499,Cereales sin grasa,Fideo crudo,20,g,20,20,72,2.7,0.5,14.5,0.7,ND,ND,4.2,ND,ND,ND,ND,0.7,ND,ND,ND,ND,4.2,ND,ND,ND,0.6,1.1
+500,Cereales sin grasa,Fideo seco deshidratado,2,cucharada,20,20,72,2.6,1.0,13.3,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.3,399.4
+501,Cereales sin grasa,Fruitcake,1/2,rebanada,20,20,65,0.6,1.8,12.3,0.7,ND,ND,0.5,ND,ND,ND,ND,8.6,ND,ND,ND,ND,6.5,ND,ND,ND,0.4,54.0
+502,Cereales sin grasa,Fusili cocido,1/3,taza,46,46,57,2.5,0.2,12.3,2.1,ND,ND,2.3,ND,ND,ND,ND,0.4,ND,ND,ND,ND,6.9,ND,ND,ND,0.5,1.4
+503,Cereales sin grasa,Fusili crudo,20,g,20,20,70,2.9,0.3,15.0,0.1,ND,ND,11.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.0,ND,ND,ND,0.7,1.6
+504,Cereales sin grasa,Galleta barras de higo,1,pieza,16,16,56,0.6,1.2,11.3,0.7,ND,ND,2.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,10.0,ND,ND,ND,0.5,56.0
+505,Cereales sin grasa,Galleta de animalitos,6,pieza,15,15,68,1.1,2.1,11.3,0.2,ND,ND,2.1,ND,ND,ND,ND,3.4,ND,ND,ND,ND,6.4,ND,ND,ND,0.4,59.5
+506,Cereales sin grasa,Galleta de manzana,1,pieza,15,15,50,0.5,0.0,12.0,0.5,ND,ND,0.0,ND,ND,ND,ND,7.0,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,30.0
+507,Cereales sin grasa,Galleta dulce,2,pieza,16,16,64,1.1,1.7,10.7,0.7,ND,ND,1.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.5,ND,ND,ND,0.3,48.5
+508,Cereales sin grasa,Galleta dulce sin relleno,2,pieza,16,16,64,1.5,1.7,10.7,0.7,ND,ND,1.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.5,ND,ND,ND,0.3,48.5
+509,Cereales sin grasa,Galleta maría,5,pieza,19,19,69,1.3,1.3,13.8,0.1,ND,ND,6.3,ND,ND,ND,ND,11.3,ND,ND,ND,ND,0.0,ND,ND,ND,0.5,110.6
+510,Cereales sin grasa,Galletas para sopa,14,pieza,18,18,70,1.2,1.8,12.8,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,268.3
+511,Cereales sin grasa,Galleta salada,4,pieza,16,16,69,1.4,2.1,11.2,0.0,ND,ND,1.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.8,ND,ND,ND,0.3,176.0
+512,Cereales sin grasa,Galleta salada integral,4,pieza,16,16,70,1.6,1.9,11.2,0.4,ND,ND,0.0,ND,ND,ND,ND,0.6,ND,ND,ND,ND,4.3,ND,ND,ND,0.1,108.8
+513,Cereales sin grasa,Galleta salada molida,2 1/2,cucharada,15,15,65,1.3,2.0,10.5,0.0,ND,ND,1.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.4,ND,ND,ND,0.2,165.0
+514,Cereales sin grasa,Galleta de avena pasas,1 1/2,galletas,15,15,61,1.3,2.0,9.5,1.3,ND,ND,0.0,ND,ND,ND,ND,4.7,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,57.0
+515,Cereales sin grasa,Galletas de maíz horneadas sin grasa (salmas),3,pieza,18,18,64,1.4,0.6,13.0,1.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,67.9
+516,Cereales sin grasa,Galletas Marías,5,galleta,19,19,69,1.3,1.3,13.8,0.1,ND,ND,6.3,ND,ND,ND,ND,11.3,ND,ND,ND,ND,0.0,ND,ND,ND,0.5,110.6
+517,Cereales sin grasa,Galletas Marias azucaradas,4,galleta,16,16,63,1.0,1.5,11.5,0.1,ND,ND,32.8,ND,ND,ND,ND,3.5,ND,ND,ND,ND,0.0,ND,ND,ND,2.2,98.0
+518,Cereales sin grasa,Gluten de trigo,3,cucharada,18,18,68,7.5,0.3,8.5,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.2,ND,ND,ND,0.0,0.4
+519,Cereales sin grasa,Granola baja en grasa,3,cucharada,18,18,70,1.5,1.1,14.4,1.1,ND,ND,36.7,ND,ND,ND,ND,4.4,ND,ND,ND,ND,7.0,ND,ND,ND,0.7,44.1
+520,Cereales sin grasa,Granola con frura seca baja en grasas,3,cucharada,18,18,69,1.3,0.8,14.4,1.0,ND,ND,0.0,ND,ND,ND,ND,6.2,ND,ND,ND,ND,6.5,ND,ND,ND,0.5,68.7
+521,Cereales sin grasa,Habaneras Bran trigo entero,4,galleta,18,18,72,1.7,2.4,11.0,1.6,ND,ND,0.0,ND,ND,ND,ND,0.8,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,90.0
+522,Cereales sin grasa,habaneras Clásicas,4,galleta,18,18,75,1.8,1.7,13.1,0.6,ND,ND,0.0,ND,ND,ND,ND,0.3,ND,ND,ND,ND,0.0,ND,ND,ND,1.6,128.7
+523,Cereales sin grasa,Habaneras integrales,4,galleta,18,18,69,1.9,1.6,11.9,1.5,ND,ND,0.0,ND,ND,ND,ND,0.3,ND,ND,ND,ND,0.0,ND,ND,ND,1.7,83.7
+524,Cereales sin grasa,Harina,2 1/2,cucharada,20,20,73,2.1,0.2,15.3,0.5,ND,ND,5.3,ND,ND,ND,ND,0.3,ND,ND,ND,ND,3.0,ND,ND,ND,0.9,0.5
+525,Cereales sin grasa,Harina blanca,2 1/2,cucharada,20,20,73,2.1,0.2,15.3,0.5,ND,ND,5.3,ND,ND,ND,ND,0.3,ND,ND,ND,ND,3.0,ND,ND,ND,0.9,0.5
+526,Cereales sin grasa,Harina blanca refinada,20,g,20,20,73,2.1,0.2,15.3,0.5,ND,ND,5.3,ND,ND,ND,ND,0.3,ND,ND,ND,ND,3.0,ND,ND,ND,0.9,0.5
+527,Cereales sin grasa,Harina de alforfón,2 1/2,cucharada,20,20,67,2.5,0.6,14.1,2.0,ND,ND,0.0,ND,ND,ND,ND,0.5,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,7.0
+528,Cereales sin grasa,Harina de amaranto,2,cucharada,19,19,68,2.7,1.0,11.9,1.3,ND,ND,0.0,ND,ND,66.0,12.5,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.2
+529,Cereales sin grasa,Harina de arroz,2,cucharada,20,20,72,1.4,0.6,15.1,0.9,ND,ND,3.1,ND,ND,ND,ND,0.2,ND,ND,ND,ND,2.1,ND,ND,ND,0.4,1.6
+530,Cereales sin grasa,Harina de arroz refinada,2,cucharada,20,20,75,1.2,0.3,16.3,0.5,ND,ND,0.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,2.0,ND,ND,ND,0.1,0.0
+531,Cereales sin grasa,Harina de cebada,2,cucharada,18,18,62,2.2,0.3,10.9,2.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.4
+532,Cereales sin grasa,Harina de centeno ,2,cucharada,18,18,63,2.1,0.3,13.6,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.9,ND,ND,ND,0.5,0.2
+533,Cereales sin grasa,Harina de centeno integral,2 1/2,cucharada,20,20,65,2.8,0.5,13.8,4.5,ND,ND,12.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,11.3,ND,ND,ND,1.3,0.2
+534,Cereales sin grasa,Harina de maíz,2 1/2,cucharada,18,18,65,1.7,0.7,13.6,1.7,ND,ND,4.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,25.2,ND,ND,ND,1.3,0.9
+535,Cereales sin grasa,Harina de maíz nixtamalizada,2 1/2,cucharada,18,18,65,1.7,0.7,13.6,1.7,ND,ND,4.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,25.2,ND,ND,ND,1.3,0.9
+536,Cereales sin grasa,Harina de maíz para atole,2,cucharada,15,15,60,1.2,0.8,11.8,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.3,ND,ND,ND,0.4,0.0
+537,Cereales sin grasa,Harina de maíz para tamales,2,cucharada,14,14,62,1.4,0.7,12.7,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,19.4,ND,ND,ND,0.5,0.1
+538,Cereales sin grasa,Harina de papa,2,cucharada,19,19,66,1.5,0.1,15.0,1.1,ND,ND,9.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.3,ND,ND,ND,3.2,6.5
+539,Cereales sin grasa,Harina de trigo,2 1/2,cucharada,20,20,71,2.0,0.2,14.9,0.5,ND,ND,5.2,ND,ND,41.0,8.0,0.3,ND,ND,ND,ND,3.0,ND,ND,ND,0.9,0.5
+540,Cereales sin grasa,Harina de trigo integral,2 1/2,cucharada,19,19,64,2.6,0.3,13.6,2.3,ND,ND,8.3,ND,ND,30.0,5.6,0.4,ND,ND,ND,ND,6.4,ND,ND,ND,0.7,0.9
+541,Cereales sin grasa,Harina de trigo para panificación,2,cucharada,17,17,62,2.1,0.3,12.4,0.4,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,2.6,ND,ND,ND,0.8,0.4
+542,Cereales sin grasa,Harina de trigo para pasteleria,2 1/2,cucharada,17,17,62,1.4,0.1,13.3,0.3,ND,ND,3.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,2.3,ND,ND,ND,1.2,0.3
+543,Cereales sin grasa,Harina integral,2 1/2,cucharada,19,19,64,2.6,0.3,13.6,2.3,ND,ND,8.3,ND,ND,ND,ND,0.4,ND,ND,ND,ND,6.4,ND,ND,ND,0.7,0.9
+544,Cereales sin grasa,Harina integral de centeno,2 1/2,cucharada,20,20,65,2.8,0.5,13.8,4.5,ND,ND,12.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,11.3,ND,ND,ND,1.3,0.2
+545,Cereales sin grasa,Harina integral de trigo,2 1/2,cucharada,19,19,64,2.6,0.3,13.6,2.3,ND,ND,8.3,ND,ND,ND,ND,0.4,ND,ND,ND,ND,6.4,ND,ND,ND,0.7,0.9
+546,Cereales sin grasa,Harina nixtamalizada,2 1/2,cucharada,18,18,67,1.3,0.8,13.8,1.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,24.9,ND,ND,ND,0.7,0.2
+547,Cereales sin grasa,Harina para brownies,1 1/2,cucharada,13,13,60,0.7,2.3,9.0,0.0,ND,ND,0.0,ND,ND,ND,ND,6.3,ND,ND,ND,ND,0.0,ND,ND,ND,0.2,36.6
+548,Cereales sin grasa,Harina para brownies baja en grasa,2,cucharada,18,18,61,0.9,1.2,12.6,0.5,ND,ND,0.0,ND,ND,ND,ND,8.4,ND,ND,ND,ND,0.0,ND,ND,ND,0.5,56.1
+549,Cereales sin grasa,Harina para hot cakes,2,cucharada,18,18,61,1.7,0.2,13.3,0.5,ND,ND,1.5,ND,ND,ND,ND,1.9,ND,ND,ND,ND,6.0,ND,ND,ND,0.8,243.6
+550,Cereales sin grasa,Harina para reposteria,2,cucharada,16,16,60,1.7,0.2,12.6,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.0,ND,ND,ND,0.0,0.3
+551,Cereales sin grasa,Harina para tamales,2,cucharada,14,14,62,1.4,0.7,12.7,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,19.4,ND,ND,ND,0.5,0.1
+552,Cereales sin grasa,Hilos de trigo entrelazados con miel maple y azúcar,9,pieza,20,20,69,1.6,0.3,16.0,1.9,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.4,ND,ND,ND,6.1,0.4
+553,Cereales sin grasa,Hojuelas de 7 fibras,1/3,taza,20,20,70,2.8,0.3,15.4,2.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,13.9,ND,ND,ND,0.5,10.6
+554,Cereales sin grasa,Hojuelas de arroz,1/2,taza,16,16,55,3.2,0.2,11.2,0.5,ND,ND,50.0,ND,ND,ND,ND,1.5,ND,ND,ND,ND,2.5,ND,ND,ND,4.1,125.0
+555,Cereales sin grasa,Hojuelas de avena,1/3,taza,26,26,65,4.6,1.9,17.5,4.1,ND,ND,13.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,15.3,ND,ND,ND,1.4,0.9
+556,Cereales sin grasa,Hojuelas de avena con maple,1/3,taza,26,26,65,4.6,1.9,17.5,4.1,ND,ND,13.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,15.3,ND,ND,ND,1.4,0.9
+557,Cereales sin grasa,Hojuelas de avena endulzadas con miel y almendras,1/3,taza,14,14,59,1.1,1.2,11.3,0.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.1,ND,ND,ND,3.8,87.3
+558,Cereales sin grasa,Hojuelas de avena instantaneas con pasas dátiles y nueces,1/4,taza,61,61,71,1.7,1.1,14.3,1.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,56.6,ND,ND,ND,2.1,125.7
+559,Cereales sin grasa,Hojuelas de avena instantáneas con pasas y especieas. Preparado,1/4,taza,62,62,62,1.3,0.7,12.5,1.0,ND,ND,0.0,ND,ND,ND,ND,6.0,ND,ND,ND,ND,42.9,ND,ND,ND,1.5,93.0
+560,Cereales sin grasa,Hojuelas de avena instantáneas con miel maple y azúcar morena. Preparado,1/4,taza,59,59,60,1.4,0.8,11.8,1.1,ND,ND,0.0,ND,ND,ND,ND,4.8,ND,ND,ND,ND,40.9,ND,ND,ND,1.4,95.9
+561,Cereales sin grasa,Hojuelas de avena fruta seca y nueces,1/4,taza,21,21,72,2.1,1.1,16.5,1.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,1.9,49.0
+562,Cereales sin grasa,Hojuelas de cereales con frutas secas,1/3,taza,18,18,70,1.3,1.0,14.0,1.0,ND,ND,33.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,83.3,ND,ND,ND,1.5,110.0
+563,Cereales sin grasa,Hojuelas de maíz,3/4,taza,19,19,67,1.4,0.1,15.8,0.6,ND,ND,109.3,ND,ND,81.0,15.2,1.8,ND,ND,ND,ND,1.3,ND,ND,ND,5.4,136.7
+564,Cereales sin grasa,Hojuelas de maíz azucaradas,1/3,taza,13,13,52,0.7,0.1,12.0,0.3,ND,ND,106.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,1.9,75.6
+565,Cereales sin grasa,Hojuelas de maíz y trigo con frutas y nueces,1/3,taza,18,18,70,1.3,1.0,14.0,1.0,ND,ND,33.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,83.3,ND,ND,ND,1.5,110.0
+566,Cereales sin grasa,Hojuelas de papa para puré,20,g,20,20,71,1.7,0.1,16.2,1.3,ND,ND,9.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.4,ND,ND,ND,0.2,20.8
+567,Cereales sin grasa,Hojuelas de salvado,1/3,taza,21,21,67,1.8,0.5,16.0,2.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,9.8,ND,ND,ND,2.6,119.7
+568,Cereales sin grasa,Hojuelas de salvado con pasas,1/3,taza,19,19,66,1.1,0.4,15.8,1.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.7,ND,ND,ND,1.6,73.2
+569,Cereales sin grasa,Hojuelas de trigo,1/2,taza,18,18,59,1.8,0.3,14.1,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.2,ND,ND,ND,0.8,180.6
+570,Cereales sin grasa,Hojuelas de trigo con miel,1/2,taza,18,18,62,1.6,0.4,14.3,1.9,ND,ND,11.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.1,ND,ND,ND,2.8,101.3
+571,Cereales sin grasa,Hojuelas de trigo integral,1/2,taza,16,16,59,3.5,0.3,11.0,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.5,ND,ND,ND,4.2,112.0
+572,Cereales sin grasa,Hojuelas de trigo integral con frutos rojos,1/2,taza,16,16,57,1.9,0.2,12.5,0.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,9.5,ND,ND,ND,4.1,110.0
+573,Cereales sin grasa,Hojuelas de trigo integral con chispas de yogur,1/2,taza,19,19,64,2.1,0.1,14.7,3.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.0,ND,ND,ND,1.5,78.3
+574,Cereales sin grasa,Hojuelas de trigo integral con fibra extra,1/2,taza,26,26,50,3.8,1.2,26.0,16.9,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1404.0,ND,ND,ND,60.8,1612.0
+575,Cereales sin grasa,Hojuelas de trigo integral con frutas y yogur,1/3,taza,15,15,57,1.0,0.4,11.6,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.3,ND,ND,ND,2.1,63.9
+576,Cereales sin grasa,Hojuelas de trigo negro,1/3,taza,59,59,54,2.0,0.4,11.7,1.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.2,ND,ND,ND,0.5,2.5
+577,Cereales sin grasa,Hojuelas fortificadas de trigo entero almendras nueces y miel,1/4,taza,15,15,58,1.5,1.3,11.4,1.3,ND,ND,24.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,39.9,ND,ND,ND,1.7,75.5
+578,Cereales sin grasa,Hojuelas avena instantánea con manzana y canela,1/3,taza,79,79,69,1.4,0.8,14.0,1.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,58.1,ND,ND,ND,2.0,87.2
+579,Cereales sin grasa,Hot cake,3/4,pieza,38,38,69,2.5,2.3,9.7,0.0,ND,ND,4.9,ND,ND,67.0,25.1,ND,ND,ND,ND,ND,81.9,ND,ND,ND,0.7,164.8
+580,Cereales sin grasa,Lasagna cruda,20,g,20,20,68,1.9,0.1,14.6,0.4,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.2,ND,ND,ND,0.4,0.4
+581,Cereales sin grasa,Lasaña cocida,20,g,20,20,68,1.9,0.1,14.6,0.4,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.2,ND,ND,ND,0.4,0.4
+582,Cereales sin grasa,Macarrón cocido,1/3,taza,47,47,66,2.2,0.3,13.2,0.6,ND,ND,3.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.3,ND,ND,ND,0.7,0.3
+583,Cereales sin grasa,Macarrón crudo,20,g,20,20,68,1.9,0.1,14.6,0.4,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.2,ND,ND,ND,0.4,0.4
+584,Cereales sin grasa,Macarrón integral cocido,1/3,taza,47,47,58,2.5,0.3,12.4,1.3,ND,ND,2.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.0,ND,ND,ND,0.5,1.3
+585,Cereales sin grasa,Maicena,2,cucharada,16,16,60,0.0,0.0,14.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+586,Cereales sin grasa,Maicena sabor,2,cucharada,16,16,60,0.0,0.0,14.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+587,Cereales sin grasa,Maíz,20,g,20,18,67,2.2,0.9,13.0,2.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.5,ND,ND,ND,0.4,0.2
+588,Cereales sin grasa,Maíz amarillo,20,g,20,18,67,2.2,0.9,13.0,2.2,ND,ND,0.0,ND,ND,53.0,9.8,ND,ND,ND,ND,ND,1.5,ND,ND,ND,0.4,0.2
+589,Cereales sin grasa,Maíz amarillo cocido,20,g,20,18,67,2.2,0.9,13.0,2.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.5,ND,ND,ND,0.4,0.2
+590,Cereales sin grasa,Maíz azul,20,g,20,18,67,1.5,0.8,13.7,2.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,29.3,ND,ND,ND,0.5,0.2
+591,Cereales sin grasa,Maíz blanco,20,g,20,18,67,2.2,0.9,13.0,2.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.5,ND,ND,ND,0.4,0.2
+592,Cereales sin grasa,Maíz blanco cocido,25,g,25,19,68,2.2,0.9,13.3,2.3,ND,ND,0.0,ND,ND,59.0,11.1,ND,ND,ND,ND,ND,1.5,ND,ND,ND,0.4,0.2
+593,Cereales sin grasa,Maíz cacahuacintle,20,g,20,18,67,2.2,0.9,13.0,2.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.5,ND,ND,ND,0.4,0.2
+594,Cereales sin grasa,Maíz cacahuacintle,20,g,20,18,67,2.2,0.9,13.0,2.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.5,ND,ND,ND,0.4,0.2
+595,Cereales sin grasa,Maíz palomero,20,g,20,20,73,2.4,0.9,14.2,2.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.4,ND,ND,ND,0.4,0.2
+596,Cereales sin grasa,Maíz pozolero,1/3,taza,54,54,58,1.8,0.7,13.6,1.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.1,ND,ND,ND,0.3,9.2
+597,Cereales sin grasa,Maizena,2,cucharada,16,16,60,0.0,0.0,14.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+598,Cereales sin grasa,Malanga,70,g,70,60,67,0.9,0.1,15.9,2.5,ND,ND,13.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,25.9,ND,ND,ND,0.3,6.6
+599,Cereales sin grasa,Marias cerealé fresa,1 1/2,pieza,15,15,66,1.1,2.1,10.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,63.8
+600,Cereales sin grasa,Masa de maíz,45,g,45,45,69,1.6,0.9,14.3,1.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,31.5,ND,ND,ND,0.7,0.0
+601,Cereales sin grasa,Masa de maíz amarillo,35,g,35,35,66,1.5,0.8,13.5,1.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,30.8,ND,ND,ND,0.6,0.0
+602,Cereales sin grasa,Masa de maíz blanco,45,g,45,45,69,1.6,0.9,14.3,1.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,31.5,ND,ND,ND,0.7,0.0
+603,Cereales sin grasa,Masa pasa tortillas,45,g,45,45,69,1.6,0.9,14.3,1.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,31.5,ND,ND,ND,0.7,0.0
+604,Cereales sin grasa,Masa Yucatán,40,g,40,40,69,1.8,0.5,14.6,1.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,36.0,ND,ND,ND,0.8,0.0
+605,Cereales sin grasa,Media noche,1/2,pieza,22,22,55,2.0,1.0,10.5,0.5,ND,ND,0.0,ND,ND,ND,ND,1.5,ND,ND,ND,ND,10.0,ND,ND,ND,0.5,105.0
+606,Cereales sin grasa,media noche con ajonjoli,1/2,pieza,22,22,55,2.0,1.0,10.5,0.5,ND,ND,0.0,ND,ND,ND,ND,1.5,ND,ND,ND,ND,10.0,ND,ND,ND,0.5,105.0
+607,Cereales sin grasa,Mijo cocido,1/3,taza,57,57,68,2.0,0.6,13.6,0.8,ND,ND,0.0,ND,ND,ND,ND,0.1,ND,ND,ND,ND,1.6,ND,ND,ND,0.4,1.0
+608,Cereales sin grasa,Mijo crudo,15,g,15,15,57,1.7,0.6,10.9,1.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,1.2,ND,ND,ND,0.5,0.8
+609,Cereales sin grasa,Mueslix con manzana y almendra,1/4,taza,18,18,68,1.7,1.6,13.2,1.5,ND,ND,0.0,ND,ND,ND,ND,3.0,ND,ND,ND,ND,11.1,ND,ND,ND,1.5,87.1
+610,Cereales sin grasa,Nixtamal,45,g,45,45,69,1.6,0.9,14.3,1.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,31.5,ND,ND,ND,0.7,0.0
+611,Cereales sin grasa,Nutritas variedad de sabores,1/2,bolsita,17,17,67,1.4,1.4,12.3,0.5,ND,ND,0.0,ND,ND,ND,ND,0.5,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,99.0
+612,Cereales sin grasa,Ñame,100,g,100,86,66,1.9,0.1,15.1,0.4,ND,ND,19.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,11.2,ND,ND,ND,0.4,7.7
+613,Cereales sin grasa,Palanqueta de amaranto,1/2,pieza,20,20,72,3.2,1.7,16.6,0.6,ND,ND,0.0,ND,ND,ND,ND,11.2,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+614,Cereales sin grasa,Palanqueta de amaranto con pasas,1/3,pieza,13,13,52,1.0,ND,11.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0
+615,Cereales sin grasa,Palitos de pan,3,pieza,18,18,74,2.2,1.7,12.3,0.5,ND,ND,5.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.6,ND,ND,ND,0.8,117.9
+616,Cereales sin grasa,Palomitas,2 1/2,taza,18,18,70,3.5,0.0,14.0,3.5,ND,ND,0.0,ND,ND,55.0,9.6,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,140.0
+617,Cereales sin grasa,Palomitas acarameladas,1/2,taza,18,18,76,0.7,2.3,13.9,0.9,ND,ND,0.5,ND,ND,ND,ND,6.9,ND,ND,ND,ND,7.5,ND,ND,ND,0.3,36.0
+618,Cereales sin grasa,Palomitas acarameladas sin grasa,3/4,taza,19,19,69,1.7,0.0,10.0,0.0,ND,ND,0.0,ND,ND,ND,ND,0.6,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,131.3
+619,Cereales sin grasa,Palomitas fat free,2 1/2,taza,18,18,70,3.5,0.0,14.0,3.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,140.0
+620,Cereales sin grasa,Palomitas naturales,2 1/2,taza,18,18,70,3.5,0.0,14.0,3.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,140.0
+621,Cereales sin grasa,Palomitas sin grasa,2 1/2,taza,18,18,70,3.5,0.0,14.0,3.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,140.0
+622,Cereales sin grasa,Pambazo,1/2,pieza,25,25,67,2.5,1.0,12.5,1.5,ND,ND,0.0,ND,ND,ND,ND,1.0,ND,ND,ND,ND,10.5,ND,ND,ND,0.3,142.3
+623,Cereales sin grasa,Pan 5 granos,1,rebanada,25,25,62,2.4,2.1,9.6,1.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,83.0
+624,Cereales sin grasa,Pan 7 granos,1,rebanada,26,26,65,2.6,1.0,12.1,1.7,ND,ND,12.0,ND,ND,55.0,14.3,ND,ND,ND,ND,ND,24.0,ND,ND,ND,0.9,127.0
+625,Cereales sin grasa,Pan ácimo,1/3,pieza,20,20,57,1.3,1.0,11.1,0.5,ND,ND,2.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,16.2,ND,ND,ND,0.5,78.9
+626,Cereales sin grasa,Pan árabe,1/3,pieza,20,20,54,1.8,0.2,11.0,0.4,ND,ND,0.0,ND,ND,ND,ND,0.3,ND,ND,ND,ND,17.0,ND,ND,ND,0.5,106.1
+627,Cereales sin grasa,Pan árabe integral,1/3,pieza,21,21,56,2.1,0.6,1.6,1.6,ND,ND,7.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.3,ND,ND,ND,0.6,112.2
+628,Cereales sin grasa,Pan bagel dulce,1/3,pieza,23,23,64,2.3,0.4,12.9,0.5,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.3,ND,ND,ND,0.9,75.6
+629,Cereales sin grasa,Pan bagel integral,1/3,pieza,23,23,60,2.5,0.3,12.5,0.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,118.8
+630,Cereales sin grasa,Pan bagel salado,1/3,pieza,23,23,64,2.5,0.4,12.5,0.5,ND,ND,5.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,17.5,ND,ND,ND,0.8,125.1
+631,Cereales sin grasa,Pan baguette,1/7,pieza,27,27,72,2.2,1.0,13.4,0.6,ND,ND,9.7,ND,ND,ND,ND,1.0,ND,ND,ND,ND,29.2,ND,ND,ND,0.8,145.8
+632,Cereales sin grasa,Pan birote,1/3,pieza,22,22,67,2.1,0.0,14.1,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,9.1,ND,ND,ND,0.3,123.3
+633,Cereales sin grasa,Pan blanco,1,rebanada,27,27,71,2.2,0.8,13.6,0.5,ND,ND,27.8,ND,ND,70.0,18.9,ND,ND,ND,ND,ND,101.3,ND,ND,ND,1.1,149.9
+634,Cereales sin grasa,Pan centeno,3/4,rebanada,24,24,62,2.0,0.8,11.6,1.4,ND,ND,12.0,ND,ND,41.0,9.8,ND,ND,ND,ND,ND,17.3,ND,ND,ND,0.7,158.3
+635,Cereales sin grasa,pan con salvado,3/4,rebanada,27,27,67,2.4,0.9,12.9,1.1,ND,ND,6.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,20.3,ND,ND,ND,0.8,131.3
+636,Cereales sin grasa,Pan de 5 granos,1,rebanada,25,25,62,2.4,2.1,9.6,1.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,83.0
+637,Cereales sin grasa,Pan de 7 granos,1,rebanada,26,26,65,2.6,1.0,12.1,1.7,ND,ND,12.0,ND,ND,55.0,14.3,ND,ND,ND,ND,ND,24.0,ND,ND,ND,0.9,127.0
+638,Cereales sin grasa,Pan de avena,1,rebanada,30,30,71,3.1,1.3,11.9,1.3,ND,ND,6.8,ND,ND,47.0,14.1,ND,ND,ND,ND,ND,20.0,ND,ND,ND,0.9,122.0
+639,Cereales sin grasa,Pan de caja,1,rebanada,27,27,71,2.2,0.8,13.6,0.5,ND,ND,0.0,ND,ND,70.0,18.9,ND,ND,ND,ND,ND,101.3,ND,ND,ND,1.1,149.9
+640,Cereales sin grasa,Pan de caja integral,1,rebanada,25,25,67,2.4,1.0,12.6,1.1,ND,ND,12.0,ND,ND,54.0,13.5,ND,ND,ND,ND,ND,78.0,ND,ND,ND,1.0,145.8
+641,Cereales sin grasa,Pan de centeno y comino,1,rebanada,20,20,55,1.7,0.5,11.0,0.3,ND,ND,8.0,ND,ND,41.0,8.2,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,140.0
+642,Cereales sin grasa,Pan de centeno y trigo,1,rebanada,28,28,73,2.6,0.2,15.0,0.1,ND,ND,27.8,ND,ND,41.0,11.5,ND,ND,ND,ND,ND,10.6,ND,ND,ND,0.8,156.0
+643,Cereales sin grasa,Pan de girasol integral,1,pieza,25,25,57,2.1,1.4,9.7,1.1,ND,ND,29.0,ND,ND,57.0,14.3,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,90.5
+644,Cereales sin grasa,Pan de hambueguesas chico,1/2,pieza,26,26,67,2.5,1.1,12.9,0.7,ND,ND,0.0,ND,ND,ND,ND,1.9,ND,ND,ND,ND,26.5,ND,ND,ND,0.7,111.5
+645,Cereales sin grasa,Pan de hot dog,1/2,pieza,22,22,55,2.0,1.0,10.5,0.5,ND,ND,0.0,ND,ND,ND,ND,1.5,ND,ND,ND,ND,10.0,ND,ND,ND,0.5,105.0
+646,Cereales sin grasa,Pan de hot dog con ajonjoli,1/2,pieza,22,22,55,2.0,1.0,10.5,0.5,ND,ND,0.0,ND,ND,ND,ND,1.5,ND,ND,ND,ND,10.0,ND,ND,ND,0.5,105.0
+647,Cereales sin grasa,pan de jengibre,1,rebanada,25,25,72,0.9,2.2,11.9,0.0,ND,ND,0.0,ND,ND,ND,ND,6.3,ND,ND,ND,ND,18.8,ND,ND,ND,0.5,115.6
+648,Cereales sin grasa,Pan de miel y avena,1,rebanada,28,28,71,3.0,1.1,12.7,0.9,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,19.0,ND,ND,ND,1.0,140.0
+649,Cereales sin grasa,Pan de plátano,3/4,rebanada,21,21,68,0.9,2.2,11.5,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.4,ND,ND,ND,0.3,63.4
+650,Cereales sin grasa,Pan de trigo con arroz,3/4,rebanada,21,21,59,1.4,1.5,10.2,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,14.7,ND,ND,ND,0.4,85.5
+651,Cereales sin grasa,Pan integral,1,rebanada,25,25,67,2.4,1.0,12.6,1.1,ND,ND,29.0,ND,ND,54.0,13.5,ND,ND,ND,ND,ND,78.0,ND,ND,ND,1.0,145.8
+652,Cereales sin grasa,Pan matza,1/2,pieza,14,14,56,1.4,0.2,119,0.5,ND,ND,2.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,2.0,ND,ND,ND,0.5,0.5
+653,Cereales sin grasa,Pan melba,3,pieza,15,15,60,1.8,0.6,11.4,0.9,ND,ND,3.0,ND,ND,70.0,10.5,ND,ND,ND,ND,ND,15.0,ND,ND,ND,0.6,123.0
+654,Cereales sin grasa,Pan molido,8,cucharadita,16,16,66,2.1,1.0,11.8,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.2,ND,ND,ND,0.2,95.8
+655,Cereales sin grasa,Pan negro,1,rebanada,26,26,69,2.1,0.5,15.2,0.3,ND,ND,0.0,ND,ND,47.0,12.2,ND,ND,ND,ND,ND,12.7,ND,ND,ND,2.4,144.8
+656,Cereales sin grasa,Pan negro con trigo,1,rebanada,25,25,65,2.0,0.5,14.6,0.3,ND,ND,0.0,ND,ND,47.0,11.8,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+657,Cereales sin grasa,Pan para hambuerguesa chico,1/2,pieza,26,26,67,2.5,1.1,12.9,0.7,ND,ND,0.0,ND,ND,ND,ND,1.9,ND,ND,ND,ND,26.5,ND,ND,ND,0.7,111.5
+658,Cereales sin grasa,Pan para hambuerguesa grande,1/3,pieza,25,25,65,2.4,1.1,12.5,0.6,ND,ND,0.0,ND,ND,ND,ND,1.8,ND,ND,ND,ND,25.7,ND,ND,ND,0.7,108.2
+659,Cereales sin grasa,Pan para pambazo,1/2,pieza,25,25,67,2.5,1.0,12.5,1.5,ND,ND,0.0,ND,ND,ND,ND,1.0,ND,ND,ND,ND,10.5,ND,ND,ND,0.3,142.3
+660,Cereales sin grasa,"Pan tipo ""english miffin""",1/2,pieza,29,29,67,2.2,0.5,13.1,0.8,ND,ND,10.5,ND,ND,77.0,21.9,ND,ND,ND,ND,ND,49.5,ND,ND,ND,0.7,132.0
+661,Cereales sin grasa,Pan tipo media noche,1/2,pieza,22,22,55,2.0,1.0,10.5,0.5,ND,ND,0.0,ND,ND,ND,ND,1.5,ND,ND,ND,ND,10.0,ND,ND,ND,0.5,105.0
+662,Cereales sin grasa,Pan tostado,1,rebanada,15,15,64,1.6,1.2,11.8,0.1,ND,ND,0.0,ND,ND,ND,ND,2.2,ND,ND,ND,ND,13.5,ND,ND,ND,0.9,88.1
+663,Cereales sin grasa,Panqué fat-free,1/2,rebanada,25,25,71,1.4,0.3,15.3,0.3,ND,ND,17.5,ND,ND,ND,ND,8.6,ND,ND,ND,ND,10.8,ND,ND,ND,0.5,85.3
+664,Cereales sin grasa,Papa al horno con cáscara,1/2,pieza,78,78,73,1.5,0.1,16.8,1.2,ND,ND,7.0,ND,ND,60.0,46.8,1.3,ND,ND,ND,ND,3.9,ND,ND,ND,0.3,3.9
+665,Cereales sin grasa,Papa al horno sin cáscara,1/2,pieza,78,78,73,1.6,0.1,16.8,1.2,ND,ND,7.0,ND,ND,ND,ND,1.4,ND,ND,ND,ND,4.0,ND,ND,ND,0.3,4.0
+666,Cereales sin grasa,Papa cocida,1/2,pieza,68,68,59,1.3,0.1,13.7,1.2,ND,ND,7.1,ND,ND,54.0,36.7,0.6,ND,ND,ND,ND,3.5,ND,ND,ND,0.2,2.5
+667,Cereales sin grasa,Papa cocida sin cascara,1/2,pieza,68,68,58,1.2,0.1,13.7,1.2,ND,ND,6.1,ND,ND,ND,ND,0.6,ND,ND,ND,ND,5.4,ND,ND,ND,0.2,3.4
+668,Cereales sin grasa,Papa de agua,1,pieza,95,78,71,2.6,0.2,15.5,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,14.8,ND,ND,ND,1.6,0.0
+669,Cereales sin grasa,Papa de cambray,5,pieza,115,94,72,1.5,0.1,16.5,0.5,ND,ND,12.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.3,ND,ND,ND,2.5,5.7
+670,Cereales sin grasa,Papa hervida con piel,1/2,pieza,68,68,59,1.3,0.1,13.7,1.2,ND,ND,7.1,ND,ND,65.0,44.2,0.6,ND,ND,ND,ND,3.5,ND,ND,ND,0.2,2.5
+671,Cereales sin grasa,Papa hervida pelada,1/2,pieza,68,68,58,1.2,0.1,13.7,1.2,ND,ND,6.1,ND,ND,ND,ND,0.6,ND,ND,ND,ND,5.4,ND,ND,ND,0.2,3.4
+672,Cereales sin grasa,Papa picada,3/4,taza,128,105,72,1.8,0.1,16.4,2.5,ND,ND,18.8,ND,ND,ND,ND,1.2,ND,ND,ND,ND,9.4,ND,ND,ND,0.5,6.3
+673,Cereales sin grasa,Papa roja cruda,1/2,pieza,85,85,60,1.6,0.1,13.5,1.4,ND,ND,15.3,ND,ND,ND,ND,0.9,ND,ND,ND,ND,8.5,ND,ND,ND,0.6,5.1
+674,Cereales sin grasa,Papas hojuelas para puré,20,g,20,20,71,1.7,0.1,16.2,1.3,ND,ND,9.2,ND,ND,ND,ND,0.7,ND,ND,ND,ND,5.4,ND,ND,ND,0.2,20.8
+675,Cereales sin grasa,Papilla de arroz,1/2,taza,17,17,67,1.4,0.5,14.1,1.1,ND,ND,2.5,ND,ND,ND,ND,0.2,ND,ND,ND,ND,9.1,ND,ND,ND,7.9,2.0
+676,Cereales sin grasa,Papilla de arroz deshidratada,15,g,15,15,59,1.1,0.7,11.6,0.1,ND,ND,3.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,127.5,ND,ND,ND,7.1,4.8
+677,Cereales sin grasa,Papilla de avena deshidratada,15,g,15,15,56,1.0,0.2,12.0,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,128.7,ND,ND,ND,7.5,41.0
+678,Cereales sin grasa,Papilla de maíz deshidratada,3/4,sobre,21,21,72,1.8,0.2,16.6,1.1,ND,ND,1.5,ND,ND,ND,ND,0.1,ND,ND,ND,ND,4.5,ND,ND,ND,6.6,228.8
+679,Cereales sin grasa,Pasta cocida,1/2,taza,60,60,78,3.2,1.1,14.0,0.0,ND,ND,11.6,ND,ND,44.0,26.4,ND,ND,ND,ND,ND,6.3,ND,ND,ND,0.7,49.5
+680,Cereales sin grasa,Pasta con huevo,1/3,taza,15,15,57,1.9,0.6,11.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.2,ND,ND,ND,0.4,0.7
+681,Cereales sin grasa,Pasta cruda para sopa,20,g,20,20,68,1.9,0.1,14.6,0.4,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.2,ND,ND,ND,0.4,0.4
+682,Cereales sin grasa,Pasta de codito,1/2,taza,20,20,74,2.5,0.2,15.0,0.1,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.4,ND,ND,ND,0.3,0.4
+683,Cereales sin grasa,Pasta de estrellitas,1/4,taza,19,19,69,2.3,0.2,14.1,0.1,ND,ND,4.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.1,ND,ND,ND,0.2,0.4
+684,Cereales sin grasa,Pasta de lagrimitas,1/4,taza,19,19,69,2.3,0.2,14.1,0.1,ND,ND,4.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.1,ND,ND,ND,0.2,0.4
+685,Cereales sin grasa,Pasta de letras,1/4,taza,19,19,69,2.3,0.2,14.1,0.1,ND,ND,4.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.1,ND,ND,ND,0.2,0.4
+686,Cereales sin grasa,Pasta de moño,1/2,taza,20,20,74,2.5,0.2,15.0,0.1,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.4,ND,ND,ND,0.3,0.4
+687,Cereales sin grasa,Pasta de municiones,1/4,taza,19,19,69,2.3,0.2,14.1,0.1,ND,ND,4.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.1,ND,ND,ND,0.2,0.4
+688,Cereales sin grasa,Pasta de trigo cocida,1/2,taza,60,60,78,3.2,1.1,14.0,0.0,ND,ND,11.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.3,ND,ND,ND,0.7,49.5
+689,Cereales sin grasa,Pasta de trigo fresca,25,g,25,25,72,2.8,0.6,13.7,0.0,ND,ND,44.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.8,ND,ND,ND,0.8,6.5
+690,Cereales sin grasa,Pasta fresca,25,g,25,25,72,2.8,0.6,13.7,0.0,ND,ND,44.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.8,ND,ND,ND,0.8,6.5
+691,Cereales sin grasa,Pasta integral cocida,1/3,taza,46,46,57,2.5,0.3,12.3,2.1,ND,ND,2.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.9,ND,ND,ND,0.5,1.3
+692,Cereales sin grasa,Pasta integral cruda,20,g,20,20,65,2.7,0.1,14.5,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,10.4,ND,ND,ND,0.5,1.6
+693,Cereales sin grasa,Pasta tornillo,1/3,taza,15,15,57,1.9,0.6,11.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.2,ND,ND,ND,0.4,0.7
+694,Cereales sin grasa,Pasta ángel,1,rebanada,28,28,73,1.7,0.2,16.4,0.4,ND,ND,1.0,ND,ND,67.0,18.8,ND,ND,ND,ND,ND,40.0,ND,ND,ND,0.2,212.0
+695,Cereales sin grasa,Peneques,2,pieza,26,26,58,1.5,0.4,12.3,1.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,28.1,ND,ND,ND,0.7,0.0
+696,Cereales sin grasa,Pinole,15,g,15,15,58,1.6,0.9,11.3,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,11.9,ND,ND,ND,1.2,0.0
+697,Cereales sin grasa,Pretzels,6,pieza,18,18,69,1.7,0.6,14.5,0.6,ND,ND,15.4,ND,ND,83.0,14.9,ND,ND,ND,ND,ND,6.4,ND,ND,ND,0.8,312.4
+698,Cereales sin grasa,Puré de camote,1/4,taza,60,60,60,1.2,0.1,13.8,1.0,ND,ND,0.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,18.0,ND,ND,ND,0.8,44.6
+699,Cereales sin grasa,Puré de camote con naranja,1/4,taza,50,50,77,0.2,0.0,19.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.2,ND,ND,ND,0.1,5.2
+700,Cereales sin grasa,Puré de papa hojuelas,1/3,taza,20,20,70,1.7,0.1,16.1,1.3,ND,ND,9.1,ND,ND,ND,ND,0.7,ND,ND,ND,ND,5.3,ND,ND,ND,0.2,20.6
+701,Cereales sin grasa,Quaker instant 0% azúcar,1/2,sobre,18,18,60,1.5,0.7,11.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,85.1
+702,Cereales sin grasa,Quinoa,20,g,20,20,74,2.8,1.2,12.8,1.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,9.4,ND,ND,ND,0.9,0.9
+703,Cereales sin grasa,Raíz de chayote,100,g,100,80,63,1.6,0.2,14.2,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.6,ND,ND,ND,0.6,0.0
+704,Cereales sin grasa,Sagú,55,g,55,44,70,1.1,0,16.3,0.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.8,ND,ND,ND,1.4,0.0
+705,Cereales sin grasa,Salvado de trigo,6,cucharada,29,29,64,2.4,0.2,24.4,24.4,ND,ND,1.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.5,ND,ND,ND,0.8,2.3
+706,Cereales sin grasa,Salvado de trigo,8,cucharada,31,31,66,4.8,1.3,19.8,13.1,ND,ND,24.5,ND,ND,ND,ND,0.7,ND,ND,ND,ND,22.5,ND,ND,ND,3.2,1.0
+707,Cereales sin grasa,Semora de maíz preparada,1/2,taza,121,121,72,1.7,0.3,15.6,0.4,ND,ND,0.0,ND,ND,ND,ND,0.1,ND,ND,ND,ND,3.5,ND,ND,ND,0.2,2.5
+708,Cereales sin grasa,Semolina,20,g,20,20,72,2.5,0.2,14.6,0.8,ND,ND,14.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.3,ND,ND,ND,0.9,0.2
+709,Cereales sin grasa,Sopa  instan ramen sin  preparar,50,g,50,50,67,2.0,1.0,11.3,0.7,ND,ND,0.0,ND,ND,ND,ND,1.3,ND,ND,ND,ND,0.0,ND,ND,ND,1.4,493.5
+710,Cereales sin grasa,Sorgo,1 1/2,cucharada,18,18,61,2.0,0.6,13.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.1,ND,ND,ND,0.8,1.1
+711,Cereales sin grasa,Tallarin cocido,1/3,taza,16,16,60,2.0,0.3,12.1,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,10.2,ND,ND,ND,0.5,0.0
+712,Cereales sin grasa,Tallarin crudo,20,g,20,20,74,2.5,0.2,15.0,0.1,ND,ND,5.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.4,ND,ND,ND,0.3,0.4
+713,Cereales sin grasa,Tapioca,2,cucharada,19,19,65,0.0,0.0,16.2,0.0,ND,ND,0.0,ND,ND,70.0,13.6,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+714,Cereales sin grasa,Telera,1/3,pieza,23,23,62,1.8,0.8,11.5,0.6,ND,ND,8.3,ND,ND,ND,ND,0.8,ND,ND,ND,ND,24.9,ND,ND,ND,0.7,124.7
+715,Cereales sin grasa,Tortilla,1,pieza,30,30,64,1.4,0.5,13.6,0.6,ND,ND,0.0,ND,ND,52.0,15.6,ND,ND,ND,ND,ND,58.8,ND,ND,ND,0.8,0.0
+716,Cereales sin grasa,Tortilla de maíz,1,pieza,30,30,64,1.4,0.5,13.6,0.6,ND,ND,0.0,ND,ND,52.0,15.6,ND,ND,ND,ND,ND,58.8,ND,ND,ND,0.8,0.0
+717,Cereales sin grasa,Tortilla de maíz amarillo,1,pieza,32,32,68,1.5,0.6,14.5,0.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,62.7,ND,ND,ND,0.8,0.0
+718,Cereales sin grasa,Tortilla de maíz azul o negro,1,pieza,32,32,70,1.6,0.9,14.1,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,40.0,ND,ND,ND,0.8,0.2
+719,Cereales sin grasa,Tortilla de mapiz blanco,1,pieza,30,30,67,1.8,0.5,14.2,1.3,ND,ND,0.0,ND,ND,52.0,15.6,ND,ND,ND,ND,ND,32.4,ND,ND,ND,0.8,0.0
+720,Cereales sin grasa,Tortilla de maíz y soya,1,pieza,33,33,75,2.2,1.4,13.8,0.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,42.2,ND,ND,ND,1.6,0.0
+721,Cereales sin grasa,Tortilla de maíz y trigo,1,pieza,32,32,73,3.2,0.5,14.9,1.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,32.6,ND,ND,ND,0.7,0.0
+722,Cereales sin grasa,Tortilla de nopal,3,pieza,69,69,60,3.2,1.2,13.1,9.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,135.2,ND,ND,ND,1.8,0.0
+723,Cereales sin grasa,Tostada de maíz horneada,2,pieza,20,20,73,2.0,1.3,16.0,2.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+724,Cereales sin grasa,Tpstada de nopal horneada,2,pieza,20,20,67,1.3,1.3,15.3,2.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+725,Cereales sin grasa,Trigo,1 1/2,cucharada,21,21,71,2.2,0.5,15.4,0.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.2,ND,ND,ND,0.2,0.6
+726,Cereales sin grasa,Trigo cocido,1 1/2,cucharada,21,21,70,2.2,0.5,15.1,0.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.0,ND,ND,ND,0.2,0.6
+727,Cereales sin grasa,Trigo entero,2,cucharada,19,19,63,2.0,0.5,13.8,0.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,10.9,ND,ND,ND,0.2,0.6
+728,Cereales sin grasa,Trigo negro,20,g,20,20,69,2.3,0.5,13.8,2.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,63.8,ND,ND,ND,0.0,64.0
+729,Cereales sin grasa,trigo triturado,1 1/2,cucharada,20,20,66,2.1,0.5,14.3,0.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,11.3,ND,ND,ND,0.2,0.6
+730,Cereales sin grasa,Yuca,1/4,pieza,88,60,72,0.6,0.4,16.8,0.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,30.9,ND,ND,ND,1.4,4.8
+731,Cereales sin grasa,Yuquilla,150,g,150,129,68,5.3,0.0,12.4,1.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,65.8,ND,ND,ND,15.7,0.0
+732,Cereales con grasa,Barra Choco Krispis,1,barra,19,19,17,1.0,1.5,15.0,0.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,90.6
+733,Cereales con grasa,Barra de fruta con Avena fresa,30,g,30,30,120,1.6,4.8,17.7,1.9,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,54.9
+734,Cereales con grasa,Barra de granola,3/4,pieza,21,21,101,2.2,4.2,13.7,1.1,ND,ND,5.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.8,ND,ND,ND,0.6,62.3
+735,Cereales con grasa,Barra multigrano linaza,20,g,20,20,99,1.9,4.8,12.0,1.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,36.9
+736,Cereales con grasa,Barra zucaritas,1,barra,21,21,90,1.0,2.0,16.0,0.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,100.0
+737,Cereales con grasa,Barra Chewy para niños varios sabores,1,paquete,23,23,95,1.6,2.3,17.0,1.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,69.9
+738,Cereales con grasa,Barrita de granola con cacahuate,1/3,pieza,19,19,87,1.4,5.0,11.0,0.7,ND,ND,0.0,ND,ND,ND,ND,5.9,ND,ND,ND,ND,9.6,ND,ND,ND,0.2,31.7
+739,Cereales con grasa,Barrita de granola con choco chip,1,pieza,28,28,119,2.1,4.7,19.6,1.4,ND,ND,6.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,26.0,ND,ND,ND,0.7,77.0
+740,Cereales con grasa,Barrita de granola con pasitas y nuez,3/4,pieza,21,21,87,1.7,4.4,13.5,1.2,ND,ND,6.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,18.0,ND,ND,ND,0.5,54.0
+741,Cereales con grasa,Barrita de granola cubierta con chocolate,3/4,pieza,21,21,98,1.2,5.3,13.4,0.8,ND,ND,5.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,21.8,ND,ND,ND,0.5,42.0
+742,Cereales con grasa,Barrita de fresa,1/3,pieza,21,21,97,1.1,3.9,14.4,0.3,ND,ND,26.4,ND,ND,50.0,10.6,ND,ND,ND,ND,ND,0.0,ND,ND,ND,1.0,36.6
+743,Cereales con grasa,Barrita marinela,20,g,20,20,91,0.7,3.8,13.4,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,32.5
+744,Cereales con grasa,Base para pay,20,g,20,20,110,1.0,8.0,9.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.4,150.0
+745,Cereales con grasa,Bigote relleno de chocolate,1/3,pieza,21,21,93,1.5,4.6,11.3,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,55.2
+746,Cereales con grasa,Bigote de cajeta,1/3,pieza,22,22,103,2.4,5.0,9.0,0.0,ND,ND,23.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,39.6,ND,ND,ND,0.4,131.5
+747,Cereales con grasa,Bigotes de chocolate,1/3,pieza,22,22,103,2.4,5.0,9.0,0.0,ND,ND,23.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,39.6,ND,ND,ND,0.4,131.5
+748,Cereales con grasa,Bigotes miniatura de cajeta,2,pieza,26,26,119,2.8,5.8,10.5,0.0,ND,ND,26.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,45.9,ND,ND,ND,0.5,152.4
+749,Cereales con grasa,Bimbuñuelos,2,pieza,30,30,120,0.9,5.8,16.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,103.6
+750,Cereales con grasa,Bisquet,1/2,pieza,33,33,118,2.0,5.4,15.8,0.5,ND,ND,1.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,15.8,ND,ND,ND,1.1,341.7
+751,Cereales con grasa,Botanas con proteinas de amaranto,1/2,bolsa,20,20,101,1.5,5.8,10.1,0.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,100.4
+752,Cereales con grasa,Brownie casero,1,pieza,24,24,112,1.5,7.0,12.0,0.0,ND,ND,4.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,14.0,ND,ND,ND,0.4,82.0
+753,Cereales con grasa,Brownie comercial,1/2,pieza,28,28,114,1.4,4.6,17.9,0.6,ND,ND,3.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,8.0,ND,ND,ND,0.6,87.5
+754,Cereales con grasa,Charritos de amaranto,1/2,bolsa,20,20,101,1.5,5.8,10.1,0.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,100.4
+755,Cereales con grasa,Cheescake,1,rebanada,30,30,96,1.7,6.8,7.7,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+756,Cereales con grasa,Cheetos,20,g,20,20,110,0.8,7.2,10.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,128.0
+757,Cereales con grasa,Cheetos poffs,20,g,20,20,106,1.6,6.4,10.4,0.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,158.0
+758,Cereales con grasa,Chetos torciditos,20,g,20,20,108,1.0,7.0,10.2,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,126.0
+759,Cereales con grasa,Chicharrón de harina enchilado,1/2,bolsa,23,23,106,2.1,5.6,12.5,0.9,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+760,Cereales con grasa,Chips ahoy,2,pieza,19,19,91,1.0,4.0,12.6,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,65.9
+761,Cereales con grasa,Chips de platano,3/7,bolsa individual,21,21,109,0.5,7.1,12.3,1.7,ND,ND,0.0,ND,ND,ND,ND,7.4,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+762,Cereales con grasa,Choco chispas,4,pieza,18,18,93,1.0,0.2,12.7,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,49.2
+763,Cereales con grasa,Churritos barcel,1/4,paquete,15,15,83,0.8,5.5,7.7,0.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,191.7
+764,Cereales con grasa,Concha pan dulce,1/3,pieza,21,21,87,2.3,3.7,11.1,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.9,ND,ND,ND,1.0,82.4
+765,Cereales con grasa,Costra para pay casera,90,g,90,90,109,1.4,7.2,9.8,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+766,Cereales con grasa,Costra para pay congelada,125,g,125,125,101,1.3,5.8,11.3,0.6,ND,ND,0.0,ND,ND,ND,ND,0.9,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+767,Cereales con grasa,Croissant,1/2,pieza mediana,29,29,116,2.3,6.0,13.1,0.7,ND,ND,37.1,ND,ND,ND,ND,3.2,ND,ND,ND,ND,10.5,ND,ND,ND,0.6,133.1
+768,Cereales con grasa,Croissant de manzana,3/4,pieza mediana,43,43,109,3.2,3.7,15.9,1.1,ND,ND,37.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.8,ND,ND,ND,0.5,117.1
+769,Cereales con grasa,Croissant de queso,1/2,pieza mediana,29,29,118,2.6,6.0,13.4,0.7,ND,ND,29.4,ND,ND,ND,ND,3.2,ND,ND,ND,ND,15.1,ND,ND,ND,0.6,102.9
+770,Cereales con grasa,Croutones sazonados,3/4,taza,23,23,105,2.4,4.1,14.3,1.1,ND,ND,9.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,21.4,ND,ND,ND,0.6,278.4
+771,Cereales con grasa,Cuernitos,1/2,pieza mediana,29,29,116,2.3,6.0,13.1,0.7,ND,ND,37.1,ND,ND,ND,ND,3.2,ND,ND,ND,ND,10.5,ND,ND,ND,0.6,133.1
+772,Cereales con grasa,Cuernitos de manzana,3/4,pieza mediana,43,43,109,3.2,3.7,15.9,1.1,ND,ND,37.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.8,ND,ND,ND,0.5,117.1
+773,Cereales con grasa,Cuernitos de queso,1/2,pieza mediana,29,29,118,2.6,6.0,13.4,0.7,ND,ND,29.4,ND,ND,ND,ND,3.2,ND,ND,ND,ND,15.1,ND,ND,ND,0.6,102.9
+774,Cereales con grasa,Cuernos,1/2,pieza mediana,29,29,116,2.3,6.0,13.1,0.7,ND,ND,37.1,ND,ND,ND,ND,3.2,ND,ND,ND,ND,10.5,ND,ND,ND,0.6,133.1
+775,Cereales con grasa,Cupcake de chocolate,1/2,pieza ,30,30,105,1.0,3.5,18.0,1.0,ND,ND,0.0,ND,ND,ND,ND,13.0,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+776,Cereales con grasa,Dalmata,1/3,pieza,19,19,83,0.8,4.0,10.9,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,47.9
+777,Cereales con grasa,Dona,1/3,pieza,21,21,90,1.0,4.9,10.7,0.3,ND,ND,1.8,ND,ND,76.0,16.3,3.6,ND,ND,ND,ND,9.6,ND,ND,ND,0.4,117.3
+778,Cereales con grasa,Dona azucarada,1/3,pieza,21,21,90,1.0,4.9,10.7,0.3,ND,ND,1.8,ND,ND,76.0,16.3,3.6,ND,ND,ND,ND,9.6,ND,ND,ND,0.4,117.3
+779,Cereales con grasa,Dona glaseada de chocolate,1/3,pieza,21,21,102,1.0,6.6,10.3,0.4,ND,ND,3.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.5,ND,ND,ND,0.5,91.8
+780,Cereales con grasa,Dona glaseada sabor chocolate,1/3,pieza,21,21,102,1.0,6.6,10.3,0.4,ND,ND,3.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.5,ND,ND,ND,0.5,91.8
+781,Cereales con grasa,Dona glaseada,1/3,pieza,21,21,90,1.0,4.9,10.7,0.3,ND,ND,1.8,ND,ND,76.0,16.3,3.6,ND,ND,ND,ND,9.6,ND,ND,ND,0.4,117.3
+782,Cereales con grasa,Doraditas,1/2,pieza,18,18,98,0.9,5.0,12.3,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,139.3
+783,Cereales con grasa,Doritos incognita,1/3,paquete,19,19,90,15.4,4.5,10.8,1.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,196.0
+784,Cereales con grasa,Doritos nachos,1/3,paquete,20,20,95,1.6,5.0,11.0,1.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,152.0
+785,Cereales con grasa,Doritos pizzerolas,1/3,paquete,19,19,93,1.4,4.9,10.8,1.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,213.5
+786,Cereales con grasa,Eclair de chocolate,1/2,pieza,29,29,98,1.3,4.6,12.8,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.5,ND,ND,ND,0.4,32.5
+787,Cereales con grasa,Fritos,20,g,20,20,110,1.6,7.2,9.6,1.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,144.0
+788,Cereales con grasa,Frituras de maíz con chile y limón,1/3,bolsa,19,19,84,0.8,5.3,8.3,0.0,ND,ND,0.0,ND,ND,64.0,12.0,ND,ND,ND,ND,ND,0.0,ND,ND,ND,1.4,218.2
+789,Cereales con grasa,Frituras de maíz con limón y sal,1/3,bolsa,19,19,84,0.8,5.3,8.3,0.0,ND,ND,0.0,ND,ND,64.0,12.0,ND,ND,ND,ND,ND,0.0,ND,ND,ND,1.4,218.2
+790,Cereales con grasa,Fruitcake,1/3,rebanada,32,32,104,0.9,2.9,19.9,1.2,ND,ND,0.0,ND,ND,ND,ND,9.6,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+791,Cereales con grasa,Galletas con chispa de chocolate,3,pieza,21,21,105,1.3,5.3,13.8,0.7,ND,ND,0.0,ND,ND,ND,ND,6.6,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,72.2
+792,Cereales con grasa,Galletas cubierta de chocolate,1 1/2,pieza,21,21,103,1.2,5.0,14.2,0.7,ND,ND,2.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.0,ND,ND,ND,0.8,61.5
+793,Cereales con grasa,Galleta de avena,1,pieza,18,18,81,1.1,3.3,12.4,0.5,ND,ND,1.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.0,ND,ND,ND,0.5,69.0
+794,Cereales con grasa,Galleta de avena con pasas,2,pieza,25,25,110,1.0,5.0,15.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,75.0
+795,Cereales con grasa,Galleta de avena y manzana,1,pieza,24,24,108,0.9,3.5,17.6,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,23.0,ND,ND,ND,0.3,106.5
+796,Cereales con grasa,Galleta de chocolate con relleno cremoso,2 1/2,pieza,23,23,106,1.3,4.6,16.5,0.7,ND,ND,0.0,ND,ND,ND,ND,9.3,ND,ND,ND,ND,0.0.,ND,ND,ND,0.0,0.0
+797,Cereales con grasa,Galleta de chocolate con relleno cremoso baja en grasa,3,pieza,27,27,119,1.6,3.6,20.6,0.8,ND,ND,0.0,ND,ND,ND,ND,11.1,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+798,Cereales con grasa,Galleta de crema de cacahuate,1 1/2,pieza,23,23,108,2.1,5.3,13.2,0.5,ND,ND,7.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,7.5,ND,ND,ND,0.6,93.0
+799,Cereales con grasa,Galleta de malvavisco con chocolate,2,pieza,26,26,110,1.0,4.4,17.6,0.6,ND,ND,2.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,12.0,ND,ND,ND,0.7,44.0
+800,Cereales con grasa,Galleta de nuez,1 1/2,pieza,23,23,110,1.5,4.5,15.8,1.9,ND,ND,0.0,ND,ND,ND,ND,5.2,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,131.2
+801,Cereales con grasa,Galleta integral,4,pieza,20,20,95,1.7,3.6,13.9,1.1,ND,ND,0.0,ND,ND,ND,ND,0.5,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,180.0
+802,Cereales con grasa,Galleta integral con miel,4,pieza,24,24,110,1.9,3.2,18.2,0.6,ND,ND,0.0,ND,ND,ND,ND,5.2,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,90.8
+803,Cereales con grasa,Galleta integral de miel,4,pieza,24,24,110,1.9,3.2,18.2,0.6,ND,ND,0.0,ND,ND,ND,ND,5.2,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,90.8
+804,Cereales con grasa,Galleta integral de trigo,4,pieza,28,28,113,2.4,3.9,19.1,1.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,6.4,ND,ND,ND,0.1,153.2
+805,Cereales con grasa,Galleta integral molida,4,cucharada,24,24,114,2.1,4.3,16.6,1.4,ND,ND,0.0,ND,ND,ND,ND,0.6,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,216.0
+806,Cereales con grasa,Galleta O´reo,2,pieza,18,18,86,0.9,3.8,12.2,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,84.8
+807,Cereales con grasa,Galleta salada cremosa,7,pieza,22,22,112,1.4,5.6,14.0,0.0,ND,ND,0.0,ND,ND,ND,ND,1.4,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,189.0
+808,Cereales con grasa,Galleta sandwich,2,pieza,21,21,91,0.8,2.1,16.5,0.8,ND,ND,0.0,ND,ND,ND,ND,9.1,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,181.1
+809,Cereales con grasa,Galleta sandwich chocolate,2,pieza,21,21,91,0.8,2.1,16.5,0.8,ND,ND,0.0,ND,ND,ND,ND,9.1,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,181.1
+810,Cereales con grasa,Galleta sandwuich de vainilla,2,pieza,21,21,91,0.8,25.1,16.5,0.8,ND,ND,0.0,ND,ND,ND,ND,9.1,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,181.1
+811,Cereales con grasa,Galleta wafers,6,pieza,21,21,105,0.8,4.5,15.8,0.8,ND,ND,0.0,ND,ND,ND,ND,9.8,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,30.0
+812,Cereales con grasa,Galletas con almendras,1 1/2,pieza,21,21,113,0.8,7.4,12.8,ND,ND,ND,0.0,ND,ND,ND,ND,9.8,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+813,Cereales con grasa,Galletas con chispas de chocolate,1/2,pieza,16,16,80,1.0,4.0,10.5,0.0,ND,ND,0.0,ND,ND,ND,ND,5.0,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,.0.
+814,Cereales con grasa,Galletas con chispas de chocolate bajas en grasa,2,pieza,20,20,90,1.2,33.0,14.6,0.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+815,Cereales con grasa,Galletas con chispas de chocolate con mantequilla casera,1 1/2,pieza,24,24,117,1.4,6.8,14.0,ND,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+816,Cereales con grasa,Galletas de manzana con pasas,1,pieza,26,26,113,1.3,4.3,17.2,0.6,ND,ND,0.0,ND,ND,ND,ND,8.8,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+817,Cereales con grasa,Gansito,25,g,25,25,99,1.1,3.9,14.9,0.6,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,55.5
+818,Cereales con grasa,Granola con almendras,3,cucharada,21,21,98,2.5,3.5,14.1,1.1,ND,ND,7.0,ND,ND,ND,ND,4.3,ND,ND,ND,ND,18.1,ND,ND,ND,0.9,7.0
+819,Cereales con grasa,Granola con avena y miel,3,cucharada,21,21,96,2.3,4.0,13.7,1.4,ND,ND,6.6,ND,ND,ND,ND,5.7,ND,ND,ND,ND,26.7,ND,ND,ND,0.5,8.8
+820,Cereales con grasa,Granola con pasitas y dátiles,3,cucharada,21,21,92,2.1,2.9,15.2,1.3,ND,ND,6.7,ND,ND,ND,ND,6.1,ND,ND,ND,ND,16.1,ND,ND,ND,0.9,5.3
+821,Cereales con grasa,Granola estándar,3,cucharada,21,21,97,2.3,4.0,14.1,1.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,8.2
+822,Cereales con grasa,Granola Thins Nature Valley,1,pieza,17,17,80,1.0,4.0,11.0,1.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,75.0
+823,Cereales con grasa,Habaneras Bran Arándanos Ciruela,35,g,35,35,113,2.7,4.3,16.0,3.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,171.5
+824,Cereales con grasa,Harina de algodón  baja  en grado,4,cucharada,32,32,106,15.9,0.4,11.5,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,57.6
+825,Cereales con grasa,harina de cacahuate,4,cucharada,32,32,105,16.7,0.2,11.1,5.1,ND,ND,0.0,ND,ND,ND,ND,2.6,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,13.2
+826,Cereales con grasa,Harina de girasol parcialmente desgrasada,4,cucharada,32,32,105,15.4,0.5,11.5,1.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+827,Cereales con grasa,Harina de sésamo baja en grasa,4,cucharada,32,32,107,16.0,0.6,11.4,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,6.4
+828,Cereales con grasa,Harina de soya baja en grasa,4,cucharada,32,32,120,14.5,2.8,11.2,5.1,ND,ND,0.0,ND,ND,ND,ND,3.4,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,1.0
+829,Cereales con grasa,Harina de soya desgrasada,4,cucharada,32,32,106,15.0,0.4,12.3,5.6,ND,ND,0.0,ND,ND,ND,ND,6.0,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,4.2
+830,Cereales con grasa,Harina de soya fill fat,3,cucharada,24,24,105,8.3,4.9,8.5,2.3,ND,ND,0.0,ND,ND,ND,ND,1.8,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,2.2
+831,Cereales con grasa,Hojaldra,1/3,pieza,28,28,115,2.3,6.0,13.0,0.7,ND,ND,8.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,10.4,ND,ND,ND,0.6,210.8
+832,Cereales con grasa,Kinder delice,1/2,paquete,21,21,95,1.0,5.9,9.0,0.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,20.0
+833,Cereales con grasa,Macarrón con queso,1/4,taza,50,50,108,4.2,5.6,10.1,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,90.5,ND,ND,ND,0.5,271.5
+834,Cereales con grasa,Madalena,3/4,pieza,20,20,92,1.6,4.2,8.9,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,85.0
+835,Cereales con grasa,Maíz palomero con mantequilla horno de microondas,2 1/2,taza,38,38,115,3.5,2.6,25.4,6.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,20.0,ND,ND,ND,0.2,383.8
+836,Cereales con grasa,Marías Gamesa Cereale Chocoplátano,20,g,20,20,120,1.4,2.7,12.6,1.7,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,84.0
+837,Cereales con grasa,Marías Gamesa Cereale Fresa,30,g,30,30,121,2.1,4.1,18.9,2.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,126.0
+838,Cereales con grasa,Muffin con mantequilla,1/3,pieza,37,37,112,2.9,3.4,18.0,0.0,ND,ND,10.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,61.0,ND,ND,ND,0.9,228.5
+839,Cereales con grasa,Muffin de blueberry,1/4,pieza,28,28,107,1.3,4.5,15.0,0.3,ND,ND,20.6,ND,ND,59.0,16.7,9.3,ND,ND,ND,ND,13.0,ND,ND,ND,0.4,95.8
+840,Cereales con grasa,Muffin de maíz,1/3,pieza,37,37,114,2.2,3.1,19.0,1.2,ND,ND,12.4,ND,ND,49.0,18.3,2.8,ND,ND,ND,ND,27.5,ND,ND,ND,1.0,194.3
+841,Cereales con grasa,Muffin integral,1/3,pieza,37,37,11,2.6,2.8,18.0,1.7,ND,ND,51.8,ND,ND,60.0,22.4,3.1,ND,ND,ND,ND,23.5,ND,ND,ND,1.6,146.5
+842,Cereales con grasa,Muffin integral con pasas,1/3,pieza,37,37,118,2.5,3.2,19.9,2.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,42.4,ND,ND,ND,1.8,200.6
+843,Cereales con grasa,Nachos,3,pieza,21,21,106,1.7,5.5,13.3,1.1,ND,ND,3.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,31.5,ND,ND,ND,0.3,150.8
+844,Cereales con grasa,Nature valley,1/2,barra,18,18,70,1.5,2.0,12.5,1.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,32.5
+845,Cereales con grasa,Nature valley barra granola con manzana,1,pieza,21,21,90,1.5,3.2,13.0,1.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,65.0
+846,Cereales con grasa,Oreja,1/3,pieza,17,17,81,1.0,4.4,9.6,0.2,ND,ND,13.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.3,50.8
+847,Cereales con grasa,Orejas de pan dulce,1/3,pieza,17,17,81,1.0,4.4,9.6,0.2,ND,ND,13.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.3,50.8
+848,Cereales con grasa,Palomitas con queso,3/4,taza,21,21,110,2.0,7.0,10.8,2.1,ND,ND,2.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,24.0,ND,ND,ND,0.5,186.8
+849,Cereales con grasa,Palomitas garapiñadas,3/4,taza,21,21,91,0.8,2.7,16.6,1.1,ND,ND,1.1,ND,ND,ND,ND,11.2,ND,ND,ND,ND,0.9,ND,ND,ND,0.4,43.3
+850,Cereales con grasa,Pan de ajo,1,pieza,28,28,93,2.0,3.9,12.3,1.0,ND,ND,0.0,ND,ND,ND,ND,2.5,ND,ND,ND,ND,49.1,ND,ND,ND,0.9,142.5
+851,Cereales con grasa,Pan de ajo con queso,1,pieza,28,28,98,2.5,4.9,11.3,1.0,ND,ND,0.0,ND,ND,ND,ND,1.0,ND,ND,ND,ND,98.2,ND,ND,ND,0.7,211.2
+852,Cereales con grasa,Pan dulce orejas,1/3,pieza,17,17,81,1.0,4.4,9.6,0.2,ND,ND,13.2,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.3,50.8
+853,Cereales con grasa,Pan de jenjibre,1,rebanada,28,28,100,1.1,4.6,13.8,ND,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,0.0
+854,Cereales con grasa,Pan de muesli,1,rebanada,28,28,94,2.5,3.6,13.2,1.4,ND,ND,0.0,ND,ND,54.0,15.1,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,124.9
+855,Cereales con grasa,Pan tipo muffin con mantequilla,1/3,pieza,37,37,112,2.9,3.4,18.0,0.0,ND,ND,10.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,61.0,ND,ND,ND,0.9,228.5
+856,Cereales con grasa,Pan tipo muffin de fruta,1/4,pieza,28,28,107,1.3,4.5,15.0,0.3,ND,ND,20.6,ND,ND,ND,ND,9.3,ND,ND,ND,ND,13.0,ND,ND,ND,0.4,95.8
+857,Cereales con grasa,pan tipo muffin de maíz,1/3,pieza,37,37,144,2.2,3.1,19.0,1.2,ND,ND,12.4,ND,ND,49.0,18.3,2.8,ND,ND,ND,ND,27.5,ND,ND,ND,1.0,194.3
+858,Cereales con grasa,Pan tipo muffin integral,1/3,pieza,37,37,101,2.6,2.8,18.0,1.7,ND,ND,51.8,ND,ND,60.0,22.4,3.1,ND,ND,ND,ND,23.5,ND,ND,ND,1.6,146.5
+859,Cereales con grasa,Panqué,1/2,rebanada,20,20,84,1.3,4.3,9.8,0.2,ND,ND,0.0,ND,ND,ND,ND,5.7,ND,ND,ND,ND,10.4,ND,ND,ND,0.3,71.4
+860,Cereales con grasa,Panqué con mantequilla,1/2,rebanada,20,20,84,1.3,4.3,9.8,ND,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,10.4,ND,ND,ND,3.0,71.4
+861,Cereales con grasa,Panqué de nata,1/2,rebanada,23,23,97,1.4,5.6,10.7,0.0,ND,ND,3.4,ND,ND,ND,ND,ND,ND,ND,ND,ND,5.5,ND,ND,ND,0.4,65.0
+862,Cereales con grasa,Panqué de salvado,1,rebanada,40,40,118,1.6,5.6,13.6,1.2,ND,ND,0.0,ND,ND,ND,ND,3.2,ND,ND,ND,ND,19.2,ND,ND,ND,0.6,79.2
+863,Cereales con grasa,Panquecito cubierto de chocolate,1/2,pieza,24,24,86,1.1,3.0,14.2,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,31.0,ND,ND,ND,0.2,80.5
+864,Cereales con grasa,Panquecito cubierto de vainilla,1/2,pieza,33,33,119,1.1,3.8,20.6,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,16.6,ND,ND,ND,0.0,74.0
+865,Cereales con grasa,Panquecito de vainilla,1/2,pieza,33,33,119,1.1,3.8,20.6,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,16.6,ND,ND,ND,0.1,74.0
+866,Cereales con grasa,Papa congelada para freir,50,g,50,50,100,1.6,3.8,15.6,1.6,ND,ND,6.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.0,ND,ND,ND,0.6,15.0
+867,Cereales con grasa,Papa hash brown,1/4,taza,39,39,100,1.2,4.9,13.7,1.2,ND,ND,6.2,ND,ND,ND,ND,0.6,ND,ND,ND,ND,5.5,ND,ND,ND,0.2,133.4
+868,Cereales con grasa,Papa sal,20,g,20,20,107,1.0,6.6,11.0,1.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,116.0
+869,Cereales con grasa,Papas fritas,6,pieza,18,18,100,1.1,6.9,9.2,0.6,ND,ND,1.3,ND,ND,76.0,13.7,0.9,ND,ND,ND,ND,4.3,ND,ND,ND,0.3,118.1
+870,Cereales con grasa,Papas fritas a la francesa,4,pieza,20,20,112,1.2,7.7,10.2,0.7,ND,ND,1.4,ND,ND,ND,ND,1.0,ND,ND,ND,ND,4.8,ND,ND,ND,0.3,13.2
+871,Cereales con grasa,Papas fritas bajas en grasa,7,pieza,21,21,105,1.2,5.4,13.6,0.8,ND,ND,5.7,ND,ND,ND,ND,1.1,ND,ND,ND,ND,7.1,ND,ND,ND,0.3,89.9
+872,Cereales con grasa,Papas fritas con crema ácida y cebolla,6,pieza,18,18,98,1.2,6.7,9.2,0.2,ND,ND,4.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,11.5,ND,ND,ND,0.3,129.6
+873,Cereales con grasa,papas fritas con queso,6,pieza,18,18,99,1.3,6.7,9.1,0.6,ND,ND,3.2,ND,ND,ND,ND,0.9,ND,ND,ND,ND,19.8,ND,ND,ND,0.3,135.9
+874,Cereales con grasa,Papas fritas en juliana,6,pieza,30,30,100,1.1,5.6,11.9,1.0,ND,ND,6.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.6,ND,ND,ND,0.5,183.9
+875,Cereales con grasa,Papas fritas light,10,pieza,19,19,100,1.1,5.6,11.9,1.0,ND,ND,6.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.6,ND,ND,ND,0.5,183.9
+876,Cereales con grasa,Papas fritas reducidas en grasa,3/4,bolsa individual,20,20,94,1.1,4.8,12.2,0.7,ND,ND,5.1,ND,ND,ND,ND,0.9,ND,ND,ND,ND,6.4,ND,ND,ND,0.3,80.3
+877,Cereales con grasa,Papas sabritas,20,g,195,195,102,0.8,6.4,10.4,0.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,112.0
+878,Cereales con grasa,Papilla de macarrones con pollo,1 1/2,frasco,20,20,101,4.1,2.9,14.6,0.6,ND,ND,10.5,ND,ND,ND,ND,ND,ND,ND,ND,ND,42.9,ND,ND,ND,1.0,31.2
+879,Cereales con grasa,Pasta de hojaldre,20,g,20,20,108,1.1,8.2,7.6,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.9,ND,ND,ND,0.0,1.2
+880,Cereales con grasa,Pasta hojaldrada,20,g,20,20,108,1.1,8.2,7.6,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.9,ND,ND,ND,0.0,1.2
+881,Cereales con grasa,Pasta quebrada,20,g,28,28,108,1.1,8.2,7.6,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,3.9,ND,ND,ND,0.0,1.2
+882,Cereales con grasa,Pastel de chocolate,1,rebanada,28,28,104,1.5,4.2,14.8,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,16.8,ND,ND,ND,0.5,88.2
+883,Cereales con grasa,Pastel de frutas,1,rebanada,28,28,91,0.8,2.5,17.3,1.0,ND,ND,0.7,ND,ND,47.0,13.2,12.0,ND,ND,ND,ND,9.1,ND,ND,ND,0.6,75.5
+884,Cereales con grasa,Pastel de piña,1,rebanada,28,28,89,1.0,3.4,14.1,ND,ND,ND,5.3,ND,ND,ND,ND,ND,ND,ND,ND,ND,33.6,ND,ND,ND,0.4,89.3
+885,Cereales con grasa,Pastel de zanahoria con cubierta de queso crema,1/2,rebanada,28,28,112,1.1,5.7,14.6,0.3,ND,ND,3.2,ND,ND,ND,ND,10.8,ND,ND,ND,ND,6.9,ND,ND,ND,0.3,50.6
+886,Cereales con grasa,Pastelito con relleno cremoso y mermelada,1/2,pieza,25,25,98,1.1,3.9,14.8,0.7,ND,ND,0.0,ND,ND,ND,ND,10.5,ND,ND,ND,ND,18.8,ND,ND,ND,0.6,59.5
+887,Cereales con grasa,Pastelito de chocolate con relleno cremoso,1,pieza,30,30,109,1.3,3.2,18.7,0.6,ND,ND,0.0,ND,ND,ND,ND,13.2,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,93.9
+888,Cereales con grasa,Pastitas de mantequilla,2,pieza,15,15,84,0.8,4.7,9.6,0.0,ND,ND,0.0,ND,ND,ND,ND,3.0,ND,ND,ND,ND,3.0,ND,ND,ND,0.3,30.0
+889,Cereales con grasa,Pay de calabaza,1,rebanada,45,45,109,1.8,4.4,15.7,0.8,ND,ND,7.2,ND,ND,ND,ND,8.5,ND,ND,ND,ND,28.8,ND,ND,ND,0.4,107.6
+890,Cereales con grasa,Pay de chocolate,1,rebanada,30,30,91,0.8,5.8,10.1,0.6,ND,ND,2.1,ND,ND,ND,ND,ND,ND,ND,ND,ND,10.9,ND,ND,ND,0.3,40.9
+891,Cereales con grasa,Pay de limón con merengue,1,rebanada,35,35,94,0.5,3.0,16.5,0.4,ND,ND,2.8,ND,ND,ND,ND,8.4,ND,ND,ND,ND,19.5,ND,ND,ND,0.2,51.1
+892,Cereales con grasa,Pay  de manzana,1,rebanada,40,40,95,0.8,4.4,13.6,0.6,ND,ND,1.6,ND,ND,ND,ND,ND,ND,ND,ND,ND,4.5,ND,ND,ND,0.2,106.6
+893,Cereales con grasa,Pay de nuez,1/3,pieza,23,23,102,1.5,4.5,13.9,0.2,ND,ND,3.7,ND,ND,ND,ND,6.4,ND,ND,ND,ND,5.1,ND,ND,ND,0.2,77.2
+894,Cereales con grasa,Pay de piña,1/3,pieza,28,28,108,1.0,4.9,15.1,0.1,ND,ND,0.0,ND,ND,ND,ND,5.3,ND,ND,ND,ND,6.6,ND,ND,ND,0.2,120.3
+895,Cereales con grasa,Pay de queso,1,rebanada,35,35,112,1.9,7.9,8.9,0.0,ND,ND,5.3,ND,ND,ND,ND,7.6,ND,ND,ND,ND,17.9,ND,ND,ND,0.2,72.6
+896,Cereales con grasa,Pay helado de limón,1,rebanada,40,40,109,0.9,6.1,13.0,0.6,ND,ND,0.0,ND,ND,ND,ND,9.4,ND,ND,ND,ND,12.1,ND,ND,ND,0.1,72.7
+897,Cereales con grasa,Pop tarts,1/3,pieza,18,18,70,1.0,1.7,12.9,0.3,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,73.5
+898,Cereales con grasa,Prispas,3/4,paquete,19,19,91,0.8,3.4,14.3,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,131.3
+899,Cereales con grasa,Puré de papa,1/2,taza,105,105,119,2.0,4.4,17.5,1.6,ND,ND,8.4,ND,ND,74.0,77.7,1.5,ND,ND,ND,ND,25.2,ND,ND,ND,0.3,332.9
+900,Cereales con grasa,Rice krispies treats,1,barra,22,22,90,1.0,2.5,17.0,0.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,105.0
+901,Cereales con grasa,Roles de canela,1/2,pieza,30,30,100,2.0,2.2,18.0,0.2,ND,ND,4.8,ND,ND,ND,ND,8.1,ND,ND,ND,ND,12.6,ND,ND,ND,0.6,64.5
+902,Cereales con grasa,Rollo de fresa,1,pieza,30,30,100,1.4,2.1,18.9,0.1,ND,ND,4.8,ND,ND,ND,ND,11.7,ND,ND,ND,ND,7.0,ND,ND,ND,0.4,87.0
+903,Cereales con grasa,Runner sabor hot sauce,1/3,bolsa,20,20,110,1.2,6.9,10.9,0.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,210.0
+904,Cereales con grasa,Sabritas ligeras,20,g,20,20,97,1.2,4.6,12.8,0.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,80.0
+905,Cereales con grasa,Sabritas ligeras citricas,20,g,20,20,93,1.2,4.4,12.2,0.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,148.0
+906,Cereales con grasa,Salsa gravie de champiñones,1,taza,230,230,116,2.9,6.2,12.7,0.9,ND,ND,27.8,ND,ND,ND,ND,ND,ND,ND,ND,ND,15.4,ND,ND,ND,1.5,1310.5
+907,Cereales con grasa,Salsa gravie de res,1,taza,226,226,120,8.5,5.4,10.8,1.0,ND,ND,3.9,ND,ND,ND,ND,ND,ND,ND,ND,ND,13.5,ND,ND,ND,1.6,1265.8
+908,Cereales con grasa,Sándwich Quaker chocolate,30,g,30,30,124,2.7,5.2,16.6,2.8,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,96.0
+909,Cereales con grasa,Senzo,2,pieza,22,22,106,1.1,5.1,13.8,0.5,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,75.4
+910,Cereales con grasa,Snack mix nabisco 100 Kcal,1,paquete,22,22,99,2.0,3.0,16.0,1.0,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,210.1
+911,Cereales con grasa,Strudel de manzana,1,rebanada,40,40,110,1.3,4.5,16.5,0.9,ND,ND,2.3,ND,ND,ND,ND,10.4,ND,ND,ND,ND,6.2,ND,ND,ND,0.2,107.6
+912,Cereales con grasa,Tamal de carne,1/5,pieza,40,40,102,3.1,6.0,8.8,0.1,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,24.4,ND,ND,ND,0.6,70.4
+913,Cereales con grasa,Tamal de elote,1/5,pieza,40,40,86,1.1,4.3,9.9,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,43.2,ND,ND,ND,0.3,234.3
+914,Cereales con grasa,Tamal de frijol,1/5,pieza,40,40,103,1.5,7.2,9.1,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,24.6,ND,ND,ND,0.0,112.9
+915,Cereales con grasa,Tamal de queso con rajas,1/5,pieza,40,40,104,2.0,7.1,9.1,0.4,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,41.3,ND,ND,ND,0.0,130.3
+916,Cereales con grasa,Tamal rojo,1/6,pieza,34,34,103,0.9,6.5,11,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,0,ND
+917,Cereales con grasa,Tamal verde,1/6,pieza,34,34,103,0.9,6.5,11.0,0.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,ND,0.0,ND
+918,Cereales con grasa,Tortilla de harina,1,pieza,28,28,80,1.9,1.9,13.4,0.1,ND,ND,0.0,ND,ND,30.0,8.4,0.1,ND,ND,ND,ND,19.9,ND,ND,ND,0.3,214.8
+919,Cereales con grasa,Tortilla de harina integral,1,pieza,28,28,82,2.5,2.9,11.4,1.2,ND,ND,0.0,ND,ND,ND,ND,0.1,ND,ND,ND,ND,0.0,ND,ND,ND,0.0,166.9
+920,Cereales con grasa,Tostada,1 1/2,pieza,18,18,93,1.2,4.9,11.2,1.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,19.3,ND,ND,ND,0.2,131.6
+921,Cereales con grasa,Tostada rayada,1 1/2,pieza,18,18,93,1.2,4.9,11.2,1.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,19.3,ND,ND,ND,0.2,131.6
+922,Cereales con grasa,Tostada tipo jalisco,1 1/2,pieza,18,18,93,1.2,4.9,11.2,1.2,ND,ND,0.0,ND,ND,ND,ND,ND,ND,ND,ND,ND,19.3,ND,ND,ND,0.2,131.6
+923,Cereales con grasa,Totopos de maíz,25,g,25,25,109,1.4,5.6,13.5,1.4,ND,ND,2.7,ND,ND,ND,ND,ND,ND,ND,ND,ND,39.3,ND,ND,ND,0.4,40.8
+924,Cereales con grasa,Trenza glaseada,1/2,pieza,21,21,85,0.7,3.8,12.2,0.3,ND,ND,1.5,ND,ND,ND,ND,7.2,ND,ND,ND,ND,5.5,ND,ND,ND,0.3,70.5
+925,Cereales con grasa,Wafle,1,pieza,35,35,100,2.3,3.4,15.1,0.8,ND,ND,20.0,ND,ND,76.0,26.6,1.8,ND,ND,ND,ND,107.8,ND,ND,ND,2.0,223.3
+926,Cereales con grasa,Wafle con mantequilla,1,pieza,35,35,97,2.3,3.8,13.9,0.6,ND,ND,17.9,ND,ND,76.0,26.6,1.0,ND,ND,ND,ND,17.9,ND,ND,ND,1.6,184.1
+927,Cereales con grasa,Wafle estilo casero,1,pieza,31,31,86,2.0,3.3,12.4,0.4,ND,ND,15.9,ND,ND,769.0,23.6,0.8,ND,ND,ND,ND,15.9,ND,ND,ND,1.4,181.7
+928,Cereales con grasa,Wafle integral,1,pieza,35,35,84,2.3,2.9,13.2,1.4,ND,ND,10.8,ND,ND,ND,ND,1.3,ND,ND,ND,ND,17.9,ND,ND,ND,1.6,198.5
+929,Cereales con grasa,Wafle miniatura,2,pieza,40,40,112,3.0,3.9,16.3,9.0,ND,ND,25.8,ND,ND,ND,ND,0.6,ND,ND,ND,ND,25.8,ND,ND,ND,2.3,258.1
