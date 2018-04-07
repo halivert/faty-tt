@@ -1,4 +1,4 @@
-package escom.tt.ceres.ceresmobile
+package escom.tt.ceres.ceresmobile.fragments
 
 import android.app.Activity
 import android.app.Fragment
@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import escom.tt.ceres.ceresmobile.R
 
 class DoctorGenerateCodeFragment : Fragment() {
   private var mListener: OnDoctorGenerateCodeInteraction? = null

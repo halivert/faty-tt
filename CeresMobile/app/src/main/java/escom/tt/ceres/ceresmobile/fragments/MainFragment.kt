@@ -3,16 +3,18 @@ package escom.tt.ceres.ceresmobile.fragments
 import android.app.Activity
 import android.app.Fragment
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.MEDICO
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.NULL
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.PACIENTE
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ERROR
+import escom.tt.ceres.ceresmobile.activities.SignInActivity
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.MEDICO
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.NULL
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.PACIENTE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 
 class MainFragment : Fragment() {
   private var mListener: OnMainInteraction? = null
@@ -54,11 +56,11 @@ class MainFragment : Fragment() {
     mListener = null
   }
 
-  fun goToMain(view: View) {
+  private fun goToMain(view: View) {
     var user = NULL
-    if (view.tag.toString() == getString(R.string.soy_paciente))
+    if (view.tag.toString() == getString(R.string.im_patient))
       user = PACIENTE
-    else if (view.tag.toString() == getString(R.string.soy_medico))
+    else if (view.tag.toString() == getString(R.string.im_doctor))
       user = MEDICO
 
     val rolUser = user == MEDICO || user == PACIENTE

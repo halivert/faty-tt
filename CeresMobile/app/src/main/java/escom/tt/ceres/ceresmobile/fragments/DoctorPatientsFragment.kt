@@ -7,7 +7,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import escom.tt.ceres.ceresmobile.R
+import escom.tt.ceres.ceresmobile.activities.DoctorMainActivity
+import escom.tt.ceres.ceresmobile.tools.PatientListAdapter
 
 class DoctorPatientsFragment : Fragment() {
 
@@ -16,6 +19,14 @@ class DoctorPatientsFragment : Fragment() {
   override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
     var view = inflater!!.inflate(R.layout.doctor_patients_fragment, container, false)
+
+    var patients = DoctorMainActivity.patients
+    var patientsListView = view.findViewById<ListView>(R.id.patients_list_view)
+    var adapter = PatientListAdapter(activity, patients)
+
+    patientsListView.adapter = adapter
+    adapter.notifyDataSetChanged()
+
     return view
   }
 

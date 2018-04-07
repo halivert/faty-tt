@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_item"
+        android:icon="@drawable/fa_th_large"
+        android:title="@string/begin"/>
+
+    <item
+        android:id="@+id/generateDietItem"
+        android:icon="@drawable/fa_hospital"
+        android:title="@string/generate_diet"/>
+
+    <item
+        android:id="@+id/registerSugarItem"
+        android:icon="@drawable/fa_edit"
+        android:title="@string/record_glucose"/>
+
+    <item
+        android:id="@+id/sign_out_item"
+        android:icon="@drawable/fa_sign_out"
+        android:title="@string/log_out"/>
+</menu>

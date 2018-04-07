@@ -33,9 +33,9 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/pass"
+            android:hint="@string/password"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/btnEntrar"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -43,14 +43,14 @@
             app:layout_constraintVertical_bias="0.0"/>
 
         <Button
-            android:id="@+id/btnEntrar"
+            android:id="@+id/login_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:background="@color/colorBtnRegistro"
-            android:text="@string/entrar"
+            android:text="@string/log_in"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>

@@ -7,13 +7,14 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.fragments.LoginFragment
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.MEDICO
-import escom.tt.ceres.ceresmobile.tools.Functions.Ints.PACIENTE
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ID_ROL
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.ID_USUARIO
-import escom.tt.ceres.ceresmobile.tools.Functions.Strings.LOGIN
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.MEDICO
+import escom.tt.ceres.ceresmobile.tools.Constants.Ints.PACIENTE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_ROL
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
 
 class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
 
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.main_activity)
 
+    var registerText = findViewById<TextView>(R.id.register_text)
     val preferences = getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
     val idUsuario = preferences.getInt(ID_USUARIO, -1)
     val rol = preferences.getInt(ID_ROL, -1)
@@ -49,6 +51,10 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
       ft.replace(R.id.frameFragment, fragment)
       ft.commit()
     }
+
+    registerText.setOnClickListener {
+      irARegistro()
+    }
   }
 
   override fun onBackPressed() {
@@ -59,7 +65,7 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
     }
   }
 
-  fun irARegistro() {
+  private fun irARegistro() {
     val intent = Intent(this, SignInActivity::class.java)
     startActivityForResult(intent, 611)
   }
