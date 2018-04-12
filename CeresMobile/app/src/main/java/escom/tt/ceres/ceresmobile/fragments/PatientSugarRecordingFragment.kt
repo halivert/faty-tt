@@ -24,14 +24,14 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PACIENTE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PATIENT
 import escom.tt.ceres.ceresmobile.tools.Functions
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
 class PatientSugarRecordingFragment : Fragment() {
-  private var urlSugarRecording = "$URL_PACIENTE/"
+  private var urlSugarRecording = "$URL_PATIENT/"
   private var mListener: OnSugarRegisterListener? = null
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

@@ -1,4 +1,4 @@
-package escom.tt.ceres.ceresmobile.tools
+package escom.tt.ceres.ceresmobile.adapters
 
 import android.app.Activity
 import android.content.Context

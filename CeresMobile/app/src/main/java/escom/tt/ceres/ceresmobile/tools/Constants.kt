@@ -43,7 +43,7 @@ object Constants {
     const val URL_REGISTRO = "$URL_SERVIDOR/tt-escom-diabetes/session/usuarios"
     const val URL_LOGIN = "$URL_SERVIDOR/tt-escom-diabetes/session/login"
     const val URL_DATOS = "$URL_SERVIDOR/tt-escom-diabetes/ceres/usuarios/"
-    const val URL_PACIENTE = "$URL_SERVIDOR/tt-escom-diabetes/ceres/pacientes"
+    const val URL_PATIENT = "$URL_SERVIDOR/tt-escom-diabetes/ceres/pacientes"
     const val URL_MEDICO = "$URL_SERVIDOR/tt-escom-diabetes/ceres/medico"
 
     const val USUARIO = "Usuario"
@@ -62,5 +62,12 @@ object Constants {
     const val PARSE_ERROR = "Error de cadena"
     const val UNKNOWN_ERROR = "Error desconocido"
 
+    // Dieta
+    const val ID_DIET = "idDieta"
+    const val ID_PATIENT = "idPaciente"
+    const val ID_DOCTOR = "idMedico"
+    const val DESCRIPTION = "descripcion"
+    const val AVAILABLE_FOODS = "alimentosDisponibles"
+    const val ASSIGN_DATE = "fechaAsignacion"
   }
 }

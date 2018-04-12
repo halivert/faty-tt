@@ -9,7 +9,6 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
@@ -22,8 +21,7 @@ import escom.tt.ceres.ceresmobile.fragments.DoctorPatientsFragment
 import escom.tt.ceres.ceresmobile.models.Patient
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Constants
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.UNKNOWN_ERROR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_MEDICO
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
@@ -34,7 +32,6 @@ class DoctorMainActivity :
     DoctorGenerateCodeFragment.OnDoctorGenerateCodeInteraction,
     DoctorPatientsFragment.OnDoctorPatientsInteraction {
 
-  private var idUser = -1
   private lateinit var homeFragment: DoctorMainFragment
   private lateinit var patientsFragment: DoctorPatientsFragment
   private lateinit var generateCodeFragment: DoctorGenerateCodeFragment
@@ -124,19 +121,19 @@ class DoctorMainActivity :
         .show()
   }
 
-  private suspend fun getPatients() {
+  suspend fun getPatients() {
     var urlPatients = "$URL_MEDICO/$idUser/pacientes/"
     progressBar.visibility = View.VISIBLE
     var queue = CeresRequestQueue.getInstance(this)
     var response = queue.apiArrayRequest(GET, urlPatients, null).await()
 
     patients.clear()
-    Log.e(UNKNOWN_ERROR, response.toString(2))
     for (i in 0 until response.length()) {
       var responseObject = response.getJSONObject(i)
       var patient: Patient?
-      if (responseObject.has(MENSAJE)) {
-        Toast.makeText(this, responseObject.getString(MENSAJE), Toast.LENGTH_LONG).show()
+      if (responseObject.has(ERROR)) {
+        Toast.makeText(this, responseObject.getString(ERROR), Toast.LENGTH_LONG).show()
+        break
       } else {
         patient = Patient(responseObject)
         patients.add(patient)
@@ -146,6 +143,7 @@ class DoctorMainActivity :
   }
 
   companion object {
+    var idUser = -1
     var patients: MutableList<Patient> = mutableListOf()
   }
 }
