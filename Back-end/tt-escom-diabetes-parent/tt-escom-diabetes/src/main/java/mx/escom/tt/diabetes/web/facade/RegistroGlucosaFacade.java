@@ -15,6 +15,7 @@ import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.RegistroGlucosaAppService;
 import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.commons.utils.NumberHelper;
+import mx.escom.tt.diabetes.commons.vo.RegistroGlucosaCommonVo;
 import mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto;
 import mx.escom.tt.diabetes.web.vo.RegistroGlucosaVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
@@ -255,7 +256,7 @@ public class RegistroGlucosaFacade extends NumberHelper{
 		}catch(RuntimeException ex){
 			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
-			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico." + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar los registros de glucosa." + ex.getMessage();
 			throw new RuntimeException(msjEx);
 		}
 
@@ -263,6 +264,71 @@ public class RegistroGlucosaFacade extends NumberHelper{
 		return registroGlucosaVoList;
 	}
 	
+	
+	/**
+	 * Proposito : Recuperar N numero de registros asociados a un paciente
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 14/04/2018
+	 * @param idPaciente					-	Identificador del paciente
+	 * @param limiteRegistro				-	Limite de registros a recuperar
+	 * @return List<RegistroGlucosaVo>	-	Lista de registros recuperados
+	 * @throws RuntimeException			-	Si ocurre un error durante la ejecucion del metodo 
+	 */
+	public List<RegistroGlucosaVo> recuperaNRegistroGlucosaAppService(String idPaciente, String limiteRegistro) throws RuntimeException{
+		log.debug("Inicio - Facade");
+		List<RegistroGlucosaVo> registroGlucosaVoList = null;
+		RegistroGlucosaVo registroGlucosaVo = null;
+		List<RegistroGlucosaCommonVo> registroGlucosaCommonVoList = null;
+		Integer idPacienteInt = null;
+		Integer limiteRegistroInt = null;
+		String msjEx = null;
+		Locale esLocale = new Locale("es", "ES");
+		SimpleDateFormat formateador = new SimpleDateFormat("d 'de' MMMM 'de' yyyy",esLocale);
+		
+		
+		
+		if(idPaciente == null || idPaciente.equals(Constants.CADENA_VACIA)) {
+			msjEx = "El identificador del paciente no puede ser nulo o vacío.";
+			throw new RuntimeException(msjEx);
+		}
+		if(!isNumeric(idPaciente)) {
+			msjEx = "El identificador del paciente no puede tener letras.";
+			throw new RuntimeException(msjEx);
+		}
+		
+		try{
+			
+			idPacienteInt = new Integer(idPaciente);
+			limiteRegistroInt = new Integer(limiteRegistro);
+			
+			registroGlucosaCommonVoList = registroGlucosaAppService.recuperaNRegistroGlucosaAppService(idPacienteInt, limiteRegistroInt);
+			{//Transformacion del Objeto
+				registroGlucosaVoList = new ArrayList<RegistroGlucosaVo>();
+				for(RegistroGlucosaCommonVo registroGlucosaCommonVo : registroGlucosaCommonVoList) {
+					registroGlucosaVo = new RegistroGlucosaVo();
+					
+					registroGlucosaVo.setIdRegistroGlucosa(registroGlucosaCommonVo.getID_REGISTRO_GLUCOSA().toString());
+					registroGlucosaVo.setIdPaciente(registroGlucosaCommonVo.getID_PACIENTE().toString());
+					registroGlucosaVo.setAzucar(String.valueOf(registroGlucosaCommonVo.getAZUCAR()));
+					registroGlucosaVo.setFechaRegistro(formateador.format(registroGlucosaCommonVo.getFECHA_REGISTRO()));
+					registroGlucosaVo.setFechaActualizacion(registroGlucosaCommonVo.getFECHA_ACTUALIZACION() != null ? formateador.format(registroGlucosaCommonVo.getFECHA_ACTUALIZACION()) : Constants.CADENA_VACIA);
+					
+					registroGlucosaVoList.add(registroGlucosaVo);
+				}
+				
+			}
+			
+		}catch(RuntimeException ex){
+			throw new RuntimeException(ex.getMessage());
+		}catch (Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico." + ex.getMessage();
+			throw new RuntimeException(msjEx);
+		}
+
+		log.debug("Fin - Facade");
+		return registroGlucosaVoList;
+	}
 	
 	
 }

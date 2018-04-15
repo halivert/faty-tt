@@ -97,12 +97,8 @@ recuperarListaHistorialClinico: function(idPaciente) {
 /**
 * guardarInfoHistorialClinico  - Funcion que se comunica con la API para guardar informarcion del historial clinico de un paciente
 */
-guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar) {
-
-  
+guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar) {  
   var fechaRegistro = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
-
-
   var data = {
     idPaciente: idPaciente,
     fecha: fechaRegistro,
@@ -141,7 +137,53 @@ guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos
       console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
       return $q.reject(response);
     });
-},    
+},
+
+editarInfoHistorialClinico: function(idPaciente,idHistorialClinico,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar) {  
+  var fechaRegistro = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
+  
+  var data = {
+    idHistorialClinico : idHistorialClinico,
+    idPaciente: idPaciente,
+    fecha: fechaRegistro,
+    peso: peso,
+    talla: talla,
+    estatura: estatura,
+    imc: imc,
+    lipidos: lipidos,
+    carbohidratos: carbohidratos,
+    proteinas:proteinas,
+    azucar: azucar
+  };
+
+  
+
+  var config = {
+    headers : {'Content-Type': 'application/json'}
+  }
+
+  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/'+idHistorialClinico;  
+
+  console.log("data : " + JSON.stringify(data));
+
+  return $http.put(url,data,config).then(
+    function successCallback(response) {
+      if(response.data.respuesta === "OK"){
+        console.log("response OK : " + JSON.stringify(response.data.mensaje));
+        return response.data.mensaje;     
+      }
+      else{
+        console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
+        return $q.reject(response);
+      }
+
+    },function errorCallback(response) {
+      console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
+      return $q.reject(response);
+    });
+},
+
+
 
 /**
 * recuperarDetallHistorialClinico - Recuperar la informacion detallada de un historial clinico 

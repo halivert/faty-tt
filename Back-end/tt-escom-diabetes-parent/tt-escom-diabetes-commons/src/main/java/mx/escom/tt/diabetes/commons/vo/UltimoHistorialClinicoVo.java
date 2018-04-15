@@ -17,7 +17,7 @@ public class UltimoHistorialClinicoVo implements Serializable{
 	@Getter @Setter private String 	APELLIDO_PATERNO;
 	@Getter @Setter private String 	APELLIDO_MATERNO;
 	@Getter @Setter private String 	EMAIL;
-	@Getter @Setter private	Date	FECHA_NACIMIENTO;
+	@Getter @Setter private	Date 	FECHA_NACIMIENTO;
 	@Getter @Setter private	String	SEXO;
 	@Getter @Setter private	Timestamp	FECHA;
 	@Getter @Setter private	double	PESO;

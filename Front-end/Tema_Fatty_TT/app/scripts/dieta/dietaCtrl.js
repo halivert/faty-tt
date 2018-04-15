@@ -7,12 +7,13 @@ angular.module('trabajoTerminal')
 
     $scope.alimentos = [];
     $scope.dieta = {"Desayuno": [],"C1": [],"Comida": [],"C2": [],"Cena": []};
-    $scope.Array = [{name: "Verdura"},{name: "Fruta"},{name: "Cereales con grasa"},{name: "Cereales sin grasa"}];
+    $scope.Array = [{name: "Verdura"},{name: "Fruta"},{name: "Cereales con grasa"},{name: "Cereales sin grasa"},{name: "Leguminosas"}, {name: "AOAMBG"}, {name: "AOABG"}, {name: "AOAMG"},{name: "AOAAG"}];
     var currentTiempo = "";
     $scope.tiempos = [{label: 'Desayuno'},{label: 'Colación 1'},{label: 'Comida'},{label: 'Colación 2'},{label: 'Cena'}];
     $scope.numberLoaded = true;
     $scope.selected;
-
+    $scope.idAlimento = "";
+    $scope.descripcion = "";
 
 
     /**
@@ -101,11 +102,12 @@ angular.module('trabajoTerminal')
     $scope.asignarDietaArmada = function() {
 
       var idMedico = "";
-      descripcion = "Desde angular";
-      dietaService.crearDieta($cookies.get("idCurrentPaciente"),$cookies.get("idUsuario"),descripcion,$scope.dieta).then(
+      //descripcion = "Desde angular";
+      //console.log("DIETA : " + JSON.stringify($scope.dieta));
+      dietaService.crearDieta($cookies.get("idCurrentPaciente"),$cookies.get("idUsuario"),$scope.descripcion,$scope.dieta).then(
         function successCallback(d) {
-            console.log("RESPUESTA" + JSON.stringify(d));
             toastr.success(d.mensaje,d.respuesta);
+            $state.transitionTo('index.informacionGeneral');
         },
         function errorCallback(d) {
           if (d.data == null)
@@ -133,29 +135,9 @@ angular.module('trabajoTerminal')
 
       $scope.colours = ['#FF4C4C'];
 
-    } //Termina iniciaGraficaBarras
-
-    /*$scope.mostrarInformacion = function(tipoAlimento) {
-      alimentoService.recuperarAlimentos(tipoAlimento).then(
-        function successCallback(d) {
-          $scope.alimentos = d;
-          $scope.tableParams = new NgTableParams({}, {
-            dataset: d
-          });
-        },
-        function errorCallback(d) {
-          if (d.data == null)
-            toastr.warning("Servicio no disponible", 'Advertencia');
-          else {
-            toastr.error(d.data.mensaje, 'Error');
-          }
-        }
-      );
-
-    }*/
+    }
 
     $scope.seleccionarDieta = function(idDieta) {
-      console.log("idDieta" + idDieta);
       $cookies.put("idDieta",idDieta);
       $state.transitionTo('index.dieta');
     }
@@ -168,7 +150,7 @@ angular.module('trabajoTerminal')
       dietaService.recuperarDieta($cookies.get("idUsuario"), $cookies.get("idDieta")).then(
         function successCallback(d) {
           $scope.dieta = angular.fromJson(d.alimentosDisponibles);
-          console.log("$scope.dieta : " + JSON.stringify($scope.dieta));
+          //console.log("$scope.dieta : " + JSON.stringify($scope.dieta));
         },
         function errorCallback(d) {
           if (d.data == null)
@@ -198,6 +180,20 @@ angular.module('trabajoTerminal')
           }
         }
       );
+    }
+
+    $scope.seleccionarAlimento = function(idAlimento) {   
+      console.log("seleccionarAlimento :" + idAlimento );  
+      $scope.idAlimento = idAlimento;
+    }
+
+    $scope.modificarCantidad = function(){
+      console.log("$scope.idAlimento");
+
+      /*  $scope.alimentoModal = $filter('filter')($scope.alimentos, {
+        'idAlimento': $scope.idAlimento
+      }, true)[0];
+    */
     }
 
   });

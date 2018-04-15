@@ -91,6 +91,7 @@
  	</bean>
  	<bean id="RegistroGlucosaDao" class="mx.escom.tt.diabetes.model.dao.impl.RegistroGlucosaDaoImpl">
   		<property name="sessionFactory" ref="SessionFactoryCliente"/>
+  		<property name="ql" ref="RegistroGlucosaQlHelper"/>
  	</bean>
  	<bean id="AlimentoDao" class="mx.escom.tt.diabetes.model.dao.impl.AlimentoDaoImpl">
   		<property name="sessionFactory" ref="SessionFactoryCliente"/>
@@ -185,6 +186,22 @@
 						SELECT ID_DIETA, ID_PACIENTE, ID_MEDICO, DESCRIPCION, FECHA_ASIGNACION 
 						FROM DIETA 
 						WHERE ID_PACIENTE = :idPaciente
+					]]>
+					</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="RegistroGlucosaQlHelper" class="mx.escom.tt.diabetes.model.hql.RegistroGlucosaQlHelper">
+		<property name="queries">
+			<map>
+				<entry key="RECUPERA_N_REGISTROS_GLUCOSA">
+					<value>
+					<![CDATA[
+						SELECT * FROM 
+							( SELECT * FROM REGISTRO_GLUCOSA WHERE ID_PACIENTE = :idPaciente 
+								ORDER BY ID_REGISTRO_GLUCOSA DESC LIMIT :limiteRegistro) SUB 
+						ORDER BY ID_REGISTRO_GLUCOSA ASC;
 					]]>
 					</value>
 				</entry>

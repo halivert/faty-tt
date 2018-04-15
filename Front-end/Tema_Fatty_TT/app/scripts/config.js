@@ -82,6 +82,12 @@
         authenticate: true,
         data: { pageTitle: 'Mis dietas' }
     })
+    .state('index.perfil', {
+        url: "/perfil",
+        templateUrl: "views/perfil/perfil.html",
+        authenticate: true,
+        data: { pageTitle: 'Mi perfil' }
+    })    
 }
 /**
 * Angular config    - Método para registrar el trabajo que debe realizarse en la carga del módulo.

@@ -1,0 +1,53 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Mi perfil</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="perfilCtrl" ng-init="mostrarInformacionPerfil()">
+    <div class="ibox float-e-margins">
+        <div class="row">
+            <div class="col-lg-12">
+
+            <div class="col-md-6">
+
+            <div class="panel panel-profile">
+                <div class="panel-heading bg-primary clearfix">
+                    
+                    <div class="profile-image">
+                        <img src="img/perfil.jpg" class="img-circle m-b-md" alt="Imagen perfil">
+                    </div>
+                    <h3 class="ng-binding">{{nombre}}</h3>
+                    <p></p>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="icon glyphicon glyphicon-user"></span>
+                        <label>Nombre</label>
+                        {{nombre}}
+                    </li>
+                    <li class="list-group-item">
+                        <span class="icon glyphicon glyphicon-envelope"></span>
+                        <label>Email</label>
+                        {{infoPerfil.email}}
+                    </li>
+                    <li class="list-group-item">
+                        <span class="icon glyphicon fa fa-intersex"></span>
+                        <label>Género</label>
+                        {{infoPerfil.sexo}}
+                    </li>
+                    <div ng-if="obtenerRol() === 'P'">
+                        <li class="list-group-item">
+                        <span class="icon glyphicon glyphicon-flag"></span>
+                        <label>Médico asignado</label>
+                    </li>
+                    </div>
+                    
+                </ul>
+            </div>          
+        </div>
+
+        </div>
+    </div>
+</div> 
+</div>           

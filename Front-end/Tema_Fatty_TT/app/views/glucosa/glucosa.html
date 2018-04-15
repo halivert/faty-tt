@@ -5,7 +5,7 @@
 </div>
 
 
-<div class="wrapper wrapper-content animated fadeInRight" ng-controller="glucosaCtrl">
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="glucosaCtrl" ng-init="recuperarRegistrosGlucosa()">
 	<div class="ibox float-e-margins">
 		<div class="row">
 			<div class="col-lg-12">
@@ -36,7 +36,7 @@
 										</div>
 										<div class="col-sm-6"><h4>Registrar</h4>
 											<p class="text-center">
-												<a ng-click="guardarRegistroGlucosa()"><i class="fa fa-sign-in big-icon"></i></a>
+												<a ng-click="guardarRegistroGlucosa()"><i class="fa fa-sign-in text-navy big-icon"></i></a>
 											</p>
 										</div>
 									</div>
@@ -45,28 +45,45 @@
 						</div>
 						<div id="tab-2" class="tab-pane">
 							<div class="panel-body">
-								<strong>REGISTROS</strong>
-								CONTENIDO
+								<div class="wrapper wrapper-content animated fadeInRight">
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="ibox float-e-margins">
+												<!--<div class="ibox-title">-->
+													<h5>Registros de glucosa
+														<small>Fecha : {{fecha | date:'dd/MM/yyyy'}}</small>
+													</h5>
+													<!--</div>-->
+													<div class="ibox-content">
+														<div>
+															<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series"    chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+															</canvas>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>        
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-<script>
-	$(document).ready(function(){
-		$('#data_2 .input-group.date').datepicker({
-			startView: 1,
-			todayBtn: "linked",
-			keyboardNavigation: false,
-			forceParse: false,
-			autoclose: true,
-			format: "dd/mm/yyyy",
-			language: 'es'
-		});
-	});	
-</script>
+		<script>
+			$(document).ready(function(){
+				$('#data_2 .input-group.date').datepicker({
+					startView: 1,
+					todayBtn: "linked",
+					keyboardNavigation: false,
+					forceParse: false,
+					autoclose: true,
+					format: "dd/mm/yyyy",
+					language: 'es'
+				});
+			});	
+		</script>
 
-</div>
+	</div>
 

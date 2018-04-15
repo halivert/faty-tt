@@ -29,12 +29,12 @@
 								</thead>
 								<tbody>
 									<tr ng-repeat="paciente in pacientes">
-										<td>
+										<td class="text-center">
 											<input type="radio" ng-model="usuario.id"  name="radio" value="{{paciente.id_USUARIO}}" ng-click="activarBoton()"/>
 										</td>
-										<td><button type="button" ng-click="verUltimoHistorial(paciente.id_USUARIO)"  class="btn btn-outline btn-success boton-paciente">{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</button></td>
-										<td>{{ calculateAge(paciente.fec_NAC)}}</td>
-										<td>{{paciente.fec_NAC | date:'dd/MM/yyyy'}}</td>
+										<td><button type="button" class="btn btn-outline btn-success boton-paciente" ng-click="verUltimoHistorial(paciente.id_USUARIO)">{{paciente.nombre}} {{paciente.ap_PAT}} {{paciente.ap_MAT}}</button></td>
+										<td class="text-center">{{ calculateAge(paciente.fec_NAC)}}</td>
+										<td class="text-center">{{paciente.fec_NAC | date:'dd/MM/yyyy'}}</td>
 										<td>{{paciente.sexo}}</td>
 										<td>{{paciente.email}}</td>
 									</tr>
@@ -64,7 +64,7 @@
         <div class="modal-content"> 
         	<div class="modal-body">
         		<div class="row">
-        			<h3 class="m-t-none m-b">Actualizar historial clínico de : {{currentPaciente[0].nombre}}</h3> 
+        			<h3 class="m-t-none m-b">Actualizar historial clínico de {{currentPaciente[0].nombre}}</h3> 
         			<form role="form" name="formHistorial" novalidate>
         				<div class="row">
         					<div class="col-sm-6 b-r">
@@ -113,7 +113,12 @@
         				</div>
         			</form>
         			<div>
-        				<button class="btn btn-sm btn-success pull-right m-t-n-xs" type="submit" ng-disabled="!validaForm()" ng-click="guardarHistorialClinico()" ><strong>Guardar</strong></button> 
+        				<div class="form-group pull-left">
+        					<button class="btn btn-sm btn-danger btn-outline pull-right m-t-n-xs" ng-click="limpiarInfo()" data-dismiss="modal">Cancelar</button> 		
+        				</div>
+        				<div class="form-group pull-right">
+        					<button class="btn btn-sm btn-success pull-right m-t-n-xs" type="submit" ng-disabled="!validaForm()" ng-click="guardarHistorialClinico()">Guardar</button> 	
+        				</div>
         			</div>
         		</div>
         	</div>

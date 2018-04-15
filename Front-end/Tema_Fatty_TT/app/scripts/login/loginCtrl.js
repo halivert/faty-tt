@@ -51,8 +51,6 @@ angular.module('trabajoTerminal')
               loginService.recuperarInformacionUsuario(d.idUsuario).then( 
                 function successCallback(informacionUsuario){
                   var nombreCompleto = informacionUsuario.nombre + " " + informacionUsuario.apellidoPaterno + " " + informacionUsuario.apellidoMaterno;
-                  $log.debug("nombreCompleto : " + nombreCompleto);
-                  $log.debug("informacionUsuario.idRol : " + informacionUsuario.idRol);
                   $cookies.put("rol",informacionUsuario.idRol);
                   $cookies.put("nombre",nombreCompleto);  
                   $state.transitionTo('index.main');
@@ -93,7 +91,6 @@ angular.module('trabajoTerminal')
 * registrarUsuario  -  Funcion que envia los datos para registrar un nuevo usuario al servicio guardarUsuario() 
 */
   $scope.registrarUsuario = function(){
-    //console.log("JSON.stringify($scope.datosU)" + JSON.stringify($scope.datosU));
       loginService.guardarUsuario($scope.datosU.nombre,$scope.datosU.apellidoPaterno,$scope.datosU.apellidoMaterno,$scope.datosU.email,$scope.datosU.keyword,$scope.datosU.fechaNac,$scope.datosU.idSexo,$scope.datosU.rol,$scope.datosU.cedula,$scope.datosU.codigoM).then(
         function successCallback(d) {
           $log.debug("d" + JSON.stringify(d));

@@ -53,7 +53,7 @@ public class UsuarioFacade extends NumberHelper{
 		
 		{//Validaciones 
 			if(idUsuarioStr == null || idUsuarioStr.trim().equals("")) {
-				msjEx="El identificador del usuario no puede ser nulo o vacío.";
+				msjEx="El identificador del usuario no puede ser nulo o vacÃ­o.";
 				throw new RuntimeException(msjEx);
 			}
 		}
@@ -100,7 +100,7 @@ public class UsuarioFacade extends NumberHelper{
 	 * Proposito : Verificar la existencia de un usuario en la BD para poder iniciar sesion
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 02/11/2017
-	 * @param UsuarioLoginVo				-	VO con el email y la contraseña del usuario
+	 * @param UsuarioLoginVo				-	VO con el email y la contraseÃ±a del usuario
 	 * @return
 	 * @throws RuntimeException
 	 */
@@ -113,7 +113,7 @@ public class UsuarioFacade extends NumberHelper{
 			usuarioDto = usuarioAppService.recuperarPorEmailYKeyword(usuarioVo.getEmail(), usuarioVo.getKeyword());
 		
 			if(usuarioDto == null) {
-				throw new RuntimeException("Correo electrónico o contraseña incorrectos.");
+				throw new RuntimeException("Correo electrÃ³nico o contraseÃ±a incorrectos.");
 			}
 			
 			
@@ -121,7 +121,7 @@ public class UsuarioFacade extends NumberHelper{
 			
 			respuestaVo.setIdUsuario(usuarioDto.getIdUsuario().toString());
 			respuestaVo.setRespuesta("OK");
-			respuestaVo.setMensaje("Inicio de sesión correcto");
+			respuestaVo.setMensaje("Inicio de sesiÃ³n correcto");
 		
 		}catch (Exception ex) {
 			throw new RuntimeException(ex.getMessage());
@@ -154,7 +154,7 @@ public class UsuarioFacade extends NumberHelper{
 		
 		{//VALIDACIONES
 			if(usuarioVo==null) {
-				msjError="La información del usuario no puede ser nula.";
+				msjError="La informaciÃ³n del usuario no puede ser nula.";
 				throw new RuntimeException(msjError);
 			}
 		}
@@ -210,7 +210,7 @@ public class UsuarioFacade extends NumberHelper{
 			
 			result.setIdUsuario(idUsuario.toString());
 			result.setRespuesta("OK");
-			result.setMensaje("La información se guardó con éxito.");
+			result.setMensaje("La informaciÃ³n se guardÃ³ con Ã©xito.");
 			
 			//Si el usuario es paciente se borra el token que uso
 			if(usuarioVo.getIdRol().equals("0")){
@@ -226,7 +226,7 @@ public class UsuarioFacade extends NumberHelper{
 		catch(RuntimeException ex){
 			throw new RuntimeException(ex.getMessage());
 		}catch (Exception ex) {
-			msjEx = Constants.MSJ_EXCEPTION + "guardar la información del usuario.";
+			msjEx = Constants.MSJ_EXCEPTION + "guardar la informaciÃ³n del usuario.";
 			throw new RuntimeException(msjEx);
 		}
 	

@@ -12,13 +12,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
+import mx.escom.tt.diabetes.commons.vo.RegistroGlucosaCommonVo;
 import mx.escom.tt.diabetes.model.dao.RegistroGlucosaDao;
 import mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto;
 
 @CommonsLog
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:mx/escom/tt/diabetes/commons/xml/commons.application.context.xml",
-		"classpath:mx/escom/tt/diabetes/model/xml/model.application.context.xml" })
+		"classpath:mx/escom/tt/diabetes/model/xml/model.application.context.xml",
+		"classpath:mx/escom/tt/diabetes/business/xml/business.application.context.xml"})
 public class RegistroGlucosaDaoImplTestCase {
 
 	@Autowired RegistroGlucosaDao registroGlucosaDao;
@@ -123,6 +125,30 @@ public class RegistroGlucosaDaoImplTestCase {
 			log.debug("registroGlucosaDto.size() : " + registroGlucosaDto.size());
 			XStream xStream = new XStream();
 			log.debug("xStream.toXML(registroGlucosaDto): \n" + xStream.toXML(registroGlucosaDto));
+		}
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperaNRegistroGlucosa
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 13/04/2018
+	 * @see RegistroGlucosaDao#recuperaNRegistroGlucosa(Integer, Integer)
+	 */
+	@Test
+	public void recuperaNRegistroGlucosaTestCase(){
+		log.debug("Inicio - Test");
+		
+		Integer idPaciente = 3;
+		Integer  limiteRegistro = 3;
+		List<RegistroGlucosaCommonVo> registroGlucosaVo = null;
+		
+		registroGlucosaVo = registroGlucosaDao.recuperaNRegistroGlucosa(idPaciente, limiteRegistro);
+		
+		if(!registroGlucosaVo.isEmpty()){
+			log.debug("registroGlucosaDto.size() : " + registroGlucosaVo.size());
+			XStream xStream = new XStream();
+			log.debug("xStream.toXML(registroGlucosaVo): \n" + xStream.toXML(registroGlucosaVo));
 		}
 		log.debug("Fin - Test");
 	}

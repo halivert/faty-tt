@@ -13,6 +13,7 @@ import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.RegistroGlucosaAppService;
+import mx.escom.tt.diabetes.commons.vo.RegistroGlucosaCommonVo;
 import mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto;
 
 @CommonsLog
@@ -113,6 +114,32 @@ public class RegistroGlucosaAppServiceTestCase {
 			
 			XStream xStream = new XStream();
 			log.debug("xStream.toXML(historialClinicoDto): \n" + xStream.toXML(registroGlucosaDto));
+		}
+		
+		log.debug("Fin - Test");
+	}
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperaNRegistroGlucosaAppService
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 14/04/2018
+	 * @see RegistroGlucosaAppService#recuperaNRegistroGlucosaAppService(Integer, Integer)
+	 */
+	@Test
+	public void recuperaNRegistroGlucosaAppServiceTestCase() {
+		log.debug("Incio - Test");
+		List<RegistroGlucosaCommonVo> registroGlucosaCommonVo = null;
+		Integer idPaciente = 3;
+		Integer limiteRegistro = 1;
+		
+		registroGlucosaCommonVo = registroGlucosaAppService.recuperaNRegistroGlucosaAppService(idPaciente, limiteRegistro);
+		
+		log.debug("registroGlucosaCommonVo.size() : " + registroGlucosaCommonVo.size());
+		
+		if(!registroGlucosaCommonVo.isEmpty()) {
+			
+			XStream xStream = new XStream();
+			log.debug("xStream.toXML(registroGlucosaCommonVo): \n" + xStream.toXML(registroGlucosaCommonVo));
 		}
 		
 		log.debug("Fin - Test");

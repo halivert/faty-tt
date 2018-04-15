@@ -62,7 +62,7 @@ angular.module('trabajoTerminal')
        * crearDieta - Funcion que invoca al controller de la API para crear una nueva dieta  
        */
       crearDieta: function(idPaciente,idMedico,descripcion,dieta) {
-        console.log("descripcion : " + descripcion);
+        //console.log("descripcion : " + descripcion);
         //console.log("dieta : " + JSON.stringify(dieta));
         var jsonDieta = JSON.stringify(dieta);
         var data = {

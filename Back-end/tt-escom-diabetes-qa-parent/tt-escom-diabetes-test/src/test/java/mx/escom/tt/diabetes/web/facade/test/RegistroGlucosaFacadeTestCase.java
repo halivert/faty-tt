@@ -38,12 +38,12 @@ public class RegistroGlucosaFacadeTestCase {
 		RegistroGlucosaVo registroGlucosaVo = new RegistroGlucosaVo();
 
 		String idRegistroGlucosa = null;
-		String idPaciente = "127";
+		String idPaciente = "3";
 		
-		String azucar = "97";
+		String azucar = "89";
 		String fechaActualizacion = null;
 		
-		String fechaRegistro = "16/02/2018";
+		String fechaRegistro = "2/05/2018";
 		
 		
 		//Se arma el VO
@@ -136,6 +136,36 @@ public class RegistroGlucosaFacadeTestCase {
 
 		try{
 			registroGlucosaVo = registroGlucosaFacade.recuperaRegistroGlucosaPorIdPaciente(idPaciente);
+			
+			if(registroGlucosaVo != null) {
+				XStream xStream = new XStream();
+				log.debug("registroGlucosaVo : " + xStream.toXML(registroGlucosaVo));
+			}
+			
+		}catch (RuntimeException ex) {
+			log.debug("ex : " + ex.getMessage());
+		}
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperaNRegistroGlucosaAppService
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 14/04/2018
+	 * @see RegistroGlucosaFacade#recuperaNRegistroGlucosaAppService(String, String)
+	 */
+	@Test
+	public void recuperaNRegistroGlucosaAppServiceTestCase() {
+		log.debug("Inicio - Test");
+		List<RegistroGlucosaVo> registroGlucosaVo = null;
+
+		String idPaciente = "2";
+		String limiteRegistro = "2";
+		
+
+		try{
+			registroGlucosaVo = registroGlucosaFacade.recuperaNRegistroGlucosaAppService(idPaciente, limiteRegistro);
 			
 			if(registroGlucosaVo != null) {
 				XStream xStream = new XStream();

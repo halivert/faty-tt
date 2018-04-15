@@ -270,6 +270,16 @@ public class PacienteController {
 		return result;
 	}
 	
+	/**
+	 * Proposito : Actualizar un registro de glucosa
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1,0,0. 04/02/2018
+	 * @param idPaciente
+	 * @param idRegistroGlucosa
+	 * @param registroGlucosaVo
+	 * @return
+	 */
 	@RequestMapping(value = "/{idPaciente}/registroglucosa/{idRegistroGlucosa}", method = RequestMethod.PUT, produces = "application/json;charset=UTF-8")
 	public ResponseEntity<?> actulizarRegistroGlucosa(@PathVariable("idPaciente") String idPaciente,@PathVariable("idRegistroGlucosa") String idRegistroGlucosa ,@RequestBody RegistroGlucosaVo registroGlucosaVo) {
 		log.debug("Inicio - Controller");
@@ -318,6 +328,38 @@ public class PacienteController {
 	}
 	
 	/**
+	 * Proposito : Recuperar registros de azucar asociados a un paciente, limitando el numero de la lista
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 14/04/2018
+	 * @param idPaciente					-	Identificador del paciente
+	 * @param limiteRegistro				-	Numero maximo que se va a recuperar 
+	 * @return	ResponseEntity<List<RegistroGlucosaVo>>	- Lista con los registros recuperados
+	 */
+	@RequestMapping(value = "/{idPaciente}/registroglucosa/limiteRegistro/{limiteRegistro}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> recuperarRegistroGlucosaPorIdPaciente(@PathVariable("idPaciente") String idPaciente, @PathVariable("limiteRegistro") String limiteRegistro) {
+		log.debug("Inicio - Controller");
+		
+		ResponseEntity<?> result = null;
+		List<RegistroGlucosaVo> registroGlucosaVo = null;
+		RespuestaErrorVo respuestaErrorVo = null;
+		
+		try {
+			registroGlucosaVo = registroGlucosaFacade.recuperaNRegistroGlucosaAppService(idPaciente, limiteRegistro);
+			
+			result = new ResponseEntity<List<RegistroGlucosaVo>>(registroGlucosaVo, HttpStatus.OK);
+			
+		}catch (Exception ex) {
+			respuestaErrorVo = new RespuestaErrorVo();
+			respuestaErrorVo.setRespuesta("ERROR");
+			respuestaErrorVo.setMensaje(ex.getMessage());
+			result=new ResponseEntity<RespuestaErrorVo>(respuestaErrorVo, HttpStatus.OK);
+		}
+		log.debug("Fin - Controller");
+		return result;
+	}
+	
+	/**
 	 * Proposito : Recuperar un registro de glucosa por id del registro
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 05/02/2018
@@ -338,7 +380,7 @@ public class PacienteController {
 			registroGlucosaVo = registroGlucosaFacade.recuperaRegistroGlucosaPorId(idRegistroGlucosa);
 			
 			if(!registroGlucosaVo.getIdPaciente().equals(idPaciente)) {
-				msjEx = "No se encontró el registro para el paciente con id : " + idPaciente;
+				msjEx = "No se encontrï¿½ el registro para el paciente con id : " + idPaciente;
 				throw new Exception(msjEx);
 			}
 			

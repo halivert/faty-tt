@@ -3,9 +3,12 @@ package mx.escom.tt.diabetes.model.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.Transformers;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,8 +17,11 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.utils.Constants;
+import mx.escom.tt.diabetes.commons.vo.RegistroGlucosaCommonVo;
 import mx.escom.tt.diabetes.model.dao.RegistroGlucosaDao;
 import mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto;
+import mx.escom.tt.diabetes.model.hql.QlHelper;
+import mx.escom.tt.diabetes.model.hql.RegistroGlucosaQlHelper;
 
 @CommonsLog
 @Repository("RegistroGlucosaDao")
@@ -24,6 +30,9 @@ public class RegistroGlucosaDaoImpl implements RegistroGlucosaDao{
 
 	private @Getter @Setter
 	SessionFactory  sessionFactory;
+	
+	@Autowired RegistroGlucosaQlHelper registroGlucosaQlHelper;
+	private @Getter @Setter QlHelper ql;
 	
 	@Override
 	public void guardaRegistroGlucosa(RegistroGlucosaDto regGlucosaDto) throws RuntimeException {
@@ -115,6 +124,47 @@ public class RegistroGlucosaDaoImpl implements RegistroGlucosaDao{
 	public List<RegistroGlucosaDto> recuperaListaRegistroGlucosaPorFiltros() throws RuntimeException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RegistroGlucosaCommonVo> recuperaNRegistroGlucosa(Integer idPaciente, Integer limiteRegistro)
+			throws RuntimeException {
+		log.debug("Inicio - Dao");
+		
+		String msjEx = null;
+		String queryStr = null;
+		List<RegistroGlucosaCommonVo> resultList = null;
+		
+		{//Validaciones
+			if(idPaciente == null) {
+				msjEx = "El identificador del paciente no debe ser nulo.";
+				throw new RuntimeException(msjEx);
+			}
+			if(limiteRegistro == null) {
+				msjEx = "El número máximo de registros no puede ser nulo o vacío.";
+				throw new RuntimeException(msjEx);
+			}
+		}
+		
+		try {
+			queryStr = ql.getQuery(RegistroGlucosaQlHelper.RECUPERA_N_REGISTROS_GLUCOSA);
+			log.debug("queryStr : "+ queryStr);
+			
+			Query query = sessionFactory.getCurrentSession().createSQLQuery(queryStr).setResultTransformer(Transformers.aliasToBean(RegistroGlucosaCommonVo.class));
+			//log.debug("idPaciente : " + idPaciente);
+			query.setParameter("idPaciente", idPaciente);
+			query.setParameter("limiteRegistro", limiteRegistro);
+			
+			resultList = query.list();
+		}catch(Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "al recuperar el registro.";
+			throw new RuntimeException(msjEx,ex.getCause());
+		}
+		
+		
+		log.debug("Fin - Dao");
+		return resultList;
 	}
 
 	

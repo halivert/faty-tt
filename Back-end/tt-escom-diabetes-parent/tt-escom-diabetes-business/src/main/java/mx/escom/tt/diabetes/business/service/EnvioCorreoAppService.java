@@ -46,11 +46,11 @@ public class EnvioCorreoAppService {
 		
 		{//Validaciones 
 			if(asunto == null || asunto.trim().isEmpty()){
-				msjError = "El asunto del correo no debe ser nulo o vac�o.";
+				msjError = "El asunto del correo no debe ser nulo o vacío.";
 				throw new RuntimeException(msjError);
 			}
 			if(arrayPara == null || arrayPara.length == 0){
-				msjError = "El listado de correos 'para' no debe ser nulo o vac�o.";
+				msjError = "El listado de correos 'para' no debe ser nulo o vacío.";
 				throw new RuntimeException(msjError);
 			}
 		}

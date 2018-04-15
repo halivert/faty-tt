@@ -9,6 +9,7 @@ dist/
 
 #Archivos temporales
 .tmp
+.DS_Store
 
 
 # Archivos generados por STS

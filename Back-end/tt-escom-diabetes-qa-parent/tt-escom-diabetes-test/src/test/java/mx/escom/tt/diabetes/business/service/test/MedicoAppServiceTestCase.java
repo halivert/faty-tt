@@ -76,7 +76,7 @@ public class MedicoAppServiceTestCase {
 	public void generarToken() {
 		log.debug("Inicio - Test");
 		
-		Integer idMedico = 97;
+		Integer idMedico = 1;
 		String token = null;
 		
 		token = tokenMedicoAppService.generarTokenAppService(idMedico);

@@ -69,6 +69,26 @@
                                     <input type="radio" name="sex" id="sex-f" value="0" ng-model = "datosU.idSexo" required>
                                     <label for="sex-f">Mujer</label>
                                 </fieldset>
+
+                                <br/><br/>
+                                <h4>¿Eres médico o paciente?</h4>
+                                
+                                    <input type="radio" name="rol" id="rol-m" value="1" ng-model = "datosU.rol" required>
+                                    <label for="rol-m">Médico</label>
+                                    <input type="radio" name="rol" id="rol-p" value="0" ng-model = "datosU.rol" required>
+                                    <label for="rol-p">Paciente</label> 
+
+                                    <div ng-if= "datosU.rol == 1">
+                                        <div class="form-group "><label>Cédula Profesional</label> <input type="text" name="cedula" placeholder="Cédula" ng-model = "datosU.cedula" class="form-control" required></div>
+                                    </div>
+                                    <div ng-if= "datosU.rol == 0">
+                                        <div class="form-group "><label>Código de Médico</label> <input type="text" name="cedula" placeholder="Código médico" ng-model = "datosU.codigoM" class="form-control" required></div>
+                                    </div>
+
+                                
+                                
+                            
+
                             </div>
                             <div class="col-sm-6">
 
@@ -77,8 +97,8 @@
 									<div class="input-group date">
 										<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 										<input type="text" name="fechNac" class="form-control" value="dd/MM/yyyy" ng-model="datosU.fechaNac" required>
-										<small class ="text-danger" ng-show="formRegistro.fechNac.$touched && formRegistro.fechNac.$invalid">Ingresar tu fecha de nacimiento</small>							
 									</div>
+                                    <small class ="text-danger" ng-show="formRegistro.fechNac.$touched && formRegistro.fechNac.$invalid">Ingresar tu fecha de nacimiento</small>
 								</div>
 
 								<div class="form-group"><label>Correo electrónico</label> <input type="email" name="email" placeholder="Correo electrónico" ng-model = "datosU.email" class="form-control" required></div>
@@ -93,32 +113,9 @@
 								<small class ="text-danger" ng-show="formRegistro.password.$touched && !validaPasword()">Las contraseñas no coinciden</small>
 							</div>
 						</div>
-						<br/>
-						<div class="row">
-							<div class="col-sm-12">
-								<h4 class="m-t-none m-b">¿Eres médico o paciente?</h4>
-								<div class="col-sm-6">
-									<input type="radio" name="rol" id="rol-m" value="1" ng-model = "datosU.rol" required>
-									<label for="rol-m">Médico</label>
-									<input type="radio" name="rol" id="rol-p" value="0" ng-model = "datosU.rol" required>
-									<label for="rol-p">Paciente</label> 
-
-									<div ng-if= "datosU.rol == 1">
-										<div class="form-group "><label>Cédula Profesional</label> <input type="text" name="cedula" placeholder="Cédula" ng-model = "datosU.cedula" class="form-control" required></div>
-									</div>
-									<div ng-if= "datosU.rol == 0">
-										<div class="form-group "><label>Código de Médico</label> <input type="text" name="cedula" placeholder="Código médico" ng-model = "datosU.codigoM" class="form-control" required></div>
-									</div>
-
-								</div>
-								<div class="col-sm-6">
-
-								</div>
-							</div>
-						</div>
 					</form>
 					<div>
-						<button class="btn btn-sm btn-success pull-right m-t-n-xs" type="submit" ng-disabled="!validaForm()" ng-click="registrarUsuario()"><strong>Registrarme</strong></button> 
+						<button class="btn btn-sm btn-success btn-outline pull-right m-t-n-xs" type="submit" ng-disabled="!validaForm()" ng-click="registrarUsuario()"><strong>Registrarme</strong></button> 
 					</div>
 				</div>
 			</div>

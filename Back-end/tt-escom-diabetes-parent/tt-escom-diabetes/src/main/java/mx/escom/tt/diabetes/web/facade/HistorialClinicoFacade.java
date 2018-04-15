@@ -105,7 +105,7 @@ public class HistorialClinicoFacade {
 			throw new RuntimeException(msjEx);
 		}
 		if(historialClinicoVo.getIdHistorialClinico() == null || historialClinicoVo.getIdHistorialClinico().equals(Constants.CADENA_VACIA)) {
-			msjEx = "El id del historial clnico no puede ser nulo o vacío.";
+			msjEx = "El id del historial clínico no puede ser nulo o vacío.";
 			throw new RuntimeException(msjEx);
 		}
 		

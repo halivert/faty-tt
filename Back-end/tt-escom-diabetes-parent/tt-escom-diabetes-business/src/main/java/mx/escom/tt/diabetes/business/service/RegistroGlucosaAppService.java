@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.utils.Constants;
+import mx.escom.tt.diabetes.commons.vo.RegistroGlucosaCommonVo;
 import mx.escom.tt.diabetes.model.dao.RegistroGlucosaDao;
 import mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto;
 
@@ -31,7 +32,7 @@ public class RegistroGlucosaAppService {
 		//Timestamp fechaRegistro = null;
 		
 		if(registroGlucosaDto == null) {
-			msjEx = "La informaciÛn del registro no puede ser nula.";
+			msjEx = "La informaci√≥n del registro no puede ser nula.";
 			throw new RuntimeException(msjEx);
 		}
 		
@@ -42,11 +43,10 @@ public class RegistroGlucosaAppService {
 			registroGlucosaDao.guardaRegistroGlucosa(registroGlucosaDto);	
 
 		}catch(RuntimeException ex) {
-			log.debug("ERRORR :::: " + ex.getMessage());
-			msjEx = "El usuario con id : " + registroGlucosaDto.getIdPaciente() + " no est· registrado como paciente.";
+			msjEx = "El usuario con id : " + registroGlucosaDto.getIdPaciente() + " no est√° registrado como paciente.";
 			throw new RuntimeException(msjEx);
 		}catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "al guardar la informaciÛn del registro. \n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "guardar la informaci√≥n del registro." + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
 		}
 		
@@ -67,7 +67,7 @@ public class RegistroGlucosaAppService {
 		RegistroGlucosaDto aux = null;
 		
 		if(registroGlucosaDto == null) {
-			msjEx = "La informaciÛn del registro no puede ser nula.";
+			msjEx = "La informaci√≥n del registro no puede ser nula.";
 			throw new RuntimeException(msjEx);
 		}
 		if(registroGlucosaDto.getIdRegistroGlucosa() == null) {
@@ -80,7 +80,7 @@ public class RegistroGlucosaAppService {
 			aux = registroGlucosaDao.recuperaRegistroGlucosaPorId(registroGlucosaDto.getIdRegistroGlucosa());
 			
 			if(aux == null) {
-				msjEx = "No se encontrÛ informaciÛn del registro con id : " + registroGlucosaDto.getIdRegistroGlucosa() + "\n No se puede actualizar la informaciÛn";
+				msjEx = "No se encontr√≥ informaci√≥n del registro con id : " + registroGlucosaDto.getIdRegistroGlucosa() + " No se puede actualizar la informaci√≥n";
 				throw new RuntimeException(msjEx);
 			}
 			if(aux.getFechaActualizacion() != null) {
@@ -96,7 +96,7 @@ public class RegistroGlucosaAppService {
 		}catch(RuntimeException ex) {
 			throw ex;
 		}catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "al actualizar la informaciÛn del registro. \n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "actualizar la informaci√≥n del registro." + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
 		}
 		
@@ -136,7 +136,7 @@ public class RegistroGlucosaAppService {
 		}catch(RuntimeException rtExc) { 
 			throw rtExc;
 		}catch (Exception ex) {
-			msjEx = Constants.MSJ_EXCEPTION + "recuperar la informaciÛn del registro con id : " + idRegistroGlucosa + "\n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar la informaci√≥n del registro con id : " + idRegistroGlucosa + "\n" + ex.getMessage();
 			throw new RuntimeException(msjEx,ex);
 		}
 
@@ -169,14 +169,58 @@ public class RegistroGlucosaAppService {
 			result = registroGlucosaDao.recuperaListaRegistroGlucosaPorIdPaciente(idPaciente);
 			
 			if(result.isEmpty()) {
-				msjEx = "No se encontraron registros para el paciente.";
+				msjEx = "No se han registrado niveles de glucosa.";
 				throw new RuntimeException(msjEx);
 			}
 			
 		}catch(RuntimeException rtExc) { 
 			throw rtExc;
 		}catch (Exception ex) {
-			msjEx = Constants.MSJ_EXCEPTION + "recuperar la informaciÛn de los registros para el paciente con id: " + idPaciente + "\n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar la informaci√≥n de los registros para el paciente con id: " + idPaciente + ex.getMessage();
+			throw new RuntimeException(msjEx,ex);
+		}
+		
+		log.debug("Fin - Service");
+		return result;
+	}
+	
+	/**
+	 * Proposito : Recuperar una lista de registros limitando el numero de la lista 
+	 * 
+	 * @param idPaciente					-	Identificador del paciente del que se queiren recuperar los registros
+	 * @param limiteRegistro				-	Limite de registros a recuperar
+	 * @return List<RegistroGlucosaDto>		-	Lista con la informacion asociada al paciente
+	 * @throws RuntimeException				-	Si existe un error durante la ejecucion o no existen registros 
+	 */
+	public List<RegistroGlucosaCommonVo> recuperaNRegistroGlucosaAppService(Integer idPaciente, Integer limiteRegistro) throws RuntimeException{
+		log.debug("Inicio - Service");
+		List<RegistroGlucosaCommonVo> result = null;
+		String msjEx = null;
+		
+		{//Validaciones 
+			if(idPaciente == null) {
+				msjEx = "El identificador del paciente no puede ser nulo";
+				throw new RuntimeException(msjEx);
+			}
+			if(limiteRegistro == null) {
+				msjEx = "El L√≠mite para recuperar registros no puede ser nulo";
+				throw new RuntimeException(msjEx);
+			}
+		}	
+		
+		try {
+			
+			result = registroGlucosaDao.recuperaNRegistroGlucosa(idPaciente, limiteRegistro);
+			
+			if(result.isEmpty()) {
+				msjEx = "No se han registrado niveles de glucosa.";
+				throw new RuntimeException(msjEx);
+			}
+			
+		}catch(RuntimeException rtExc) { 
+			throw rtExc;
+		}catch (Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar la informaci√≥n de los registros para el paciente con id: " + idPaciente + ex.getMessage();
 			throw new RuntimeException(msjEx,ex);
 		}
 		

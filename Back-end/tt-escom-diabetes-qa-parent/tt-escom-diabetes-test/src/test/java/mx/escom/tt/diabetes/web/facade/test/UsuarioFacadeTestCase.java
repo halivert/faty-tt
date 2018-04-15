@@ -9,7 +9,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
-import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 import mx.escom.tt.diabetes.web.facade.UsuarioFacade;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
 import mx.escom.tt.diabetes.web.vo.UsuarioLoginVo;
@@ -56,7 +55,6 @@ public class UsuarioFacadeTestCase {
 	public void recuperarPorEmailYKeyword() {
 		log.debug("Inicio - Test");
 		
-		UsuarioDto usuarioDto = null;
 		String email = "enrique@gmail.com";
 		String keyword = "enrique123'4";
 		
@@ -92,15 +90,15 @@ public class UsuarioFacadeTestCase {
 		UsuarioVo usuarioVo = new UsuarioVo();
 		
 		{//SE ARMA EL VO
-			usuarioVo.setNombre("Token");
-			usuarioVo.setApellidoPaterno("Hurtado");
-			usuarioVo.setApellidoMaterno("Guzman");
-			usuarioVo.setEmail("token@gmail.comm");
+			usuarioVo.setNombre("Miguel");
+			usuarioVo.setApellidoPaterno("Rojas");
+			usuarioVo.setApellidoMaterno("Rojas");
+			usuarioVo.setEmail("miguel@gmail.com");
 			usuarioVo.setFechaNacimiento("27/02/1994");
-			usuarioVo.setKeyword("alejandra");
+			usuarioVo.setKeyword("doctor");
 			usuarioVo.setSexo("0");
 			usuarioVo.setIdRol("0");
-			usuarioVo.setCodigoMedico("CAMBIO1234");
+			usuarioVo.setCodigoMedico("Y5OVKF");
 			usuarioVo.setCedulaProfesional("IVAN1234");
 		}
 		usuarioFacade.guardarUsuario(usuarioVo);
