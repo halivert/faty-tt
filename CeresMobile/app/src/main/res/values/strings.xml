@@ -67,4 +67,5 @@
     <string name="generate_code">Generar código</string>
     <string name="age">Edad</string>
     <string name="sex">Sexo</string>
+    <string name="show_diets">Ver mis dietas</string>
 </resources>

@@ -8,6 +8,7 @@ import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AUTH_ERROR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR_CONEXION
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.PARSE_ERROR
@@ -165,15 +166,15 @@ class CeresRequestQueue constructor(context: Context) {
   private fun VolleyError.readableVolleyError(forceArray: Boolean): Any {
     var response = JSONObject()
     if (this is TimeoutError || this is NoConnectionError) {
-      response.put(MENSAJE, ERROR_CONEXION)
+      response.put(ERROR, ERROR_CONEXION)
     } else if (this is AuthFailureError) {
-      response.put(MENSAJE, AUTH_ERROR)
+      response.put(ERROR, AUTH_ERROR)
     } else if (this is ServerError) {
-      response.put(MENSAJE, SERVER_ERROR)
+      response.put(ERROR, SERVER_ERROR)
     } else if (this is NetworkError) {
-      response.put(MENSAJE, ERROR_CONEXION)
+      response.put(ERROR, ERROR_CONEXION)
     } else if (this is ParseError) {
-      response.put(MENSAJE, PARSE_ERROR)
+      response.put(ERROR, PARSE_ERROR)
     }
 
     if (forceArray)
