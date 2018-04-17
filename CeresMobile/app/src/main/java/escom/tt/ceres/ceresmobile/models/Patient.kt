@@ -6,7 +6,7 @@ class Patient() {
   var name: String? = ""
   var email: String? = ""
   var sex: String? = ""
-  var idUser: Int? = -1
+  var idUser: Int = -1
   var idDoctor: Int? = -1
   var lastName: String? = ""
   var mothersLastName: String? = ""
@@ -17,7 +17,7 @@ class Patient() {
       email: String,
       sex: String?,
       idDoctor: Int?,
-      idUser: Int?,
+      idUser: Int,
       lastName: String?,
       mothersLastName: String?,
       birthDate: String?) : this() {
@@ -41,6 +41,8 @@ class Patient() {
     this.mothersLastName = if (patientJson.has("ap_MAT")) patientJson.getString("ap_MAT") else ""
     this.birthDate = if (patientJson.has("fec_NAC")) patientJson.getString("fec_NAC") else ""
   }
+
+  fun getId(): Int? = this.idUser
 
   override fun toString(): String {
     return "Nombre: ${this.name}, Email: ${this.email}"

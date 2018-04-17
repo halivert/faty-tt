@@ -32,7 +32,7 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NOMBRE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.SEXO
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_REGISTRO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_REGISTER
 import escom.tt.ceres.ceresmobile.tools.Functions.showDatePicker
 import org.json.JSONObject
 
@@ -162,7 +162,7 @@ class PatientSignInFragment : Fragment() {
       dataToSend.put(ID_ROL, PACIENTE)
       dataToSend.put(CODIGO_MEDICO, doctorCode)
 
-      var request = JsonObjectRequest(POST, URL_REGISTRO, dataToSend,
+      var request = JsonObjectRequest(POST, URL_REGISTER, dataToSend,
           Response.Listener {
             var message = ERROR
 

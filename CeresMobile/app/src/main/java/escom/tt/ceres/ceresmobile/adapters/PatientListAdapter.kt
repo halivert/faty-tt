@@ -9,6 +9,8 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.models.Patient
+import escom.tt.ceres.ceresmobile.tools.Functions.calculateAge
+import java.text.SimpleDateFormat
 
 class PatientListAdapter(private var activity: Activity, private var items: MutableList<Patient>) : BaseAdapter() {
   private class ViewHolder(row: View?) {
@@ -41,8 +43,11 @@ class PatientListAdapter(private var activity: Activity, private var items: Muta
     }
 
     var patient = items[position]
+
+    val df = SimpleDateFormat("yyyy-mm-dd")
+    val birthdate = df.parse(patient.birthDate)
     viewHolder.patientName?.text = patient.name
-    viewHolder.patientAge?.text = "Edad..."
+    viewHolder.patientAge?.text = calculateAge(birthdate).toString()
     viewHolder.patientBirthDate?.text = patient.birthDate
     viewHolder.patientSex?.text = patient.sex
     viewHolder.patientEmail?.text = patient.email

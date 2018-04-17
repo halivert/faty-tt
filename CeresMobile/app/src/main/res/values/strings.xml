@@ -68,4 +68,9 @@
     <string name="age">Edad</string>
     <string name="sex">Sexo</string>
     <string name="show_diets">Ver mis dietas</string>
+    <string name="weight">Peso</string>
+    <string name="size">Talla</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
