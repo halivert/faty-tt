@@ -5,7 +5,7 @@
 </div>
 
 
-<div class="wrapper wrapper-content animated fadeInRight" ng-controller="glucosaCtrl" ng-init="recuperarRegistrosGlucosa()">
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="glucosaCtrl"> <!--ng-init="recuperarRegistrosGlucosa()"-->
 	<div class="ibox float-e-margins">
 		<div class="row">
 			<div class="col-lg-12">
@@ -27,7 +27,7 @@
 													<label class="font-normal">Fecha</label>
 													<div class="input-group date">
 														<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-														<input type="text" ng-model="registroGlucosa.fechaReg" class="form-control" value="dd/MM/yyyy" required>
+														<input type="text" ng-model="registroGlucosa.fechaReg" class="form-control" value="dd/MM/yyyy" required readonly>
 														<small class ="text-danger" ng-show=""></small>                         
 													</div>
 												</div>
@@ -45,25 +45,50 @@
 						</div>
 						<div id="tab-2" class="tab-pane">
 							<div class="panel-body">
-								<div class="wrapper wrapper-content animated fadeInRight">
-									<div class="row">
-										<div class="col-lg-12">
-											<div class="ibox float-e-margins">
-												<!--<div class="ibox-title">-->
-													<h5>Registros de glucosa
-														<small>Fecha : {{fecha | date:'dd/MM/yyyy'}}</small>
-													</h5>
-													<!--</div>-->
-													<div class="ibox-content">
-														<div>
-															<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series"    chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
-															</canvas>
-														</div>
+								<h5>Elija un rango de fechas.<small></small></h5>
+								<!--<div class="wrapper wrapper-content animated fadeInRight">-->
+
+									<div class="ibox-content">
+
+										<div class="row">
+											
+											<div class="col-sm-8" id="data_3">
+												<div class="input-daterange input-group" id="date-range-picker-container">
+													
+													<div class="pull-left">
+														<span><i class="fa fa-calendar"></i></span>
+														<label>Fecha inicio</label>
+														<input type="text" class="input-sm form-control" ng-model = "fechaInicio"readonly/>
 													</div>
+
+													<div class="pull-right">
+														<span><i class="fa fa-calendar"></i></span>
+														<label>Fecha fin</label>
+														<input type="text" class="input-sm form-control" ng-model = "fechaFin" readonly/> 
+													</div>                    
+													
+												</div>
+
+											</div>	
+
+											<div class="col-sm-2 pull-right" style="margin-top: 2%;">
+												<button class="btn btn-w-md btn-gap-v btn-primary" ng-click="mostrarRegistrosGlucosaPorFiltros()">Buscar registros</button>
+											</div>
+										</div>
+
+										<div class="col-sm-12">
+											<div class="ibox-content">
+												<div>
+													<canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series"    chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+													</canvas>
 												</div>
 											</div>
-										</div>        
+										</div>
+
 									</div>
+
+									
+
 								</div>
 							</div>
 						</div>
@@ -74,16 +99,28 @@
 		<script>
 			$(document).ready(function(){
 				$('#data_2 .input-group.date').datepicker({
-					startView: 1,
 					todayBtn: "linked",
 					keyboardNavigation: false,
 					forceParse: false,
 					autoclose: true,
 					format: "dd/mm/yyyy",
-					language: 'es'
+					language: 'es',
+					todayHighlight: true,
+					endDate: 'today',
+					pickerPosition: 'bottom-left'
 				});
-			});	
+				$('#data_3 .input-group').datepicker({
+					format: "dd/mm/yyyy",
+					todayHighlight: true,
+					language:'es',
+					endDate: 'today',
+					pickerPosition: 'bottom-left',
+					orientation: 'auto',
+					container: '#date-range-picker-container'
+				});
+			});
 		</script>
+		
 
 	</div>
 

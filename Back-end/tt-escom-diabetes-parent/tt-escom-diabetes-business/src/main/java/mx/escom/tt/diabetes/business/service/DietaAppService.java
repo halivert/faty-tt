@@ -92,7 +92,7 @@ public class DietaAppService {
 	 * @return List<DietaDto>			-	Dietas recuperadas		
 	 * @throws RuntimeException			-	Si ocurre un error durante la ejecucion
 	 */
-	public List<DietaDto> recuperarDietaPorIdPaciente(Integer idPaciente) throws RuntimeException{
+	public List<DietaDto> recuperarDietaPorIdPacienteAppService(Integer idPaciente) throws RuntimeException{
 		log.debug("Inicio - Service");
 		
 		String msjEx = null;
@@ -107,8 +107,9 @@ public class DietaAppService {
 		
 		try {
 			dietaDtoList = dietaDao.recuperarDietaPorIdPaciente(idPaciente);
-			if(dietaDtoList.isEmpty()) {
-				msjEx = "No se encontraron registros.";
+			log.debug("dietaDtoList.size() : " + dietaDtoList.size());
+			if(dietaDtoList == null || dietaDtoList.size() == 0) {
+				msjEx = "No se encontraron dietas asignadas.";
 				throw new RuntimeException(msjEx);
 			}
 		}catch(RuntimeException rtExc) { 
@@ -117,6 +118,7 @@ public class DietaAppService {
 			msjEx = Constants.MSJ_EXCEPTION + "recuperar la lista de alimentos";
 			throw new RuntimeException(msjEx,ex);
 		}
+		log.debug("Inicio - Service");
 		return dietaDtoList;
 	}
 }

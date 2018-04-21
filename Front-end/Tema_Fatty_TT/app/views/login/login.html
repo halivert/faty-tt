@@ -125,7 +125,9 @@
 
 	<script>
 	 $(document).ready(function(){
-        console.log("abrir");
+        var dt = new Date();
+        dt.setFullYear(new Date().getFullYear()-18);
+
 		 $('#data_2 .input-group.date').datepicker({
 			startView: 2,
 			todayBtn: "linked",
@@ -133,7 +135,8 @@
 			forceParse: false,
 			autoclose: true,
 			format: "dd/mm/yyyy",
-			language: 'es'
+			language: 'es',
+            endDate : dt
 		});
 	 });	
 	</script>

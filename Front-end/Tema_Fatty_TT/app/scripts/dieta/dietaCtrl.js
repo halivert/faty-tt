@@ -11,7 +11,7 @@ angular.module('trabajoTerminal')
     var currentTiempo = "";
     $scope.tiempos = [{label: 'Desayuno'},{label: 'Colación 1'},{label: 'Comida'},{label: 'Colación 2'},{label: 'Cena'}];
     $scope.numberLoaded = true;
-    $scope.selected;
+   
     $scope.idAlimento = "";
     $scope.descripcion = "";
 
@@ -99,11 +99,56 @@ angular.module('trabajoTerminal')
       //console.log("DIETA : " + JSON.stringify($scope.dieta));
     }
 
+    $scope.eliminarAlimento = function(idAlimento) {
+      var currentAlimento = {};
+      currentAlimento = $filter('filter')($scope.alimentos, {
+        'idAlimento': idAlimento
+      }, true)[0];
+
+      var index = 0;
+      switch (currentTiempo) {
+        case 'Desayuno':
+          index = $scope.recuperaIndexPorIdAlimento($scope.dieta.Desayuno,idAlimento);
+          if(index != undefined){
+            $scope.dieta.Desayuno.splice(index,1);
+          }
+          break;
+        case 'Colación 1':
+          index = $scope.recuperaIndexPorIdAlimento($scope.dieta.C1,idAlimento);
+          if(index != undefined){
+          $scope.dieta.C1.splice(index,1);
+          }
+          break;
+        case 'Comida':
+          index = $scope.recuperaIndexPorIdAlimento($scope.dieta.Comida,idAlimento);
+          if(index != undefined){
+          $scope.dieta.Comida.splice(index,1);            
+        }
+          break;
+        case 'Colación 2':
+          index = $scope.recuperaIndexPorIdAlimento($scope.dieta.C2,idAlimento);
+          if(index != undefined){
+          $scope.dieta.C2.splice(index,1);            
+        }
+          break;
+        case 'Cena':
+          index = $scope.recuperaIndexPorIdAlimento($scope.dieta.Cena,idAlimento);
+          if(index != undefined){
+          $scope.dieta.Cena.splice(index,1);            
+        }
+          break;
+        default:
+          index = $scope.recuperaIndexPorIdAlimento($scope.dieta.Desayuno,idAlimento);
+          if (index != undefined){
+          $scope.dieta.Desayuno.splice(index,1);            
+          }
+
+      }
+    }
+
     $scope.asignarDietaArmada = function() {
 
       var idMedico = "";
-      //descripcion = "Desde angular";
-      //console.log("DIETA : " + JSON.stringify($scope.dieta));
       dietaService.crearDieta($cookies.get("idCurrentPaciente"),$cookies.get("idUsuario"),$scope.descripcion,$scope.dieta).then(
         function successCallback(d) {
             toastr.success(d.mensaje,d.respuesta);
@@ -146,11 +191,9 @@ angular.module('trabajoTerminal')
     * mostrarDieta  - Funcion que llama al service que recupera una dieta por medio del idDieta
     */
     $scope.mostrarDieta = function() {
-      //var idDieta = "";
       dietaService.recuperarDieta($cookies.get("idUsuario"), $cookies.get("idDieta")).then(
         function successCallback(d) {
           $scope.dieta = angular.fromJson(d.alimentosDisponibles);
-          //console.log("$scope.dieta : " + JSON.stringify($scope.dieta));
         },
         function errorCallback(d) {
           if (d.data == null)
@@ -167,10 +210,14 @@ angular.module('trabajoTerminal')
     */
     $scope.recuperarDietasPaciente = function() {
       
-      dietaService.recuperarDietasPaciente($cookies.get("idUsuario")).then(
+      dietaService.recuperarDietasPacienteService($cookies.get("idUsuario")).then(
         function successCallback(d) {
-          //console.log("JSON.stringify(d) : " + JSON.stringify(d)); 
-          $scope.dietas = d;   
+          if(d.length == 0){
+            toastr.warning("No se tienen dietas asignadas", 'Advertencia');
+          }else{
+            $scope.dietas = d;            
+          }
+   
         },
         function errorCallback(d) {
           if (d.data == null)
@@ -183,17 +230,19 @@ angular.module('trabajoTerminal')
     }
 
     $scope.seleccionarAlimento = function(idAlimento) {   
-      console.log("seleccionarAlimento :" + idAlimento );  
       $scope.idAlimento = idAlimento;
     }
 
     $scope.modificarCantidad = function(){
       console.log("$scope.idAlimento");
 
-      /*  $scope.alimentoModal = $filter('filter')($scope.alimentos, {
-        'idAlimento': $scope.idAlimento
-      }, true)[0];
-    */
+    }
+
+    $scope.recuperaIndexPorIdAlimento = function(dieta, idAlimento){
+      for(i in dieta) {
+        if(dieta[i].idAlimento==idAlimento) 
+        return parseInt(i); // print index
+      }
     }
 
   });

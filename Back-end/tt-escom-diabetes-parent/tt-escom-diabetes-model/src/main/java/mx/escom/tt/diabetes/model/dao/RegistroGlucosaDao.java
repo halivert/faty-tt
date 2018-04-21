@@ -1,5 +1,6 @@
 package mx.escom.tt.diabetes.model.dao;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import mx.escom.tt.diabetes.commons.vo.RegistroGlucosaCommonVo;
@@ -48,10 +49,10 @@ public interface RegistroGlucosaDao {
 	 * Proposito : Recuperar una lista de registros por medio de una busqueda por filtros
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 04/02/2018
-	 * @return List<RegistroGlucosaDto>		-	Lista con los registros que cumplen con la busqueda por filtros
+	 * @return List<RegistroGlucosaCommonVo>		-	Lista con los registros que cumplen con la busqueda por filtros
 	 * @throws RuntimeException				-	Si ocurre un error durante la ejecucion
 	 */
-	public List<RegistroGlucosaDto> recuperaListaRegistroGlucosaPorFiltros() throws RuntimeException;
+	public List<RegistroGlucosaCommonVo> recuperaListaRegistroGlucosaPorFiltros(Integer idPaciente, Timestamp fechaInicio, Timestamp fechaFin) throws RuntimeException;
 	
 	/**
 	 * Proposito : Recuperar n numero de registros de glucosa por id paciente

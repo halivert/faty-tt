@@ -10,8 +10,10 @@ angular.module('trabajoTerminal')
 
 $scope.nombrePagina = "Página de inicio";
 $scope.informacionIndividuo = {};  	
-$scope.date = new Date();
+//$scope.date = new Date();
 $scope.fecha = new Date();
+
+
 
 /**
 * obtenerRol()	-	Función para recuperar el rol de usuario.

@@ -6,6 +6,8 @@ node_modules/
 
 #Version dist/ 
 dist/
+ceres.tar.gz
+ceres/ 
 
 #Archivos temporales
 .tmp

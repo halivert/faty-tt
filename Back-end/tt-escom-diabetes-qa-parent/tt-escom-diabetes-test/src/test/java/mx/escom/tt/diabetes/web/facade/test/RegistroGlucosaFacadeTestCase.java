@@ -165,7 +165,37 @@ public class RegistroGlucosaFacadeTestCase {
 		
 
 		try{
-			registroGlucosaVo = registroGlucosaFacade.recuperaNRegistroGlucosaAppService(idPaciente, limiteRegistro);
+			registroGlucosaVo = registroGlucosaFacade.recuperaNRegistroGlucosa(idPaciente, limiteRegistro);
+			
+			if(registroGlucosaVo != null) {
+				XStream xStream = new XStream();
+				log.debug("registroGlucosaVo : " + xStream.toXML(registroGlucosaVo));
+			}
+			
+		}catch (RuntimeException ex) {
+			log.debug("ex : " + ex.getMessage());
+		}
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperaListaRegistroGlucosaPorFiltros
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 15/04/2018
+	 */
+	@Test
+	public void recuperaListaRegistroGlucosaPorFiltrosTestaCase() {
+		log.debug("Inicio - Test");
+		List<RegistroGlucosaVo> registroGlucosaVo = null;
+
+		String idPaciente = "2";
+		String fechaInicio = "01-01-2017";
+		String fechaFin = "12-12-2018";
+		
+
+		try{
+			registroGlucosaVo = registroGlucosaFacade.recuperaListaRegistroGlucosaPorFiltros(idPaciente, fechaInicio, fechaFin);
 			
 			if(registroGlucosaVo != null) {
 				XStream xStream = new XStream();

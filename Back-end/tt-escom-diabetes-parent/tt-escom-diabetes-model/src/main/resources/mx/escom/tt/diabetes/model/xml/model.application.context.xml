@@ -1,111 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:ldap="http://www.springframework.org/schema/ldap"
-	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:ldap="http://www.springframework.org/schema/ldap" xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/ldap http://www.springframework.org/schema/ldap/spring-ldap-2.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
-		
-<!-- Datasource -->
-	<bean id="DataSourceCliente" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">	
-		<property name="driverClassName"><value>${driver}</value></property>
-		<property name="url"><value>${url}</value></property> 
-		<property name="username"><value>${username}</value></property>
-		<property name="password"><value>${password}</value></property>
-		<property name="validationQuery"><value>${validationQuery}</value></property>
-		<property name="logAbandoned"><value>true</value></property>
-		<property name="maxActive"><value>50</value></property>
-		<property name="maxIdle"><value>20</value></property>
-		<property name="maxWait"><value>10000</value></property>
-		<property name="removeAbandoned"><value>true</value></property>
-		<property name="removeAbandonedTimeout"><value>60</value></property>
-		<property name="testOnBorrow"><value>true</value></property>
-		<property name="testOnReturn"><value>true</value></property>
-		<property name="timeBetweenEvictionRunsMillis"><value>10000</value></property>
-		<property name="testWhileIdle"><value>true</value></property> 
-		
-	</bean>
-<!-- /Datasource -->
 
-<!-- SESSION FACTORY -->
-	<bean id="SessionFactoryCliente" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		
-		<property name="dataSource">
-			<ref bean="DataSourceCliente"/>
+	<!-- Datasource -->
+	<bean id="DataSourceCliente" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>${driver}</value>
 		</property>
-		
-        <property name="annotatedClasses">
-            <list>
-                <value>mx.escom.tt.diabetes.model.dto.UsuarioDto</value>
-                <value>mx.escom.tt.diabetes.model.dto.PacienteDto</value>
-                <value>mx.escom.tt.diabetes.model.dto.MedicoDto</value>
-                <value>mx.escom.tt.diabetes.model.dto.HistorialClinicoDto</value>      
-                <value>mx.escom.tt.diabetes.model.dto.TokenMedicoDto</value>                         
-                <value>mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto</value>
-                <value>mx.escom.tt.diabetes.model.dto.AlimentoDto</value>
-                <value>mx.escom.tt.diabetes.model.dto.DietaDto</value>                                          
-            </list>
-        </property>
-		
+		<property name="url">
+			<value>${url}</value>
+		</property>
+		<property name="username">
+			<value>${username}</value>
+		</property>
+		<property name="password">
+			<value>${password}</value>
+		</property>
+		<property name="validationQuery">
+			<value>${validationQuery}</value>
+		</property>
+		<property name="logAbandoned">
+			<value>true</value>
+		</property>
+		<property name="maxActive">
+			<value>50</value>
+		</property>
+		<property name="maxIdle">
+			<value>20</value>
+		</property>
+		<property name="maxWait">
+			<value>10000</value>
+		</property>
+		<property name="removeAbandoned">
+			<value>true</value>
+		</property>
+		<property name="removeAbandonedTimeout">
+			<value>60</value>
+		</property>
+		<property name="testOnBorrow">
+			<value>true</value>
+		</property>
+		<property name="testOnReturn">
+			<value>true</value>
+		</property>
+		<property name="timeBetweenEvictionRunsMillis">
+			<value>10000</value>
+		</property>
+		<property name="testWhileIdle">
+			<value>true</value>
+		</property>
+
+	</bean>
+	<!-- /Datasource -->
+
+	<!-- SESSION FACTORY -->
+	<bean id="SessionFactoryCliente"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+
+		<property name="dataSource">
+			<ref bean="DataSourceCliente" />
+		</property>
+
+		<property name="annotatedClasses">
+			<list>
+				<value>mx.escom.tt.diabetes.model.dto.UsuarioDto</value>
+				<value>mx.escom.tt.diabetes.model.dto.PacienteDto</value>
+				<value>mx.escom.tt.diabetes.model.dto.MedicoDto</value>
+				<value>mx.escom.tt.diabetes.model.dto.HistorialClinicoDto</value>
+				<value>mx.escom.tt.diabetes.model.dto.TokenMedicoDto</value>
+				<value>mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto</value>
+				<value>mx.escom.tt.diabetes.model.dto.AlimentoDto</value>
+				<value>mx.escom.tt.diabetes.model.dto.DietaDto</value>
+			</list>
+		</property>
+
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">${dialect}</prop>  
+				<prop key="hibernate.dialect">${dialect}</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.connection.SetBigStringTryClob">true</prop>
 			</props>
 		</property>
 	</bean>
-<!-- /SESSION FACTORY -->
+	<!-- /SESSION FACTORY -->
 
-<!-- TRANSACTION MANAGER -->
-	<bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<!-- TRANSACTION MANAGER -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="SessionFactoryCliente" />
 	</bean>
 	<tx:annotation-driven transaction-manager="txManager" />
-<!-- /TRANSACTION MANAGER -->
+	<!-- /TRANSACTION MANAGER -->
 
 
 
-<!-- DECLARACION DE DAO's -->	
+	<!-- DECLARACION DE DAO's -->
 	<bean id="UsuarioDao" class="mx.escom.tt.diabetes.model.dao.impl.UsuarioDaoImpl">
-		<property name="sessionFactory" ref="SessionFactoryCliente"/>
-		<property name="ql" ref="UsuarioHqlHelper"/>  
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+		<property name="ql" ref="UsuarioHqlHelper" />
 	</bean>
- 	<bean id="PacienteDao" class="mx.escom.tt.diabetes.model.dao.impl.PacienteDaoImpl">
-  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
- 	</bean>
- 	<bean id="MedicoDao" class="mx.escom.tt.diabetes.model.dao.impl.MedicoDaoImpl">
-  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
-  		<property name="ql" ref="MedicoQlHelper"/>  
- 	</bean>
- 	<bean id="HistorialClinicoDao" class="mx.escom.tt.diabetes.model.dao.impl.HistorialClinicoDaoImpl">
-  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
-  		<property name="ql" ref="HistorialClinicoQlHelper"/>  
- 	</bean>
- 	<bean id="TokenMedicoDao" class="mx.escom.tt.diabetes.model.dao.impl.TokenMedicoDaoImpl">
-  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
- 	</bean>
- 	<bean id="RegistroGlucosaDao" class="mx.escom.tt.diabetes.model.dao.impl.RegistroGlucosaDaoImpl">
-  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
-  		<property name="ql" ref="RegistroGlucosaQlHelper"/>
- 	</bean>
- 	<bean id="AlimentoDao" class="mx.escom.tt.diabetes.model.dao.impl.AlimentoDaoImpl">
-  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
-  		<!-- <property name="ql" ref="AlimentoQlHelper"/> -->
- 	</bean>
+	<bean id="PacienteDao" class="mx.escom.tt.diabetes.model.dao.impl.PacienteDaoImpl">
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+	</bean>
+	<bean id="MedicoDao" class="mx.escom.tt.diabetes.model.dao.impl.MedicoDaoImpl">
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+		<property name="ql" ref="MedicoQlHelper" />
+	</bean>
+	<bean id="HistorialClinicoDao"
+		class="mx.escom.tt.diabetes.model.dao.impl.HistorialClinicoDaoImpl">
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+		<property name="ql" ref="HistorialClinicoQlHelper" />
+	</bean>
+	<bean id="TokenMedicoDao" class="mx.escom.tt.diabetes.model.dao.impl.TokenMedicoDaoImpl">
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+	</bean>
+	<bean id="RegistroGlucosaDao"
+		class="mx.escom.tt.diabetes.model.dao.impl.RegistroGlucosaDaoImpl">
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+		<property name="ql" ref="RegistroGlucosaQlHelper" />
+	</bean>
+	<bean id="AlimentoDao" class="mx.escom.tt.diabetes.model.dao.impl.AlimentoDaoImpl">
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+		<!-- <property name="ql" ref="AlimentoQlHelper"/> -->
+	</bean>
 	<bean id="DietaDao" class="mx.escom.tt.diabetes.model.dao.impl.DietaDaoImpl">
-  		<property name="sessionFactory" ref="SessionFactoryCliente"/>
-  		<property name="ql" ref="AlimentoQlHelper"/>
- 	</bean> 	
-<!-- /DECLARACION DE DAO's -->	
-	
-	
-	
-<!-- QUERIES HQL -->
+		<property name="sessionFactory" ref="SessionFactoryCliente" />
+		<property name="ql" ref="AlimentoQlHelper" />
+	</bean>
+	<!-- /DECLARACION DE DAO's -->
+
+
+
+	<!-- QUERIES HQL -->
 	<bean id="UsuarioHqlHelper" class="mx.escom.tt.diabetes.model.hql.UsuarioHqlHelper">
 		<property name="queries">
 			<map>
@@ -113,33 +146,38 @@
 					<value>
 						SELECT usuarioDto
 						FROM UsuarioDto usuarioDto
-						WHERE usuarioDto.idUsuario = :idUsuario
+						WHERE
+						usuarioDto.idUsuario = :idUsuario
 					</value>
 				</entry>
 			</map>
 		</property>
 	</bean>
-	
+
 	<bean id="HistorialClinicoQlHelper" class="mx.escom.tt.diabetes.model.hql.HistorialClinicoQlHelper">
 		<property name="queries">
 			<map>
 				<entry key="RECUPERA_ULTIMO_HISTORIAL_CLINICO_POR_ID_PACIENTE">
 					<value>
-						SELECT 
-							ID_HISTORIAL_CLINICO, ID_PACIENTE, 
-							NOMBRE, APELLIDO_PATERNO, APELLIDO_MATERNO, EMAIL, FECHA_NACIMIENTO, SEXO,
-							FECHA, 
-							PESO, TALLA, ESTATURA, IMC, LIPIDOS, CARBOHIDRATOS, 
-							PROTEINAS, AZUCAR 
-						FROM HISTORIAL_CLINICO, USUARIO 
-						WHERE (ID_PACIENTE = :idPaciente AND ID_USUARIO=ID_PACIENTE) 
-						ORDER BY FECHA DESC LIMIT 1;
+						SELECT
+						ID_HISTORIAL_CLINICO, ID_PACIENTE,
+						NOMBRE,
+						APELLIDO_PATERNO, APELLIDO_MATERNO, EMAIL, FECHA_NACIMIENTO,
+						SEXO,
+						FECHA,
+						PESO, TALLA, ESTATURA, IMC, LIPIDOS, CARBOHIDRATOS,
+						PROTEINAS, AZUCAR
+						FROM HISTORIAL_CLINICO, USUARIO
+						WHERE (ID_PACIENTE
+						= :idPaciente AND ID_USUARIO=ID_PACIENTE)
+						ORDER BY FECHA DESC LIMIT
+						1;
 					</value>
 				</entry>
 			</map>
 		</property>
 	</bean>
-	
+
 	<bean id="MedicoQlHelper" class="mx.escom.tt.diabetes.model.hql.MedicoQlHelper">
 		<property name="queries">
 			<map>
@@ -166,9 +204,9 @@
 				</entry>
 			</map>
 		</property>
-	</bean>	
-	
- 	<bean id="AlimentoQlHelper" class="mx.escom.tt.diabetes.model.hql.AlimentoQlHelper">
+	</bean>
+
+	<bean id="AlimentoQlHelper" class="mx.escom.tt.diabetes.model.hql.AlimentoQlHelper">
 		<property name="queries">
 			<map>
 				<entry key="RECUPERA_ALIMENTO_POR_TIPO_DE_ALIMENTO">
@@ -201,13 +239,24 @@
 						SELECT * FROM 
 							( SELECT * FROM REGISTRO_GLUCOSA WHERE ID_PACIENTE = :idPaciente 
 								ORDER BY ID_REGISTRO_GLUCOSA DESC LIMIT :limiteRegistro) SUB 
-						ORDER BY ID_REGISTRO_GLUCOSA ASC;
+						ORDER BY ID_REGISTRO_GLUCOSA ASC
+					]]>
+					</value>
+				</entry>
+				<entry key="RECUPERA_REGISTROS_POR_FILTROS">
+					<value>
+					<![CDATA[
+						SELECT * FROM 
+							REGISTRO_GLUCOSA WHERE ID_PACIENTE = :idPaciente
+							AND 
+							DATE(FECHA_REGISTRO)  BETWEEN :fechaInicio AND :fechaFin
+							ORDER BY FECHA_REGISTRO ASC
 					]]>
 					</value>
 				</entry>
 			</map>
 		</property>
-	</bean>	
-<!-- QUERIES HQL -->
+	</bean>
+	<!-- QUERIES HQL -->
 
 </beans>

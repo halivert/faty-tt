@@ -31,9 +31,9 @@ angular.module('trabajoTerminal')
       },
 
       /**
-      * recuperarDietasPaciente - Funcion que invoca al controller de la API para recuperar las idetas asociadas a un paciente
+      * recuperarDietasPacienteService - Funcion que invoca al controller de la API para recuperar las idetas asociadas a un paciente
       */
-      recuperarDietasPaciente: function(idPaciente) {
+      recuperarDietasPacienteService: function(idPaciente) {
         var config = {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
@@ -45,13 +45,10 @@ angular.module('trabajoTerminal')
           .then(function successCallback(response) {
             
             if (response.data.respuesta === "ERROR") {
-              console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
               return $q.reject(response);
-            } else {
-              console.log("response  : " + JSON.stringify(response.data));
+            }else{
               return response.data;
             }
-
           }, function errorCallback(response) {
             console.log("response ERROR : " + JSON.stringify(response.data));
             return $q.reject(response);

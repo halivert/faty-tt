@@ -51,7 +51,7 @@ public class DietaAppServiceTestCase {
 	}
 	
 	/**
-	 * Proposito : Validar el correcto funcionamiento del medoto recuperarDietaPorIdPaciente
+	 * Proposito : Validar el correcto funcionamiento del medoto recuperarDietaPorIdPacienteAppService
 	 * 
 	 * @author Edgar, ESCOM
 	 * @version 1,0,0. 31/03/2018
@@ -64,7 +64,7 @@ public class DietaAppServiceTestCase {
 		List<DietaDto> dietaDtoList = null;
 	
 		try{
-			dietaDtoList = dietaAppService.recuperarDietaPorIdPaciente(idPaciente);
+			dietaDtoList = dietaAppService.recuperarDietaPorIdPacienteAppService(idPaciente);
 			if(dietaDtoList != null) {
 				XStream xStream = new XStream();
 				log.debug(xStream.toXML(dietaDtoList));

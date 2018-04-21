@@ -65,14 +65,11 @@ angular.module('trabajoTerminal')
         var url = 'http://35.202.245.109/tt-escom-diabetes/session/usuarios';
         //var url = 'http://localhost:8080/tt-escom-diabetes/session/usuarios';
 
-        console.log("data : " + JSON.stringify(data));
         return $http.post(url, data, config).then(function successCallback(response) {
 
           if (response.data.respuesta === "OK") {
-            console.log("response OK : " + JSON.stringify(response.data.mensaje));
             return response.data.mensaje;
           } else {
-            console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
             return $q.reject(response);
           }
 
@@ -102,7 +99,6 @@ angular.module('trabajoTerminal')
 
         return $http.get(url, data, config)
           .then(function successCallback(response) {
-            console.log("response OK : " + JSON.stringify(response.data));
             return response.data;
           }, function errorCallback(response) {
             console.log("response ERROR : " + JSON.stringify(response.data));

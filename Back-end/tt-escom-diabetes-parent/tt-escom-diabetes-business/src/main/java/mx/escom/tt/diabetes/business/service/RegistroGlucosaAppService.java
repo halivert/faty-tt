@@ -203,7 +203,7 @@ public class RegistroGlucosaAppService {
 				throw new RuntimeException(msjEx);
 			}
 			if(limiteRegistro == null) {
-				msjEx = "El Límite para recuperar registros no puede ser nulo";
+				msjEx = "El límite para recuperar registros no puede ser nulo";
 				throw new RuntimeException(msjEx);
 			}
 		}	
@@ -217,6 +217,54 @@ public class RegistroGlucosaAppService {
 				throw new RuntimeException(msjEx);
 			}
 			
+		}catch(RuntimeException rtExc) { 
+			throw rtExc;
+		}catch (Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar la información de los registros para el paciente con id: " + idPaciente + ex.getMessage();
+			throw new RuntimeException(msjEx,ex);
+		}
+		
+		log.debug("Fin - Service");
+		return result;
+	}
+	
+	/**
+	 * Proposito : Recuperar los registros de glucosa en un periodo de fechas
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 15/04/2018
+	 * @param idPaciente						-	Identificador de paciente que se quieren recuperar los registros
+	 * @param fechaInicio					-	Fecha de inicio del periodo 
+	 * @param fechaFin						-	Fecha de fin del periodo 
+	 * @return List<RegistroGlucosaDto>		-	Lista con la informacion asociada al paciente
+	 * @throws RuntimeException				-	Si ocurre un error durante la ejecucion del metodo
+	 */
+	public List<RegistroGlucosaCommonVo> recuperaListaRegistroGlucosaPorFiltrosAppService(Integer idPaciente, Timestamp fechaInicio, Timestamp fechaFin) throws RuntimeException{
+		log.debug("Inicio - Service");
+		List<RegistroGlucosaCommonVo> result = null;
+		String msjEx = null;
+		
+		{//Validaciones 
+			if(idPaciente == null) {
+				msjEx = "El identificador del paciente no puede ser nulo";
+				throw new RuntimeException(msjEx);
+			}
+			if(fechaInicio == null) {
+				msjEx = "La fecha de inicio no puede ser nula";
+				throw new RuntimeException(msjEx);
+			}
+			if(fechaFin == null) {
+				msjEx = "La fecha de fin no puede ser nula";
+				throw new RuntimeException(msjEx);
+			}
+		}	
+		
+		try {
+			result = registroGlucosaDao.recuperaListaRegistroGlucosaPorFiltros(idPaciente, fechaInicio, fechaFin);
+			if(result.isEmpty()) {
+				msjEx = "No se han encontrado registros de glucosa.";
+				throw new RuntimeException(msjEx);
+			}
 		}catch(RuntimeException rtExc) { 
 			throw rtExc;
 		}catch (Exception ex) {

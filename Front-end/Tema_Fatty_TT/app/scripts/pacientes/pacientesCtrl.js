@@ -167,8 +167,6 @@ $scope.setCurrentPaciente = function(){
 * guardarHistorialClinico  - Guardar la informacion del historial clinico del paciente seleccionado
 */
 $scope.guardarHistorialClinico = function(){
-  console.log("guardarHistorialClinico()");
-
   pacientesService.guardarInfoHistorialClinico($scope.usuario.id,$scope.historial.peso,$scope.historial.talla,$scope.historial.altura,$scope.historial.imc,$scope.historial.lipidos,$scope.historial.carbohidratos,$scope.historial.proteinas,$scope.historial.azucar).then(
 
     function successCallback(d) {
@@ -214,15 +212,12 @@ $scope.actualizaHistorialClinico = function(){
 * recuperaHistorial  - Recuperar la informacion del historial clinico del paciente seleccionado
 */
 $scope.recuperaHistorial = function(idHistorial){
-  console.log("recuperaHistorial()");
-  console.log("idHistorial : " + idHistorial);
   blockUI.start();
   idCurrentPaciente = $cookies.get("idCurrentPaciente")
 
   pacientesService.recuperarDetallHistorialClinico(idCurrentPaciente,idHistorial).then(
 
     function successCallback(d) {
-      console.log(JSON.stringify(d));
       $scope.historialDetalle = d;
       $scope.activarBoton();
     },
@@ -241,8 +236,6 @@ $scope.recuperaHistorial = function(idHistorial){
 * recuperarRegistrosGlucosa  - Recupera los registros de glucosa de un paciente, por medio del idUsuario
 */
 $scope.recuperarRegistrosGlucosa = function(){
-  console.log("recuperarRegistrosGlucosa()");
-
   blockUI.start();
   var idPaciente =  $cookies.get("idCurrentPaciente")
 
@@ -320,7 +313,6 @@ $scope.esValido = function esValido() {
 */
 $scope.validaForm =function(){
   if($scope.formHistorial.$valid){
-    //console.log($scope.historial.imc = ($scope.historial.peso)/Math.pow($scope.historial.altura,2));
     return  true;
   }
   else{
@@ -378,13 +370,9 @@ $scope.clickOptionSelected = function(index) {
 *
 */
 $scope.filtraNumRegistro = function(limite){
-  console.log("filtraNumRegistro()");
-
   /*Cookie que se recupera del inicio de sesion*/
   var idPaciente =  $cookies.get("idUsuario")
-
   
-  //console.log("numero maximo : " + lim);
   if (limite == undefined) {
         limite  = "5";
   }
@@ -396,12 +384,12 @@ $scope.filtraNumRegistro = function(limite){
 
       $scope.labels = [];
       $scope.data = [[]];
-
       
       d.forEach(function (data) {
         $scope.labels.push(data.fechaRegistro);
         $scope.data[0].push(data.azucar);
       });
+
 
       $scope.onClick = function (points, evt) {
         console.log(points, evt);

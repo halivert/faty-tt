@@ -1,5 +1,6 @@
 package mx.escom.tt.diabetes.model.dao.impl;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -49,7 +50,6 @@ public class RegistroGlucosaDaoImpl implements RegistroGlucosaDao{
 		
 		try {			 
 			sessionFactory.getCurrentSession().save(regGlucosaDto);
-		
 		}
 		catch(Exception ex){
 			msjEx = Constants.MSJ_EXCEPTION + "al guardar el registro.";
@@ -120,12 +120,6 @@ public class RegistroGlucosaDaoImpl implements RegistroGlucosaDao{
 		return resultList;
 	}
 
-	@Override
-	public List<RegistroGlucosaDto> recuperaListaRegistroGlucosaPorFiltros() throws RuntimeException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<RegistroGlucosaCommonVo> recuperaNRegistroGlucosa(Integer idPaciente, Integer limiteRegistro)
@@ -162,6 +156,51 @@ public class RegistroGlucosaDaoImpl implements RegistroGlucosaDao{
 			throw new RuntimeException(msjEx,ex.getCause());
 		}
 		
+		
+		log.debug("Fin - Dao");
+		return resultList;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RegistroGlucosaCommonVo> recuperaListaRegistroGlucosaPorFiltros(Integer idPaciente, Timestamp fechaInicio,
+			Timestamp fechaFin) throws RuntimeException {	
+		log.debug("Inicio - Dao");
+		
+		String msjEx = null;
+		String queryStr = null;
+		List<RegistroGlucosaCommonVo> resultList = null;
+		
+		{//Validaciones
+			if(idPaciente == null) {
+				msjEx = "El identificador del paciente no debe ser nulo.";
+				throw new RuntimeException(msjEx);
+			}
+			if(fechaInicio == null) {
+				msjEx = "La fecha de inicio no puede ser nula o vacía.";
+				throw new RuntimeException(msjEx);
+			}
+			if(fechaFin == null) {
+				msjEx = "La fecha de fin no puede ser nula o vacía.";
+				throw new RuntimeException(msjEx);
+			}
+		}
+		
+		try {
+			queryStr = ql.getQuery(RegistroGlucosaQlHelper.RECUPERA_REGISTROS_POR_FILTROS);
+			log.debug("queryStr : "+ queryStr);
+			
+			Query query = sessionFactory.getCurrentSession().createSQLQuery(queryStr).setResultTransformer(Transformers.aliasToBean(RegistroGlucosaCommonVo.class));
+			//log.debug("idPaciente : " + idPaciente);
+			query.setParameter("idPaciente", idPaciente);
+			query.setParameter("fechaInicio", fechaInicio);
+			query.setParameter("fechaFin", fechaFin);
+			
+			resultList = query.list();
+		}catch(Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "al recuperar el registro.";
+			throw new RuntimeException(msjEx,ex.getCause());
+		}
 		
 		log.debug("Fin - Dao");
 		return resultList;

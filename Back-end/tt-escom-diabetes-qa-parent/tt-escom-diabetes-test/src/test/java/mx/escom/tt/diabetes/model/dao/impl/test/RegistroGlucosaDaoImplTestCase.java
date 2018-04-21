@@ -1,11 +1,15 @@
 package mx.escom.tt.diabetes.model.dao.impl.test;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -24,6 +28,12 @@ import mx.escom.tt.diabetes.model.dto.RegistroGlucosaDto;
 public class RegistroGlucosaDaoImplTestCase {
 
 	@Autowired RegistroGlucosaDao registroGlucosaDao;
+	
+	@Qualifier("FormatoTimpeStamp")
+	@Autowired SimpleDateFormat formatoFecha;
+	
+	@Qualifier("FormatoFechaNacimiento")
+	@Autowired SimpleDateFormat formatoFechaNacimiento;
 	
 	/**
 	 * Proposito : Validar el correcto funcionamiento del metodo guardaRegistroGlucosa
@@ -153,6 +163,41 @@ public class RegistroGlucosaDaoImplTestCase {
 		log.debug("Fin - Test");
 	}
 	
-	
-	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperaListaRegistroGlucosaPorFiltros
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 15/04/2018
+	 * @see RegistroGlucosaDao#recuperaListaRegistroGlucosaPorFiltros(Integer, Timestamp, Timestamp)
+	 */
+	@Test
+	public void recuperaListaRegistroGlucosaPorFiltrosTestCase(){
+		log.debug("Inicio - Test");
+		
+		Integer idPaciente = 3;
+		List<RegistroGlucosaCommonVo> registroGlucosaVo = null;
+		Date date1, date2;
+		
+		try {
+			date1 = formatoFechaNacimiento.parse("01/04/2018");
+			date2 = formatoFechaNacimiento.parse("01/05/2018");
+			 
+			String a = formatoFecha.format(date1);
+			String b = formatoFecha.format(date2);
+			
+			registroGlucosaVo = registroGlucosaDao.recuperaListaRegistroGlucosaPorFiltros(idPaciente, Timestamp.valueOf(a),  Timestamp.valueOf(b));
+			
+			if(!registroGlucosaVo.isEmpty()){
+				log.debug("registroGlucosaDto.size() : " + registroGlucosaVo.size());
+				XStream xStream = new XStream();
+				log.debug("xStream.toXML(registroGlucosaVo): \n" + xStream.toXML(registroGlucosaVo));
+			}
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		log.debug("Fin - Test");
+	}
 }

@@ -8,9 +8,13 @@ angular
   fechaReg:''
 }	
 
+$scope.fechaFin = new Date();
+var fechaActual = new Date();
+$scope.fechaInicio = fechaActual.setMonth(fechaActual.getMonth()-1);
 
+$scope.fechaFin = $filter('date')(new Date($scope.fechaFin), 'dd/MM/yyyy');
 
-
+$scope.fechaInicio = $filter('date')(new Date($scope.fechaInicio), 'dd/MM/yyyy');
 
 /**
 * guardarHistorialClinico  - Guardar la informacion del historial clinico del paciente seleccionado
@@ -36,6 +40,29 @@ $scope.guardarRegistroGlucosa = function(){
     });
 },
 
+$scope.mostrarRegistrosGlucosaPorFiltros = function(){
+  /*Cookie que se recupera del inicio de sesion*/
+  var idPaciente =  $cookies.get("idUsuario")
+  console.log($scope.fechaInicio);
+  var formatoFechaInicio = $scope.fechaInicio.replace(/\//g, "-");
+  var formatoFechaFin = $scope.fechaFin.replace(/\//g, "-"); 
+  glucosaService.recuperarRegistrosGlucosaPorFiltros(idPaciente,formatoFechaInicio,formatoFechaFin).then(
+
+    function successCallback(d) {
+      toastr.success('Se muestran los registros de glucosa', 'Ok');
+      grafica(d);
+    },
+    function errorCallback(d) {
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        $log.debug("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
+        toastr.error(d.data.mensaje, 'Error');
+      }
+    });
+
+},
+
 /**
 * recuperarRegistrosGlucosa  - Recupera los registros de glucosa de un paciente, por medio del idUsuario
 */
@@ -48,16 +75,32 @@ $scope.recuperarRegistrosGlucosa = function(){
   glucosaService.recuperarRegistrosGlucosaService(idPaciente).then(
 
     function successCallback(d) {
-      $scope.series = ['Nivel de glucosa'];
+      
+      
+    },
+    function errorCallback(d) {
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        $log.debug("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
+        toastr.error(d.data.mensaje, 'Error');
+      }
+    });
+  blockUI.stop();
+
+}
+
+var grafica = function(d){
+  $scope.series = ['Nivel de glucosa'];
 
       $scope.labels = [];
       $scope.data = [[]];
 
       
-      d.forEach(function (data) {
-        $scope.labels.push(data.fechaRegistro);
-        $scope.data[0].push(data.azucar);
-      });
+        d.forEach(function (data) {
+          $scope.labels.push(data.fechaRegistro);
+          $scope.data[0].push(data.azucar);
+        });
 
       $scope.onClick = function (points, evt) {
         console.log(points, evt);
@@ -75,17 +118,6 @@ $scope.recuperarRegistrosGlucosa = function(){
           ]
         }
       };
-    },
-    function errorCallback(d) {
-      if(d.data == null)
-        toastr.warning("Servicio no disponible", 'Advertencia');
-      else{
-        $log.debug("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
-        toastr.error(d.data.mensaje, 'Error');
-      }
-    });
-  blockUI.stop();
-
 }
 
 });

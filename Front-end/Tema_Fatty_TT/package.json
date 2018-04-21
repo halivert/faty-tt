@@ -21,6 +21,7 @@
     "grunt-usemin": "^2.4.0",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^0.6.0",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.4"
   }
 }

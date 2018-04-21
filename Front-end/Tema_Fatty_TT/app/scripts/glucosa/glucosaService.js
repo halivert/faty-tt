@@ -102,6 +102,30 @@ recuperarNRegistrosGlucosaService: function(idUsuario, limiteRegistro) {
     console.log("response ERROR : " + JSON.stringify(response.data));
     return $q.reject(response);
   });
+},
+
+recuperarRegistrosGlucosaPorFiltros: function(idUsuario, fechaInicio,fechaFin) {    
+
+  var config = {
+    headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
+  }
+
+  var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idUsuario+'/registroglucosa/fechaInicio/'+fechaInicio+'/fechaFin/'+fechaFin;  
+   
+  return $http.get(url,config)
+  .then(function successCallback(response) {
+    if(response.data.respuesta === "ERROR"){
+      console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
+      return $q.reject(response);   
+    }
+    else{
+      return response.data;   
+    }
+    
+  },function errorCallback(response) {
+    console.log("response ERROR : " + JSON.stringify(response.data));
+    return $q.reject(response);
+  });
 }
 
 
