@@ -4,28 +4,32 @@ import android.app.Activity
 import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.android.volley.Request.Method.POST
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AZUCAR
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.DATE_VALIDATION
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.FECHA_REGISTRO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.HOUR_VALIDATION
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.SUGAR_VALIDATION
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PATIENT
 import escom.tt.ceres.ceresmobile.tools.Functions
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.launch
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
@@ -41,7 +45,7 @@ class PatientSugarRecordingFragment : Fragment() {
     val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
     val idPatient = preferences.getInt(ID_USUARIO, -1)
     if (idPatient >= 0)
-      urlSugarRecording += idPatient.toString() + "/registroglucosa"
+      urlSugarRecording += idPatient.toString() + "/registroglucosa/"
     else
       urlSugarRecording = ""
 
@@ -55,7 +59,9 @@ class PatientSugarRecordingFragment : Fragment() {
       if (focusedView != null) {
         inputMethodManager.hideSoftInputFromWindow(focusedView.windowToken, 0)
       }
-      saveSugar()
+      launch(UI) {
+        saveSugar()
+      }
     }
 
     var dateFormat = SimpleDateFormat("dd/MM/yyyy")
@@ -73,31 +79,47 @@ class PatientSugarRecordingFragment : Fragment() {
     return view
   }
 
-  private fun saveSugar() {
+  private suspend fun saveSugar() {
     val context = activity.applicationContext
     val parameters = HashMap<String, String>()
     val sugar = activity.findViewById<EditText>(R.id.etAzucar)
     val date = activity.findViewById<EditText>(R.id.etFechaAzucar)
     val hour = activity.findViewById<EditText>(R.id.etHoraAzucar)
+    val progressBar = activity.findViewById<ProgressBar>(R.id.progress_bar)
 
-    if (sugar.text.toString().isBlank()) {
-      Toast.makeText(context, "Falta ázucar", Toast.LENGTH_LONG).show()
+    if (sugar.text.toString().isNullOrEmpty()) {
+      Toast.makeText(context, SUGAR_VALIDATION, Toast.LENGTH_LONG).show()
       return
     }
-    if (date.text.toString().isBlank()) {
-      Toast.makeText(context, "Falta date", Toast.LENGTH_LONG).show()
+    if (date.text.toString().isNullOrEmpty()) {
+      Toast.makeText(context, DATE_VALIDATION, Toast.LENGTH_LONG).show()
       return
     }
-    if (hour.text.toString().isBlank()) {
-      Toast.makeText(context, "Falta hour", Toast.LENGTH_LONG).show()
+    if (hour.text.toString().isNullOrEmpty()) {
+      Toast.makeText(context, HOUR_VALIDATION, Toast.LENGTH_LONG).show()
       return
     }
 
     parameters[AZUCAR] = sugar.text.toString()
-    // parametros.put(FECHA_REGISTRO, date + " " + hour + ":00.0");
     parameters[FECHA_REGISTRO] = date.text.toString() + " " + hour.text.toString()
     val jsonObject = JSONObject(parameters)
 
+    if (progressBar != null) progressBar.visibility = View.VISIBLE
+    var queue = CeresRequestQueue.getInstance(context)
+
+    var response = queue.apiObjectRequest(POST, urlSugarRecording, jsonObject).await()
+    if (response.has(RESPUESTA)) {
+      val responseString = response.getString(RESPUESTA)
+      if (response.has(MENSAJE)) {
+        Toast.makeText(context, response.getString(MENSAJE), Toast.LENGTH_LONG).show()
+        if (responseString == OK) {
+          mListener?.endSugarRegister()
+        }
+      }
+    }
+
+    if (progressBar != null) progressBar.visibility = View.INVISIBLE
+    /*
     val request = JsonObjectRequest(POST, urlSugarRecording, jsonObject,
         Response.Listener { response ->
           try {
@@ -120,6 +142,7 @@ class PatientSugarRecordingFragment : Fragment() {
     )
 
     CeresRequestQueue.getInstance(context).addToRequestQueue(request)
+    */
   }
 
   override fun onAttach(context: Context) {

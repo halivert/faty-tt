@@ -14,7 +14,7 @@ object Constants {
   }
 
   object Strings {
-    const val AZUCAR = "sugar"
+    const val AZUCAR = "azucar"
     const val DIETA = "Dieta"
     const val DATE_FORMAT = "dd/MM/yyyy"
     const val GLUCOSA = "Glucosa"
@@ -39,12 +39,12 @@ object Constants {
     const val TOKEN = "TOKEN"
     const val VOID = "VOID"
 
-    const val URL_SERVIDOR = "http://35.202.245.109"
-    const val URL_REGISTRO = "$URL_SERVIDOR/tt-escom-diabetes/session/usuarios"
-    const val URL_LOGIN = "$URL_SERVIDOR/tt-escom-diabetes/session/login"
-    const val URL_DATOS = "$URL_SERVIDOR/tt-escom-diabetes/ceres/usuarios/"
-    const val URL_PATIENT = "$URL_SERVIDOR/tt-escom-diabetes/ceres/pacientes"
-    const val URL_MEDICO = "$URL_SERVIDOR/tt-escom-diabetes/ceres/medico"
+    const val URL_SERVER = "http://35.202.245.109"
+    const val URL_REGISTER = "$URL_SERVER/tt-escom-diabetes/session/usuarios"
+    const val URL_LOGIN = "$URL_SERVER/tt-escom-diabetes/session/login"
+    const val URL_DATOS = "$URL_SERVER/tt-escom-diabetes/ceres/usuarios/"
+    const val URL_PATIENT = "$URL_SERVER/tt-escom-diabetes/ceres/pacientes"
+    const val URL_MEDICO = "$URL_SERVER/tt-escom-diabetes/ceres/medico"
 
     const val USUARIO = "Usuario"
     const val LOGIN = "Login"
@@ -62,12 +62,25 @@ object Constants {
     const val PARSE_ERROR = "Error de cadena"
     const val UNKNOWN_ERROR = "Error desconocido"
 
-    // Dieta
+    // Diet
     const val ID_DIET = "idDieta"
     const val ID_PATIENT = "idPaciente"
     const val ID_DOCTOR = "idMedico"
     const val DESCRIPTION = "descripcion"
     const val AVAILABLE_FOODS = "alimentosDisponibles"
     const val ASSIGN_DATE = "fechaAsignacion"
+
+    // Medical history
+    const val ID_MEDICAL_HISTORY = "idHistorialClinico"
+    const val WEIGHT = "peso"
+    const val SIZE = "talla"
+    const val DATE = "fecha"
+    const val SUGAR = "azucar"
+
+    // SugarRecording
+    const val SUGAR_VALIDATION = "Falta azúcar"
+    const val HOUR_VALIDATION = "Falta hora"
+    const val DATE_VALIDATION = "Falta fecha"
+
   }
 }

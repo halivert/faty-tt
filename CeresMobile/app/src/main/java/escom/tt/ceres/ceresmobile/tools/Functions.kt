@@ -122,5 +122,16 @@ object Functions {
     return (sizeInDp * scale + 0.5f).toInt()
   }
 
+  fun calculateAge(birthdate: Date): Int {
+    val today = Calendar.getInstance()
+    val birth = Calendar.getInstance()
 
+    birth.time = birthdate
+    var yearDifference = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR)
+    if (today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR)) {
+      yearDifference--
+    }
+
+    return yearDifference
+  }
 }
