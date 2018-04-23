@@ -82,5 +82,7 @@ object Constants {
     const val HOUR_VALIDATION = "Falta hora"
     const val DATE_VALIDATION = "Falta fecha"
 
+    const val POSITION = "Position"
+
   }
 }

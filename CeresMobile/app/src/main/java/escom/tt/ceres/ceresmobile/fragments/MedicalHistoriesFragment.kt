@@ -48,7 +48,7 @@ class MedicalHistoriesFragment : Fragment() {
     if (context is OnFragmentInteractionListener) {
       listener = context
     } else {
-      throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
+      throw RuntimeException(context.toString() + " must implement OnDietDetailInteraction")
     }
   }
 
@@ -57,7 +57,7 @@ class MedicalHistoriesFragment : Fragment() {
     if (activity is OnFragmentInteractionListener) {
       listener = activity
     } else {
-      throw RuntimeException(activity.toString() + " must implement OnFragmentInteractionListener")
+      throw RuntimeException(activity.toString() + " must implement OnDietDetailInteraction")
     }
   }
 
