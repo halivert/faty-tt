@@ -70,7 +70,22 @@
     <string name="show_diets">Ver mis dietas</string>
     <string name="weight">Peso</string>
     <string name="size">Talla</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="breakfast">Desayuno</string>
+    <string name="breakfast_schedule">7:00 am - 8:00 am</string>
+    <string name="collation_1">Colación 1</string>
+    <string name="collation_1_schedule">11:00 am - 12:00 am</string>
+    <string name="calories">Calorías</string>
+    <string name="schedule">Horario</string>
+    <string name="two_points">:</string>
+    <string name="blank_space"> </string>
+    <string name="meal">Comida</string>
+    <string name="meal_schedule">2:00 pm - 3:00 pm</string>
+    <string name="collation_2">Colación 2</string>
+    <string name="collation_2_schedule">5:00 pm - 6:00 pm</string>
+    <string name="shield_android_string_fingerprint_icon_content_description">shield @android:string/fingerprint_icon_content_description</string>
+    <string name="bolt_android_string_fingerprint_icon_content_description">bolt @android:string/fingerprint_icon_content_description</string>
+    <string name="calendar_android_string_fingerprint_icon_content_description">calendar @android:string/fingerprint_icon_content_description</string>
+    <string name="gray_star_android_string_fingerprint_icon_content_description">gray star @android:string/fingerprint_icon_content_description</string>
+    <string name="dinner">Cena</string>
+    <string name="dinner_schedule">9:00 pm - 10:00 pm</string>
 </resources>

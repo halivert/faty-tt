@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="center"
-            android:background="@color/colorPrimary"
+            android:background="@color/color_primary"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             tools:layout_editor_absoluteX="8dp"

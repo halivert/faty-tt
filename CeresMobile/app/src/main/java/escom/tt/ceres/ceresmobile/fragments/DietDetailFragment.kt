@@ -4,24 +4,30 @@ import android.app.Activity
 import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.TextView
 import com.android.volley.Request
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.activities.PatientMainActivity
 import escom.tt.ceres.ceresmobile.models.Diet
+import escom.tt.ceres.ceresmobile.models.Meal
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Constants
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.BREAKFAST
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.COLLATION_1
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.COLLATION_2
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.DINNER
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_DIET
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MEAL
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.POSITION
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import org.json.JSONObject
+import java.util.*
 
 class DietDetailFragment : Fragment() {
   private var idDiet: Int = -1
@@ -40,20 +46,32 @@ class DietDetailFragment : Fragment() {
                             savedInstanceState: Bundle?): View? {
     var view = inflater.inflate(R.layout.fragment_diet_detail, container, false)
 
-    val progressBar = view.findViewById<ProgressBar>(R.id.progress_bar)
-
     if (idDiet > -1 && position > -1) {
       launch(UI) {
-        progressBar.visibility = VISIBLE
         var diet: Diet = getDietDetail(idDiet, position)
-        progressBar.visibility = INVISIBLE
         view.findViewById<TextView>(R.id.tv_description).text = diet.description
-        view.findViewById<TextView>(R.id.tv_date).text = diet.assignDate.toString()
+        val dietDate = Calendar.getInstance()
+        dietDate.timeInMillis = diet.assignDate.time
+        view.findViewById<TextView>(R.id.tv_date).text =
+            "${dietDate.get(Calendar.DAY_OF_MONTH)}/" +
+            "${dietDate.get(Calendar.MONTH) + 1}/" +
+            "${dietDate.get(Calendar.YEAR)}"
+        var jsonFoods: JSONObject? = null
         try {
-          var jsonFoods = JSONObject(diet.availableFoods)
-          view.findViewById<TextView>(R.id.tv_available_foods).text = jsonFoods.toString(2)
+          jsonFoods = JSONObject(diet.availableFoods)
         } catch (e: Exception) {
-          view.findViewById<TextView>(R.id.tv_available_foods).text = diet.availableFoods
+          Log.e(ERROR, "Json parse error")
+        }
+
+        if (jsonFoods != null) {
+          var breakfast = Meal(jsonFoods.getString(BREAKFAST))
+          Log.e(BREAKFAST, breakfast.toString())
+          Log.e("$BREAKFAST Size", breakfast.getFoodList().size.toString())
+          view.findViewById<TextView>(R.id.tv_breakfast).text = Meal(jsonFoods.getString(BREAKFAST)).toString()
+          view.findViewById<TextView>(R.id.tv_collation_1).text = Meal(jsonFoods.getString(COLLATION_1)).toString()
+          view.findViewById<TextView>(R.id.tv_meal).text = Meal(jsonFoods.getString(MEAL)).toString()
+          view.findViewById<TextView>(R.id.tv_collation_2).text = Meal(jsonFoods.getString(COLLATION_2)).toString()
+          view.findViewById<TextView>(R.id.tv_dinner).text = Meal(jsonFoods.getString(DINNER)).toString()
         }
       }
     }
