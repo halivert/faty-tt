@@ -1,88 +1,88 @@
 Índice General
-Advertencia 
+Advertencia
 Índice General
-Índice de figuras 
-Índice de tablas 
-Capítulo 1: Introducción 
-	1.1 Antecedentes 
-	1.2 Planteamiento del problema 
-	1.3 Propuesta de solución 
-	1.4 Objetivos 
-		1.4.1 Objetivo General 
-		1.4.2 Objetivos particulares 
-	1.5 Justificación 
+Índice de figuras
+Índice de tablas
+Capítulo 1: Introducción
+	1.1 Antecedentes
+	1.2 Planteamiento del problema
+	1.3 Propuesta de solución
+	1.4 Objetivos
+		1.4.1 Objetivo General
+		1.4.2 Objetivos particulares
+	1.5 Justificación
 Capítulo 2: Estado del arte
-	2.1 Introducción 
-	2.2 Ámbito 
-		2.2.1 Nacional 
-		2.2.2 Internacional 
+	2.1 Introducción
+	2.2 Ámbito
+		2.2.1 Nacional
+		2.2.2 Internacional
 Capítulo 3: Marco teórico
-	3.1 Metabolismo	
-	3.1 Trastornos Metabolicos	
-		3.1.1 Alteraciones de la glandura tiroides	
-		3.1.2 Hemocromatosis	
+	3.1 Metabolismo
+	3.1 Trastornos Metabolicos
+		3.1.1 Alteraciones de la glandura tiroides
+		3.1.2 Hemocromatosis
 		3.1.3 Obesidad
 		(Agregar 2 enfermedades mas )
-		3.1.4 Diabetes Mellitus	
-			3.1.4.1 Diabetes Mellitus Tipo I	
-			3.1.4.1 Diabetes Mellitus Tipo II	
-		3.2.5 Diabetes Mellitus Tipo II en México	
-		3.2.6 Complicaciones de la Diabetes Mellitus Tipo II	
-		3.2.7 Formula Dieto-sintetica	
-		3.2.8 Machine Learning	(investigar mas... mucho mas) (debemos hablar de que es machine learning, aprendizaje algoritmos, y por que escogimos arboles de decision 
-		3.2.9 Ceres	
+		3.1.4 Diabetes Mellitus
+			3.1.4.1 Diabetes Mellitus Tipo I
+			3.1.4.1 Diabetes Mellitus Tipo II
+		3.2.5 Diabetes Mellitus Tipo II en México
+		3.2.6 Complicaciones de la Diabetes Mellitus Tipo II
+		3.2.7 Formula Dieto-sintetica
+		3.2.8 Machine Learning	(investigar mas... mucho mas) (debemos hablar de que es machine learning, aprendizaje algoritmos, y por que escogimos arboles de decision
+		3.2.9 Ceres
 Capítulo 4: Marco metodológico
 	4.1 Introduccion
 Capítulo 5: Planificacion del sistema
 	5.1 Introduccion
 	5.2 Cronograma
-Capítulo 6: Estudio de factibilidad	
-	6.1	Introducción	
-	6.2	Alcance del sistema	
-		6.2.1	Estudio de la solicitud	
-		6.2.2	Identificación del alcance del sistema	
-		6.2.3	Especificación del alcance del sistema	
-	6.3	Estudio de alternativas de solución	
-		6.3.1	Descripción del diagrama	
-		6.3.2	Preselección de alternativas de solución	
-	6.4	Valoración de alternativas	
-		6.4.1	Estudio de factibilidad económica	
-		6.4.2	Estudio de riesgos	
+Capítulo 6: Estudio de factibilidad
+	6.1	Introducción
+	6.2	Alcance del sistema
+		6.2.1	Estudio de la solicitud
+		6.2.2	Identificación del alcance del sistema
+		6.2.3	Especificación del alcance del sistema
+	6.3	Estudio de alternativas de solución
+		6.3.1	Descripción del diagrama
+		6.3.2	Preselección de alternativas de solución
+	6.4	Valoración de alternativas
+		6.4.1	Estudio de factibilidad económica
+		6.4.2	Estudio de riesgos
 	6.5	Selección de alternativa
-Capítulo 7: Análisis del sistema	
-	7.1	Introducción	
-	7.2	Establecimiento de requerimientos	
-		7.2.1	Requerimientos funcionales	
-		7.2.2	Requerimientos no funcionales	
-	7.3	Definición del sistema	
-		7.3.1	Especificación de estándares y normas	
-		7.3.2	Identificación de usuarios	
-	7.4	Catálogo de mensajes		
+Capítulo 7: Análisis del sistema
+	7.1	Introducción
+	7.2	Establecimiento de requerimientos
+		7.2.1	Requerimientos funcionales
+		7.2.2	Requerimientos no funcionales
+	7.3	Definición del sistema
+		7.3.1	Especificación de estándares y normas
+		7.3.2	Identificación de usuarios
+	7.4	Catálogo de mensajes
 	7.5	Definición de interfaces de usuario	??
 	(cuantas interfaces y cuales)
-	7.6	Modelo de casos de uso	
-		7.6.1	Diagramas de casos de uso ??	
-		7.6.2	Análisis de casos de uso	
-Capítulo 8: Diseño del sistema	
-  8.1	Introducción	
-  8.2	Definición de la arquitectura sistema	
-    8.2.1	Niveles de arquitectura	
-    8.2.2	Arquitectura física	
-    8.2.3	Arquitectura lógica	
+	7.6	Modelo de casos de uso
+		7.6.1	Diagramas de casos de uso ??
+		7.6.2	Análisis de casos de uso
+Capítulo 8: Diseño del sistema
+  8.1	Introducción
+  8.2	Definición de la arquitectura sistema
+    8.2.1	Niveles de arquitectura
+    8.2.2	Arquitectura física
+    8.2.3	Arquitectura lógica
     8.2.4	Prototipos del sistema	??
-  8.3	Especificaciones de excepciones	
+  8.3	Especificaciones de excepciones
   8.4	Diagrama de bloques	??
-  8.5	Diagramas de secuencia	
-  8.6	Diagramas de actividades	
-  8.7	Modelo de datos	
+  8.5	Diagramas de secuencia
+  8.6	Diagramas de actividades
+  8.7	Modelo de datos
   8.8	Diccionario de datos
-Capítulo 9: Desarrollo del sistema	
-  9.1	Introducción	
-  9.2	Interfaz del sistema	
-Capítulo 10: Pruebas del sistema	
-  10.1	Introducción	
-  10.2	Guiones de prueba ??	
-  10.3	Resultados	
-Capítulo 11: Conclusiones	
-Capítulo 12: Trabajo a futuro	
-Referencias	
+Capítulo 9: Desarrollo del sistema
+  9.1	Introducción
+  9.2	Interfaz del sistema
+Capítulo 10: Pruebas del sistema
+  10.1	Introducción
+  10.2	Guiones de prueba ??
+  10.3	Resultados
+Capítulo 11: Conclusiones
+Capítulo 12: Trabajo a futuro
+Referencias
