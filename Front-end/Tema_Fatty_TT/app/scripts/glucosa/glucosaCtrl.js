@@ -20,7 +20,6 @@ $scope.fechaInicio = $filter('date')(new Date($scope.fechaInicio), 'dd/MM/yyyy')
 * guardarHistorialClinico  - Guardar la informacion del historial clinico del paciente seleccionado
 */
 $scope.guardarRegistroGlucosa = function(){
-  console.log("guardarRegistroGlucosa()");
 
   /*Cookie que se recupera del inicio de sesion*/
   var idPaciente =  $cookies.get("idUsuario")
@@ -67,7 +66,6 @@ $scope.mostrarRegistrosGlucosaPorFiltros = function(){
 * recuperarRegistrosGlucosa  - Recupera los registros de glucosa de un paciente, por medio del idUsuario
 */
 $scope.recuperarRegistrosGlucosa = function(){
-  console.log("recuperarRegistrosGlucosa()");
 
   blockUI.start();
   var idPaciente =  $cookies.get("idCurrentPaciente")
@@ -75,7 +73,7 @@ $scope.recuperarRegistrosGlucosa = function(){
   glucosaService.recuperarRegistrosGlucosaService(idPaciente).then(
 
     function successCallback(d) {
-      
+    grafica(d);
       
     },
     function errorCallback(d) {
@@ -102,8 +100,14 @@ var grafica = function(d){
           $scope.data[0].push(data.azucar);
         });
 
-      $scope.onClick = function (points, evt) {
-        console.log(points, evt);
+      $scope.$on('chart-create', function(event, instance){
+        $scope.chart = instance.chart;
+      });
+
+      $scope.onClick = function (elements, e) {
+
+      recuperarRegistro(elements,e,d);
+
       };
       $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
       $scope.options = {
@@ -118,6 +122,25 @@ var grafica = function(d){
           ]
         }
       };
+}
+
+var recuperarRegistro = function(elements,e,d){
+
+  var pos = Chart.helpers.getRelativePosition(e, $scope.chart);
+
+      
+      var intersect = elements.find(function(element) {
+        return element.inRange(pos.x, pos.y);
+      });
+      if(intersect){
+        for(i in d) {
+        if(d[i].fechaRegistro==$scope.labels[intersect._index] && d[i].azucar==$scope.data[intersect._datasetIndex][intersect._index]){ 
+        console.log(JSON.stringify(d[i]));
+      }
+      }
+
+      }
+
 }
 
 });

@@ -13,6 +13,7 @@ import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.DietaAppService;
+import mx.escom.tt.diabetes.business.vo.ValoresNutrimentalesDietaVo;
 import mx.escom.tt.diabetes.model.dto.DietaDto;
 
 @CommonsLog
@@ -42,6 +43,41 @@ public class DietaAppServiceTestCase {
 			dietaDto = dietaAppService.recuperarDietaPorIdAppService(idDieta);
 			if(dietaDto != null) {
 				log.debug(dietaDto.toString());
+			}
+		}catch(RuntimeException ex) {
+			log.debug("ex :" + ex.getMessage());
+		}
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo calcularValoresNutrimentalesDieta
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 22/04/2018
+	 */
+	@Test
+	public void calcularValoresNutrimentalesDietaTestCase() {
+		log.debug("Inicio - Test");
+		
+		Integer idDieta = 3;
+		ValoresNutrimentalesDietaVo valoresNutrimentalesDietaVo = null;
+		
+		Integer edad = 20;
+		Double peso = 55.0;
+		Double estatura = 1.62;
+		String actividadFisica = "4";
+		Integer sexo = 1;
+		Double pLipidos = 25.0;
+		Double pCarbohidratos = 60.0;
+		Double pProteinas = 15.0;
+		
+		try{
+			valoresNutrimentalesDietaVo = dietaAppService.calcularValoresNutrimentalesDietaAppService(edad, peso, estatura, actividadFisica, sexo, pLipidos, pCarbohidratos, pProteinas);
+			if(valoresNutrimentalesDietaVo != null) {
+				XStream xStream = new XStream();
+				log.debug("xStream.toXML(valoresNutrimentalesDietaVo): \n" + xStream.toXML(valoresNutrimentalesDietaVo));
 			}
 		}catch(RuntimeException ex) {
 			log.debug("ex :" + ex.getMessage());

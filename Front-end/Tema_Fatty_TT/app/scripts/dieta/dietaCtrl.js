@@ -205,6 +205,21 @@ angular.module('trabajoTerminal')
       );
     }
 
+   /* $scope.mostrarValoresNutrimentales = function() {
+      dietaService.obtenerValoresNutrimentales($cookies.get("idUsuario"), $cookies.get("idDieta")).then(
+        function successCallback(d) {
+          $scope.dieta = angular.fromJson(d.alimentosDisponibles);
+        },
+        function errorCallback(d) {
+          if (d.data == null)
+            toastr.warning("Servicio no disponible", 'Advertencia');
+          else {
+            toastr.error(d.data.mensaje, 'Error');
+          }
+        }
+      );
+    }*/
+
     /**
     * mostrarDietasPaciente - Funcion que llama al service que recupera una lista de deitas asociadas a un paciente
     */

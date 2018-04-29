@@ -17,7 +17,7 @@ $scope.recuperarAlimentos = function(){
   alimentoService.recuperarAlimentos($scope.tipoAlimento).then(
 
     function successCallback(d) {
-      //console.log("ALIMENTOS : " + JSON.stringify(d));
+      console.log("ALIMENTOS : " + JSON.stringify(d));
       $scope.alimentos = d;
     },
     function errorCallback(d) {

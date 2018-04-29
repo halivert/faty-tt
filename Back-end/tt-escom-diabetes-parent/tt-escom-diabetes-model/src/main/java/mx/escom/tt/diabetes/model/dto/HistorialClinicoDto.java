@@ -54,4 +54,7 @@ public class HistorialClinicoDto implements Serializable{
 	
 	@Column(name = "AZUCAR", unique = false)
 	private @Getter @Setter double azucar;
+	
+	@Column(name = "ACTIVIDAD_FISICA", unique = false)
+	private @Getter @Setter Integer actividadFisica;
 }

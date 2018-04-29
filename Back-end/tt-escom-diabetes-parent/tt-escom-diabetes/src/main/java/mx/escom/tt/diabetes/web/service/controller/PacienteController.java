@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import lombok.extern.apachecommons.CommonsLog;
+import mx.escom.tt.diabetes.business.vo.ValoresNutrimentalesDietaVo;
 import mx.escom.tt.diabetes.model.dto.DietaDto;
 import mx.escom.tt.diabetes.model.dto.PacienteDto;
 import mx.escom.tt.diabetes.web.facade.DietaFacade;
@@ -493,6 +494,32 @@ public class PacienteController {
 			respuestaErrorVo.setRespuesta("ERROR");
 			respuestaErrorVo.setMensaje(ex.getMessage());
 			result=new ResponseEntity<RespuestaErrorVo>(respuestaErrorVo, HttpStatus.OK);
+		}
+		log.debug("Fin - Controller");
+		return result;
+	}
+	
+	@RequestMapping(value = "/{idPaciente}/valoresnutrimentales", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public ResponseEntity<?> calcularValoresNutrimentalesDieta(@RequestBody PacienteVo pacienteVo) {
+		log.debug("Inicio - Controller");
+		
+		ResponseEntity<?> result = null;
+		ValoresNutrimentalesDietaVo valoresNutrimentalesDietaVo = null;
+		RespuestaErrorVo respuestaErrorVo = null;
+		
+		try {
+
+			
+			
+			valoresNutrimentalesDietaVo  = dietaFacade.calcularValoresNutrimentalesDieta(pacienteVo);
+
+			result = new ResponseEntity <ValoresNutrimentalesDietaVo>(valoresNutrimentalesDietaVo,HttpStatus.OK);
+			
+		} catch (Exception ex) {
+			respuestaErrorVo = new RespuestaErrorVo();
+			respuestaErrorVo.setRespuesta("ERROR");
+			respuestaErrorVo.setMensaje(ex.getMessage());
+			result = new ResponseEntity<RespuestaErrorVo>(respuestaErrorVo, HttpStatus.OK);
 		}
 		log.debug("Fin - Controller");
 		return result;

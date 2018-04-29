@@ -84,6 +84,47 @@ angular.module('trabajoTerminal')
             console.log("response ERROR : " + JSON.stringify(response.data));
             return $q.reject(response);
           });
+      },
+
+      obtenerValoresNutrimentales: function(idPaciente,edad,peso,estatura,actividad,sexo,porcentajeLipidos,porcentajeCarbohidratos,porcentajeProteinas) {
+        //console.log("descripcion : " + descripcion);
+        //console.log("dieta : " + JSON.stringify(dieta));
+        //var jsonDieta = JSON.stringify(dieta);
+        var intSexo = 0;
+        if(sexo === "Femenino"){
+          intSexo = 0;
+        }
+        else if (sexo == "Masculino"){
+          intSexo = 1;
+        }
+        var data = {
+          edad: edad,
+          peso: peso,
+          estatura: estatura,
+          actividad: actividad,
+          sexo: intSexo,
+          porcentajeLipidos: porcentajeLipidos,
+          porcentajeCarbohidratos: porcentajeCarbohidratos,
+          porcentajeProteinas: porcentajeProteinas
+        };
+        var config = {
+          headers : {'Content-Type': 'application/json'}
+        }
+
+        var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/valoresnutrimentales';
+        return $http.post(url,data,config)
+          .then(function successCallback(response) {
+            if(response.data.respuesta === "ERROR"){
+              console.log("response ERROR : " + JSON.stringify(response.data));
+              return $q.reject(response); 
+            }
+            else{
+              return response.data;
+            }
+          }, function errorCallback(response) {
+            console.log("response ERROR : " + JSON.stringify(response.data));
+            return $q.reject(response);
+          });
       }
 
     }

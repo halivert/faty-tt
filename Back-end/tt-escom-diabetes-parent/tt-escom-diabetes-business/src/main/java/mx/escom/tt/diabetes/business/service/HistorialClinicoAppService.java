@@ -50,7 +50,7 @@ public class HistorialClinicoAppService {
 		}catch(RuntimeException rtExc) { 
 			throw rtExc;
 		}catch (Exception ex) {
-			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico con id : " + idHistorialClinico + "\n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar el historial clínico con id : " + idHistorialClinico + ex.getMessage();
 			throw new RuntimeException(msjEx,ex);
 		}
 		
@@ -90,7 +90,7 @@ public class HistorialClinicoAppService {
 		}catch(RuntimeException rtExc) { 
 			throw rtExc;
 		}catch (Exception ex) {
-			msjEx = Constants.MSJ_EXCEPTION + "recuperar la información clínica del paciente con id : " + idPaciente + "\n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar la información clínica del paciente con id : " + idPaciente + ex.getMessage();
 			throw new RuntimeException(msjEx,ex);
 		}
 		
@@ -120,7 +120,6 @@ public class HistorialClinicoAppService {
 			historialClinicoDao.guardarHistorialClinico(historialClinicoDto);	
 			
 		}catch(RuntimeException ex) {
-			log.debug("ERRORR :::: " + ex.getMessage());
 			msjEx = ex.getMessage() + " El usuario con id : " + historialClinicoDto.getIdPaciente() + " no está registrado como paciente.";
 			throw new RuntimeException(msjEx);
 		}catch(Exception ex){
@@ -182,16 +181,13 @@ public class HistorialClinicoAppService {
 			aux = historialClinicoDao.recuperarHistorialClinicoPorId(historialClinicoDto.getIdHistorialClinico());
 			
 			if(aux == null) {
-				msjEx = "No se encontró información del historial con id : " + historialClinicoDto.getIdHistorialClinico() + "\n No se puede actualizar la información";
+				msjEx = "No se encontró información del historial con id : " + historialClinicoDto.getIdHistorialClinico() + ".No se puede actualizar la información";
 				throw new RuntimeException(msjEx);
 			}
-			
 			if(aux.getIdPaciente() != historialClinicoDto.getIdPaciente()){
 				msjEx = "El historial clinico no pertenece al paciente con id :" + historialClinicoDto.getIdPaciente();
 				throw new RuntimeException(msjEx);
 			}
-			
-			
 			
 			{//Se arma el DTO que se quiere actualizar
 				aux.setAzucar(historialClinicoDto.getAzucar());
@@ -209,11 +205,9 @@ public class HistorialClinicoAppService {
 		}catch(RuntimeException ex) {
 			throw ex;
 		}catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "al actualizar la información del registro. \n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "actualizar la información del registro." + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
 		}
-		
-
 		
 		log.debug("Fin - Service");
 	}

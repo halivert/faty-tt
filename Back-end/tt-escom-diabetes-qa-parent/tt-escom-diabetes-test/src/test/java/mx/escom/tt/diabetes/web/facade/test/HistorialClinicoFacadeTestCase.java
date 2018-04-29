@@ -38,7 +38,7 @@ public class HistorialClinicoFacadeTestCase {
 		log.debug("Inicio - Test");
 		
 		HistorialClinicoVo historialClinicoVo = null;
-		String idHistorialClinicoStr = "4";
+		String idHistorialClinicoStr = "1";
 		
 		historialClinicoVo = historialClinicoFacade.recuperarHistorialClinicoPorId(idHistorialClinicoStr);
 
@@ -60,7 +60,7 @@ public class HistorialClinicoFacadeTestCase {
 		log.debug("Inicio - Test");
 		
 		UltimoHistorialFacadeVo ultimoHistorialFacadeVo = null;
-		String idPacienteStr = "117";
+		String idPacienteStr = "20";
 		
 		ultimoHistorialFacadeVo = historialClinicoFacade.recuperarUltimoHistorialClinicoPorIdPaciente(idPacienteStr);
 

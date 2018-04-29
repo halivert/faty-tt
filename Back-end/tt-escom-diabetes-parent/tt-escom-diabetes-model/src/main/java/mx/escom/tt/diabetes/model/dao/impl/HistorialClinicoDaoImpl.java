@@ -51,7 +51,7 @@ public class HistorialClinicoDaoImpl implements HistorialClinicoDao{
 		
 		}
 		catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "al guardar el historial clínico.";
+			msjEx = Constants.MSJ_EXCEPTION + "guardar el historial clínico.";
 			log.debug(ex.getMessage());
 			throw new RuntimeException(msjEx,ex.getCause());
 		}

@@ -28,5 +28,6 @@ public class UltimoHistorialClinicoVo implements Serializable{
 	@Getter @Setter private	double	CARBOHIDRATOS;
 	@Getter @Setter private	double	PROTEINAS;
 	@Getter @Setter private	double	AZUCAR;
+	@Getter @Setter private	Integer	ACTIVIDAD_FISICA;
 	
 }
