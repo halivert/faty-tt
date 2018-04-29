@@ -41,4 +41,8 @@ class Diet() {
     else
       Timestamp(0)
   }
+
+  override fun toString(): String {
+    return "Description: $description\nAvailable foods: $availableFoods\nAssign date: $assignDate"
+  }
 }

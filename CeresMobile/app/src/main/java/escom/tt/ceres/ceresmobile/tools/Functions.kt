@@ -134,4 +134,9 @@ object Functions {
 
     return yearDifference
   }
+
+  fun stringToDouble(fraction: String): Double {
+    // TODO: make function
+    return 0.0
+  }
 }

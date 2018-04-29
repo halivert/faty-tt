@@ -1,55 +1,47 @@
 package escom.tt.ceres.ceresmobile.adapters
 
-import android.app.Activity
-import android.content.Context
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.models.Diet
 
-class DietListAdapter(private var activity: Activity, private var items: MutableList<Diet>) : BaseAdapter() {
-  private class ViewHolder(row: View?) {
-    var dietDescription: TextView? = null
-    var dietAssignDate: TextView? = null
 
-    init {
-      this.dietDescription = row?.findViewById(R.id.diet_description)
-      this.dietAssignDate = row?.findViewById(R.id.diet_assign_date)
-    }
+class DietListAdapter(
+    private val diets: MutableList<Diet>,
+    private var mListener: DietItemInteraction?) : RecyclerView.Adapter<DietListAdapter.ViewHolder>() {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    val inflater = LayoutInflater.from(parent.context)
+
+    val dietView = inflater.inflate(R.layout.patient_diet_row_layout, parent, false)
+
+    return ViewHolder(dietView)
   }
 
-  override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-    val view: View?
-    val viewHolder: ViewHolder
-    if (convertView == null) {
-      val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-      view = inflater.inflate(R.layout.patient_diet_row_layout, null)
-      viewHolder = ViewHolder(view)
-      view?.tag = viewHolder
-    } else {
-      view = convertView
-      viewHolder = view.tag as ViewHolder
-    }
-
-    var diet = items[position]
-    viewHolder.dietDescription?.text = diet.description
-    viewHolder.dietAssignDate?.text = diet.assignDate.toString()
-
-    return view as View
+  override fun getItemCount(): Int {
+    return diets.size
   }
 
-  override fun getItem(i: Int): Diet {
-    return items[i]
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    val diet = diets[position]
+    holder.dietDescription.text = diet.description
+    holder.dietAssignDate.text = diet.assignDate.toString()
+
+    holder.itemView!!.setOnClickListener({
+      if (mListener != null) {
+        mListener!!.onDietItemClick(position)
+      }
+    })
   }
 
-  override fun getItemId(i: Int): Long {
-    return i.toLong()
+  inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    var dietDescription: TextView = view.findViewById(R.id.diet_description)
+    var dietAssignDate: TextView = view.findViewById(R.id.diet_assign_date)
   }
 
-  override fun getCount(): Int {
-    return items.size
+  interface DietItemInteraction {
+    fun onDietItemClick(position: Int)
   }
 }

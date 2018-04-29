@@ -9,11 +9,12 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import com.android.volley.Request.Method.GET
 import escom.tt.ceres.ceresmobile.R
+import escom.tt.ceres.ceresmobile.fragments.DietDetailFragment
 import escom.tt.ceres.ceresmobile.fragments.PatientDietFragment
 import escom.tt.ceres.ceresmobile.fragments.PatientMainFragment
 import escom.tt.ceres.ceresmobile.fragments.PatientSugarRecordingFragment
@@ -30,9 +31,14 @@ import java.sql.Timestamp
 class PatientMainActivity : AppCompatActivity(),
     PatientMainFragment.OnPatientMainInteraction,
     PatientSugarRecordingFragment.OnSugarRegisterListener,
-    PatientDietFragment.OnDietListener {
-
-  private var idPatient = -1
+    PatientDietFragment.OnDietListener,
+    DietDetailFragment.OnDietDetailInteraction {
+  override fun onSelectedDiet(position: Int) {
+    val dietDetailFragment =
+        DietDetailFragment.newInstance(diets[position].idDiet, position)
+    val fragmentTransaction = fragmentManager.beginTransaction()
+    fragmentTransaction.replace(R.id.frameFragment, dietDetailFragment).commit()
+  }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -66,7 +72,7 @@ class PatientMainActivity : AppCompatActivity(),
     for (i in 0 until response.length()) {
       var responseObject = response.getJSONObject(i)
       if (responseObject.has(ERROR)) {
-        Toast.makeText(this, responseObject.getString(ERROR), Toast.LENGTH_LONG).show()
+        Log.e("Error", responseObject.getString(ERROR))
         break
       }
 
@@ -137,12 +143,18 @@ class PatientMainActivity : AppCompatActivity(),
 
           val intent = Intent(applicationContext, MainActivity::class.java)
           intent.addFlags(FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)
+          clearPatient()
           startActivity(intent)
           finish()
         }
         .setNegativeButton(R.string.no, noButtonPressed)
         .setCancelable(false)
         .show()
+  }
+
+  private fun clearPatient() {
+    diets.clear()
+    idPatient = -1
   }
 
   override fun endSugarRegister(): Int {
@@ -152,5 +164,6 @@ class PatientMainActivity : AppCompatActivity(),
 
   companion object {
     var diets: MutableList<Diet> = mutableListOf()
+    var idPatient = -1
   }
 }

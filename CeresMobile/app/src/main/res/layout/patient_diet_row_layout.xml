@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/chevron_right"
@@ -25,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/name"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/color_primary"
             android:textSize="18sp"
             android:textStyle="bold"/>
 
@@ -33,7 +36,7 @@
             android:id="@+id/diet_assign_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/birth_date"/>
+            android:text="@string/date"/>
 
     </LinearLayout>
 
