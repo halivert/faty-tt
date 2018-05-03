@@ -9,6 +9,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.fragments.pickers.DatePickerFragment
 import escom.tt.ceres.ceresmobile.fragments.pickers.TimePickerFragment
+import java.lang.Double.parseDouble
+import java.lang.Math.pow
+import java.lang.Math.round
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -136,7 +139,48 @@ object Functions {
   }
 
   fun stringToDouble(fraction: String): Double {
-    // TODO: make function
-    return 0.0
+    return if (fraction.contains(" ")) {
+      val integer = fraction.split(" ")
+      if (integer[1].contains("/")) {
+        val numbers = integer[1].split("/")
+        (parseDouble(integer[0]) * parseDouble(numbers[1]) + parseDouble(numbers[0])) / parseDouble(numbers[1])
+      } else {
+        parseDouble(integer[0])
+      }
+    } else if (fraction.contains("/")) {
+      val numbers = fraction.split("/")
+      parseDouble(numbers[0]) / parseDouble(numbers[1])
+    } else {
+      parseDouble(fraction)
+    }
+  }
+
+  private fun gcd(a: Long, b: Long): Long {
+    return if (b == 0L) a else gcd(b, a % b)
+  }
+
+  fun doubleToStringFraction(decimal: Double): String {
+    return if (decimal.toString().contains(".")) {
+      val digits = decimal.toString().split(".")
+      var numberDecimals = digits[1].length * 1.0
+      var denominator = pow(10.0, numberDecimals)
+      var numerator = denominator * decimal
+      var gcd = gcd(round(numerator), round(denominator))
+      var longNumerator = round(numerator / gcd)
+      var longDenominator = round(denominator / gcd)
+
+      if (longDenominator == 1L) {
+        return "$longNumerator"
+      }
+
+      return if (longNumerator > longDenominator) {
+        "${longNumerator / longDenominator} ${longNumerator % longDenominator}"
+      } else {
+        "$longNumerator"
+      } + "/$longDenominator"
+    } else {
+      decimal.toString()
+    }
+
   }
 }

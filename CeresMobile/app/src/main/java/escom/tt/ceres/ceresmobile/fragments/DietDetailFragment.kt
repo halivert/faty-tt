@@ -64,14 +64,11 @@ class DietDetailFragment : Fragment() {
         }
 
         if (jsonFoods != null) {
-          var breakfast = Meal(jsonFoods.getString(BREAKFAST))
-          Log.e(BREAKFAST, breakfast.toString())
-          Log.e("$BREAKFAST Size", breakfast.getFoodList().size.toString())
-          view.findViewById<TextView>(R.id.tv_breakfast).text = Meal(jsonFoods.getString(BREAKFAST)).toString()
-          view.findViewById<TextView>(R.id.tv_collation_1).text = Meal(jsonFoods.getString(COLLATION_1)).toString()
-          view.findViewById<TextView>(R.id.tv_meal).text = Meal(jsonFoods.getString(MEAL)).toString()
-          view.findViewById<TextView>(R.id.tv_collation_2).text = Meal(jsonFoods.getString(COLLATION_2)).toString()
-          view.findViewById<TextView>(R.id.tv_dinner).text = Meal(jsonFoods.getString(DINNER)).toString()
+          view.findViewById<TextView>(R.id.tv_breakfast).text = Meal(jsonFoods.getString(BREAKFAST)).showMeal()
+          view.findViewById<TextView>(R.id.tv_collation_1).text = Meal(jsonFoods.getString(COLLATION_1)).showMeal()
+          view.findViewById<TextView>(R.id.tv_meal).text = Meal(jsonFoods.getString(MEAL)).showMeal()
+          view.findViewById<TextView>(R.id.tv_collation_2).text = Meal(jsonFoods.getString(COLLATION_2)).showMeal()
+          view.findViewById<TextView>(R.id.tv_dinner).text = Meal(jsonFoods.getString(DINNER)).showMeal()
         }
       }
     }
