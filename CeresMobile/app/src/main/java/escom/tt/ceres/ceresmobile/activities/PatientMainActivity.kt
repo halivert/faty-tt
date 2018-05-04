@@ -33,6 +33,7 @@ class PatientMainActivity : AppCompatActivity(),
     PatientSugarRecordingFragment.OnSugarRegisterListener,
     PatientDietFragment.OnDietListener,
     DietDetailFragment.OnDietDetailInteraction {
+
   override fun onSelectedDiet(position: Int) {
     val dietDetailFragment =
         DietDetailFragment.newInstance(diets[position].idDiet, position)

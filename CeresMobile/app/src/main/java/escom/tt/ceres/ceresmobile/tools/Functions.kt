@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.support.constraint.ConstraintLayout
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -130,12 +131,12 @@ object Functions {
     val birth = Calendar.getInstance()
 
     birth.time = birthdate
-    var yearDifference = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR)
-    if (today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR)) {
-      yearDifference--
-    }
+    var age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR)
 
-    return yearDifference
+    return if (today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR))
+      age - 1
+    else age
+
   }
 
   fun stringToDouble(fraction: String): Double {

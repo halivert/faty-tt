@@ -36,11 +36,7 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
                             savedInstanceState: Bundle?): View? {
     val view = inflater.inflate(R.layout.patient_diet_fragment, container, false)
 
-    dietItemInteractionListener =
-        if (this@PatientDietFragment is DietListAdapter.DietItemInteraction)
-          this@PatientDietFragment
-        else
-          null
+    dietItemInteractionListener = this@PatientDietFragment
 
     var recyclerView = view.findViewById<RecyclerView>(R.id.diet_list).apply {
       setHasFixedSize(true)
@@ -53,6 +49,7 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
     swipeContainer.setOnRefreshListener({
       launch(UI) {
         getDiets()
+        recyclerView.adapter.notifyDataSetChanged()
         swipeContainer.isRefreshing = false
       }
     })

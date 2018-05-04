@@ -9,6 +9,7 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
@@ -18,6 +19,7 @@ import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.fragments.DoctorGenerateCodeFragment
 import escom.tt.ceres.ceresmobile.fragments.DoctorMainFragment
 import escom.tt.ceres.ceresmobile.fragments.DoctorPatientsFragment
+import escom.tt.ceres.ceresmobile.fragments.PatientDetailFragment
 import escom.tt.ceres.ceresmobile.models.Patient
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Constants
@@ -30,7 +32,14 @@ class DoctorMainActivity :
     AppCompatActivity(),
     DoctorMainFragment.OnDoctorMainInteraction,
     DoctorGenerateCodeFragment.OnDoctorGenerateCodeInteraction,
-    DoctorPatientsFragment.OnDoctorPatientsInteraction {
+    DoctorPatientsFragment.OnDoctorPatientsInteraction,
+    PatientDetailFragment.OnPatientDetailInteraction {
+  override fun onSelectedPatient(position: Int) {
+    val patientDetailFragment =
+        PatientDetailFragment.newInstance(patients[position].toJSONString())
+    val fragmentTransaction = fragmentManager.beginTransaction()
+    fragmentTransaction.replace(R.id.frameFragment, patientDetailFragment).commit()
+  }
 
   private lateinit var homeFragment: DoctorMainFragment
   private lateinit var patientsFragment: DoctorPatientsFragment

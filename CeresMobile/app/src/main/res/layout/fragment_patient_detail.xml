@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PatientDetailFragment">
+
+    <TextView
+        android:id="@+id/tv_birthdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="33dp"/>
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="72dp"/>
+
+    <TextView
+        android:id="@+id/tv_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="33dp"/>
+
+    <TextView
+        android:id="@+id/tv_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="72dp"/>
+
+    <TextView
+        android:id="@+id/tv_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="72dp"/>
+
+    <TextView
+        android:id="@+id/tv_carbohydrates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="72dp"/>
+
+    <TextView
+        android:id="@+id/tv_lipids"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="72dp"/>
+
+    <TextView
+        android:id="@+id/tv_proteins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="72dp"/>
+
+    <TextView
+        android:id="@+id/tv_sugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="188dp"
+        tools:layout_editor_absoluteY="72dp"/>
+</android.support.constraint.ConstraintLayout>

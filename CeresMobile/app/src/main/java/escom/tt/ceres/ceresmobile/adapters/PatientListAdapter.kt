@@ -1,18 +1,21 @@
 package escom.tt.ceres.ceresmobile.adapters
 
-import android.app.Activity
-import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.models.Patient
 import escom.tt.ceres.ceresmobile.tools.Functions.calculateAge
 import java.text.SimpleDateFormat
 
-class PatientListAdapter(private var activity: Activity, private var items: MutableList<Patient>) : BaseAdapter() {
+/*
+class PatientListAdapter(
+    private var activity: Activity,
+    private var items: MutableList<Patient>,
+    private var mListener: PatientItemInteraction?) : BaseAdapter() {
   private class ViewHolder(row: View?) {
     var patientName: TextView? = null
     var patientAge: TextView? = null
@@ -36,6 +39,7 @@ class PatientListAdapter(private var activity: Activity, private var items: Muta
       val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
       view = inflater.inflate(R.layout.patient_row_layout, null)
       viewHolder = ViewHolder(view)
+
       view?.tag = viewHolder
     } else {
       view = convertView
@@ -44,7 +48,7 @@ class PatientListAdapter(private var activity: Activity, private var items: Muta
 
     var patient = items[position]
 
-    val df = SimpleDateFormat("yyyy-mm-dd")
+    val df = SimpleDateFormat("yyyy-MM-dd")
     val birthdate = df.parse(patient.birthDate)
     viewHolder.patientName?.text = patient.name
     viewHolder.patientAge?.text = calculateAge(birthdate).toString()
@@ -65,5 +69,56 @@ class PatientListAdapter(private var activity: Activity, private var items: Muta
 
   override fun getCount(): Int {
     return items.size
+  }
+
+  interface PatientItemInteraction {
+    fun onPatientItemClick(patient: Patient)
+  }
+}
+*/
+
+class PatientListAdapter(
+    private val patients: MutableList<Patient>,
+    private var mListener: PatientItemInteraction?) : RecyclerView.Adapter<PatientListAdapter.ViewHolder>() {
+
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    val inflater = LayoutInflater.from(parent.context)
+
+    val patientView = inflater.inflate(R.layout.patient_row_layout, parent, false)
+
+    return ViewHolder(patientView)
+  }
+
+  override fun getItemCount(): Int {
+    return patients.size
+  }
+
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    val patient = patients[position]
+    val df = SimpleDateFormat("yyyy-MM-dd")
+    val birthdate = df.parse(patient.birthDate)
+    holder.patientName.text = patient.name
+    holder.patientAge.text = calculateAge(birthdate).toString()
+    holder.patientBirthDate.text = patient.birthDate
+    holder.patientSex.text = patient.sex
+    holder.patientEmail.text = patient.email
+
+    holder.itemView!!.setOnClickListener({
+      if (mListener != null) {
+        mListener!!.onPatientItemClick(position)
+      }
+    })
+  }
+
+  inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    var patientName: TextView = view.findViewById(R.id.patient_name)
+    var patientAge: TextView = view.findViewById(R.id.patient_age)
+    var patientBirthDate: TextView = view.findViewById(R.id.patient_birth_date)
+    var patientSex: TextView = view.findViewById(R.id.patient_sex)
+    var patientEmail: TextView = view.findViewById(R.id.patient_email)
+  }
+
+  interface PatientItemInteraction {
+    fun onPatientItemClick(position: Int)
   }
 }

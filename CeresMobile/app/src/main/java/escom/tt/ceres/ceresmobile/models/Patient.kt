@@ -3,36 +3,17 @@ package escom.tt.ceres.ceresmobile.models
 import org.json.JSONObject
 
 class Patient() {
+  var patientJson: JSONObject = JSONObject()
   var name: String? = ""
   var email: String? = ""
   var sex: String? = ""
   var idUser: Int = -1
-  var idDoctor: Int? = -1
   var lastName: String? = ""
   var mothersLastName: String? = ""
   var birthDate: String? = ""
 
-  constructor(
-      name: String,
-      email: String,
-      sex: String?,
-      idDoctor: Int?,
-      idUser: Int,
-      lastName: String?,
-      mothersLastName: String?,
-      birthDate: String?) : this() {
-    this.name = name
-    this.email = email
-    this.sex = sex
-    this.idUser = idUser
-    this.idDoctor = idDoctor
-    this.lastName = lastName
-    this.mothersLastName = mothersLastName
-    this.birthDate = birthDate
-  }
-
-
   constructor(patientJson: JSONObject) : this() {
+    this.patientJson = patientJson
     this.name = if (patientJson.has("nombre")) patientJson.getString("nombre") else ""
     this.email = if (patientJson.has("email")) patientJson.getString("email") else ""
     this.sex = if (patientJson.has("sexo")) patientJson.getString("sexo") else ""
@@ -44,7 +25,12 @@ class Patient() {
 
   fun getId(): Int? = this.idUser
 
-  override fun toString(): String {
-    return "Nombre: ${this.name}, Email: ${this.email}"
-  }
+  fun toJSONString(i: Int? = null): String =
+      if (i != null)
+        patientJson.toString(i)
+      else
+        patientJson.toString()
+
+  override fun toString(): String = "Nombre: ${this.name}, Email: ${this.email}"
+
 }

@@ -88,4 +88,7 @@
     <string name="gray_star_android_string_fingerprint_icon_content_description">gray star @android:string/fingerprint_icon_content_description</string>
     <string name="dinner">Cena</string>
     <string name="dinner_schedule">9:00 pm - 10:00 pm</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

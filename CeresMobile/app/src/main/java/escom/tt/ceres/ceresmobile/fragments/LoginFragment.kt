@@ -178,7 +178,6 @@ class LoginFragment : Fragment() {
           }
 
           mListener?.successfulLogin(idUser, idRol)
-          Log.e("Listener", mListener.toString())
         },
         ErrorListener {
           Toast.makeText(activity.applicationContext, ERROR, Toast.LENGTH_SHORT).show()
