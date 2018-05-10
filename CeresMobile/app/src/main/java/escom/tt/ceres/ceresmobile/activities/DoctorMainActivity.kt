@@ -13,6 +13,7 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request.Method.GET
 import escom.tt.ceres.ceresmobile.R
@@ -60,6 +61,8 @@ class DoctorMainActivity :
     patientsFragment = DoctorPatientsFragment.newInstance()
     generateCodeFragment = DoctorGenerateCodeFragment.newInstance()
     navigationView = findViewById(R.id.bottom_navigation_view)
+    val welcome = getString(R.string.welcome)
+    findViewById<TextView>(R.id.title_bar_text).text = welcome
 
     launch(UI) {
       getPatients()

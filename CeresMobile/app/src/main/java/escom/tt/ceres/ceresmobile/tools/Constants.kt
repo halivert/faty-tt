@@ -121,5 +121,13 @@ object Constants {
     const val POTASSIUM_P = "potasioP"
     const val IRON = "hierro"
     const val SODIUM = "sodio"
+
+    // Patient
+    const val ID_USER = "id_USUARIO"
+    const val NAME = "nombre"
+    const val SEX = "sexo"
+    const val AP_PAT = "ap_PAT"
+    const val AP_MAT = "ap_MAT"
+    const val FEC_NAC = "fec_NAC"
   }
 }

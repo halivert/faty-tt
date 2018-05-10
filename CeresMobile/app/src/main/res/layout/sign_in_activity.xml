@@ -43,7 +43,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/welcomeText"
+                    android:id="@+id/title_bar_text"
                     android:layout_width="0dp"
                     android:layout_height="21dp"
                     android:text="@string/welcome"

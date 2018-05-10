@@ -1,35 +1,28 @@
 package escom.tt.ceres.ceresmobile.models
 
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AP_MAT
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AP_PAT
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.EMAIL
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.FEC_NAC
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USER
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NAME
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.SEX
 import org.json.JSONObject
 
-class Patient() {
-  var patientJson: JSONObject = JSONObject()
-  var name: String? = ""
-  var email: String? = ""
-  var sex: String? = ""
-  var idUser: Int = -1
-  var lastName: String? = ""
-  var mothersLastName: String? = ""
-  var birthDate: String? = ""
-
-  constructor(patientJson: JSONObject) : this() {
-    this.patientJson = patientJson
-    this.name = if (patientJson.has("nombre")) patientJson.getString("nombre") else ""
-    this.email = if (patientJson.has("email")) patientJson.getString("email") else ""
-    this.sex = if (patientJson.has("sexo")) patientJson.getString("sexo") else ""
-    this.idUser = if (patientJson.has("id_USUARIO")) patientJson.getInt("id_USUARIO") else -1
-    this.lastName = if (patientJson.has("ap_PAT")) patientJson.getString("ap_PAT") else ""
-    this.mothersLastName = if (patientJson.has("ap_MAT")) patientJson.getString("ap_MAT") else ""
-    this.birthDate = if (patientJson.has("fec_NAC")) patientJson.getString("fec_NAC") else ""
-  }
-
-  fun getId(): Int? = this.idUser
+class Patient(private val patientJSON: JSONObject = JSONObject()) {
+  var idPatient: Int = if (patientJSON.has(ID_USER)) patientJSON.getInt(ID_USER) else -1
+  var name: String = if (patientJSON.has(NAME)) patientJSON.getString(NAME) else ""
+  var email: String = if (patientJSON.has(EMAIL)) patientJSON.getString(EMAIL) else ""
+  var sex: String = if (patientJSON.has(SEX)) patientJSON.getString(SEX) else ""
+  var lastName: String = if (patientJSON.has(AP_PAT)) patientJSON.getString(AP_PAT) else ""
+  var mothersLastName = if (patientJSON.has(AP_MAT)) patientJSON.getString(AP_MAT) else ""
+  var birthDate: String = if (patientJSON.has(FEC_NAC)) patientJSON.getString(FEC_NAC) else ""
 
   fun toJSONString(i: Int? = null): String =
       if (i != null)
-        patientJson.toString(i)
+        patientJSON.toString(i)
       else
-        patientJson.toString()
+        patientJSON.toString()
 
   override fun toString(): String = "Nombre: ${this.name}, Email: ${this.email}"
 
