@@ -12,133 +12,13 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_birthdate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_age"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"/>
-
-        <TextView
-            android:id="@+id/tv_age"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_birthdate"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"/>
-
-        <View
-            android:id="@+id/view1"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_age"/>
-
-        <TextView
-            android:id="@+id/tv_weight"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"/>
-
-        <TextView
-            android:id="@+id/tv_size"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_weight"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"/>
-
-        <TextView
-            android:id="@+id/tv_height"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_imc"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"/>
-
-        <View
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_imc"/>
-
-        <TextView
-            android:id="@+id/tv_carbohydrates"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_lipids"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"/>
-
-        <TextView
-            android:id="@+id/tv_lipids"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_carbohydrates"
-            app:layout_constraintTop_toBottomOf="@+id/textView15"/>
-
-        <TextView
-            android:id="@+id/tv_proteins"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/tv_sugar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16"/>
-
-        <TextView
-            android:id="@+id/tv_sugar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_proteins"
-            app:layout_constraintTop_toBottomOf="@+id/textView17"/>
-
-        <TextView
             android:id="@+id/textView1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/name"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -162,6 +42,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/date"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView1"/>
@@ -186,9 +67,21 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/birth_date"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/textView8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+
+        <TextView
+            android:id="@+id/tv_birthdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_age"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"/>
 
         <TextView
             android:id="@+id/textView8"
@@ -198,9 +91,32 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/age"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/tv_date"/>
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_birthdate"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_age"/>
 
         <TextView
             android:id="@+id/textView9"
@@ -210,9 +126,21 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/weight"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/textView10"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view1"/>
+
+        <TextView
+            android:id="@+id/tv_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"/>
 
         <TextView
             android:id="@+id/textView10"
@@ -221,10 +149,22 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
             android:text="@string/size"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toBottomOf="@+id/view1"
             app:layout_constraintTop_toTopOf="@+id/textView9"/>
+
+        <TextView
+            android:id="@+id/tv_size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_weight"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"/>
 
         <TextView
             android:id="@+id/textView11"
@@ -234,9 +174,21 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/height"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/textView12"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_weight"/>
+
+        <TextView
+            android:id="@+id/tv_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_imc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"/>
 
         <TextView
             android:id="@+id/textView12"
@@ -246,6 +198,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/IMC"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView11"
             app:layout_constraintTop_toBottomOf="@+id/tv_size"/>
@@ -261,6 +214,17 @@
             app:layout_constraintStart_toEndOf="@+id/tv_height"
             app:layout_constraintTop_toBottomOf="@+id/textView12"/>
 
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_imc"/>
+
         <TextView
             android:id="@+id/textView14"
             android:layout_width="0dp"
@@ -269,9 +233,21 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/carbohydrates"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/textView15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2"/>
+
+        <TextView
+            android:id="@+id/tv_carbohydrates"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_lipids"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"/>
 
         <TextView
             android:id="@+id/textView15"
@@ -280,9 +256,21 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="8dp"
             android:text="@string/lipids"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView14"
             app:layout_constraintTop_toTopOf="@+id/textView14"/>
+
+        <TextView
+            android:id="@+id/tv_lipids"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_carbohydrates"
+            app:layout_constraintTop_toBottomOf="@+id/textView15"/>
 
         <TextView
             android:id="@+id/textView16"
@@ -292,9 +280,21 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/proteins"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toStartOf="@+id/textView17"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_carbohydrates"/>
+
+        <TextView
+            android:id="@+id/tv_proteins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_sugar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16"/>
 
         <TextView
             android:id="@+id/textView17"
@@ -304,9 +304,21 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/sugar"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView16"
             app:layout_constraintTop_toBottomOf="@+id/tv_lipids"/>
+
+        <TextView
+            android:id="@+id/tv_sugar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_proteins"
+            app:layout_constraintTop_toBottomOf="@+id/textView17"/>
 
         <View
             android:id="@+id/view3"
@@ -327,11 +339,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/observations"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view3"/>
 
-        <EditText
+        <TextView
             android:id="@+id/et_observations"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -339,8 +352,6 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="textMultiLine"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
