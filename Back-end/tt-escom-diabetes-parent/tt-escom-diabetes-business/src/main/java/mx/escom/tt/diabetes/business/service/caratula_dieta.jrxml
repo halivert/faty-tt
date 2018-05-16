@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="endoso_rc_obligatorio_v2" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d300e4d-dd7b-4072-8819-f468a6c93636">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="44"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="nombrePaciente" class="java.lang.String"/>
+	<parameter name="edadPaciente" class="java.lang.String"/>
+	<parameter name="pesoPaciente" class="java.lang.String"/>
+	<parameter name="estaturaPaciente" class="java.lang.String"/>
+	<parameter name="get" class="java.lang.String"/>
+	<field name="alimentosDesayuno" class="java.lang.String"/>
+	<group name="Detail">
+		<groupHeader>
+			<band height="336">
+				<rectangle radius="0">
+					<reportElement mode="Opaque" x="0" y="18" width="572" height="20" forecolor="#2E404E" backcolor="#2E404E" uuid="9fb97c32-81b0-4ed9-9932-0108b62e7c2b"/>
+					<graphicElement>
+						<pen lineWidth="0.0" lineColor="#000000"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement mode="Transparent" x="0" y="18" width="571" height="20" forecolor="#2E404E" uuid="25bf6f8b-9327-43cb-b26a-0fad7501aa4e"/>
+					<graphicElement>
+						<pen lineWidth="1.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="19" width="570" height="16" forecolor="#FFFFFF" uuid="8dc4b8bf-aece-4f3f-b45b-b0c8378f29fc">
+						<property name="ireport.layer" value="2"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Desayuno]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="1" y="50" width="129" height="20" forecolor="#2E404E" uuid="ffe4e49e-90ba-4490-a0a5-f0cf3a1bf868"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{alimentosDesayuno}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="180" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="53" width="572" height="107" forecolor="#2E404E" uuid="d7856c3c-2c97-49df-ba70-90d4ad85486f"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="234" height="43" forecolor="#2E404E" uuid="ba3ea08f-bbfa-4207-a17e-05c8ffdb874e"/>
+				<textElement>
+					<font size="34" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERES DIETA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="319" y="0" width="253" height="44" forecolor="#2E404E" uuid="e75fdcc5-2789-4015-9c23-9e1e7d2481f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Dieta diaria de " + $P{get}+ " calorías"]]></textFieldExpression>
+			</textField>
+			<rectangle radius="0">
+				<reportElement mode="Opaque" x="380" y="53" width="192" height="13" forecolor="#2E404E" backcolor="#2E404E" uuid="aaee5d07-3ab1-4409-9be7-5b88c36e9aa3"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="0">
+				<reportElement mode="Opaque" x="0" y="53" width="380" height="13" forecolor="#2E404E" backcolor="#2E404E" uuid="288bf788-305d-45b0-8edf-ddc585197684"/>
+				<graphicElement>
+					<pen lineWidth="0.0" lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="54" width="379" height="13" forecolor="#FFFFFF" uuid="3a097fdd-1b5b-4428-988c-076a0192dae4">
+					<property name="ireport.layer" value="2"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Información del paciente]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="5" y="68" width="270" height="13" forecolor="#2E404E" uuid="04b4cb57-dc4a-430d-8c8d-6da33328d97c"/>
+				<textElement verticalAlignment="Top" markup="html">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Nombre: </b>" + $P{nombrePaciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="88" width="137" height="13" forecolor="#2E404E" uuid="25e507f0-df7b-42ca-8eb3-aec8826c4dab"/>
+				<textElement verticalAlignment="Top" markup="html">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Edad: </b>" + $P{edadPaciente}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="5" y="108" width="137" height="14" forecolor="#2E404E" uuid="1884fcc9-9608-4ff2-a6a4-301d23b40d7b"/>
+				<textElement verticalAlignment="Middle" markup="html">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Peso : </b>" + $P{pesoPaciente}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="130" width="137" height="14" forecolor="#2E404E" uuid="6c927a11-177d-4fb5-afbb-223b32487bca"/>
+				<textElement verticalAlignment="Middle" markup="html">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<b>Estatura : </b>" + $P{estaturaPaciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="381" y="54" width="191" height="13" forecolor="#FFFFFF" uuid="302ab3d6-16e0-4ec6-a22e-7a38e93cb4a3">
+					<property name="ireport.layer" value="2"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Macronutrientes]]></text>
+			</staticText>
+			<line>
+				<reportElement x="380" y="66" width="1" height="94" forecolor="#2E404E" uuid="5afb59e0-911e-4bab-8215-d210d32372c8"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="380" y="53" width="1" height="12" forecolor="#FFFFFF" uuid="f8f1f00e-9e52-478d-bb7d-cf48e87f2aa1"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="382" y="80" width="68" height="13" forecolor="#2E404E" uuid="4271ad66-795e-4e28-b706-4d9c3e775765">
+					<property name="ireport.layer" value="2"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Carbohidratos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="110" width="68" height="13" forecolor="#2E404E" uuid="3d400b03-c60d-497b-a4f1-c589cc7cb207">
+					<property name="ireport.layer" value="2"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lípidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="140" width="68" height="13" forecolor="#2E404E" uuid="47e5397d-0ff8-49cc-ab21-013ce37a0915">
+					<property name="ireport.layer" value="2"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proteinas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="558" y="52" width="14" height="18" forecolor="#2E404E" uuid="35cdb125-b3fe-43ca-9971-a2f7e90b897e">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="52" width="183" height="18" forecolor="#2E404E" uuid="9e9fc1f0-e2b2-4c88-ad78-cc13b1c4988f">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página   "+$V{PAGE_NUMBER}+"   de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

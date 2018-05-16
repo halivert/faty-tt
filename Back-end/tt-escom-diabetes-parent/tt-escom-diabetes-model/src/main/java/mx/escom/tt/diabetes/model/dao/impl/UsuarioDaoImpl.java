@@ -32,7 +32,6 @@ import mx.escom.tt.diabetes.commons.utils.Constants;
 public class UsuarioDaoImpl implements UsuarioDao { 
 	
 	@Autowired UsuarioHqlHelper usuarioHqlHelper;
-	
 	private @Getter @Setter QlHelper ql;
 
 	private @Getter @Setter
@@ -55,7 +54,6 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		
 		try {
 			usuarioDto = (UsuarioDto) sessionFactory.getCurrentSession().get(UsuarioDto.class, idUsuario);
-	
 		}catch(Exception ex){
 			msjEx = Constants.MSJ_EXCEPTION + "recuperar el usuario con id : " + idUsuario + "\n" + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
@@ -80,18 +78,13 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		
 		try {			 
 			sessionFactory.getCurrentSession().save(usuarioDto);
-			
-			
-			
 		}catch(HibernateException he){
-			
 			msjEx = "El correo electrónico : " + usuarioDto.getEmail() + " ya ha sido usado.";
 			throw new RuntimeException(msjEx);
 		}
 		catch(Exception ex){
 			msjEx = Constants.MSJ_EXCEPTION + "al guardar el usuario." + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());
-			//log.debug(ex.getMessage());
 		}
 		
 		log.debug("Fin - Dao");
@@ -112,14 +105,52 @@ public class UsuarioDaoImpl implements UsuarioDao {
 			usuarioDto = (UsuarioDto) criteria.uniqueResult();
 		}
 		catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "al recuperar el usuario con email : " + email + "\n" + ex.getMessage();
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar el usuario con email : " + email;
+			throw new RuntimeException(msjEx);
+		}
+		log.debug("Fin - Dao");
+		return usuarioDto;
+	}
+
+	@Override
+	public UsuarioDto recuperarPorEmail(String email) throws RuntimeException {
+		log.debug("Inicio - Dao");
+		
+		UsuarioDto usuarioDto = null;
+		String msjEx = null;
+		try {			
+			log.info("email : " + email);
+			Criteria criteria = sessionFactory.getCurrentSession().createCriteria(UsuarioDto.class);
+			
+			criteria.add(Restrictions.eq("email", email));
+			
+			usuarioDto = (UsuarioDto) criteria.uniqueResult();
+		}
+		catch(Exception ex){
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar el usuario con email : " + email;
 			throw new RuntimeException(msjEx);
 		}
 		
-		
-		
 		log.debug("Fin - Dao");
 		return usuarioDto;
+	}
+
+	@Override
+	public void reestablecerPassword(UsuarioDto usuarioDto) throws RuntimeException {
+		log.debug("Inicio - Dao");
+		
+		String msjEx = null;
+		try {			
+			
+			sessionFactory.getCurrentSession().update(usuarioDto);
+		}
+		catch(Exception ex){
+			msjEx = Constants.MSJ_EXCEPTION + "actualizar la contraseña.";
+			throw new RuntimeException(msjEx);
+		}
+		
+		log.debug("Fin - Dao");
+		
 	}
 	
 }

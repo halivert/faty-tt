@@ -11,6 +11,7 @@ import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.model.dao.TokenMedicoDao;
 import mx.escom.tt.diabetes.model.dto.TokenMedicoDto;
+import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 
 @CommonsLog
 @Service
@@ -19,6 +20,8 @@ public class TokenMedicoAppService {
 	
 	@Autowired TokenMedicoDao tokenMedicoDao;
 	@Autowired EnvioCorreoAppService envioCorreoAppService; 
+	@Autowired UsuarioAppService usuarioAppService; 
+	@Autowired private CustomSecurity customSecurity;
 	
 	/**
 	 * Proposito : Generar un token 
@@ -125,6 +128,69 @@ public class TokenMedicoAppService {
 		
 		try {
 			envioCorreoAppService.enviarCorreoElectronico(Constants.PARAMETRO_CORREO_ENVIO_TOKEN_ASUNTO, email, parametros, remitente, Constants.PLANTILLA_ENVIO_TOKEN);			
+		
+		}catch(RuntimeException rtExc) { 
+			throw rtExc;
+		}catch (Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "enviar el correo electrónico" + ex.getMessage();
+			throw new RuntimeException(msjEx,ex);
+		}
+		log.debug("Fin - Service");
+	}
+	
+	/**
+	 * 
+	 * Proposito : Crear los datos necesarios que seran enviados en la plantilla de correo para reestablecer un password
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 13/05/2018
+	 * @param email							-	Email del usario que quiere reestablecer su password 
+	 * @throws RuntimeException				-	Si ocurre un error durante la ejecucion del metodo 
+	 */
+	public void prepareDataForToken(String[] email) throws RuntimeException{
+		log.debug("Inicio - Service");
+		String msjEx = null;
+		UsuarioDto usuarioDto = null;
+		String urlToken = "http://35.202.245.109/#/session/reestablecePassword/";
+		String nombreUsuario = "";
+		String remitente = "ceres.ttdietas@gmail.com";
+		try {
+			usuarioDto = usuarioAppService.recuperarPorEmail(email[0]);
+			nombreUsuario = usuarioDto.getNombre();
+			urlToken = urlToken + customSecurity.createSecurityToken(email[0]);
+			this.enviarCorreoReestablecerPassword(email, urlToken, nombreUsuario, remitente);
+		
+		}catch(RuntimeException rtExc) { 
+			throw new RuntimeException(rtExc.getMessage());
+		}catch (Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "enviar el correo electrónico" + ex.getMessage();
+			throw new RuntimeException(msjEx,ex);
+		}
+		log.debug("Fin - Service");
+	}
+	
+	/**
+	 * Proposito : Enviar un correo para reestablecer un password 
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 13/05/2018
+	 * @param email							-	Email del usario que quiere reestablecer su password 
+	 * @param urlToken						-	URL con el token codificado 
+	 * @param nombreUsuario					-	Nombre del usuario, se agrega como parametro 
+	 * @param remitente						-	Remitente que envia el correo
+	 * @throws RuntimeException				-	Si ocurre un error durante la ejecucion del metodo 
+	 */
+	public void enviarCorreoReestablecerPassword(String[]  email, String urlToken, String nombreUsuario,  String remitente) throws RuntimeException{
+		log.debug("Inicio - Service");
+		Map<String, Object> parametros = null;
+		String msjEx = null;
+		
+		parametros = new HashMap<String, Object>();
+		parametros.put(Constants.PARAMETRO_URL_TOKEN, urlToken);
+		parametros.put(Constants.PARAMETRO_CORREO_NOMBRE_USUARIO, nombreUsuario);
+		
+		try {
+			envioCorreoAppService.enviarCorreoElectronico(Constants.PARAMETRO_RECUPERAR_PASSWORD_ASUNTO, email, parametros, remitente, Constants.PLANTILLA_RECUPERAR_PASSWORD);			
 		}catch(RuntimeException rtExc) { 
 			throw rtExc;
 		}catch (Exception ex) {

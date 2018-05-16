@@ -97,7 +97,7 @@ recuperarListaHistorialClinico: function(idPaciente) {
 /**
 * guardarInfoHistorialClinico  - Funcion que se comunica con la API para guardar informarcion del historial clinico de un paciente
 */
-guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar) {  
+guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar,actividadFisica) {  
   var fechaRegistro = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
   var data = {
     idPaciente: idPaciente,
@@ -109,7 +109,8 @@ guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos
     lipidos: lipidos,
     carbohidratos: carbohidratos,
     proteinas:proteinas,
-    azucar: azucar
+    azucar: azucar,
+    actividadFisica:actividadFisica
   };
 
   

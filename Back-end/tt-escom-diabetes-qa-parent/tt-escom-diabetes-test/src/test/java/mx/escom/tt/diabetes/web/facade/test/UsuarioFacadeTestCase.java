@@ -34,7 +34,7 @@ public class UsuarioFacadeTestCase {
 		log.debug("Inicio - Test");
 		
 		UsuarioVo usuarioVo = null;
-		String idUsuarioStr = "120";
+		String idUsuarioStr = "19";
 		
 		usuarioVo = usuarioFacade.recuperarUsuarioPorId(idUsuarioStr);
 

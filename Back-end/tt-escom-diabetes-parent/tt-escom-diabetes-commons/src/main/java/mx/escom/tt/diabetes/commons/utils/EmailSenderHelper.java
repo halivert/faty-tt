@@ -194,6 +194,8 @@ public class EmailSenderHelper {
 			log.debug("javaMailSender.send(preparator);");
 		}catch (MailException ex) {
 			log.debug(ex.getMessage());
+			msjEx = Constants.MSJ_EXCEPTION + "enviar el correo electrónico.";
+			throw new RuntimeException(msjEx, ex);
 		}catch(Exception ex){
 			log.debug(ex.getMessage());
 			msjEx = Constants.MSJ_EXCEPTION + "enviar el correo electrónico.";

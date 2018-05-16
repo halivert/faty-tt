@@ -39,6 +39,7 @@
                      <div class="col-md-5 pull-left">                        
                         <div ng-repeat="alimentoDesayuno in dieta.Desayuno">
                             {{alimentoDesayuno.cantidad}}
+                            {{alimentoDesayuno.unidad}}
                             {{alimentoDesayuno.alimento}}
                             <br/>
                         </div>
@@ -68,6 +69,7 @@
                      <div class="col-md-5 pull-left">
                         <div ng-repeat="alimentoC1 in dieta.C1">
                             {{alimentoC1.cantidad}}
+                            {{alimentoC1.unidad}}                            
                             {{alimentoC1.alimento}}
                             <br/>
                         </div>
@@ -97,6 +99,7 @@
                      <div class="col-md-5 pull-left">
                         <div ng-repeat="alimentoComida in dieta.Comida">
                             {{alimentoComida.cantidad}}
+                            {{alimentoComida.unidad}}                            
                             {{alimentoComida.alimento}}
                             <br/>
                         </div>
@@ -126,6 +129,7 @@
                      <div class="col-md-5 pull-left">
                         <div ng-repeat="alimentoC2 in dieta.C2">
                             {{alimentoC2.cantidad}}
+                            {{alimentoC2.unidad}}                            
                             {{alimentoC2.alimento}}
                             <br/>
                         </div>
@@ -155,12 +159,24 @@
                      <div class="col-md-5 pull-left">
                         <div ng-repeat="alimentoCena in dieta.Cena">
                             {{alimentoCena.cantidad}}
+                            {{alimentoCena.unidad}}                            
                             {{alimentoCena.alimento}}
                             <br/>
                         </div>
                     </div>
                 </div>
             </div>
+
+        <div class="row">
+             <div class="form-group">
+                <label class="col-sm-2 control-label">Recomendaciones del médico:</label>
+                <div class="col-sm-8">
+                    <textarea style="overflow:auto;resize:none" class="form-control" rows="5">{{descripcion}}</textarea>
+                </div>
+            </div>
+        </div>
+
+       
 
         <div class="row">
             <div class="form-group pull-left">

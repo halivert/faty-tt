@@ -21,7 +21,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary block full-width m-b" ng-click = "iniciarSesion()">  Ingresar </button>         
                     <br/>
-                    <a href="#">
+                    <a ui-sref="enviarRestorPassword"><!--enviarRestorPassword -->
                         <small>Olvidé mi contraseña</small>
                     </a>
                     <br/><br/>
@@ -84,64 +84,58 @@
                                     <div ng-if= "datosU.rol == 0">
                                         <div class="form-group "><label>Código de Médico</label> <input type="text" name="cedula" placeholder="Código médico" ng-model = "datosU.codigoM" class="form-control" required></div>
                                     </div>
-
-                                
-                                
-                            
-
                             </div>
                             <div class="col-sm-6">
 
                                 <div class="form-group" id="data_2">
                                   <label class="font-normal">Fecha de nacimiento</label>
-									<div class="input-group date">
-										<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-										<input type="text" name="fechNac" class="form-control" value="dd/MM/yyyy" ng-model="datosU.fechaNac" required>
-									</div>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        <input type="text" name="fechNac" class="form-control" value="dd/MM/yyyy" ng-model="datosU.fechaNac" required>
+                                    </div>
                                     <small class ="text-danger" ng-show="formRegistro.fechNac.$touched && formRegistro.fechNac.$invalid">Ingresar tu fecha de nacimiento</small>
-								</div>
+                                </div>
 
-								<div class="form-group"><label>Correo electrónico</label> <input type="email" name="email" placeholder="Correo electrónico" ng-model = "datosU.email" class="form-control" required></div>
-								<small class ="text-danger" ng-show="formRegistro.email.$touched && formRegistro.email.$invalid">Ingresar un correo electrónico</small>                    
+                                <div class="form-group"><label>Correo electrónico</label> <input type="email" name="email" placeholder="Correo electrónico" ng-model = "datosU.email" class="form-control" required></div>
+                                <small class ="text-danger" ng-show="formRegistro.email.$touched && formRegistro.email.$invalid">Ingresar un correo electrónico</small>                    
 
-								<div class="form-group"><label>Contraseña</label> 
-									<input type="password" name="password" placeholder="Contraseña" class="form-control" ng-model = "datosU.keyword" required>
-								</div>
+                                <div class="form-group"><label>Contraseña</label> 
+                                    <input type="password" name="password" placeholder="Contraseña" class="form-control" ng-model = "datosU.keyword" required>
+                                </div>
 
-								<div class="form-group"><label>Repetir contraseña</label> <input type="password" name="password" ng-model = "datosU.confirmpass" placeholder="Contraseña" class="form-control" required></div>
+                                <div class="form-group"><label>Repetir contraseña</label> <input type="password" name="password" ng-model = "datosU.confirmpass" placeholder="Contraseña" class="form-control" required></div>
 
-								<small class ="text-danger" ng-show="formRegistro.password.$touched && !validaPasword()">Las contraseñas no coinciden</small>
-							</div>
-						</div>
-					</form>
-					<div>
-						<button class="btn btn-sm btn-success btn-outline pull-right m-t-n-xs" type="submit" ng-disabled="!validaForm()" ng-click="registrarUsuario()"><strong>Registrarme</strong></button> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
+                                <small class ="text-danger" ng-show="formRegistro.password.$touched && !validaPasword()">Las contraseñas no coinciden</small>
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <button class="btn btn-sm btn-success btn-outline pull-right m-t-n-xs" type="submit" ng-disabled="!validaForm()" ng-click="registrarUsuario()"><strong>Registrarme</strong></button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
-	<script>
-	 $(document).ready(function(){
+    <script>
+     $(document).ready(function(){
         var dt = new Date();
         dt.setFullYear(new Date().getFullYear()-18);
 
-		 $('#data_2 .input-group.date').datepicker({
-			startView: 2,
-			todayBtn: "linked",
-			keyboardNavigation: false,
-			forceParse: false,
-			autoclose: true,
-			format: "dd/mm/yyyy",
-			language: 'es',
+         $('#data_2 .input-group.date').datepicker({
+            startView: 2,
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true,
+            format: "dd/mm/yyyy",
+            language: 'es',
             endDate : dt
-		});
-	 });	
-	</script>
+        });
+     });    
+    </script>
 
 </div>
-
 
 

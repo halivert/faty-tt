@@ -2,7 +2,10 @@ package mx.escom.tt.diabetes.web.facade;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -73,6 +76,11 @@ public class UsuarioFacade extends NumberHelper{
 				usuarioVo.setApellidoMaterno(usuarioDto.getApellidoMaterno());
 				usuarioVo.setEmail(usuarioDto.getEmail().trim());
 				usuarioVo.setFechaNacimiento(formatoFechaNacimiento.format(usuarioDto.getFechaNacimiento()));
+				
+				String[] input = String.valueOf(usuarioDto.getFechaNacimiento()).split(" ");
+				LocalDate dob = LocalDate.parse(input[0]);
+				Integer edad = getAge(dob);
+				usuarioVo.setEdad(String.valueOf(edad));
 				usuarioVo.setSexo(usuarioDto.getSexo());
 				
 				if(pacienteDto != null) {
@@ -132,6 +140,77 @@ public class UsuarioFacade extends NumberHelper{
 	}
 	
 	/**
+	 * Proposito : Retorna una respuesta al concluir la verificacion de un token
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 13/05/2018
+	 * @param token						-	Token que se desea verificar
+	 * @return
+	 * @throws RuntimeException
+	 */
+	public RespuestaVo validaTokenReestablecerPassword(String token) throws RuntimeException{
+		log.debug("Incio - Facade");
+		RespuestaVo respuestaVo = null;
+		String[] response = null;
+		String email = null;
+		String idUsuario = null;
+		try{
+			email = usuarioAppService.validaTokenReestablecerPassword(token);
+		
+			if(StringUtils.isEmpty(email)) {
+				throw new RuntimeException("Ocurrió un error al procesar la ultima petición.");
+			}
+			response = email.split("-");
+			
+			email = response[0];
+			idUsuario = response[1];
+			
+			respuestaVo = new RespuestaVo();
+			respuestaVo.setRespuesta("OK");
+			respuestaVo.setMensaje(email);
+			respuestaVo.setIdUsuario(idUsuario);
+		
+		}catch (Exception ex) {
+			throw new RuntimeException(ex.getMessage());
+		}
+		log.debug("Fin - Facade");
+		return respuestaVo;
+	}
+	
+	public RespuestaVo reestablecerPassword(UsuarioVo usuarioVo) throws RuntimeException{
+		log.debug("Inicio - Facade");
+		RespuestaVo respuestaVo = null; 
+		String msjEx = null;
+		String idUsuarioStr = usuarioVo.getIdUsuario();
+		String passwordStr = usuarioVo.getKeyword();
+		try {
+			if(StringUtils.isEmpty(idUsuarioStr)) {
+				throw new RuntimeException("El identificador del usuario no puede ser nulo o vacío.");
+			}
+			if(!StringUtils.isNumeric(idUsuarioStr)) {
+				throw new RuntimeException("El identificador del usuario no puede tener letras.");
+			}
+			if(StringUtils.isEmpty(passwordStr)) {
+				throw new RuntimeException("La contraseña no puede ser nula o vacía.");
+			}
+			
+			usuarioAppService.reestablecerPasswordAppService(Integer.valueOf(idUsuarioStr), passwordStr);
+			
+			respuestaVo = new RespuestaVo();
+			respuestaVo.setRespuesta("OK");
+			respuestaVo.setMensaje("La contraseña se actualizó correctamente");
+		}catch(RuntimeException rtExc) { 
+			throw new RuntimeException(rtExc.getMessage());
+		}catch (Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "recuperar actualizar la contraseña";
+			throw new RuntimeException(msjEx,ex);
+		}
+		
+		log.debug("Fin - Facade");
+		return respuestaVo;
+	}
+	
+	/**
 	 * 
 	 * Proposito : Guardar un usuario y su informacion con base en su rol
 	 * @author Edgar, ESCOM
@@ -175,6 +254,7 @@ public class UsuarioFacade extends NumberHelper{
 				}
 				
 				if(usuarioVo.getFechaNacimiento() != null && !usuarioVo.getFechaNacimiento().trim().isEmpty()) {
+					
 					usuarioDto.setFechaNacimiento(formatoFechaNacimiento.parse(usuarioVo.getFechaNacimiento()));
 				}
 			}
@@ -234,6 +314,13 @@ public class UsuarioFacade extends NumberHelper{
 		log.debug("Fin - Facade");
 		return result;
 	}
+	
+	
+	// Returns age given the date of birth
+    public int getAge(LocalDate dob) {
+        LocalDate curDate = LocalDate.now();
+        return Period.between(dob, curDate).getYears();
+    }
 	
 
 }

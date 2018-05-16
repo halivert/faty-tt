@@ -87,9 +87,7 @@ angular.module('trabajoTerminal')
       },
 
       obtenerValoresNutrimentales: function(idPaciente,edad,peso,estatura,actividad,sexo,porcentajeLipidos,porcentajeCarbohidratos,porcentajeProteinas) {
-        //console.log("descripcion : " + descripcion);
-        //console.log("dieta : " + JSON.stringify(dieta));
-        //var jsonDieta = JSON.stringify(dieta);
+        
         var intSexo = 0;
         if(sexo === "Femenino"){
           intSexo = 0;

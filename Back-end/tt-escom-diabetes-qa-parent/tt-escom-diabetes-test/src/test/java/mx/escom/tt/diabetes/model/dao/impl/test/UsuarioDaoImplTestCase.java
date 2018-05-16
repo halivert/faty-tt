@@ -19,7 +19,9 @@ import com.thoughtworks.xstream.XStream;
 @CommonsLog
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:mx/escom/tt/diabetes/commons/xml/commons.application.context.xml",
-		"classpath:mx/escom/tt/diabetes/model/xml/model.application.context.xml" })
+		"classpath:mx/escom/tt/diabetes/model/xml/model.application.context.xml",
+		"classpath:mx/escom/tt/diabetes/business/xml/business.application.context.xml",
+		"classpath:mx/escom/tt/diabetes/web/xml/web.application.context.xml"})
 public class UsuarioDaoImplTestCase {
 	
 	 @Autowired UsuarioDao clienteDao;
@@ -108,6 +110,30 @@ public class UsuarioDaoImplTestCase {
 			XStream xStream = new XStream();
 			log.debug("xStream.toXML(usuarioDto): " + Constants.SALTO_LINEA + xStream.toXML(usuarioDto));
 		}
+		
+		log.debug("Fin - Test");
+	}
+	
+	/**
+	 * Proposito : Validar el correcto funcionamiento del metodo recuperarUsuarioPorId
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 15/05/2018
+	 */
+	@Test
+	public void reestablecerPasswordTestCase() {
+		log.debug("Inicio - Test");
+		
+		UsuarioDto usuarioDto = null;
+		
+		String keyword = "keyword";
+		Integer idUsuario = 33;
+		
+		usuarioDto = clienteDao.recuperarUsuarioPorId(idUsuario);
+		
+		usuarioDto.setKeyword(keyword);
+		
+		clienteDao.reestablecerPassword(usuarioDto);
 		
 		log.debug("Fin - Test");
 	}

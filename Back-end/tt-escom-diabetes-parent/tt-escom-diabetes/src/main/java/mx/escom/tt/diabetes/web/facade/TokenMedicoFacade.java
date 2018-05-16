@@ -76,7 +76,32 @@ public class TokenMedicoFacade {
 		catch (Exception ex) {
 			throw new RuntimeException(ex.getMessage());
 		}
-
+		log.debug("Fin - Facade");
+	}
+	
+	/**
+	 * Proposito : Enviar la url a un usuario por correo eletronico para que puede reestablecer su password
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 13/05/2018
+	 * @param destinatario				-	Usuario al que se enviara el password
+	 * @throws RuntimeException			-	Si ocurre un error durante la ejecucion del metodo
+	 */
+	public void enviarTokenReestablecerPassword(String[] destinatario) throws RuntimeException{
+		log.debug("Inicio - Facade");
+		
+		if(destinatario == null || destinatario.length == 0) {
+			throw new RuntimeException("El destinatario no puede ser nulo o vacío.");
+		}
+		
+		try {
+			tokenMedicoAppService.prepareDataForToken(destinatario);
+		}catch (RuntimeException ex) {
+			throw new RuntimeException(ex.getMessage());
+		}
+		catch (Exception ex) {
+			throw new RuntimeException(ex.getMessage());
+		}
 		
 		log.debug("Fin - Facade");
 	}

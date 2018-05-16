@@ -2,7 +2,7 @@
 * pacientesCtrl - Controlador ligado a la vista pacientes.html
 */
 angular.module('trabajoTerminal')
-.controller('pacientesCtrl', function($scope,$log,pacientesService,loginService,toastr,blockUI,$cookies,$filter,$state,$cookies,glucosaService,dietaService){
+.controller('pacientesCtrl', function($scope,$log,pacientesService,loginService,toastr,blockUI,$cookies,$filter,$state,$cookies,glucosaService,dietaService,$timeout){
 
   $scope.pacientes = [];
   $scope.listhistorialclinico = [];
@@ -23,32 +23,43 @@ angular.module('trabajoTerminal')
     altura:''
   }
   $scope.esEditable = true;
+
+  var edadPaciente = 0;
+  $scope.edadPaciente;
   
-$scope.limiteRegistros = [{lim: "5"},{lim: "10"},{lim: "15"},{lim: "20"},{lim: "25"}, {lim: "30"}];
+  $scope.limiteRegistros = [{lim: "5"},{lim: "10"},{lim: "15"},{lim: "20"},{lim: "25"}, {lim: "30"}];
+  $scope.Array = [{name: "Muy leve", value:"0"},{name: "Leve", value:"1"},{name: "Moderado", value:"2"},{name: "Intenso", value:"3"},{name: "Excepcional", value:"4"}];
+
+  $scope.clickOptionFun = function(index) {
+    $scope.historial.af = index.value;
+  }
 
 /**
 * verPacientes  - Funcion que se ejecuta cuando se carga la vista de pacientes.html, lista los pacientes asociados a un medico
 */
 $scope.verPacientes = function(){
 
+  //Se limpian cookies en caso de ser necesario
+  $cookies.remove("historialDetalle");
+  $cookies.remove("valoresNutrimentales");
   var idUsuario =  $cookies.get("idUsuario")
   pacientesService.recuperarListaPacientes(idUsuario).then(
     function successCallback(d) {
       $scope.pacientes=d;
-        angular.element(document).ready(function() {  
-          dTable = $('#dataTable-pacientes')  
-          dTable.DataTable({"language": {
-            "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
-          }});  
-        });  
-      },
-      function errorCallback(d){
-        if(d.data == null)
-          toastr.warning("Servicio no disponible", 'Advertencia');
-        else{
-          toastr.error(d.data.mensaje, 'Error');
-        }
-      });
+      angular.element(document).ready(function() {  
+        dTable = $('#dataTable-pacientes')  
+        dTable.DataTable({"language": {
+          "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+        }});  
+      });  
+    },
+    function errorCallback(d){
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        toastr.error(d.data.mensaje, 'Error');
+      }
+    });
 },
 
 /**
@@ -61,9 +72,9 @@ $scope.numeroPacientes = function(){
   pacientesService.recuperarNumeroPacientes(idUsuario).then(
     function successCallback(d) {
      $scope.numero=d.length;
-  },
+   },
 
-  function errorCallback(d) {
+   function errorCallback(d) {
     if(d.data == null)
       toastr.warning("Servicio no disponible", 'Advertencia');
     else{
@@ -83,13 +94,16 @@ $scope.recuperaPaciente = function(idCurrentPaciente){
 * recuperaInfoPaciente - Funcion que recupera datos generales del paciente que selecciono el medico 
 */
 $scope.recuperaInfoPaciente = function(idCurrentPaciente){
+  blockUI.start();
   var nombre = loginService.recuperarInformacionUsuario(idCurrentPaciente).then( 
     function successCallback(informacionUsuario){
       $scope.currentPaciente.nombreCompletoPaciente = informacionUsuario.nombre + " " + informacionUsuario.apellidoPaterno + " " + informacionUsuario.apellidoMaterno;
       $scope.currentPaciente.fechaNac = informacionUsuario.fechaNacimiento;
 
-      $scope.currentPaciente.edad = formatAndCalculateAge(informacionUsuario.fechaNacimiento); 
+      $scope.currentPaciente.edad = informacionUsuario.edad; 
+
     });
+  blockUI.stop();
 }
 /**
 * verHistorial  - Recuperar la informacion del historial clinico del paciente seleccionado
@@ -137,25 +151,44 @@ $scope.verUltimoHistorial = function(idCurrentPaciente){
 */
 $scope.mostrarInformacionGeneral = function(){
   blockUI.start();
-  $scope.recuperaInfoPaciente($cookies.get("idCurrentPaciente"));
-  pacientesService.recuperaUltimoHistorial($cookies.get("idCurrentPaciente")).then(
+  var idPaciente = $cookies.get("idCurrentPaciente");
+  
+  $scope.recuperaInfoPaciente(idPaciente);
+
+  $timeout(function() { $scope.displayErrorMsg = false;}, 2000);
+
+  pacientesService.recuperaUltimoHistorial(idPaciente).then(
     function successCallback(d) {
-      $scope.historialDetalle = d;
-      $scope.historialDetalle.edad = $scope.currentPaciente.edad;
-      dietaService.obtenerValoresNutrimentales(d.idPaciente,"22",d.peso,d.estatura,"LEVE",d.sexo,d.lipidos,d.carbohidratos,d.proteinas).then(
+
+      if(d.respuesta != "ERROR"){
+        $scope.historialDetalle = d;
+        
+
+        var index = d.actividadFisica
+        var obj = $filter('filter')($scope.Array, {name: d.actividadFisica}, true)[0];
+
+        dietaService.obtenerValoresNutrimentales(d.idPaciente,$scope.currentPaciente.edad,d.peso,d.estatura,obj.value,d.sexo,d.lipidos,d.carbohidratos,d.proteinas).then(
           function successCallback(d1) {
             $scope.valoresNutrimentales = d1;
-            console.log("valoresNutrimentales" + JSON.stringify(d1));
-          
-      },
-      function errorCallback(d) {
-        if(d.data == null)
-          toastr.warning("Servicio no disponible", 'Advertencia');
-        else{
-          $log.debug("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
-          toastr.error(d.data.mensaje, 'Error');
-        }
-      });
+            $cookies.put("historialDetalle",JSON.stringify($scope.historialDetalle));
+            $cookies.put("valoresNutrimentales",JSON.stringify(d1));
+            
+            $scope.desactivarBoton = false;
+          },
+          function errorCallback(d) {
+            if(d.data == null)
+              toastr.warning("Servicio no disponible", 'Advertencia');
+            else{
+              console.log("JSON.stringify(d.data.mensaje)" + JSON.stringify(d.data.mensaje));
+              toastr.error(d.data.mensaje, 'Error');
+            }
+          });
+      }else{
+
+        toastr.warning("El paciente no cuenta con historial clínico", 'Advertencia');
+        $scope.desactivarBoton = true;
+      }
+      
 
     },
     function errorCallback(d) {
@@ -181,7 +214,7 @@ $scope.setCurrentPaciente = function(){
 * guardarHistorialClinico  - Guardar la informacion del historial clinico del paciente seleccionado
 */
 $scope.guardarHistorialClinico = function(){
-  pacientesService.guardarInfoHistorialClinico($scope.usuario.id,$scope.historial.peso,$scope.historial.talla,$scope.historial.altura,$scope.historial.imc,$scope.historial.lipidos,$scope.historial.carbohidratos,$scope.historial.proteinas,$scope.historial.azucar).then(
+  pacientesService.guardarInfoHistorialClinico($scope.usuario.id,$scope.historial.peso,$scope.historial.talla,$scope.historial.altura,$scope.historial.imc,$scope.historial.lipidos,$scope.historial.carbohidratos,$scope.historial.proteinas,$scope.historial.azucar,$scope.historial.af).then(
 
     function successCallback(d) {
       angular.element('#modal-paciente').modal('hide');
@@ -219,7 +252,7 @@ $scope.actualizaHistorialClinico = function(){
         toastr.error(d.data.mensaje, 'Error');
       }
     });
-    $scope.esEditable = true;
+  $scope.esEditable = true;
 },
 
 /**
@@ -260,8 +293,8 @@ $scope.calculateAge = function calculateAge(birthday) { // birthday is a date wi
 */
 formatAndCalculateAge = function formatAndCalculateAge(birthday) {// birthday is a date with dd/MM/yyyy format
   var formatedDate = birthday.split("/").reverse().join("-");
-  var age  = $scope.calculateAge(formatedDate);
-  return age;
+  console.log("formatedDate : " + formatedDate);
+  return  $scope.calculateAge(formatedDate);
 },
 /**
 * activarBoton  - Desactivar el boton para guardar alguna modificacion en el historial clinico
@@ -299,8 +332,8 @@ $scope.validaForm =function(){
 */
 $scope.validaInfo =function(){
   if($scope.esEditable == false){
-      if($scope.formInfoGral.$valid){
-        $scope.historialDetalle.imc=  ($scope.historialDetalle.peso)/Math.pow($scope.historialDetalle.estatura,2);
+    if($scope.formInfoGral.$valid){
+      $scope.historialDetalle.imc=  ($scope.historialDetalle.peso)/Math.pow($scope.historialDetalle.estatura,2);
       return  true;
     }
     else{
@@ -311,7 +344,7 @@ $scope.validaInfo =function(){
       }
       return false;   
     }    
- }
+  }
   else{
     return false;
   }
@@ -331,8 +364,7 @@ $scope.limpiarInfo=function(){
 
 
 $scope.clickOptionSelected = function(index) {
-      $scope.filtraNumRegistro(index.lim);
-
+  $scope.filtraNumRegistro(index.lim);
 }
 
 /**
@@ -343,12 +375,12 @@ $scope.filtraNumRegistro = function(limite){
   var idPaciente =  $cookies.get("idUsuario")
   
   if (limite == undefined) {
-        limite  = "5";
+    limite  = "5";
   }
 
   glucosaService.recuperarNRegistrosGlucosaService(idPaciente, limite).then(
 
-        function successCallback(d) {
+    function successCallback(d) {
       $scope.series = ['Nivel de glucosa'];
 
       $scope.labels = [];
@@ -359,9 +391,14 @@ $scope.filtraNumRegistro = function(limite){
         $scope.data[0].push(data.azucar);
       });
 
+      $scope.$on('chart-create', function(event, instance){
+        $scope.chart = instance.chart;
+      });
 
-      $scope.onClick = function (points, evt) {
-        console.log(points, evt);
+      $scope.onClick = function (elements, e) {
+
+        glucosaService.recuperarRegistro(elements,e,d,$scope.chart,$scope.labels, $scope.data);
+
       };
       $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }];
       $scope.options = {

@@ -39,7 +39,9 @@ public class UsuarioAppServiceTestCase {
 		log.debug("Inicio - Test");
 		
 		UsuarioDto usuarioDto = null;
-		Integer idUsuario = 4;
+		Integer idUsuario = 19;
+		
+		
 		
 		usuarioDto = usuarioAppService.recuperarUsuarioPorId(idUsuario);
 

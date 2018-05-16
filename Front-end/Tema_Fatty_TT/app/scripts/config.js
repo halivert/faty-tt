@@ -16,6 +16,27 @@
         data: { pageTitle: 'Inicio sesion',
         bodyClass: 'gray-bg' }
     })
+    .state('restorePassword', {
+        url: "/session/reestablecePassword/:token",
+        templateUrl: "views/login/reestablecerpassword_2.html",
+        authenticate: false,
+        class : "gray-bg",
+        data: { pageTitle: 'Reestablecer contraseña',bodyClass: 'gray-bg' }
+    })
+    .state('error', {
+        url: "/session/error",
+        templateUrl: "views/common/error.html",
+        authenticate: false,
+        class : "gray-bg",
+        data: { pageTitle: 'Ocurrió un error',bodyClass: 'gray-bg' }
+    })
+    .state('enviarRestorPassword', {
+        url: "/session/identidad",
+        templateUrl: "views/login/reestablecerpassword_1.html",
+        authenticate: false,
+        class : "gray-bg",
+        data: { pageTitle: '¿Olvidaste tu contraseña?',bodyClass: 'gray-bg' }
+    })  
     .state('index', {
         abstract: true,
         url: "/index",
@@ -87,7 +108,8 @@
         templateUrl: "views/perfil/perfil.html",
         authenticate: true,
         data: { pageTitle: 'Mi perfil' }
-    })    
+    })
+
 }
 /**
 * Angular config    - Método para registrar el trabajo que debe realizarse en la carga del módulo.

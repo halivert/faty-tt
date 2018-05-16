@@ -12,6 +12,7 @@
         'blockUI',
         'chart.js',
         'ngTable',
-        'slickCarousel'
+        'slickCarousel',
+        'ngSweetAlert'
         ])
  })();

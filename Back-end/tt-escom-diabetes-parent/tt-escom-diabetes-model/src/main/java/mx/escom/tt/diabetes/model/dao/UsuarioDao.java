@@ -37,5 +37,26 @@ public interface UsuarioDao {
 	 * @throws RuntimeException	-	Si ocurre un error en la persistencia de datos
 	 */
 	public UsuarioDto recuperarPorEmailYKeyword(String email, String keyword) throws RuntimeException;
+	
+	/**
+	 * Proposito : Recuperar un usuario por medio de su email
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 13/05/2018
+	 * @param email						-	Email del usuario
+	 * @return							-	Informacion del usuario
+	 * @throws RuntimeException			-	Si ocurre un error en la persistencia de datos
+	 */
+	public UsuarioDto recuperarPorEmail(String email) throws RuntimeException;
+	
+	/**
+	 * Proposito : Reestablecer un password de un usuario
+	 * 
+	 * @author Edgar, ESCOM
+	 * @version 1.0.0, 15/05/2018
+	 * @param usuarioDto					-	Objeto con la nueva informacion que se quiere guardar
+	 * @throws RuntimeException			-	Si ocurre un error en la persistencia de datos
+	 */
+	public void reestablecerPassword(UsuarioDto usuarioDto) throws RuntimeException;
 
 }

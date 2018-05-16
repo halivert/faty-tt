@@ -239,7 +239,7 @@
 						SELECT * FROM 
 							( SELECT * FROM REGISTRO_GLUCOSA WHERE ID_PACIENTE = :idPaciente 
 								ORDER BY ID_REGISTRO_GLUCOSA DESC LIMIT :limiteRegistro) SUB 
-						ORDER BY ID_REGISTRO_GLUCOSA ASC
+						ORDER BY FECHA_REGISTRO ASC
 					]]>
 					</value>
 				</entry>
