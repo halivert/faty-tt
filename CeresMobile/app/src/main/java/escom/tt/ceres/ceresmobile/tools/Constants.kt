@@ -26,7 +26,6 @@ object Constants {
     const val EMAIL = "email"
     const val KEYWORD = "keyword"
     const val FECHA_NACIMIENTO = "fechaNacimiento"
-    const val SEXO = "sexo"
     const val ID_ROL = "idRol"
     const val CEDULA_PROFESIONAL = "cedulaProfesional"
     const val CODIGO_MEDICO = "codigoMedico"
@@ -37,9 +36,10 @@ object Constants {
     const val ERROR = "ERROR"
     const val OK = "OK"
     const val TOKEN = "TOKEN"
+    const val TOKEN_LOWER = "token"
     const val VOID = "VOID"
 
-    const val URL_SERVER = "http://35.202.245.109"
+    private const val URL_SERVER = "http://35.202.245.109"
     const val URL_REGISTER = "$URL_SERVER/tt-escom-diabetes/session/usuarios"
     const val URL_LOGIN = "$URL_SERVER/tt-escom-diabetes/session/login"
     const val URL_DATOS = "$URL_SERVER/tt-escom-diabetes/ceres/usuarios/"
@@ -47,6 +47,7 @@ object Constants {
     const val URL_MEDICO = "$URL_SERVER/tt-escom-diabetes/ceres/medico"
 
     const val USUARIO = "Usuario"
+    const val USER_JSON = "userJSON"
     const val LOGIN = "Login"
     const val ERROR_GENERAL = "Error general"
     const val ERROR_CONEXION = "Error de conexión"
@@ -64,6 +65,7 @@ object Constants {
 
     // Diet
     const val ID_DIET = "idDieta"
+    const val ID_DIET_2 = "id_DIETA"
     const val ID_PATIENT = "idPaciente"
     const val ID_DOCTOR = "idMedico"
     const val DESCRIPTION = "descripcion"
@@ -76,6 +78,12 @@ object Constants {
     const val SIZE = "talla"
     const val DATE = "fecha"
     const val SUGAR = "azucar"
+    const val PROTEINS = "proteinas"
+    const val HEIGHT = "estatura"
+    const val IMC = "imc"
+    const val FULL_NAME = "nombreComppleto"
+    const val PHYSICAL_ACTIVITY = "actividadFisica"
+    const val HISTORY_DATE = "fechaHistorial"
 
     // SugarRecording
     const val SUGAR_VALIDATION = "Falta azúcar"
@@ -107,7 +115,7 @@ object Constants {
     const val ASCORBIC_ACID = "acidoAscorbico"
     const val FOLIC_ACID = "acidoFolico"
     const val IRON_NO = "hierroNo"
-    const val POTASSIUM ="potasio"
+    const val POTASSIUM = "potasio"
     const val SUGAR_GR = "azucarGr"
     const val CHARGE_GL = "cargaGl"
     const val SUGAR_PE = "azucarPe"
@@ -126,8 +134,25 @@ object Constants {
     const val ID_USER = "id_USUARIO"
     const val NAME = "nombre"
     const val SEX = "sexo"
+    const val AGE = "edad"
     const val AP_PAT = "ap_PAT"
     const val AP_MAT = "ap_MAT"
     const val FEC_NAC = "fec_NAC"
+
+    // Medic code
+    const val RECEIVER = "destinatario"
+    const val MEDIC_NAME = "nombreMedico"
+    const val MEDIC_CODE = "codigoMedico"
+    const val SENDER = "remitente"
+
+    // Medic
+    const val PROFESSIONAL_LICENSE = "cedulaProfesional"
+
+    // User
+    const val ID_ROLE = "idRol"
+
+    // Response
+    const val MESSAGE = "mensaje"
+    const val RESPONSE = "respuesta"
   }
 }

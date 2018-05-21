@@ -22,12 +22,16 @@ import escom.tt.ceres.ceresmobile.fragments.DoctorMainFragment
 import escom.tt.ceres.ceresmobile.fragments.DoctorPatientsFragment
 import escom.tt.ceres.ceresmobile.fragments.PatientDetailFragment
 import escom.tt.ceres.ceresmobile.models.Patient
+import escom.tt.ceres.ceresmobile.models.User
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Constants
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_MEDICO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.USER_JSON
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
+import org.json.JSONObject
 
 class DoctorMainActivity :
     AppCompatActivity(),
@@ -54,15 +58,21 @@ class DoctorMainActivity :
     setSupportActionBar(findViewById(R.id.appBar))
     supportActionBar!!.setDisplayShowTitleEnabled(false)
 
+    val preferences = getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
     idUser = intent.getIntExtra(Constants.Strings.ID_USUARIO, -1)
+    val medicJSON = preferences.getString(USER_JSON, User().toJSONString())
+    try {
+      medic = User(JSONObject(medicJSON))
+    } catch (e: Exception) {
+      Log.e("Log", e.toString())
+    }
 
     progressBar = findViewById(R.id.progressBar)
     homeFragment = DoctorMainFragment.newInstance(idUser)
     patientsFragment = DoctorPatientsFragment.newInstance()
     generateCodeFragment = DoctorGenerateCodeFragment.newInstance()
     navigationView = findViewById(R.id.bottom_navigation_view)
-    val welcome = getString(R.string.welcome)
-    findViewById<TextView>(R.id.title_bar_text).text = welcome
+    findViewById<TextView>(R.id.title_bar_text).text = getString(R.string.welcome)
 
     launch(UI) {
       getPatients()
@@ -133,7 +143,7 @@ class DoctorMainActivity :
         .show()
   }
 
-  suspend fun getPatients() {
+  private suspend fun getPatients() {
     var urlPatients = "$URL_MEDICO/$idUser/pacientes/"
     progressBar.visibility = View.VISIBLE
     var queue = CeresRequestQueue.getInstance(this)
@@ -156,6 +166,7 @@ class DoctorMainActivity :
 
   companion object {
     var idUser = -1
+    var medic = User(JSONObject())
     var patients: MutableList<Patient> = mutableListOf()
   }
 }

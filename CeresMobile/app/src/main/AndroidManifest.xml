@@ -4,6 +4,7 @@
           android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -24,18 +25,19 @@
         <activity
             android:name=".activities.SignInActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".activities.MainActivity"></activity>
+            android:parentActivityName=".activities.MainActivity"/>
         <activity
             android:name=".activities.PatientMainActivity"
             android:launchMode="singleTop"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".activities.DoctorMainActivity"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop"/>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts"/>
-    </application>
 
+        <receiver android:name=".tools.MyReceiver"/>
+    </application>
 </manifest>

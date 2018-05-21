@@ -19,6 +19,8 @@ import escom.tt.ceres.ceresmobile.adapters.DietListAdapter
 import escom.tt.ceres.ceresmobile.models.Diet
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Constants
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.DESCRIPTION
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_DIET_2
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import java.sql.Timestamp
@@ -45,20 +47,36 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
       addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
     }
 
-    var swipeContainer = view.findViewById<SwipeRefreshLayout>(R.id.diet_refresh)
-    swipeContainer.setOnRefreshListener({
+    val swipeContainer = view.findViewById<SwipeRefreshLayout>(R.id.diet_refresh)
+    swipeContainer.setOnRefreshListener {
       launch(UI) {
         getDiets()
         recyclerView.adapter.notifyDataSetChanged()
         swipeContainer.isRefreshing = false
+        if (PatientMainActivity.diets.isEmpty() && activity != null) {
+          Toast.makeText(
+              activity,
+              getString(R.string.no_diets_found),
+              Toast.LENGTH_LONG
+          ).show()
+        }
       }
-    })
+    }
 
     if (PatientMainActivity.diets.isEmpty()) {
-      Toast.makeText(
-          activity.applicationContext,
-          "No hay dietas para el paciente",
-          Toast.LENGTH_LONG).show()
+      launch(UI) {
+        swipeContainer.isRefreshing = true
+        getDiets()
+        swipeContainer.isRefreshing = false
+        recyclerView.adapter.notifyDataSetChanged()
+        if (PatientMainActivity.diets.isEmpty() && activity != null) {
+          Toast.makeText(
+              activity,
+              getString(R.string.no_diets_found),
+              Toast.LENGTH_LONG
+          ).show()
+        }
+      }
     }
 
     return view
@@ -84,24 +102,39 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
 
   private suspend fun getDiets() {
     PatientMainActivity.diets.clear()
-    var urlDiets = "${Constants.Strings.URL_PATIENT}/${PatientMainActivity.idPatient}/dietas"
-    var response = CeresRequestQueue.getInstance(activity).apiArrayRequest(
+    val urlDiets = "${Constants.Strings.URL_PATIENT}/${PatientMainActivity.idPatient}/dietas"
+    val response = CeresRequestQueue.getInstance(activity).apiArrayRequest(
         Request.Method.GET,
         urlDiets,
         null).await()
 
     for (i in 0 until response.length()) {
-      var responseObject = response.getJSONObject(i)
+      val responseObject = response.getJSONObject(i)
 
-      var idDiet = if (responseObject.has("id_DIETA")) responseObject.getInt("id_DIETA") else -1
-      var idPatient = if (responseObject.has("id_PACIENTE")) responseObject.getInt("id_PACIENTE") else -1
-      var idDoctor = if (responseObject.has("id_MEDICO")) responseObject.getInt("id_MEDICO") else -1
-      var description = if (responseObject.has("descripcion")) responseObject.getString("descripcion") else ""
-      var assignDate = if (responseObject.has("fecha_ASIGNACION"))
-        Timestamp(responseObject.getLong("fecha_ASIGNACION")) else Timestamp(0)
+      if (responseObject.has(ID_DIET_2)) {
+        val idDiet = responseObject.getInt(ID_DIET_2)
 
-      var diet = Diet(idDiet, description, assignDate, idPatient, idDoctor)
-      PatientMainActivity.diets.add(diet)
+        val idPatient =
+            if (responseObject.has("id_PACIENTE")) responseObject.getInt("id_PACIENTE")
+            else -1
+
+        val idDoctor =
+            if (responseObject.has("id_MEDICO")) responseObject.getInt("id_MEDICO")
+            else -1
+
+        val description =
+            if (responseObject.has(DESCRIPTION)) responseObject.getString(DESCRIPTION)
+            else ""
+
+        val assignDate =
+            if (responseObject.has("fecha_ASIGNACION"))
+              Timestamp(responseObject.getLong("fecha_ASIGNACION"))
+            else
+              Timestamp(0)
+
+        val diet = Diet(idDiet, description, assignDate, idPatient, idDoctor)
+        PatientMainActivity.diets.add(diet)
+      }
     }
   }
 

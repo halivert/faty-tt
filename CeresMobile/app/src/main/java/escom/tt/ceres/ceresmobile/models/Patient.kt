@@ -1,5 +1,6 @@
 package escom.tt.ceres.ceresmobile.models
 
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AGE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AP_MAT
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AP_PAT
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.EMAIL
@@ -17,6 +18,7 @@ class Patient(private val patientJSON: JSONObject = JSONObject()) {
   var lastName: String = if (patientJSON.has(AP_PAT)) patientJSON.getString(AP_PAT) else ""
   var mothersLastName = if (patientJSON.has(AP_MAT)) patientJSON.getString(AP_MAT) else ""
   var birthDate: String = if (patientJSON.has(FEC_NAC)) patientJSON.getString(FEC_NAC) else ""
+  var age = if (patientJSON.has(AGE)) patientJSON.getInt(AGE) else -1
 
   fun toJSONString(i: Int? = null): String =
       if (i != null)

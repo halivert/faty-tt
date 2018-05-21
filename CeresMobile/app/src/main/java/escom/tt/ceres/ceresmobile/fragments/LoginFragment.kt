@@ -32,6 +32,7 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_DATOS
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_LOGIN
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.USER_JSON
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import org.json.JSONObject
@@ -135,6 +136,7 @@ class LoginFragment : Fragment() {
         var fullName = "$name $lastName $mothersLastName"
 
         editor.run {
+          putString(USER_JSON, it.toString())
           putInt(ID_USUARIO, idUser)
           putString(NOMBRE_COMPLETO, fullName)
           putString(NOMBRE, name)
@@ -194,7 +196,7 @@ class LoginFragment : Fragment() {
     val keyword = editKeyword.text.toString()
     val context = activity.applicationContext
 
-    if (email.isNullOrBlank()) {
+    if (email.isBlank()) {
       Toast.makeText(context, R.string.email_validation, Toast.LENGTH_SHORT).show()
       editEmail.requestFocus()
       return false
@@ -204,7 +206,7 @@ class LoginFragment : Fragment() {
       return false
     }
 
-    if (keyword.isNullOrBlank()) {
+    if (keyword.isBlank()) {
       Toast.makeText(context, R.string.password_validation, Toast.LENGTH_SHORT).show()
       editKeyword.requestFocus()
       return false

@@ -17,7 +17,6 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
 
 class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
-
   public override fun onResume() {
     val preferences = getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
     val idUser = preferences.getInt(ID_USUARIO, -1)
@@ -35,11 +34,11 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
 
     var registerText = findViewById<TextView>(R.id.register_text)
     val preferences = getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
-    val idUsuario = preferences.getInt(ID_USUARIO, -1)
+    val idUser = preferences.getInt(ID_USUARIO, -1)
     val rol = preferences.getInt(ID_ROL, -1)
 
-    if (idUsuario > -1 && rol > -1) {
-      successfulLogin(idUsuario, rol)
+    if (idUser > -1 && rol > -1) {
+      successfulLogin(idUser, rol)
     } else {
       val myToolbar = findViewById<Toolbar>(R.id.appBar)
       setSupportActionBar(myToolbar)

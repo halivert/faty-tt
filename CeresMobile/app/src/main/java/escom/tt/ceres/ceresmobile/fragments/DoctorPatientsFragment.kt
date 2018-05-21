@@ -8,7 +8,6 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,13 +45,13 @@ class DoctorPatientsFragment : Fragment(), PatientListAdapter.PatientItemInterac
     }
 
     var swipeContainer = view.findViewById<SwipeRefreshLayout>(R.id.patients_refresh)
-    swipeContainer.setOnRefreshListener({
+    swipeContainer.setOnRefreshListener {
       launch(UI) {
         getPatients()
         recyclerView.adapter.notifyDataSetChanged()
         swipeContainer.isRefreshing = false
       }
-    })
+    }
 
     /*
     var swipeLogin = view.findViewById<SwipeRefreshLayout>(R.id.swipe_list_view)

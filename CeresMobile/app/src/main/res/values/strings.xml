@@ -94,4 +94,113 @@
     <string name="height">Estatura</string>
     <string name="IMC">I.M.C.</string>
     <string name="observations">Observaciones</string>
+    <string name="generate_medic_code">Generar código médico</string>
+    <string name="send_code">Enviar código</string>
+
+    <!--string name="DATE_FORMAT">dd/MM/yyyy</string>
+    <string name="EMAIL">email</string>
+    <string name="KEYWORD">keyword</string>
+    <string name="ERROR">ERROR</string>
+    <string name="OK">OK</string>
+    <string name="TOKEN">TOKEN</string>
+    <string name="VOID">VOID</string>
+
+    <string name="URL_SERVER">http://35.202.245.109</string>
+    <string name="URL_REGISTER">$URL_SERVER/tt-escom-diabetes/session/usuarios</string>
+    <string name="URL_LOGIN">$URL_SERVER/tt-escom-diabetes/session/login</string>
+    <string name="URL_DATOS">$URL_SERVER/tt-escom-diabetes/ceres/usuarios/</string>
+    <string name="URL_PATIENT">$URL_SERVER/tt-escom-diabetes/ceres/pacientes</string>
+    <string name="URL_MEDICO">$URL_SERVER/tt-escom-diabetes/ceres/medico</string>
+
+    <string name="USER_JSON">userJSON</string>
+    <string name="LOGIN">Login</string>
+    <string name="ERROR_IO">Error IO</string>
+    <string name="AUTH_ERROR">Error autenticación</string>
+    <string name="SERVER_ERROR">Error servidor</string>
+    <string name="PARSE_ERROR">Error de cadena</string>
+    <string name="UNKNOWN_ERROR">Error desconocido</string>
+
+    <string name="ID_DIET">idDieta</string>
+    <string name="ID_DIET_2">id_DIETA</string>
+    <string name="ID_PATIENT">idPaciente</string>
+    <string name="ID_DOCTOR">idMedico</string>
+    <string name="DESCRIPTION">descripcion</string>
+    <string name="AVAILABLE_FOODS">alimentosDisponibles</string>
+    <string name="ASSIGN_DATE">fechaAsignacion</string>
+
+    <string name="ID_MEDICAL_HISTORY">idHistorialClinico</string>
+    <string name="WEIGHT">peso</string>
+    <string name="SIZE">talla</string>
+    <string name="DATE">fecha</string>
+    <string name="SUGAR">azucar</string>
+    <string name="PROTEINS">proteinas</string>
+    <string name="HEIGHT">estatura</string>
+    <string name="IMC">imc</string>
+    <string name="FULL_NAME">nombreComppleto</string>
+    <string name="PHYSICAL_ACTIVITY">actividadFisica</string>
+    <string name="HISTORY_DATE">fechaHistorial</string>
+
+    <string name="SUGAR_VALIDATION">Falta azúcar</string>
+    <string name="HOUR_VALIDATION">Falta hora</string>
+    <string name="DATE_VALIDATION">Falta fecha</string>
+    <string name="POSITION">Position</string>
+
+    <string name="BREAKFAST">Desayuno</string>
+    <string name="COLLATION_1">C1</string>
+    <string name="MEAL">Comida</string>
+    <string name="COLLATION_2">C2</string>
+    <string name="DINNER">Cena</string>
+
+    <string name="ID_FOOD">idAlimento</string>
+    <string name="FOOD_TYPE">tipoAlimento</string>
+    <string name="FOOD">alimento</string>
+    <string name="QUANTITY">cantidad</string>
+    <string name="UNIT">unidad</string>
+    <string name="WEIGHT_BRG">pesoBgr</string>
+    <string name="WEIGHT_NGR">pesoNgr</string>
+    <string name="ENERGY">energia</string>
+    <string name="PROTEIN">proteina</string>
+    <string name="LIPIDS">lipidos</string>
+    <string name="CARBOHYDRATES">carbohidratos</string>
+    <string name="FIBER_GR">fibraGr</string>
+    <string name="VITAMIN_A">vitaminaA</string>
+    <string name="ASCORBIC_ACID">acidoAscorbico</string>
+    <string name="FOLIC_ACID">acidoFolico</string>
+    <string name="IRON_NO">hierroNo</string>
+    <string name="POTASSIUM">potasio</string>
+    <string name="SUGAR_GR">azucarGr</string>
+    <string name="CHARGE_GL">cargaGl</string>
+    <string name="SUGAR_PE">azucarPe</string>
+    <string name="CHOLESTEROL">colesterol</string>
+    <string name="AG_SATURATED">agSaturados</string>
+    <string name="AG_M_SATURATED">agMsaturados</string>
+    <string name="AG_P_SATURATED">agPsaturados</string>
+    <string name="CALCIUM">calcio</string>
+    <string name="SELENIUM">selenio</string>
+    <string name="PHOSPHOR">fosforo</string>
+    <string name="POTASSIUM_P">potasioP</string>
+    <string name="IRON">hierro</string>
+    <string name="SODIUM">sodio</string>
+
+    <string name="ID_USER">id_USUARIO</string>
+    <string name="NAME">nombre</string>
+    <string name="SEX">sexo</string>
+    <string name="AGE">edad</string>
+    <string name="AP_PAT">ap_PAT</string>
+    <string name="AP_MAT">ap_MAT</string>
+    <string name="FEC_NAC">fec_NAC</string>
+
+    <string name="RECEIVER">destinatario</string>
+    <string name="MEDIC_NAME">nombreMedico</string>
+    <string name="MEDIC_CODE">codigoMedico</string>
+    <string name="SENDER">remitente</string>
+
+    <string name="PROFESSIONAL_LICENSE">cedulaProfesional</string>
+
+    <string name="ID_ROLE">idRol</string>
+
+    <string name="MESSAGE">mensaje</string>
+    <string name="RESPONSE">respuesta</string-->
+
+    <string name="no_diets_found">No se encontraron dietas asignadas.</string>
 </resources>

@@ -3,14 +3,12 @@ package escom.tt.ceres.ceresmobile.fragments
 import android.app.Activity
 import android.app.Fragment
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.activities.SignInActivity
 import escom.tt.ceres.ceresmobile.tools.Constants.Ints.MEDICO
 import escom.tt.ceres.ceresmobile.tools.Constants.Ints.NULL
 import escom.tt.ceres.ceresmobile.tools.Constants.Ints.PACIENTE

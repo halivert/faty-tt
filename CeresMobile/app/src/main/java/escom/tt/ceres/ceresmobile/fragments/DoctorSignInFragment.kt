@@ -32,7 +32,7 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NOMBRE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.SEXO
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.SEX
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_REGISTER
 import escom.tt.ceres.ceresmobile.tools.Functions.showDatePicker
 import org.json.JSONObject
@@ -141,7 +141,7 @@ class DoctorSignInFragment : Fragment() {
       dataToSend.put(EMAIL, email)
       dataToSend.put(KEYWORD, keyword)
       dataToSend.put(FECHA_NACIMIENTO, birthDate)
-      dataToSend.put(SEXO, sex)
+      dataToSend.put(SEX, sex)
       dataToSend.put(ID_ROL, MEDICO)
       dataToSend.put(CEDULA_PROFESIONAL, professionalLicense)
       dataToSend.put(CODIGO_MEDICO, null)
