@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.models.Diet
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class DietListAdapter(
@@ -27,13 +29,15 @@ class DietListAdapter(
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     val diet = diets[position]
     holder.dietDescription.text = diet.description
-    holder.dietAssignDate.text = diet.assignDate.toString()
+    val date = Date(diet.assignDate.time)
+    holder.dietAssignDate.text =
+        SimpleDateFormat("yyyy-MM-dd HH:mm").format(date)
 
-    holder.itemView!!.setOnClickListener({
+    holder.itemView!!.setOnClickListener {
       if (mListener != null) {
-        mListener!!.onDietItemClick(position)
+        mListener!!.onDietItemClick(diets[position].idDiet)
       }
-    })
+    }
   }
 
   inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -42,6 +46,6 @@ class DietListAdapter(
   }
 
   interface DietItemInteraction {
-    fun onDietItemClick(position: Int)
+    fun onDietItemClick(idDiet: Int)
   }
 }

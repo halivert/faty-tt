@@ -10,38 +10,31 @@ import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import com.android.volley.Request.Method.GET
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.fragments.DietDetailFragment
-import escom.tt.ceres.ceresmobile.fragments.PatientDietFragment
-import escom.tt.ceres.ceresmobile.fragments.PatientMainFragment
-import escom.tt.ceres.ceresmobile.fragments.PatientSugarRecordingFragment
-import escom.tt.ceres.ceresmobile.models.Diet
-import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
+import escom.tt.ceres.ceresmobile.fragments.*
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.DIETS
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.FRAGMENT
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PATIENT
 import escom.tt.ceres.ceresmobile.tools.MyReceiver
-import java.sql.Timestamp
 import java.util.*
-
 
 class PatientMainActivity : AppCompatActivity(),
     PatientMainFragment.OnPatientMainInteraction,
     PatientSugarRecordingFragment.OnSugarRegisterListener,
     PatientDietFragment.OnDietListener,
-    DietDetailFragment.OnDietDetailInteraction {
+    DietDetailFragment.OnDietDetailInteraction,
+    NotificationTestFragment.OnNotificationTestInteraction {
   private var pendingIntent: PendingIntent? = null
 
-  override fun onSelectedDiet(position: Int) {
+  override fun onSelectedDiet(idDiet: Int) {
     val dietDetailFragment =
-        DietDetailFragment.newInstance(diets[position].idDiet, position)
-    val fragmentTransaction = fragmentManager.beginTransaction()
+        DietDetailFragment.newInstance(idDiet)
+    val fragmentTransaction = supportFragmentManager.beginTransaction()
     fragmentTransaction.replace(R.id.frameFragment, dietDetailFragment).commit()
   }
 
@@ -52,95 +45,103 @@ class PatientMainActivity : AppCompatActivity(),
     supportActionBar!!.setDisplayShowTitleEnabled(false)
 
     idPatient = intent.getIntExtra(ID_USUARIO, -1)
+    var loadFragment = intent.getStringExtra(FRAGMENT)
 
-    val homeFragment = PatientMainFragment.newInstance(idPatient)
-    val bottomNavigationView =
-        findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+    if (idPatient != -1) {
+      val homeFragment = PatientMainFragment.newInstance(idPatient)
+      val dietsFragment = PatientDietFragment.newInstance()
+      val bottomNavigationView =
+          findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
 
-    var now = Calendar.getInstance()
-    var nowHour = now.get(Calendar.HOUR_OF_DAY)
-    var alarmHour = Calendar.getInstance()
+      val now = Calendar.getInstance()
+      val nowHour = now.get(Calendar.HOUR_OF_DAY)
+      val alarmHour = Calendar.getInstance()
 
-    var tick = "Ceres"
-    var title = "Hora de "
-    var text = "Es la hora de "
-    var image = R.drawable.ic_utensils_white
+      val tick = "Ceres"
+      var title = "Hora de "
+      var text = "Es la hora de "
+      var image = R.drawable.ic_utensils_white
 
-    when (nowHour) {
-      in 0..6, in 21..23 -> {
-        if (nowHour in 21..23)
-          alarmHour.set(Calendar.DAY_OF_YEAR, now.get(Calendar.DAY_OF_YEAR) + 1)
-        alarmHour.set(Calendar.HOUR_OF_DAY, 7)
-        title += "desayunar"
-        text += "desayunar"
-        image = R.drawable.ic_shield_alt_white
+      when (nowHour) {
+        in 0..6, in 21..23 -> {
+          if (nowHour in 21..23)
+            alarmHour.set(Calendar.DAY_OF_YEAR, now.get(Calendar.DAY_OF_YEAR) + 1)
+          alarmHour.set(Calendar.HOUR_OF_DAY, 7)
+          title += "desayunar"
+          text += "desayunar"
+          image = R.drawable.ic_shield_alt_white
+        }
+        in 7..10 -> {
+          alarmHour.apply {
+            set(Calendar.HOUR_OF_DAY, 11)
+          }
+          title += "comer colación 1"
+          text += "comer colación 1"
+          image = R.drawable.ic_bolt_white
+        }
+        in 11..13 -> {
+          alarmHour.apply {
+            set(Calendar.HOUR_OF_DAY, 14)
+          }
+          title += "comer"
+          text += "comer"
+          image = R.drawable.ic_calendar_alt_white
+        }
+        in 14..16 -> {
+          alarmHour.apply {
+            set(Calendar.HOUR_OF_DAY, 17)
+          }
+          title += "comer colación 2"
+          text += "comer colación 2"
+          image = R.drawable.ic_star_white
+        }
+        in 17..20 -> {
+          alarmHour.apply {
+            set(Calendar.HOUR_OF_DAY, 21)
+          }
+          title += "cenar"
+          text += "cenar"
+          image = R.drawable.ic_star_white
+        }
       }
-      in 7..10 -> {
+
+      text += ", revisa tus dietas"
+
+      val myIntent =
+          Intent(this@PatientMainActivity, MyReceiver::class.java).apply {
+            putExtra("TICK", tick)
+            putExtra("TITLE", title)
+            putExtra("TEXT", text)
+            putExtra("ID_IMAGE", image)
+          }
+      pendingIntent =
+          PendingIntent.getBroadcast(this@PatientMainActivity, 0, myIntent, 0)
+
+      val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+      if (alarmHour.timeInMillis != now.timeInMillis) {
         alarmHour.apply {
-          set(Calendar.HOUR_OF_DAY, 11)
+          set(Calendar.MINUTE, 0)
+          set(Calendar.SECOND, 0)
+          set(Calendar.MILLISECOND, 0)
         }
-        title += "comer colación 1"
-        text += "comer colación 1"
-        image = R.drawable.ic_bolt_white
+        alarmManager.set(AlarmManager.RTC, alarmHour.timeInMillis, pendingIntent)
       }
-      in 11..13 -> {
-        alarmHour.apply {
-          set(Calendar.HOUR_OF_DAY, 14)
+
+      val fragmentTransaction = supportFragmentManager.beginTransaction()
+      var fragment: Fragment = homeFragment
+      if (loadFragment != null) {
+        when (loadFragment) {
+          DIETS -> {
+            fragment = dietsFragment
+          }
         }
-        title += "comer"
-        text += "comer"
-        image = R.drawable.ic_calendar_alt_white
       }
-      in 14..16 -> {
-        alarmHour.apply {
-          set(Calendar.HOUR_OF_DAY, 17)
-        }
-        title += "comer colación 2"
-        text += "comer colación 2"
-        image = R.drawable.ic_star_white
+
+      fragmentTransaction.replace(R.id.frameFragment, fragment).commit()
+
+      bottomNavigationView.setOnNavigationItemSelectedListener {
+        navigationItemSelectedListener(it)
       }
-      in 17..20 -> {
-        alarmHour.apply {
-          set(Calendar.HOUR_OF_DAY, 21)
-        }
-        title += "cenar"
-        text += "cenar"
-        image = R.drawable.ic_star_white
-      }
-    }
-
-    text += ", revisa tus dietas"
-
-    val myIntent =
-        Intent(this@PatientMainActivity, MyReceiver::class.java).apply {
-          putExtra("TICK", tick)
-          putExtra("TITLE", title)
-          putExtra("TEXT", text)
-          putExtra("ID_IMAGE", image)
-        }
-    pendingIntent =
-        PendingIntent.getBroadcast(this@PatientMainActivity, 0, myIntent, 0)
-
-    Log.e("Día", alarmHour.get(Calendar.DAY_OF_MONTH).toString())
-    Log.e("Hora", alarmHour.get(Calendar.HOUR_OF_DAY).toString())
-
-    val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-    if (alarmHour.timeInMillis != now.timeInMillis) {
-      alarmHour.apply {
-        set(Calendar.MINUTE, 0)
-        set(Calendar.SECOND, 0)
-        set(Calendar.MILLISECOND, 0)
-      }
-      alarmManager.set(AlarmManager.RTC, alarmHour.timeInMillis, pendingIntent)
-    }
-
-    if (idPatient >= 0) {
-      val fragmentTransaction = fragmentManager.beginTransaction()
-      fragmentTransaction.replace(R.id.frameFragment, homeFragment).commit()
-    }
-
-    bottomNavigationView.setOnNavigationItemSelectedListener {
-      navigationItemSelectedListener(it)
     }
   }
 
@@ -148,19 +149,24 @@ class PatientMainActivity : AppCompatActivity(),
     val homeFragment = PatientMainFragment.newInstance(idPatient)
     val sugarFragment = PatientSugarRecordingFragment.newInstance()
     val dietFragment = PatientDietFragment.newInstance()
+    val notificationTest = NotificationTestFragment.newInstance()
 
     when {
       it.itemId == R.id.home_item -> {
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameFragment, homeFragment).commit()
       }
       it.itemId == R.id.generateDietItem -> {
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameFragment, dietFragment).commit()
       }
       it.itemId == R.id.registerSugarItem -> {
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameFragment, sugarFragment).commit()
+      }
+      it.itemId == R.id.notification_test -> {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frameFragment, notificationTest).commit()
       }
       it.itemId == R.id.sign_out_item -> {
         logOut(null)
@@ -209,7 +215,6 @@ class PatientMainActivity : AppCompatActivity(),
   }
 
   private fun clearPatient() {
-    diets.clear()
     idPatient = -1
   }
 
@@ -219,7 +224,6 @@ class PatientMainActivity : AppCompatActivity(),
   }
 
   companion object {
-    var diets: MutableList<Diet> = mutableListOf()
     var idPatient = -1
   }
 }

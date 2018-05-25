@@ -203,4 +203,12 @@
     <string name="RESPONSE">respuesta</string-->
 
     <string name="no_diets_found">No se encontraron dietas asignadas.</string>
+    <string name="notification_test">Prueba de notificaciones</string>
+    <string name="channel_name">Ceres mobile channel</string>
+    <string name="channel_description">Ceres mobile channel description</string>
+    <string name="mg_dl">%1$.2f mg/dl</string>
+    <string name="hypen">-</string>
+    <string name="letters">ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ abcdefghijklmnñopqrstuvwxyzáéíóú</string>
+    <string name="invalid_email_format">Formato de email incorrecto</string>
+    <string name="patients_dont_found">No se encontraron pacientes.</string>
 </resources>

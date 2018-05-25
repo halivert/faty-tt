@@ -11,6 +11,7 @@ import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.activities.DoctorMainActivity
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NAME
 
 class DoctorMainFragment : Fragment() {
   private var mListener: OnDoctorMainInteraction? = null
@@ -28,11 +29,11 @@ class DoctorMainFragment : Fragment() {
     val view = inflater.inflate(R.layout.doctor_main_fragment, container, false)
 
     val preferences = activity.getSharedPreferences(Strings.LOGIN, Context.MODE_PRIVATE)
-    val userName = preferences.getString(Strings.NOMBRE, null)
+    val userName = preferences.getString(NAME, null)
     val lastName = preferences.getString(Strings.APELLIDO_PATERNO, null)
     val mothersLastName = preferences.getString(Strings.APELLIDO_MATERNO, null)
 
-    var textView = view.findViewById<TextView>(R.id.userName)
+    val textView = view.findViewById<TextView>(R.id.userName)
     if (textView != null) {
       textView.text = "$userName $lastName $mothersLastName"
     }

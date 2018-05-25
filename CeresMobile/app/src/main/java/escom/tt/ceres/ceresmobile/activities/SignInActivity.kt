@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.widget.Toast
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.fragments.DoctorSignInFragment
+import escom.tt.ceres.ceresmobile.fragments.MedicSignInFragment
 import escom.tt.ceres.ceresmobile.fragments.LoginFragment
 import escom.tt.ceres.ceresmobile.fragments.MainFragment
 import escom.tt.ceres.ceresmobile.fragments.PatientSignInFragment
@@ -19,7 +19,7 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
 class SignInActivity : AppCompatActivity(),
     MainFragment.OnMainInteraction,
     PatientSignInFragment.OnPatientSignInInteraction,
-    DoctorSignInFragment.OnDoctorSignInInteraction,
+    MedicSignInFragment.OnDoctorSignInInteraction,
     LoginFragment.OnLoginInteraction {
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +55,7 @@ class SignInActivity : AppCompatActivity(),
         ft.replace(R.id.frameFragment, fragment)
       }
       MEDICO -> {
-        val fragment = DoctorSignInFragment()
+        val fragment = MedicSignInFragment()
         ft.replace(R.id.frameFragment, fragment)
       }
       else -> {

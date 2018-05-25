@@ -10,15 +10,16 @@ import com.android.volley.toolbox.Volley
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.AUTH_ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR_CONEXION
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.PARSE_ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.SERVER_ERROR
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.UNSUCCESSFUL
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.async
 import kotlinx.coroutines.experimental.suspendCancellableCoroutine
 import org.json.JSONArray
 import org.json.JSONObject
-
+import java.lang.Boolean.FALSE
+import java.lang.Boolean.TRUE
 
 /**
  * Created by hali on 21/03/18.
@@ -164,7 +165,8 @@ class CeresRequestQueue constructor(context: Context) {
   }
 
   private fun VolleyError.readableVolleyError(forceArray: Boolean): Any {
-    var response = JSONObject()
+    val response = JSONObject()
+    response.put(UNSUCCESSFUL, TRUE)
     if (this is TimeoutError || this is NoConnectionError) {
       response.put(ERROR, ERROR_CONEXION)
     } else if (this is AuthFailureError) {

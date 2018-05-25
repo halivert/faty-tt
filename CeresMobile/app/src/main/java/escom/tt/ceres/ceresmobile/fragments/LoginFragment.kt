@@ -26,7 +26,7 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.KEYWORD
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NOMBRE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NAME
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NOMBRE_COMPLETO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
@@ -130,16 +130,16 @@ class LoginFragment : Fragment() {
         val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
         val editor = preferences.edit()
         val idRol = if (it.has(ID_ROL)) it.getInt(ID_ROL) else -1
-        var name = if (it.has(NOMBRE)) it.getString(NOMBRE) else ERROR
-        var lastName = if (it.has(APELLIDO_PATERNO)) it.getString(APELLIDO_PATERNO) else ERROR
-        var mothersLastName = if (it.has(APELLIDO_MATERNO)) it.getString(APELLIDO_MATERNO) else ERROR
-        var fullName = "$name $lastName $mothersLastName"
+        val name = if (it.has(NAME)) it.getString(NAME) else ERROR
+        val lastName = if (it.has(APELLIDO_PATERNO)) it.getString(APELLIDO_PATERNO) else ERROR
+        val mothersLastName = if (it.has(APELLIDO_MATERNO)) it.getString(APELLIDO_MATERNO) else ERROR
+        val fullName = "$name $lastName $mothersLastName"
 
         editor.run {
           putString(USER_JSON, it.toString())
           putInt(ID_USUARIO, idUser)
           putString(NOMBRE_COMPLETO, fullName)
-          putString(NOMBRE, name)
+          putString(NAME, name)
           putString(APELLIDO_PATERNO, lastName)
           putString(APELLIDO_MATERNO, mothersLastName)
           putInt(ID_ROL, idRol)

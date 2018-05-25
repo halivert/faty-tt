@@ -28,12 +28,12 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.FECHA_NACIMIENTO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_ROL
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.KEYWORD
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MENSAJE
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NOMBRE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NAME
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.OK
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPUESTA
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.SEX
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_REGISTER
-import escom.tt.ceres.ceresmobile.tools.Functions.showDatePicker
+import escom.tt.ceres.ceresmobile.tools.Functions.createDatePickerDialog
 import org.json.JSONObject
 
 class PatientSignInFragment : Fragment() {
@@ -42,11 +42,20 @@ class PatientSignInFragment : Fragment() {
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
     val view = inflater.inflate(R.layout.patient_sign_in_fragment, container, false)
+    val birthDateEdit = view.findViewById<EditText>(R.id.dtpFechaNac)
 
-    view.findViewById<View>(R.id.btnRegistro).setOnClickListener { signIn() }
-    var birthDateEdit = view.findViewById<EditText>(R.id.dtpFechaNac)
+    val picker = createDatePickerDialog(
+        activity = activity,
+        dtp = birthDateEdit,
+        yearsMin = 130,
+        yearsMax = -18)
+
+    view.findViewById<View>(R.id.btnRegistro).setOnClickListener {
+      signIn()
+    }
+
     birthDateEdit.setOnClickListener {
-      showDatePicker(activity, birthDateEdit)
+      picker.show()
     }
 
     return view
@@ -73,10 +82,11 @@ class PatientSignInFragment : Fragment() {
     mListener = null
   }
 
-  private fun verifyEditText(stringId: Int, idElem: Int): Boolean {
+  private fun verifyEditText(
+      stringId: Int, idElem: Int, duration: Int = Toast.LENGTH_SHORT): Boolean {
     val context = activity.applicationContext
     val editText = activity.findViewById<EditText>(idElem)
-    Toast.makeText(context, stringId, Toast.LENGTH_SHORT).show()
+    Toast.makeText(context, stringId, duration).show()
     editText.requestFocus()
     return false
   }
@@ -90,37 +100,38 @@ class PatientSignInFragment : Fragment() {
   }
 
   private fun validate(): Boolean {
-    val name: String = activity.findViewById<EditText>(R.id.editNombre).text.toString()
-    val lastName: String = activity.findViewById<EditText>(R.id.editApPat).text.toString()
-    val mothersLastName: String = activity.findViewById<EditText>(R.id.editApMat).text.toString()
-    val doctorCode: String = activity.findViewById<EditText>(R.id.editTokenMed).text.toString()
-    val email: String = activity.findViewById<EditText>(R.id.editEmail).text.toString()
-    val keyword: String = activity.findViewById<EditText>(R.id.editKeyword).text.toString()
-    val keywordConfirmation: String =
+    val name = activity.findViewById<EditText>(R.id.editNombre).text.toString()
+    val lastName = activity.findViewById<EditText>(R.id.editApPat).text.toString()
+    val mothersLastName = activity.findViewById<EditText>(R.id.editApMat).text.toString()
+    val doctorCode = activity.findViewById<EditText>(R.id.editTokenMed).text.toString()
+    val email = activity.findViewById<EditText>(R.id.editEmail).text.toString()
+    val keyword = activity.findViewById<EditText>(R.id.editKeyword).text.toString()
+    val keywordConfirmation =
         activity.findViewById<EditText>(R.id.editKeywordConf).text.toString()
-    val birthDate: String = activity.findViewById<EditText>(R.id.dtpFechaNac).text.toString()
+    val birthDate = activity.findViewById<EditText>(R.id.dtpFechaNac).text.toString()
 
-    if (name.isEmpty())
+    if (name.isBlank())
       return verifyEditText(R.string.name_validation, R.id.editNombre)
 
-    if (lastName.isEmpty())
+    if (lastName.isBlank())
       return verifyEditText(R.string.last_name_validation, R.id.editApPat)
 
-    if (mothersLastName.isEmpty())
+    if (mothersLastName.isBlank())
       return verifyEditText(R.string.mothers_last_name_validation, R.id.editApMat)
 
-    if (doctorCode.isEmpty())
+    if (doctorCode.isBlank())
       return verifyEditText(R.string.doctor_code_validation, R.id.editTokenMed)
 
-    if (email.isEmpty())
+    if (email.isBlank())
       return verifyEditText(R.string.email_validation, R.id.editEmail)
     else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())
-      return verifyEditText(R.string.invalid_format, R.id.editEmail)
+      return verifyEditText(
+          R.string.invalid_email_format, R.id.editEmail, Toast.LENGTH_LONG)
 
     when {
-      keyword.isEmpty() ->
+      keyword.isBlank() ->
         return verifyEditText(R.string.password_validation, R.id.editKeyword)
-      keywordConfirmation.isEmpty() ->
+      keywordConfirmation.isBlank() ->
         return verifyEditText(R.string.falta_confirmacion, R.id.editKeywordConf)
       keyword != keywordConfirmation ->
         return verifyEditText(R.string.passwords_do_not_match, R.id.editKeyword)
@@ -130,39 +141,41 @@ class PatientSignInFragment : Fragment() {
         }
     }
 
-    return if (birthDate.isEmpty()) verifyEditText(R.string.birth_date_validation, R.id.dtpFechaNac) else true
-
+    return if (birthDate.isBlank())
+      verifyEditText(R.string.birth_date_validation, R.id.dtpFechaNac)
+    else true
   }
 
   private fun signIn() {
     if (validate()) {
       val context = activity.applicationContext
-      val name: String = activity.findViewById<EditText>(R.id.editNombre).text.toString()
-      val lastName: String = activity.findViewById<EditText>(R.id.editApPat).text.toString()
-      val mothersLastName: String = activity.findViewById<EditText>(R.id.editApMat).text.toString()
-      val doctorCode: String = activity.findViewById<EditText>(R.id.editTokenMed).text.toString()
-      val email: String = activity.findViewById<EditText>(R.id.editEmail).text.toString()
-      val keyword: String = activity.findViewById<EditText>(R.id.editKeyword).text.toString()
-      val birthDate: String = activity.findViewById<EditText>(R.id.dtpFechaNac).text.toString()
+      val name = activity.findViewById<EditText>(R.id.editNombre).text.toString()
+      val lastName = activity.findViewById<EditText>(R.id.editApPat).text.toString()
+      val mothersLastName = activity.findViewById<EditText>(R.id.editApMat).text.toString()
+      val doctorCode = activity.findViewById<EditText>(R.id.editTokenMed).text.toString()
+      val email = activity.findViewById<EditText>(R.id.editEmail).text.toString()
+      val keyword = activity.findViewById<EditText>(R.id.editKeyword).text.toString()
+      val birthDate = activity.findViewById<EditText>(R.id.dtpFechaNac).text.toString()
 
-      val sex: String =
+      val sex =
           if (activity.findViewById<RadioButton>(R.id.radioSexoHombre).isChecked)
             SEXO_MASCULINO.toString()
           else
             SEXO_FEMENINO.toString()
 
-      val dataToSend = JSONObject()
-      dataToSend.put(NOMBRE, name)
-      dataToSend.put(APELLIDO_PATERNO, lastName)
-      dataToSend.put(APELLIDO_MATERNO, mothersLastName)
-      dataToSend.put(EMAIL, email)
-      dataToSend.put(KEYWORD, keyword)
-      dataToSend.put(FECHA_NACIMIENTO, birthDate)
-      dataToSend.put(SEX, sex)
-      dataToSend.put(ID_ROL, PACIENTE)
-      dataToSend.put(CODIGO_MEDICO, doctorCode)
+      val dataToSend = JSONObject().apply {
+        put(NAME, name)
+        put(APELLIDO_PATERNO, lastName)
+        put(APELLIDO_MATERNO, mothersLastName)
+        put(EMAIL, email)
+        put(KEYWORD, keyword)
+        put(FECHA_NACIMIENTO, birthDate)
+        put(SEX, sex)
+        put(ID_ROL, PACIENTE)
+        put(CODIGO_MEDICO, doctorCode)
+      }
 
-      var request = JsonObjectRequest(POST, URL_REGISTER, dataToSend,
+      val request = JsonObjectRequest(POST, URL_REGISTER, dataToSend,
           Response.Listener {
             var message = ERROR
 

@@ -16,6 +16,11 @@
         android:title="@string/record_glucose"/>
 
     <item
+        android:id="@+id/notification_test"
+        android:icon="@drawable/ic_link"
+        android:title="@string/notification_test"/>
+
+    <item
         android:id="@+id/sign_out_item"
         android:icon="@drawable/fa_sign_out"
         android:title="@string/log_out"/>

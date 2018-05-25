@@ -14,13 +14,13 @@ object Constants {
   }
 
   object Strings {
+    const val CHANNEL_ID = "Ceres_notification_channel"
     const val AZUCAR = "azucar"
     const val DIETA = "Dieta"
     const val DATE_FORMAT = "dd/MM/yyyy"
     const val GLUCOSA = "Glucosa"
     const val INICIO = "Inicio"
     const val FECHA_REGISTRO = "fechaRegistro"
-    const val NOMBRE = "nombre"
     const val APELLIDO_PATERNO = "apellidoPaterno"
     const val APELLIDO_MATERNO = "apellidoMaterno"
     const val EMAIL = "email"
@@ -154,5 +154,10 @@ object Constants {
     // Response
     const val MESSAGE = "mensaje"
     const val RESPONSE = "respuesta"
+
+    const val FRAGMENT = "fragment"
+    const val DIETS = "diets"
+    const val SUCCESSFUL = "successful"
+    const val UNSUCCESSFUL = "unsuccessful"
   }
 }

@@ -1,9 +1,8 @@
 package escom.tt.ceres.ceresmobile.fragments
 
-import android.app.Activity
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
@@ -12,15 +11,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.android.volley.Request
+import com.android.volley.Request.Method.GET
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.activities.PatientMainActivity
+import escom.tt.ceres.ceresmobile.activities.PatientMainActivity.Companion.idPatient
 import escom.tt.ceres.ceresmobile.adapters.DietListAdapter
 import escom.tt.ceres.ceresmobile.models.Diet
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
-import escom.tt.ceres.ceresmobile.tools.Constants
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.DESCRIPTION
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_DIET_2
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PATIENT
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import java.sql.Timestamp
@@ -29,9 +28,9 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
   private var mListener: OnDietListener? = null
   private var dietItemInteractionListener: DietListAdapter.DietItemInteraction? = null
 
-  override fun onDietItemClick(position: Int) {
+  override fun onDietItemClick(idDiet: Int) {
     if (mListener != null)
-      mListener!!.onSelectedDiet(position)
+      mListener!!.onSelectedDiet(idDiet)
   }
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -40,10 +39,10 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
 
     dietItemInteractionListener = this@PatientDietFragment
 
-    var recyclerView = view.findViewById<RecyclerView>(R.id.diet_list).apply {
+    val recyclerView = view.findViewById<RecyclerView>(R.id.diet_list).apply {
       setHasFixedSize(true)
       layoutManager = LinearLayoutManager(activity)
-      adapter = DietListAdapter(PatientMainActivity.diets, dietItemInteractionListener)
+      adapter = DietListAdapter(diets, dietItemInteractionListener)
       addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
     }
 
@@ -53,7 +52,7 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
         getDiets()
         recyclerView.adapter.notifyDataSetChanged()
         swipeContainer.isRefreshing = false
-        if (PatientMainActivity.diets.isEmpty() && activity != null) {
+        if (diets.isEmpty() && activity != null) {
           Toast.makeText(
               activity,
               getString(R.string.no_diets_found),
@@ -63,13 +62,13 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
       }
     }
 
-    if (PatientMainActivity.diets.isEmpty()) {
+    if (diets.isEmpty()) {
       launch(UI) {
         swipeContainer.isRefreshing = true
         getDiets()
         swipeContainer.isRefreshing = false
         recyclerView.adapter.notifyDataSetChanged()
-        if (PatientMainActivity.diets.isEmpty() && activity != null) {
+        if (diets.isEmpty() && activity != null) {
           Toast.makeText(
               activity,
               getString(R.string.no_diets_found),
@@ -91,20 +90,11 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
     }
   }
 
-  override fun onAttach(activity: Activity) {
-    super.onAttach(activity)
-    if (activity is OnDietListener) {
-      mListener = activity
-    } else {
-      throw RuntimeException(activity.toString() + " must implement OnDietListener")
-    }
-  }
-
   private suspend fun getDiets() {
-    PatientMainActivity.diets.clear()
-    val urlDiets = "${Constants.Strings.URL_PATIENT}/${PatientMainActivity.idPatient}/dietas"
+    diets.clear()
+    val urlDiets = "$URL_PATIENT/$idPatient/dietas"
     val response = CeresRequestQueue.getInstance(activity).apiArrayRequest(
-        Request.Method.GET,
+        GET,
         urlDiets,
         null).await()
 
@@ -115,15 +105,18 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
         val idDiet = responseObject.getInt(ID_DIET_2)
 
         val idPatient =
-            if (responseObject.has("id_PACIENTE")) responseObject.getInt("id_PACIENTE")
+            if (responseObject.has("id_PACIENTE"))
+              responseObject.getInt("id_PACIENTE")
             else -1
 
         val idDoctor =
-            if (responseObject.has("id_MEDICO")) responseObject.getInt("id_MEDICO")
+            if (responseObject.has("id_MEDICO"))
+              responseObject.getInt("id_MEDICO")
             else -1
 
         val description =
-            if (responseObject.has(DESCRIPTION)) responseObject.getString(DESCRIPTION)
+            if (responseObject.has(DESCRIPTION))
+              responseObject.getString(DESCRIPTION)
             else ""
 
         val assignDate =
@@ -133,7 +126,7 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
               Timestamp(0)
 
         val diet = Diet(idDiet, description, assignDate, idPatient, idDoctor)
-        PatientMainActivity.diets.add(diet)
+        diets.add(diet)
       }
     }
   }
@@ -151,5 +144,7 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
     fun newInstance(): PatientDietFragment {
       return PatientDietFragment()
     }
+
+    var diets = mutableListOf<Diet>()
   }
 }

@@ -1,21 +1,19 @@
 package escom.tt.ceres.ceresmobile.fragments
 
-import android.app.Activity
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.android.volley.Request
+import com.android.volley.Request.Method.GET
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.activities.PatientMainActivity
+import escom.tt.ceres.ceresmobile.activities.PatientMainActivity.Companion.idPatient
 import escom.tt.ceres.ceresmobile.models.Diet
 import escom.tt.ceres.ceresmobile.models.Meal
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
-import escom.tt.ceres.ceresmobile.tools.Constants
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.BREAKFAST
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.COLLATION_1
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.COLLATION_2
@@ -23,7 +21,7 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.DINNER
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_DIET
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MEAL
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.POSITION
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PATIENT
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import org.json.JSONObject
@@ -31,14 +29,12 @@ import java.util.*
 
 class DietDetailFragment : Fragment() {
   private var idDiet: Int = -1
-  private var position: Int = -1
   private var listener: OnDietDetailInteraction? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     arguments?.let {
       idDiet = it.getInt(ID_DIET)
-      position = it.getInt(POSITION)
     }
   }
 
@@ -46,9 +42,9 @@ class DietDetailFragment : Fragment() {
                             savedInstanceState: Bundle?): View? {
     var view = inflater.inflate(R.layout.fragment_diet_detail, container, false)
 
-    if (idDiet > -1 && position > -1) {
+    if (idDiet > -1) {
       launch(UI) {
-        var diet: Diet = getDietDetail(idDiet, position)
+        var diet: Diet = getDietDetail(idDiet)
         view.findViewById<TextView>(R.id.tv_description).text = diet.description
         val dietDate = Calendar.getInstance()
         dietDate.timeInMillis = diet.assignDate.time
@@ -85,15 +81,6 @@ class DietDetailFragment : Fragment() {
     }
   }
 
-  override fun onAttach(activity: Activity) {
-    super.onAttach(activity)
-    if (activity is OnDietDetailInteraction) {
-      listener = activity
-    } else {
-      throw RuntimeException(activity.toString() + " must implement OnDietDetailInteraction")
-    }
-  }
-
   override fun onDetach() {
     super.onDetach()
     listener = null
@@ -101,28 +88,23 @@ class DietDetailFragment : Fragment() {
 
   interface OnDietDetailInteraction
 
-  private suspend fun getDietDetail(idDiet: Int, position: Int): Diet {
-    if (PatientMainActivity.diets[position].availableFoods.isNullOrEmpty()) {
-      var urlDiets = "${Constants.Strings.URL_PATIENT}/${PatientMainActivity.idPatient}/dietas/${idDiet}"
-      var response = CeresRequestQueue.getInstance(activity).apiObjectRequest(
-          Request.Method.GET,
-          urlDiets,
-          null).await()
+  private suspend fun getDietDetail(idDiet: Int): Diet {
+    var urlDiets = "$URL_PATIENT/$idPatient/dietas/$idDiet"
+    var response = CeresRequestQueue.getInstance(activity).apiObjectRequest(
+        GET,
+        urlDiets,
+        null).await()
 
-      PatientMainActivity.diets[position] = Diet(response)
-    }
-
-    return PatientMainActivity.diets[position]
+    return Diet(response)
   }
 
 
   companion object {
     @JvmStatic
-    fun newInstance(idDiet: Int, position: Int) =
+    fun newInstance(idDiet: Int) =
         DietDetailFragment().apply {
           arguments = Bundle().apply {
             putInt(ID_DIET, idDiet)
-            putInt(POSITION, position)
           }
         }
   }

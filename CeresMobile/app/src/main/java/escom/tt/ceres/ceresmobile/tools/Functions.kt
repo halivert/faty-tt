@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.support.constraint.ConstraintLayout
-import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -16,6 +15,7 @@ import java.lang.Math.round
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.min
 
 /**
  * Created by hali on 27/10/17.
@@ -26,28 +26,117 @@ object Functions {
     return "\"" + s + "\""
   }
 
-  fun urlTokenMedico(idMedico: Int): String {
-    return "http://35.188.191.232/tt-escom-diabetes/ceres/doctor/" + idMedico.toString() + "/token/"
+  fun createDatePickerDialog(
+      activity: Activity,
+      dtp: EditText,
+      separator: String = "/",
+      yearsMin: Int = 120,
+      yearsMax: Int = 120): DatePickerDialog {
+    var calendar = Calendar.getInstance()
+    var dateMin = Calendar.getInstance().apply {
+      set(Calendar.YEAR, get(Calendar.YEAR) - yearsMin)
+      set(Calendar.HOUR_OF_DAY, 0)
+      set(Calendar.MINUTE, 0)
+    }
+
+    var dateMax = Calendar.getInstance().apply {
+      set(Calendar.YEAR, get(Calendar.YEAR) + yearsMax)
+      set(Calendar.HOUR_OF_DAY, 23)
+      set(Calendar.MINUTE, 59)
+    }
+
+    if (dateMin.timeInMillis > dateMax.timeInMillis) {
+      throw Exception("Error on years min and years max, check that")
+    }
+
+    var year = min(calendar.get(Calendar.YEAR),
+        dateMax.get(Calendar.YEAR) + yearsMax)
+    var month = calendar.get(Calendar.MONTH)
+    var day = calendar.get(Calendar.DAY_OF_MONTH)
+
+    val picker = DatePickerDialog(
+        activity, DatePickerDialog.OnDateSetListener { _, year, month, day ->
+      val selected = Calendar.getInstance().apply {
+        set(Calendar.YEAR, year)
+        set(Calendar.MONTH, month)
+        set(Calendar.DAY_OF_MONTH, day)
+      }
+
+      dateMin = Calendar.getInstance().apply {
+        set(Calendar.YEAR, get(Calendar.YEAR) - yearsMin)
+        set(Calendar.HOUR_OF_DAY, 0)
+        set(Calendar.MINUTE, 0)
+      }
+
+      dateMax = Calendar.getInstance().apply {
+        set(Calendar.YEAR, get(Calendar.YEAR) + yearsMax)
+        set(Calendar.HOUR_OF_DAY, 23)
+        set(Calendar.MINUTE, 59)
+      }
+
+      var date = ""
+      if (selected.timeInMillis in dateMin.timeInMillis..dateMax.timeInMillis) {
+        date = "$day$separator${(month + 1)}$separator$year"
+      }
+
+      dtp.setText(date)
+    }, year, month, day)
+
+    picker.setOnShowListener {
+      calendar = Calendar.getInstance()
+      dateMin = Calendar.getInstance()
+      dateMax = Calendar.getInstance()
+
+      dateMin.apply {
+        set(Calendar.YEAR, get(Calendar.YEAR) - yearsMin)
+        set(Calendar.HOUR_OF_DAY, 0)
+        set(Calendar.MINUTE, 0)
+      }
+
+      dateMax.apply {
+        set(Calendar.YEAR, get(Calendar.YEAR) + yearsMax)
+        set(Calendar.HOUR_OF_DAY, 23)
+        set(Calendar.MINUTE, 59)
+      }
+
+      val sdf = SimpleDateFormat("dd${separator}MM${separator}yyyy", Locale.US)
+      if (!dtp.text.toString().isBlank()) {
+        try {
+          calendar.time = sdf.parse(dtp.text.toString())
+        } catch (e: ParseException) {
+          e.printStackTrace()
+        }
+      }
+
+      year = min(calendar.get(Calendar.YEAR), dateMax.get(Calendar.YEAR))
+      month = calendar.get(Calendar.MONTH)
+      day = calendar.get(Calendar.DAY_OF_MONTH)
+
+      picker.datePicker.updateDate(year, month, day)
+      picker.datePicker.minDate = dateMin.timeInMillis
+      picker.datePicker.maxDate = dateMax.timeInMillis
+    }
+
+    return picker
   }
 
-  @JvmOverloads
   fun showDatePicker(activity: Activity, dtp: EditText, separator: String = "/") {
     val datePickerFragment: DatePickerFragment
     val calendar = Calendar.getInstance()
-    val sdf = SimpleDateFormat("dd" + separator + "MM" + separator + "yyyy")
+    val sdf = SimpleDateFormat("dd${separator}MM${separator}yyyy")
     if (!dtp.text.toString().isBlank()) {
       try {
         calendar.time = sdf.parse(dtp.text.toString())
       } catch (e: ParseException) {
         e.printStackTrace()
       }
-
     }
-    datePickerFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, mes, dia ->
-      // final String date = year + separator + (mes + 1) + separator + dia;
-      val fecha = dia.toString() + separator + (mes + 1) + separator + year
-      dtp.setText(fecha)
-    }, calendar)
+    datePickerFragment = DatePickerFragment.newInstance(
+        DatePickerDialog.OnDateSetListener { _, year, mes, dia ->
+          /* final String date = year + separator + (mes + 1) + separator + dia; */
+          val date = dia.toString() + separator + (mes + 1) + separator + year
+          dtp.setText(date)
+        }, calendar)
 
     datePickerFragment.show(activity.fragmentManager, "datePicker")
   }
