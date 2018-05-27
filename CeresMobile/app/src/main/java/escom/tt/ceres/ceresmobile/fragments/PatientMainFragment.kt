@@ -16,6 +16,7 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.APELLIDO_PATERNO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NAME
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPONSE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PATIENT
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
@@ -44,17 +45,30 @@ class PatientMainFragment : Fragment() {
 
       val history = getPatientDetail(idUser)
 
-      view.findViewById<TextView>(R.id.tv_sugar).text =
-          getString(R.string.mg_dl, history.sugar)
+      val hypen = getString(R.string.hypen)
+      var error = false
+      if (history.historyJSON.has(RESPONSE)) {
+        error = history.historyJSON.getString(RESPONSE) == ERROR
+      }
 
-      view.findViewById<TextView>(R.id.tv_lipids).text =
-          getString(R.string.mg_dl, history.lipids)
+      if (!error) {
+        view.findViewById<TextView>(R.id.tv_sugar).text =
+            getString(R.string.mg_dl, history.sugar)
 
-      view.findViewById<TextView>(R.id.tv_carbohydrates).text =
-          getString(R.string.mg_dl, history.carbohydrates)
+        view.findViewById<TextView>(R.id.tv_lipids).text =
+            getString(R.string.mg_dl, history.lipids)
 
-      view.findViewById<TextView>(R.id.tv_proteins).text =
-          getString(R.string.mg_dl, history.proteins)
+        view.findViewById<TextView>(R.id.tv_carbohydrates).text =
+            getString(R.string.mg_dl, history.carbohydrates)
+
+        view.findViewById<TextView>(R.id.tv_proteins).text =
+            getString(R.string.mg_dl, history.proteins)
+      } else {
+        view.findViewById<TextView>(R.id.tv_sugar).text = hypen
+        view.findViewById<TextView>(R.id.tv_lipids).text = hypen
+        view.findViewById<TextView>(R.id.tv_carbohydrates).text = hypen
+        view.findViewById<TextView>(R.id.tv_proteins).text = hypen
+      }
 
       val textView = activity.findViewById<TextView>(R.id.userName)
       if (textView != null)

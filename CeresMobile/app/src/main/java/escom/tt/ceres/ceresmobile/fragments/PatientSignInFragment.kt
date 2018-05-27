@@ -1,9 +1,9 @@
 package escom.tt.ceres.ceresmobile.fragments
 
 import android.app.Activity
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -120,7 +120,7 @@ class PatientSignInFragment : Fragment() {
       return verifyEditText(R.string.mothers_last_name_validation, R.id.editApMat)
 
     if (doctorCode.isBlank())
-      return verifyEditText(R.string.doctor_code_validation, R.id.editTokenMed)
+      return verifyEditText(R.string.medic_code_validation, R.id.editTokenMed)
 
     if (email.isBlank())
       return verifyEditText(R.string.email_validation, R.id.editEmail)

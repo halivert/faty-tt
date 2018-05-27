@@ -1,9 +1,8 @@
 package escom.tt.ceres.ceresmobile.fragments
 
-import android.app.Activity
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,14 +47,6 @@ class DoctorMainFragment : Fragment() {
     super.onAttach(context)
     if (context is OnDoctorMainInteraction)
       mListener = context
-    else
-      throw RuntimeException(getString(R.string.error))
-  }
-
-  override fun onAttach(activity: Activity) {
-    super.onAttach(activity)
-    if (activity is OnDoctorMainInteraction)
-      mListener = activity
     else
       throw RuntimeException(getString(R.string.error))
   }

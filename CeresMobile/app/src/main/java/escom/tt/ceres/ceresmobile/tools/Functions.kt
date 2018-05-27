@@ -4,12 +4,14 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.support.constraint.ConstraintLayout
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import escom.tt.ceres.ceresmobile.fragments.pickers.DatePickerFragment
 import escom.tt.ceres.ceresmobile.fragments.pickers.TimePickerFragment
 import java.lang.Double.parseDouble
+import java.lang.Integer.parseInt
 import java.lang.Math.pow
 import java.lang.Math.round
 import java.text.ParseException
@@ -245,19 +247,49 @@ object Functions {
     }
   }
 
-  private fun gcd(a: Long, b: Long): Long {
+  fun stringToFraction(fractionString: String): Fraction {
+    val fraction = fractionString.trim()
+    val result = Fraction()
+    if (fraction.contains("/")) {
+      val fractionSplit = fraction.split("/")
+
+      try {
+        result.denominator = parseInt(fractionSplit[1].trim())
+        val fractionLeftSide = fractionSplit[0].trim()
+        if (fractionLeftSide.contains("-")) {
+          val leftSideSplit = fractionLeftSide.split("-")
+          result.numerator =
+              -(parseInt(leftSideSplit[0].trim()) * parseInt(leftSideSplit[1].trim()))
+        } else if (fractionLeftSide.contains(" ")) {
+          val leftSideSplit = fractionLeftSide.split(" ")
+          result.numerator =
+              parseInt(leftSideSplit[0].trim()) * parseInt(leftSideSplit[1].trim())
+        }
+      } catch (e: Exception) {
+        Log.e("Error", e.toString())
+      }
+    }
+
+    return result
+  }
+
+  fun gcd(a: Long, b: Long): Long {
     return if (b == 0L) a else gcd(b, a % b)
+  }
+
+  fun gcd(a: Int, b: Int): Int {
+    return if (b == 0) a else gcd(b, a % b)
   }
 
   fun doubleToStringFraction(decimal: Double): String {
     return if (decimal.toString().contains(".")) {
       val digits = decimal.toString().split(".")
-      var numberDecimals = digits[1].length * 1.0
-      var denominator = pow(10.0, numberDecimals)
-      var numerator = denominator * decimal
-      var gcd = gcd(round(numerator), round(denominator))
-      var longNumerator = round(numerator / gcd)
-      var longDenominator = round(denominator / gcd)
+      val numberDecimals = digits[1].length * 1.0
+      val denominator = pow(10.0, numberDecimals)
+      val numerator = denominator * decimal
+      val gcd = gcd(round(numerator), round(denominator))
+      val longNumerator = round(numerator / gcd)
+      val longDenominator = round(denominator / gcd)
 
       if (longDenominator == 1L) {
         return "$longNumerator"

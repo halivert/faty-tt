@@ -13,24 +13,32 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.android.volley.Request.Method.GET
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.activities.PatientMainActivity.Companion.idPatient
 import escom.tt.ceres.ceresmobile.adapters.DietListAdapter
 import escom.tt.ceres.ceresmobile.models.Diet
 import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.DESCRIPTION
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_DIET_2
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_PATIENT
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PATIENT
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import java.sql.Timestamp
 
 class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
+  private var idPatient: Int = 0
   private var mListener: OnDietListener? = null
   private var dietItemInteractionListener: DietListAdapter.DietItemInteraction? = null
 
   override fun onDietItemClick(idDiet: Int) {
     if (mListener != null)
       mListener!!.onSelectedDiet(idDiet)
+  }
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    arguments?.let {
+      idPatient = it.getInt(ID_PATIENT)
+    }
   }
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -137,13 +145,17 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
   }
 
   interface OnDietListener {
-    fun onSelectedDiet(position: Int)
+    fun onSelectedDiet(idDiet: Int)
   }
 
   companion object {
-    fun newInstance(): PatientDietFragment {
-      return PatientDietFragment()
-    }
+    fun newInstance(idPatient: Int, reload: Boolean = false): PatientDietFragment =
+        PatientDietFragment().apply {
+          arguments = Bundle().apply {
+            putInt(ID_PATIENT, idPatient)
+          }
+          if (reload) diets.clear()
+        }
 
     var diets = mutableListOf<Diet>()
   }

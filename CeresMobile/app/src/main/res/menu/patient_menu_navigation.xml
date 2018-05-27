@@ -8,17 +8,17 @@
     <item
         android:id="@+id/generateDietItem"
         android:icon="@drawable/fa_hospital"
-        android:title="@string/show_diets"/>
+        android:title="@string/show_my_diets"/>
 
     <item
         android:id="@+id/registerSugarItem"
         android:icon="@drawable/fa_edit"
         android:title="@string/record_glucose"/>
 
-    <item
+    <!--item
         android:id="@+id/notification_test"
         android:icon="@drawable/ic_link"
-        android:title="@string/notification_test"/>
+        android:title="@string/notification_test"/-->
 
     <item
         android:id="@+id/sign_out_item"

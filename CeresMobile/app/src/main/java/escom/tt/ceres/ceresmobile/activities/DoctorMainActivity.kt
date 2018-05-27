@@ -8,35 +8,22 @@ import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
-import com.android.volley.Request.Method.GET
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.fragments.DoctorGenerateCodeFragment
-import escom.tt.ceres.ceresmobile.fragments.DoctorMainFragment
-import escom.tt.ceres.ceresmobile.fragments.DoctorPatientsFragment
-import escom.tt.ceres.ceresmobile.fragments.PatientDetailFragment
+import escom.tt.ceres.ceresmobile.fragments.*
 import escom.tt.ceres.ceresmobile.models.Patient
 import escom.tt.ceres.ceresmobile.models.User
-import escom.tt.ceres.ceresmobile.single.CeresRequestQueue
 import escom.tt.ceres.ceresmobile.tools.Constants
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.APELLIDO_MATERNO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.APELLIDO_PATERNO
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ID_USUARIO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.MESSAGE
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NAME
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPONSE
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.UNSUCCESSFUL
-import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_MEDICO
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.USER_JSON
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
 import org.json.JSONObject
 
 class DoctorMainActivity :
@@ -44,25 +31,54 @@ class DoctorMainActivity :
     DoctorMainFragment.OnDoctorMainInteraction,
     DoctorGenerateCodeFragment.OnDoctorGenerateCodeInteraction,
     DoctorPatientsFragment.OnDoctorPatientsInteraction,
-    PatientDetailFragment.OnPatientDetailInteraction {
-  override fun onSelectedPatient(position: Int) {
-    val patientDetailFragment =
-        PatientDetailFragment.newInstance(patients[position].toJSONString())
-    val fragmentTransaction = fragmentManager.beginTransaction()
-    fragmentTransaction.replace(R.id.frameFragment, patientDetailFragment).commit()
-  }
-
+    PatientDetailFragment.OnPatientDetailInteraction,
+    DietDetailFragment.OnDietDetailInteraction,
+    PatientDietFragment.OnDietListener {
   private lateinit var homeFragment: DoctorMainFragment
   private lateinit var patientsFragment: DoctorPatientsFragment
   private lateinit var generateCodeFragment: DoctorGenerateCodeFragment
   private lateinit var navigationView: BottomNavigationView
   private lateinit var progressBar: ProgressBar
 
+  override fun showDiets(idPatient: Int) {
+    val fragment = PatientDietFragment.newInstance(idPatient, true)
+    supportFragmentManager.beginTransaction().apply {
+      replace(R.id.frameFragment, fragment)
+      addToBackStack(null)
+      commit()
+    }
+  }
+
+  override fun onSelectedPatient(position: Int) {
+    val fragment =
+        PatientDetailFragment.newInstance(patients[position].toJSONString())
+    supportFragmentManager.beginTransaction().apply {
+      replace(R.id.frameFragment, fragment)
+      addToBackStack(null)
+      commit()
+    }
+  }
+
+  override fun onSelectedDiet(idDiet: Int) {
+    val fragment = DietDetailFragment.newInstance(idDiet)
+    supportFragmentManager.beginTransaction().apply {
+      replace(R.id.frameFragment, fragment)
+      addToBackStack(null)
+      commit()
+    }
+  }
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.medic_main_activity)
-    setSupportActionBar(findViewById(R.id.appBar))
+    setSupportActionBar(findViewById(R.id.app_bar))
     supportActionBar!!.setDisplayShowTitleEnabled(false)
+
+    progressBar = findViewById(R.id.progressBar)
+    homeFragment = DoctorMainFragment.newInstance(idUser)
+    patientsFragment = DoctorPatientsFragment.newInstance(true)
+    generateCodeFragment = DoctorGenerateCodeFragment.newInstance()
+    navigationView = findViewById(R.id.bottom_navigation_view)
 
     val preferences = getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
     idUser = intent.getIntExtra(ID_USUARIO, -1)
@@ -72,11 +88,6 @@ class DoctorMainActivity :
     } catch (e: Exception) {
     }
 
-    progressBar = findViewById(R.id.progressBar)
-    homeFragment = DoctorMainFragment.newInstance(idUser)
-    patientsFragment = DoctorPatientsFragment.newInstance()
-    generateCodeFragment = DoctorGenerateCodeFragment.newInstance()
-    navigationView = findViewById(R.id.bottom_navigation_view)
     findViewById<TextView>(R.id.title_bar_text).text = getString(R.string.welcome)
 
     val userName = preferences.getString(NAME, null)
@@ -88,17 +99,15 @@ class DoctorMainActivity :
       textView.text = "$userName $lastName $mothersLastName"
     }
 
-    launch(UI) {
-      getPatients()
-
-      if (idUser >= 0) {
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameFragment, patientsFragment).commit()
+    if (idUser >= 0) {
+      supportFragmentManager.beginTransaction().apply {
+        replace(R.id.frameFragment, patientsFragment)
+        commit()
       }
+    }
 
-      navigationView.setOnNavigationItemSelectedListener {
-        navigationItemSelectedListener(it)
-      }
+    navigationView.setOnNavigationItemSelectedListener {
+      navigationItemSelectedListener(it)
     }
   }
 
@@ -111,12 +120,22 @@ class DoctorMainActivity :
     }
     */
       it.itemId == R.id.patients_item -> {
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameFragment, patientsFragment).commit()
+        supportFragmentManager.beginTransaction().apply {
+          replace(R.id.frameFragment, patientsFragment)
+          supportFragmentManager.popBackStack(
+              null,
+              FragmentManager.POP_BACK_STACK_INCLUSIVE);
+          commit()
+        }
       }
       it.itemId == R.id.generate_code_item -> {
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameFragment, generateCodeFragment).commit()
+        supportFragmentManager.beginTransaction().apply {
+          replace(R.id.frameFragment, generateCodeFragment)
+          supportFragmentManager.popBackStack(
+              null,
+              FragmentManager.POP_BACK_STACK_INCLUSIVE);
+          commit()
+        }
       }
       it.itemId == R.id.sign_out_item -> {
         logOut()
@@ -129,13 +148,17 @@ class DoctorMainActivity :
   override fun onBackPressed() {
     // val itemHome = navigationView.menu.findItem(R.id.home_item)
     // val homeChecked = itemHome.isChecked
-    val itemPatients = navigationView.menu.findItem(R.id.patients_item)
-    val patientsChecked = itemPatients.isChecked
+    if (supportFragmentManager.backStackEntryCount > 0) {
+      supportFragmentManager.popBackStack()
+    } else {
+      val itemPatients = navigationView.menu.findItem(R.id.patients_item)
+      val patientsChecked = itemPatients.isChecked
 
-    if (patientsChecked) return super.onBackPressed()
+      if (patientsChecked) return super.onBackPressed()
 
-    itemPatients.isChecked = true
-    navigationItemSelectedListener(itemPatients)
+      itemPatients.isChecked = true
+      navigationItemSelectedListener(itemPatients)
+    }
   }
 
   private fun logOut() {
@@ -161,6 +184,7 @@ class DoctorMainActivity :
         .show()
   }
 
+  /*
   private suspend fun getPatients() {
     patients.clear()
     val urlPatients = "$URL_MEDICO/$idUser/pacientes/"
@@ -197,6 +221,7 @@ class DoctorMainActivity :
 
     progressBar.visibility = View.INVISIBLE
   }
+  */
 
   companion object {
     var idUser = -1

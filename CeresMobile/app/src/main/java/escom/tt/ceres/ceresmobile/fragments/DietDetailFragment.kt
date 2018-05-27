@@ -40,11 +40,11 @@ class DietDetailFragment : Fragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
-    var view = inflater.inflate(R.layout.fragment_diet_detail, container, false)
+    val view = inflater.inflate(R.layout.fragment_diet_detail, container, false)
 
     if (idDiet > -1) {
       launch(UI) {
-        var diet: Diet = getDietDetail(idDiet)
+        val diet: Diet = getDietDetail(idDiet)
         view.findViewById<TextView>(R.id.tv_description).text = diet.description
         val dietDate = Calendar.getInstance()
         dietDate.timeInMillis = diet.assignDate.time
@@ -60,6 +60,7 @@ class DietDetailFragment : Fragment() {
         }
 
         if (jsonFoods != null) {
+          // Log.e("Log", jsonFoods.toString(2))
           view.findViewById<TextView>(R.id.tv_breakfast).text = Meal(jsonFoods.getString(BREAKFAST)).showMeal()
           view.findViewById<TextView>(R.id.tv_collation_1).text = Meal(jsonFoods.getString(COLLATION_1)).showMeal()
           view.findViewById<TextView>(R.id.tv_meal).text = Meal(jsonFoods.getString(MEAL)).showMeal()
@@ -89,15 +90,14 @@ class DietDetailFragment : Fragment() {
   interface OnDietDetailInteraction
 
   private suspend fun getDietDetail(idDiet: Int): Diet {
-    var urlDiets = "$URL_PATIENT/$idPatient/dietas/$idDiet"
-    var response = CeresRequestQueue.getInstance(activity).apiObjectRequest(
+    val urlDiets = "$URL_PATIENT/$idPatient/dietas/$idDiet"
+    val response = CeresRequestQueue.getInstance(activity).apiObjectRequest(
         GET,
         urlDiets,
         null).await()
 
     return Diet(response)
   }
-
 
   companion object {
     @JvmStatic

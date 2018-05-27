@@ -1,9 +1,8 @@
 package escom.tt.ceres.ceresmobile.fragments
 
-import android.app.Activity
-import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,20 +58,31 @@ class DoctorGenerateCodeFragment : Fragment() {
     btnSendCode.setOnClickListener {
       val email = view.findViewById<EditText>(R.id.et_email).text.toString()
       val code = view.findViewById<EditText>(R.id.et_code).text.toString()
-      if (!email.isBlank() && !code.isBlank()) {
+      if (valid()) {
         launch(UI) {
           view.findViewById<ProgressBar>(R.id.progress_bar).visibility = View.VISIBLE
           sendMedicalCode(email, code)
           view.findViewById<ProgressBar>(R.id.progress_bar).visibility = View.INVISIBLE
         }
-      } else if (email.isBlank()) {
-        Toast.makeText(
-            activity,
-            getString(R.string.email_validation),
-            Toast.LENGTH_LONG).show()
       }
     }
     return view
+  }
+
+  private fun valid(): Boolean {
+    val email = activity.findViewById<EditText>(R.id.et_email).text.toString()
+    val code = activity.findViewById<EditText>(R.id.et_code).text.toString()
+
+    if (email.isBlank())
+      return verifyEditText(R.string.email_validation, R.id.et_email)
+    else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches())
+      return verifyEditText(
+          R.string.invalid_email_format, R.id.et_email, Toast.LENGTH_LONG)
+
+    if (code.isBlank())
+      return verifyEditText(R.string.medic_code_validation, R.id.et_code)
+
+    return true
   }
 
   private suspend fun generateMedicalCode(): String {
@@ -125,18 +135,18 @@ class DoctorGenerateCodeFragment : Fragment() {
     }
   }
 
-  override fun onAttach(activity: Activity?) {
-    super.onAttach(activity)
-    if (activity is OnDoctorGenerateCodeInteraction) {
-      mListener = activity
-    } else {
-      throw RuntimeException(activity!!.toString() + " must implement OnDoctorGenerateCodeInteraction")
-    }
-  }
-
   override fun onDetach() {
     super.onDetach()
     mListener = null
+  }
+
+  private fun verifyEditText(
+      stringId: Int, idElem: Int, duration: Int = Toast.LENGTH_SHORT): Boolean {
+    val context = activity.applicationContext
+    val editText = activity.findViewById<EditText>(idElem)
+    Toast.makeText(context, stringId, duration).show()
+    editText.requestFocus()
+    return false
   }
 
   interface OnDoctorGenerateCodeInteraction

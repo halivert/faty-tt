@@ -32,8 +32,7 @@ class PatientMainActivity : AppCompatActivity(),
   private var pendingIntent: PendingIntent? = null
 
   override fun onSelectedDiet(idDiet: Int) {
-    val dietDetailFragment =
-        DietDetailFragment.newInstance(idDiet)
+    val dietDetailFragment = DietDetailFragment.newInstance(idDiet)
     val fragmentTransaction = supportFragmentManager.beginTransaction()
     fragmentTransaction.replace(R.id.frameFragment, dietDetailFragment).commit()
   }
@@ -45,11 +44,11 @@ class PatientMainActivity : AppCompatActivity(),
     supportActionBar!!.setDisplayShowTitleEnabled(false)
 
     idPatient = intent.getIntExtra(ID_USUARIO, -1)
-    var loadFragment = intent.getStringExtra(FRAGMENT)
+    val loadFragment = intent.getStringExtra(FRAGMENT)
 
     if (idPatient != -1) {
       val homeFragment = PatientMainFragment.newInstance(idPatient)
-      val dietsFragment = PatientDietFragment.newInstance()
+      val dietsFragment = PatientDietFragment.newInstance(idPatient)
       val bottomNavigationView =
           findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
 
@@ -148,7 +147,8 @@ class PatientMainActivity : AppCompatActivity(),
   private fun navigationItemSelectedListener(it: MenuItem): Boolean {
     val homeFragment = PatientMainFragment.newInstance(idPatient)
     val sugarFragment = PatientSugarRecordingFragment.newInstance()
-    val dietFragment = PatientDietFragment.newInstance()
+    val dietFragment =
+        PatientDietFragment.newInstance(idPatient, true)
     val notificationTest = NotificationTestFragment.newInstance()
 
     when {
@@ -164,10 +164,12 @@ class PatientMainActivity : AppCompatActivity(),
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameFragment, sugarFragment).commit()
       }
-      it.itemId == R.id.notification_test -> {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frameFragment, notificationTest).commit()
-      }
+    /*
+    it.itemId == R.id.notification_test -> {
+      val transaction = supportFragmentManager.beginTransaction()
+      transaction.replace(R.id.frameFragment, notificationTest).commit()
+    }
+    */
       it.itemId == R.id.sign_out_item -> {
         logOut(null)
       }
@@ -177,17 +179,21 @@ class PatientMainActivity : AppCompatActivity(),
   }
 
   override fun onBackPressed() {
-    val navigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
-    var itemHome = navigationView.menu.findItem(R.id.home_item)
-    var homeChecked = itemHome.isChecked
+    if (supportFragmentManager.backStackEntryCount > 0) {
+      supportFragmentManager.popBackStack()
+    } else {
+      val navigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+      var itemHome = navigationView.menu.findItem(R.id.home_item)
+      var homeChecked = itemHome.isChecked
 
-    if (homeChecked) {
-      super.onBackPressed()
-      return
+      if (homeChecked) {
+        super.onBackPressed()
+        return
+      }
+
+      itemHome.isChecked = true
+      navigationItemSelectedListener(itemHome)
     }
-
-    itemHome.isChecked = true
-    navigationItemSelectedListener(itemHome)
   }
 
   private fun logOut(view: View?) {

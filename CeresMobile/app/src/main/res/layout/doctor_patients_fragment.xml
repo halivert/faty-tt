@@ -1,15 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/patients_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_below="@+id/app_bar_layout"
     tools:context="escom.tt.ceres.ceresmobile.fragments.PatientDietFragment">
-
-    <!--ListView
-        android:id="@+id/patients_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/patients_list"

@@ -19,6 +19,7 @@ class Patient(private val patientJSON: JSONObject = JSONObject()) {
   var mothersLastName = if (patientJSON.has(AP_MAT)) patientJSON.getString(AP_MAT) else ""
   var birthDate: String = if (patientJSON.has(FEC_NAC)) patientJSON.getString(FEC_NAC) else ""
   var age = if (patientJSON.has(AGE)) patientJSON.getInt(AGE) else -1
+  val fullName = "$name $lastName $mothersLastName"
 
   fun toJSONString(i: Int? = null): String =
       if (i != null)

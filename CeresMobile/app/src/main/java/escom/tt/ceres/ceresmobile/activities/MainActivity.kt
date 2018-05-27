@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
       val actionBar = supportActionBar
       actionBar!!.setDisplayShowTitleEnabled(false)
 
-      val ft = fragmentManager.beginTransaction()
+      val ft = supportFragmentManager.beginTransaction()
       val fragment = LoginFragment()
       ft.replace(R.id.frameFragment, fragment)
       ft.commit()
@@ -57,8 +57,8 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginInteraction {
   }
 
   override fun onBackPressed() {
-    if (fragmentManager.backStackEntryCount > 0) {
-      fragmentManager.popBackStack()
+    if (supportFragmentManager.backStackEntryCount > 0) {
+      supportFragmentManager.popBackStack()
     } else {
       super.onBackPressed()
     }

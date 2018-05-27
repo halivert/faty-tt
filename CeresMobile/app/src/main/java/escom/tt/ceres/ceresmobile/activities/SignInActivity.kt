@@ -8,9 +8,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.widget.Toast
 import escom.tt.ceres.ceresmobile.R
-import escom.tt.ceres.ceresmobile.fragments.MedicSignInFragment
 import escom.tt.ceres.ceresmobile.fragments.LoginFragment
 import escom.tt.ceres.ceresmobile.fragments.MainFragment
+import escom.tt.ceres.ceresmobile.fragments.MedicSignInFragment
 import escom.tt.ceres.ceresmobile.fragments.PatientSignInFragment
 import escom.tt.ceres.ceresmobile.tools.Constants.Ints.MEDICO
 import escom.tt.ceres.ceresmobile.tools.Constants.Ints.PACIENTE
@@ -32,15 +32,16 @@ class SignInActivity : AppCompatActivity(),
     actionBar!!.setDisplayShowTitleEnabled(false)
     supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-    val fragmentManager = fragmentManager.beginTransaction()
     val fragment = MainFragment()
-    fragmentManager.replace(R.id.frameFragment, fragment)
-    fragmentManager.commit()
+    supportFragmentManager.beginTransaction().apply {
+      replace(R.id.frameFragment, fragment)
+      commit()
+    }
   }
 
   override fun onBackPressed() {
-    if (fragmentManager.backStackEntryCount > 0)
-      fragmentManager.popBackStack()
+    if (supportFragmentManager.backStackEntryCount > 0)
+      supportFragmentManager.popBackStack()
     else {
       super.onBackPressed()
       finish()
@@ -48,7 +49,7 @@ class SignInActivity : AppCompatActivity(),
   }
 
   override fun userSelection(user: Int) {
-    val ft = fragmentManager.beginTransaction()
+    val ft = supportFragmentManager.beginTransaction()
     when (user) {
       PACIENTE -> {
         val fragment = PatientSignInFragment()
@@ -68,14 +69,14 @@ class SignInActivity : AppCompatActivity(),
   }
 
   override fun successfulPatientSignIn(email: String, keyword: String) {
-    val ft = fragmentManager.beginTransaction()
+    val ft = supportFragmentManager.beginTransaction()
     val fragment = LoginFragment.newInstance(email, keyword)
     ft.replace(R.id.frameFragment, fragment)
     ft.commit()
   }
 
   override fun successfulDoctorSignIn(email: String, keyword: String) {
-    val ft = fragmentManager.beginTransaction()
+    val ft = supportFragmentManager.beginTransaction()
     val fragment = LoginFragment.newInstance(email, keyword)
     ft.replace(R.id.frameFragment, fragment)
     ft.commit()

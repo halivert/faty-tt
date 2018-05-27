@@ -32,7 +32,15 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".activities.DoctorMainActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+            
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

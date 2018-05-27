@@ -35,7 +35,7 @@
     <string name="name_validation">Falta nombre</string>
     <string name="mothers_last_name_validation">Falta apellido materno</string>
     <string name="last_name_validation">Falta apellido paterno</string>
-    <string name="doctor_code_validation">Falta código médico</string>
+    <string name="medic_code_validation">Falta código médico</string>
     <string name="falta_confirmacion">Falta confirmación</string>
     <string name="passwords_do_not_match">Contraseñas no coinciden</string>
     <string name="man">Hombre</string>
@@ -67,7 +67,8 @@
     <string name="generate_code">Generar código</string>
     <string name="age">Edad</string>
     <string name="sex">Sexo</string>
-    <string name="show_diets">Ver mis dietas</string>
+    <string name="show_diets">Ver dietas</string>
+    <string name="show_my_diets">Ver mis dietas</string>
     <string name="weight">Peso</string>
     <string name="size">Talla</string>
     <string name="breakfast">Desayuno</string>
@@ -211,4 +212,14 @@
     <string name="letters">ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚ abcdefghijklmnñopqrstuvwxyzáéíóú</string>
     <string name="invalid_email_format">Formato de email incorrecto</string>
     <string name="patients_dont_found">No se encontraron pacientes.</string>
+    <string name="action_search">Buscar</string>
+    <string name="search_hint">Escriba aquí para buscar…</string>
+    <string name="toolbar_title">Ceres</string>
+    <string name="no_patients_found">No se encontraron pacientes</string>
+
+    <string name="kilograms_prefix">%1$.2f Kg</string>
+    <string name="meters_prefix">%1$.2f m</string>
+    <string name="centimeters_prefix">%1$.2f cm</string>
+    <string name="percentage_prefix">%1$.2f %%</string>
+
 </resources>

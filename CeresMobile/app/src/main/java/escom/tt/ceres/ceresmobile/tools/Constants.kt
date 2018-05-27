@@ -159,5 +159,7 @@ object Constants {
     const val DIETS = "diets"
     const val SUCCESSFUL = "successful"
     const val UNSUCCESSFUL = "unsuccessful"
+
+    const val RETAIN = "retain"
   }
 }
