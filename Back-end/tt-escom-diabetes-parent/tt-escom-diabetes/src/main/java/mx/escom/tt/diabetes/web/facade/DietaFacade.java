@@ -11,6 +11,7 @@ import mx.escom.tt.diabetes.business.service.DietaAppService;
 import mx.escom.tt.diabetes.business.vo.ValoresNutrimentalesDietaVo;
 import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.model.dto.DietaDto;
+import mx.escom.tt.diabetes.web.vo.DietaVo;
 import mx.escom.tt.diabetes.web.vo.PacienteVo;
 
 @Service
@@ -23,39 +24,57 @@ public class DietaFacade {
 	 * Proposito : Guardar una nueva dieta en la base de datos
 	 * 
 	 * @author Edgar, ESCOM
-	 * @version 1,0,0. 30/03/2018
+	 * @version 1,1,0. 30/03/2018
 	 * @param idMedico						-	Identificador del medico
-	 * @param idPaciente					-	Identificador del paciente
-	 * @param descripcion					-	Descricion agregada por el medico 
-	 * @param alimentosDisponibles			-	Alimentos que se encuentran dentro de la dieta
+	 * @param idPaciente						-	Identificador del paciente
+	 * @param dietaVo 						-	Objeto con la informacion de la dieta
 	 * @throws RuntimeException				-	Si ocurre un error durante la ejecucion del metodo 
 	 */
-	public void guardarDieta(String idMedico, String idPaciente, String descripcion, String alimentosDisponibles) throws RuntimeException{
+	public void guardarDieta(String idMedico, String idPaciente, DietaVo dietaVo) throws RuntimeException{
 		log.debug("Inicio - Facade");
 		
 		String msjEx = null;
 		DietaDto dietaDto = null;
-		if(idMedico == null || idMedico.trim().equals("")) {
+		if(StringUtils.isEmpty(idMedico)) {
 			throw new RuntimeException("El identificador del medico no puede ser nulo.");
 		}
-		if(idPaciente == null || idPaciente.trim().equals("")){
+		if(StringUtils.isEmpty(idPaciente)){
 			throw new RuntimeException("El identificador del idPaciente no puede ser nulo.");
 		}
-		if(alimentosDisponibles == null || alimentosDisponibles.trim().equals("")) {
+		if(StringUtils.isEmpty(dietaVo.getAlimentosDisponibles())) {
 			throw new RuntimeException("Debe agregar alimentos a la dieta.");
 		}
-		if(descripcion == null || descripcion.trim().equals("")) {
+		if(StringUtils.isEmpty(dietaVo.getDescripcion())) {
 			throw new RuntimeException("Debe agregar una descripcion a la dieta.");
 		}
+		if(StringUtils.isEmpty(dietaVo.getCaloriasDesayuno())) {
+			throw new RuntimeException("Las calorias en el desayuno no pueden ser nulo o vacía.");
+		}
+		if(StringUtils.isEmpty(dietaVo.getCaloriasC1())) {
+			throw new RuntimeException("Las calorias en la primera colación no pueden ser nulo o vacía.");
+		}
+		if(StringUtils.isEmpty(dietaVo.getCaloriasComida())) {
+			throw new RuntimeException("Las calorias en la comida no pueden ser nulo o vacía.");
+		}
+		if(StringUtils.isEmpty(dietaVo.getCaloriasC2())) {
+			throw new RuntimeException("Las calorias en la segunda colación no pueden ser nulo o vacía.");
+		}
+		if(StringUtils.isEmpty(dietaVo.getCaloriasCena())) {
+			throw new RuntimeException("Las calorias en la cena no pueden ser nulo o vacía.");
+		}
 		
-		try {
-			
+		try {	
 			{//SE CREA EL DTO A PARTIR DE LA INFORMACION
 				dietaDto = new DietaDto();
 				dietaDto.setIdMedico(Integer.valueOf(idMedico));
 				dietaDto.setIdPaciente(Integer.valueOf(idPaciente));
-				dietaDto.setDescripcion(descripcion);
-				dietaDto.setAlimentosDisponibles(alimentosDisponibles);
+				dietaDto.setDescripcion(dietaVo.getDescripcion());
+				dietaDto.setAlimentosDisponibles(dietaVo.getAlimentosDisponibles());
+				dietaDto.setCaloriasDesayuno(Double.valueOf(dietaVo.getCaloriasDesayuno()));
+				dietaDto.setCaloriasC1(Double.valueOf(dietaVo.getCaloriasC1()));
+				dietaDto.setCaloriasComida(Double.valueOf(dietaVo.getCaloriasComida()));
+				dietaDto.setCaloriasC2(Double.valueOf(dietaVo.getCaloriasC2()));
+				dietaDto.setCaloriasCena(Double.valueOf(dietaVo.getCaloriasCena()));
 			}
 			dietaAppService.guardarDietaAppService(dietaDto);
 		}catch (RuntimeException ex) {

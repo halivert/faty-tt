@@ -140,7 +140,7 @@ guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos
     });
 },
 
-editarInfoHistorialClinico: function(idPaciente,idHistorialClinico,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar) {  
+editarInfoHistorialClinico: function(idPaciente,idHistorialClinico,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar,actividadFisica) {  
   var fechaRegistro = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
   
   var data = {
@@ -154,7 +154,8 @@ editarInfoHistorialClinico: function(idPaciente,idHistorialClinico,peso,talla,es
     lipidos: lipidos,
     carbohidratos: carbohidratos,
     proteinas:proteinas,
-    azucar: azucar
+    azucar: azucar,
+    actividadFisica:actividadFisica
   };
 
   
@@ -164,6 +165,8 @@ editarInfoHistorialClinico: function(idPaciente,idHistorialClinico,peso,talla,es
   }
 
   var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/'+idHistorialClinico;  
+
+  //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/'+21;
 
   console.log("data : " + JSON.stringify(data));
 
@@ -197,7 +200,6 @@ recuperarDetallHistorialClinico: function(idPaciente,idHistorialClinico) {
   }
 
   var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/historialclinico/'+idHistorialClinico;  
-      //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'pacientes/;
 
       return $http.get(url,data,config).then(
         function successCallback(response) {
@@ -213,7 +215,6 @@ recuperarDetallHistorialClinico: function(idPaciente,idHistorialClinico) {
 * recuperaUltimoHistorial - Recupera el ultimo historial de un paciente
 */
  recuperaUltimoHistorial: function(idPaciente) {
-
   //var data = $.param({idPaciente: idPaciente, idHistorialClinico:idHistorialClinico});
   var config = {
     headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
@@ -221,7 +222,6 @@ recuperarDetallHistorialClinico: function(idPaciente,idHistorialClinico) {
 
   var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente+'/ultimoHistorialclinico' 
       //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'pacientes/;
-
       return $http.get(url,config).then(
         function successCallback(response) {
             return response.data;                           
@@ -230,8 +230,7 @@ recuperarDetallHistorialClinico: function(idPaciente,idHistorialClinico) {
           console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
           return $q.reject(response);
         });
-    }
-       
+    }  
 }
 
 })

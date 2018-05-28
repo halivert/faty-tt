@@ -44,7 +44,7 @@ angular.module('trabajoTerminal')
       }
       console.log("data : " + JSON.stringify(data));
       var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/medico/'+idMedico+'/correoToken';
-      //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'/token/';
+      //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'/correoToken';
 
       return $http.post(url,data,config).then(
         function successCallback(response) {
@@ -60,6 +60,37 @@ angular.module('trabajoTerminal')
           console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
           return $q.reject(response);
         });
+    },
+
+    reasignaMedico: function(idPaciente, codigoMedico){
+      var data = {
+      idPaciente: idPaciente,
+      codigoMedico: codigoMedico
+      };
+
+      var config = {
+         headers : {'Content-Type': 'application/json'}
+      }
+      console.log("data : " + JSON.stringify(data));
+      var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/'+idPaciente;
+      //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/pacientes/'+idPaciente;
+
+
+      return $http.put(url,data,config).then(
+        function successCallback(response) {
+          if (response.data.respuesta === "ERROR"){
+            console.log("response ERROR : " + JSON.stringify(response.data));
+            return $q.reject(response);
+          }
+          else{
+            return response.data;
+          }
+        },
+        function errorCallback(response) {
+          console.log("response ERROR : " + JSON.stringify(response.data.mensaje));
+          return $q.reject(response);
+        });
+
     }   
   }
 })

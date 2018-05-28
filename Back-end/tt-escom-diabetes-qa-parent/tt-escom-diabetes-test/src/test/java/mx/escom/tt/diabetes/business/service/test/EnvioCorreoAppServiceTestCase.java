@@ -137,9 +137,7 @@ public class EnvioCorreoAppServiceTestCase {
 				
 				
 				result = reportesPDF.crearReporte(urlJasper, urlSubreport, parameters, collectionDataSource);
-				//DecisionTreeExample decisionTreeExample = new DecisionTreeExample();
 				
-				//result = decisionTreeExample.init();
 				
 				File pdfAttachmentFile = new File("/Users/edgarHG/Documents/documento_"+nombre.toString()+".pdf");
 				FileOutputStream fileOutputStream = new FileOutputStream(pdfAttachmentFile);

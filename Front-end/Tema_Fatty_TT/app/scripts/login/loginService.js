@@ -126,7 +126,7 @@ angular.module('trabajoTerminal')
         .then(function successCallback(response) {
 
           if (response.data.respuesta === "OK") {
-            return response.data.respuesta;
+            return response.data.mensaje;
           } else {
             console.log("response ERROR : " + JSON.stringify(response.data));
             return $q.reject(response.data);
@@ -182,8 +182,8 @@ angular.module('trabajoTerminal')
           }
         }
 
-        //var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/usuarios/'+idUsuario+'/password';
-        var url = 'http://localhost:8080/tt-escom-diabetes/ceres/usuarios/'+idUsuario+'/password';
+        var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/usuarios/'+idUsuario+'/password';
+        //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/usuarios/'+idUsuario+'/password';
 
         return $http.put(url, data, config)
         .then(function successCallback(response) {
@@ -210,8 +210,8 @@ angular.module('trabajoTerminal')
           }
         }
 
-        //var url = 'http://35.202.245.109/tt-escom-diabetes/session/verificaToken/'+token;
-        var url = 'http://localhost:8080/tt-escom-diabetes/session/verificaToken/'+token;
+        var url = 'http://35.202.245.109/tt-escom-diabetes/session/verificaToken/'+token;
+        //var url = 'http://localhost:8080/tt-escom-diabetes/session/verificaToken/'+token;
 
         return $http.get(url, config)
         .then(function successCallback(response) {

@@ -153,21 +153,25 @@ $scope.mostrarInformacionGeneral = function(){
   blockUI.start();
   var idPaciente = $cookies.get("idCurrentPaciente");
   
-  $scope.recuperaInfoPaciente(idPaciente);
+  //$scope.recuperaInfoPaciente(idPaciente);
 
-  $timeout(function() { $scope.displayErrorMsg = false;}, 2000);
+  loginService.recuperarInformacionUsuario(idPaciente).then( 
+    function successCallback(informacionUsuario){
+      $scope.currentPaciente.nombreCompletoPaciente = informacionUsuario.nombre + " " + informacionUsuario.apellidoPaterno + " " + informacionUsuario.apellidoMaterno;
+      $scope.currentPaciente.fechaNac = informacionUsuario.fechaNacimiento;
 
-  pacientesService.recuperaUltimoHistorial(idPaciente).then(
+      $scope.currentPaciente.edad = informacionUsuario.edad;
+
+      pacientesService.recuperaUltimoHistorial(idPaciente).then(
     function successCallback(d) {
 
       if(d.respuesta != "ERROR"){
         $scope.historialDetalle = d;
-        
 
         var index = d.actividadFisica
-        var obj = $filter('filter')($scope.Array, {name: d.actividadFisica}, true)[0];
+        $scope.obj = $filter('filter')($scope.Array, {name: d.actividadFisica}, true)[0];
 
-        dietaService.obtenerValoresNutrimentales(d.idPaciente,$scope.currentPaciente.edad,d.peso,d.estatura,obj.value,d.sexo,d.lipidos,d.carbohidratos,d.proteinas).then(
+        dietaService.obtenerValoresNutrimentales(d.idPaciente,$scope.currentPaciente.edad,d.peso,d.estatura,$scope.obj.value,d.sexo,d.lipidos,d.carbohidratos,d.proteinas).then(
           function successCallback(d1) {
             $scope.valoresNutrimentales = d1;
             $cookies.put("historialDetalle",JSON.stringify($scope.historialDetalle));
@@ -184,12 +188,10 @@ $scope.mostrarInformacionGeneral = function(){
             }
           });
       }else{
-
+        $cookies.put("nombrePaciente",$scope.currentPaciente.nombreCompletoPaciente);
         toastr.warning("El paciente no cuenta con historial clínico", 'Advertencia');
         $scope.desactivarBoton = true;
       }
-      
-
     },
     function errorCallback(d) {
       if(d.data == null)
@@ -199,6 +201,12 @@ $scope.mostrarInformacionGeneral = function(){
         toastr.error(d.data.mensaje, 'Error');
       }
     });
+
+  });
+
+
+  
+
   blockUI.stop();
 },
 
@@ -214,12 +222,20 @@ $scope.setCurrentPaciente = function(){
 * guardarHistorialClinico  - Guardar la informacion del historial clinico del paciente seleccionado
 */
 $scope.guardarHistorialClinico = function(){
+  
+  var macronutrientes = parseInt($scope.historial.lipidos) + parseInt($scope.historial.carbohidratos) + parseInt($scope.historial.proteinas);
+  
+  if(macronutrientes > 100){
+    toastr.error("La suma de macronutrientes supera el 100%","Error");
+  }
+  else if(macronutrientes < 100){
+    toastr.error("La suma de macronutrientes no alcanza el 100%","Error");    
+  }
+  else{
   pacientesService.guardarInfoHistorialClinico($scope.usuario.id,$scope.historial.peso,$scope.historial.talla,$scope.historial.altura,$scope.historial.imc,$scope.historial.lipidos,$scope.historial.carbohidratos,$scope.historial.proteinas,$scope.historial.azucar,$scope.historial.af).then(
-
     function successCallback(d) {
       angular.element('#modal-paciente').modal('hide');
       toastr.success(d, 'Ok');
-
     },
     function errorCallback(d) {
       if(d.data == null)
@@ -229,6 +245,7 @@ $scope.guardarHistorialClinico = function(){
         toastr.error(d.data.mensaje, 'Error');
       }
     });
+}
 },
 
 /**
@@ -236,13 +253,25 @@ $scope.guardarHistorialClinico = function(){
 */
 $scope.actualizaHistorialClinico = function(){
   var idPaciente = $cookies.get("idCurrentPaciente");
-  var idHistorialClinico = $scope.historialDetalle.idHistorialClinico;
 
-  pacientesService.editarInfoHistorialClinico(idPaciente,idHistorialClinico,$scope.historialDetalle.peso,$scope.historialDetalle.talla,$scope.historialDetalle.estatura,$scope.historialDetalle.imc,$scope.historialDetalle.lipidos,$scope.historialDetalle.carbohidratos,$scope.historialDetalle.proteinas,$scope.historialDetalle.azucar).then(
+  var macronutrientes = parseInt($scope.historialDetalle.lipidos) + parseInt($scope.historialDetalle.carbohidratos) + parseInt($scope.historialDetalle.proteinas);
+console.log("macronutrientes : " + macronutrientes)
+if(macronutrientes > 100){
+    toastr.error("La suma de macronutrientes supera el 100%","Error");
+  }
+  else if(macronutrientes < 100){
+    toastr.error("La suma de macronutrientes no alcanza el 100%","Error");    
+  }
+  else{
+
+  var idHistorialClinico = $scope.historialDetalle.idHistorialClinico;
+  pacientesService.editarInfoHistorialClinico(idPaciente,idHistorialClinico,$scope.historialDetalle.peso,$scope.historialDetalle.talla,$scope.historialDetalle.estatura,$scope.historialDetalle.imc,$scope.historialDetalle.lipidos,$scope.historialDetalle.carbohidratos,$scope.historialDetalle.proteinas,$scope.historialDetalle.azucar,$scope.historial.af).then(
 
     function successCallback(d) {
       toastr.success(d, 'Ok');
-
+      $state.transitionTo('index.informacionGeneral');
+      //$state.transitionTo('login');
+      location.reload();
     },
     function errorCallback(d) {
       if(d.data == null)
@@ -252,7 +281,8 @@ $scope.actualizaHistorialClinico = function(){
         toastr.error(d.data.mensaje, 'Error');
       }
     });
-  $scope.esEditable = true;
+}
+
 },
 
 /**
@@ -423,6 +453,9 @@ $scope.filtraNumRegistro = function(limite){
       }
     });
 }
+
+
+
 
 });
 

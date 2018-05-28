@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="endoso_rc_obligatorio_v2" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d300e4d-dd7b-4072-8819-f468a6c93636">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="caratula_dieta" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d300e4d-dd7b-4072-8819-f468a6c93636">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="44"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="XML"/>
+	<subDataset name="Dataset1" uuid="b5d435ff-89f3-453d-a6ef-fbd6614731ab">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
 	<parameter name="nombrePaciente" class="java.lang.String"/>
 	<parameter name="edadPaciente" class="java.lang.String"/>
 	<parameter name="pesoPaciente" class="java.lang.String"/>
 	<parameter name="estaturaPaciente" class="java.lang.String"/>
 	<parameter name="get" class="java.lang.String"/>
-	<field name="alimentosDesayuno" class="java.lang.String"/>
+	<field name="alimentosDesayuno" class="java.lang.String">
+		<fieldDescription><![CDATA[alimentosDesayuno]]></fieldDescription>
+	</field>
 	<group name="Detail">
 		<groupHeader>
-			<band height="336">
+			<band height="85">
 				<rectangle radius="0">
 					<reportElement mode="Opaque" x="0" y="18" width="572" height="20" forecolor="#2E404E" backcolor="#2E404E" uuid="9fb97c32-81b0-4ed9-9932-0108b62e7c2b"/>
 					<graphicElement>
@@ -36,10 +44,7 @@
 					<text><![CDATA[Desayuno]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="1" y="50" width="129" height="20" forecolor="#2E404E" uuid="ffe4e49e-90ba-4490-a0a5-f0cf3a1bf868"/>
-					<textElement verticalAlignment="Middle">
-						<font isBold="true"/>
-					</textElement>
+					<reportElement x="23" y="50" width="100" height="30" uuid="4d080986-718e-42dd-a4f4-442cc25955f3"/>
 					<textFieldExpression><![CDATA[$F{alimentosDesayuno}]]></textFieldExpression>
 				</textField>
 			</band>

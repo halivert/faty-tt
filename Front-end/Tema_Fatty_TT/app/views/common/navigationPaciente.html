@@ -4,45 +4,48 @@
       <li class="nav-header">
         <div class="profile-element" uib-dropdown>
           <span>
-             <img class="small-image" alt="Imagen Perfil" src="img/perfil.jpg">
-          </span>
-          <a uib-dropdown-toggle href>
-            <span class="clear">
-              <span class="block m-t-xs">
-                <strong class="font-bold">{{obtenerNombre()}}</strong>
-              </span>
-              <span class="text-muted text-xs block">Menu Perfil<b class="caret"></b></span>
+           <img class="small-image" alt="Imagen Perfil" src="{{obtenerSexo()}}">
+         </span>
+         <a uib-dropdown-toggle href>
+          <span class="clear">
+            <span class="block m-t-xs">
+              <strong class="font-bold">{{obtenerNombre()}}</strong>
             </span>
-          </a>
-          <ul uib-dropdown-menu class="animated fadeInRight m-t-xs">
-            <li>
-              <a ui-sref="index.perfil">Ver perfil</a>
-            </li>
-            <li>
-              <a ui-sref="login">Ver médico</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a ui-sref="login">Salir</a>
-            </li>
-          </ul>
-        </div>
-        <div class="logo-element">
-          CERES
-        </div>
+            <span class="text-muted text-xs block">Menu Perfil<b class="caret"></b></span>
+          </span>
+        </a>
+        <ul uib-dropdown-menu class="animated fadeInRight m-t-xs">
+          <li>
+            <a ui-sref="index.perfil">Ver perfil</a>
+          </li>
+          <li>
+            <a ui-sref="login">Ver médico</a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a ui-sref="login">Salir</a>
+          </li>
+        </ul>
+      </div>
+      <div class="logo-element">
+        CERES
+      </div>
 
-      </li>
+    </li>
 
-      <li ui-sref-active="active">
-        <a ui-sref="index.main"><i class="fa fa-th-large"></i> <span class="nav-label">Inicio</span> </a>
-      </li>
-      
-      
-      <li ui-sref-active="active">
-        <a ui-sref="index.dietasPaciente"><i class="fa fa-hospital-o"></i> <span class="nav-label">Ver mis dietas</span></a>
-      </li>
-      <li ui-sref-active="active"> 
+    <li ui-sref-active="active">
+      <a ui-sref="index.main"><i class="fa fa-th-large"></i> <span class="nav-label">Inicio</span> </a>
+    </li>
+
+
+    <li ui-sref-active="active">
+      <a ui-sref="index.dietasPaciente"><i class="fa fa-hospital-o"></i> <span class="nav-label">Ver mis dietas</span></a>
+    </li>
+      <!--<li ui-sref-active="active"> 
         <a><i class="fa fa-list"></i> <span class="nav-label">Lista de alimentos</span></a>
+      </li>-->
+      <li ui-sref-active="active"> 
+        <a data-toggle="modal" data-target="#modal-cambiar-medico"><i class="fa fa-list"></i> <span class="nav-label">Cambiar médico</span></a>
       </li>
       <li ui-sref-active="active">
         <a ui-sref="index.glucosa"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Registrar glucosa</span></a>
@@ -52,3 +55,38 @@
 
   </div>
 </nav>
+
+<!--Creditos Imagenes
+<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+-->
+
+
+<!-- MODAL -->
+
+<div class="modal fade" id="modal-cambiar-medico" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="medicoCtrl">
+  <div class="modal-dialog model-sm">
+    <div class="modal-content"> 
+      <div class="modal-body">
+        <div class="row">
+          <h3 class="m-t-none m-b">Ingrese el código que su médico le dió.</h3>
+        </div>
+        <form role="form" name="formNuevoMedico" novalidate>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group "><label>Código</label> <input type="text" name="codigo" placeholder="Código" ng-model = "nuevoCodigo" class="form-control" required></div>
+              <small class ="text-danger" ng-show="formNuevoMedico.codigo.$touched && formNuevoMedico.codigo.$invalid">Campo requerido.
+              </small>
+            </div>
+            <di>
+          </div>
+        </form>  
+      </div>
+       <div class="modal-footer">
+               <div class="form-group pull-left">
+                  <button class="btn btn-sm btn-danger btn-outline pull-right m-t-n-xs" data-dismiss="modal">Cancelar</button>   
+               </div>
+               <button class="btn btn-sm btn-success btn-outline pull-right m-t-n-xs" data-dismiss="modal" ng-disabled="!validaFormMedico()" ng-click="cambiarMedico()">Cambiar médico</button>       
+            </div>
+    </div>
+  </div>
+</div>

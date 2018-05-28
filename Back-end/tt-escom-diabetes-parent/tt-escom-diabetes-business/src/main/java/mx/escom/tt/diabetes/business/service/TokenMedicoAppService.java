@@ -5,11 +5,13 @@ import java.util.Map;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.model.dao.TokenMedicoDao;
+import mx.escom.tt.diabetes.model.dao.UsuarioDao;
 import mx.escom.tt.diabetes.model.dto.TokenMedicoDto;
 import mx.escom.tt.diabetes.model.dto.UsuarioDto;
 
@@ -21,7 +23,12 @@ public class TokenMedicoAppService {
 	@Autowired TokenMedicoDao tokenMedicoDao;
 	@Autowired EnvioCorreoAppService envioCorreoAppService; 
 	@Autowired UsuarioAppService usuarioAppService; 
+	@Autowired UsuarioDao usuarioDao;
 	@Autowired private CustomSecurity customSecurity;
+	
+	@Autowired
+	@Value("${url.token}") 
+	private String host;
 	
 	/**
 	 * Proposito : Generar un token 
@@ -125,9 +132,24 @@ public class TokenMedicoAppService {
 		parametros = new HashMap<String, Object>();
 		parametros.put(Constants.PARAMETRO_CORREO_TOKEN, token);
 		parametros.put(Constants.PARAMETRO_CORREO_NOMBRE_MEDICO, nombreMedico);
+		UsuarioDto usuarioDto = null;
 		
 		try {
+			usuarioDto = usuarioDao.recuperarPorEmail(email[0]);
+			if(usuarioDto == null) {
 			envioCorreoAppService.enviarCorreoElectronico(Constants.PARAMETRO_CORREO_ENVIO_TOKEN_ASUNTO, email, parametros, remitente, Constants.PLANTILLA_ENVIO_TOKEN);			
+			}else {
+				UsuarioDto medicoDto = null;
+				TokenMedicoDto tokenMedicoDto = tokenMedicoDao.recuperarToken(token);
+				
+				
+				medicoDto = usuarioAppService.recuperarUsuarioPorId(tokenMedicoDto.getIdMedico());
+				parametros.put(Constants.PARAMETRO_CORREO_NOMBRE_MEDICO, medicoDto.getNombre() + " " + medicoDto.getApellidoPaterno());
+				parametros.put(Constants.PARAMETRO_CORREO_NOMBRE_USUARIO, usuarioDto.getNombre());
+				
+				envioCorreoAppService.enviarCorreoElectronico(Constants.PARAMETRO_CAMBIAR_MEDICO, email, parametros, remitente, Constants.PLANTILLA_ENVIO_CAMBIAR_MEDICO);
+			}
+
 		
 		}catch(RuntimeException rtExc) { 
 			throw rtExc;
@@ -151,7 +173,8 @@ public class TokenMedicoAppService {
 		log.debug("Inicio - Service");
 		String msjEx = null;
 		UsuarioDto usuarioDto = null;
-		String urlToken = "http://35.202.245.109/#/session/reestablecePassword/";
+		//String urlToken = "http://35.202.245.109/ceres/#/session/reestablecePassword/";
+		String urlToken = host;
 		String nombreUsuario = "";
 		String remitente = "ceres.ttdietas@gmail.com";
 		try {

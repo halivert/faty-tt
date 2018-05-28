@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.HistorialClinicoAppService;
 import mx.escom.tt.diabetes.commons.utils.Constants;
+import mx.escom.tt.diabetes.commons.utils.NumberHelper;
 import mx.escom.tt.diabetes.commons.vo.UltimoHistorialClinicoVo;
 import mx.escom.tt.diabetes.model.dto.HistorialClinicoDto;
 import mx.escom.tt.diabetes.web.vo.HistorialClinicoListVo;
@@ -26,7 +27,7 @@ import mx.escom.tt.diabetes.web.vo.UltimoHistorialFacadeVo;
 
 @Service
 @CommonsLog
-public class HistorialClinicoFacade {
+public class HistorialClinicoFacade extends NumberHelper{
 
 	@Autowired
 	HistorialClinicoAppService historialClinicoAppService;
@@ -331,28 +332,56 @@ public class HistorialClinicoFacade {
 			msjEx = "La talla no puede ser nula o vacía.";
 			throw new RuntimeException(msjEx);
 		}
+		if(!isNumeric(historialClinicoVo.getTalla())){
+			msjEx = "La talla" + Constants.ERROR_FORMATO_NUMERICO;
+			throw new RuntimeException(msjEx);
+		}
 		if(StringUtils.isEmpty(historialClinicoVo.getEstatura())){
 			msjEx = "La estatura no puede ser nula o vacía.";
 			throw new RuntimeException(msjEx);
 		}
+		if(!isNumeric(historialClinicoVo.getEstatura())){
+			msjEx = "La estatura" + Constants.ERROR_FORMATO_NUMERICO;
+			throw new RuntimeException(msjEx);
+		}
 		if(StringUtils.isEmpty(historialClinicoVo.getImc())){
-			msjEx = "El IMC no puede ser nula o vacía.";
+			msjEx = "El IMC no puede ser nulo o vacío.";
+			throw new RuntimeException(msjEx);
+		}
+		if(!isNumeric(historialClinicoVo.getImc())){
+			msjEx = "El IMC" + Constants.ERROR_FORMATO_NUMERICO;
 			throw new RuntimeException(msjEx);
 		}
 		if(StringUtils.isEmpty(historialClinicoVo.getLipidos())){
 			msjEx = "El porcentaje de lípidos no puede ser nulo o vacío.";
 			throw new RuntimeException(msjEx);
 		}
+		if(!isNumeric(historialClinicoVo.getLipidos())){
+			msjEx = "El porcentaje de lípidos" + Constants.ERROR_FORMATO_NUMERICO;
+			throw new RuntimeException(msjEx);
+		}
 		if(StringUtils.isEmpty(historialClinicoVo.getCarbohidratos())){
 			msjEx = "El porcentaje de carbohidratos no puede ser nulo o vacío.";
+			throw new RuntimeException(msjEx);
+		}
+		if(!isNumeric(historialClinicoVo.getCarbohidratos())){
+			msjEx = "El porcentaje de carbohidratos" + Constants.ERROR_FORMATO_NUMERICO;
 			throw new RuntimeException(msjEx);
 		}
 		if(StringUtils.isEmpty(historialClinicoVo.getProteinas())){
 			msjEx = "El porcentaje de proteinas no puede ser nulo o vacío.";
 			throw new RuntimeException(msjEx);
 		}
+		if(!isNumeric(historialClinicoVo.getProteinas())){
+			msjEx = "El porcentaje de proteinas" + Constants.ERROR_FORMATO_NUMERICO;
+			throw new RuntimeException(msjEx);
+		}
 		if(StringUtils.isEmpty(historialClinicoVo.getAzucar())){
 			msjEx = "El nivel de azíucar no puede ser nulo o vacío.";
+			throw new RuntimeException(msjEx);
+		}
+		if(!isNumeric(historialClinicoVo.getAzucar())){
+			msjEx = "El nivel de azíucar" + Constants.ERROR_FORMATO_NUMERICO;
 			throw new RuntimeException(msjEx);
 		}
 		if(StringUtils.isEmpty(historialClinicoVo.getActividadFisica())){
@@ -360,10 +389,26 @@ public class HistorialClinicoFacade {
 			throw new RuntimeException(msjEx);
 		}
 		try {
+			
+			if(Double.parseDouble(historialClinicoVo.getPeso()) < 40 || Double.parseDouble(historialClinicoVo.getPeso()) > 150){
+				msjEx = "El peso del paciente no entra dentro de los parámetros del IMSS para un adulto mayor.";
+				throw new RuntimeException(msjEx);
+			}
+			
+			if(Double.parseDouble(historialClinicoVo.getEstatura()) < 1.4 || Double.parseDouble(historialClinicoVo.getEstatura()) > 2.0){
+				msjEx = "La estatura del paciente no entra dentro de los parámetros del IMSS para un adulto mayor.";
+				throw new RuntimeException(msjEx);
+			}
+			
+			if(Double.parseDouble(historialClinicoVo.getAzucar()) < 50 || Double.parseDouble(historialClinicoVo.getAzucar()) > 450){
+				msjEx = "Revisar el nivel de glucosa.";
+				throw new RuntimeException(msjEx);
+			}
+			
 			historialClinicoDto = new HistorialClinicoDto();
 
 			historialClinicoDto.setIdPaciente(Integer.valueOf(historialClinicoVo.getIdPaciente()));
-			historialClinicoDto.setFecha(Timestamp.valueOf(historialClinicoVo.getFecha()));
+
 			historialClinicoDto.setPeso(Double.parseDouble(historialClinicoVo.getPeso()));
 			historialClinicoDto.setTalla(Double.parseDouble(historialClinicoVo.getTalla()));
 			historialClinicoDto.setEstatura(Double.parseDouble(historialClinicoVo.getEstatura()));
@@ -376,6 +421,8 @@ public class HistorialClinicoFacade {
 			
 			if(isUpdate) {
 				historialClinicoDto.setIdHistorialClinico(Integer.valueOf(historialClinicoVo.getIdHistorialClinico()));
+			}if( Boolean.TRUE.equals(isUpdate)) {
+				historialClinicoDto.setFecha(Timestamp.valueOf(historialClinicoVo.getFecha()));
 			}
 
 		} catch (RuntimeException ex) {

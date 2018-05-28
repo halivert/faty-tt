@@ -36,9 +36,24 @@ public class DietaDto implements Serializable{
 	@Column(name = "ALIMENTOS_DISPONIBLES", unique = false)
 	private @Getter @Setter String alimentosDisponibles;
 	
-	@Column(name = "FECHA_ASIGNACION", unique = true)
+	@Column(name = "FECHA_ASIGNACION", unique = false)
 	//@Temporal(TemporalType.DATE)
 	private @Getter @Setter Timestamp fechaAsignacion;
+	
+	@Column(name = "CALORIAS_DESAYUNO", unique = false)
+	private @Getter @Setter Double caloriasDesayuno;
+	
+	@Column(name = "CALORIAS_C1", unique = false)
+	private @Getter @Setter Double caloriasC1;
+	
+	@Column(name = "CALORIAS_COMIDA", unique = false)
+	private @Getter @Setter Double caloriasComida;
+	
+	@Column(name = "CALORIAS_C2", unique = false)
+	private @Getter @Setter Double caloriasC2;
+	
+	@Column(name = "CALORIAS_CENA", unique = false)
+	private @Getter @Setter Double caloriasCena;
 	
 	@Override
 	public String toString() {

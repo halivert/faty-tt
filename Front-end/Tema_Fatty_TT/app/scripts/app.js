@@ -13,6 +13,7 @@
         'chart.js',
         'ngTable',
         'slickCarousel',
-        'ngSweetAlert'
+        'ngSweetAlert',
+        'ngFileSaver'
         ])
  })();

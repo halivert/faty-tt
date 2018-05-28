@@ -4,7 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,14 +18,17 @@ import org.springframework.stereotype.Service;
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.business.service.MedicoAppService;
 import mx.escom.tt.diabetes.business.service.PacienteAppService;
+import mx.escom.tt.diabetes.business.service.ReportesPDF;
 import mx.escom.tt.diabetes.business.service.TokenMedicoAppService;
 import mx.escom.tt.diabetes.business.service.UsuarioAppService;
+import mx.escom.tt.diabetes.business.vo.DietaReporteVo;
 import mx.escom.tt.diabetes.commons.utils.Constants;
 import mx.escom.tt.diabetes.commons.utils.NumberHelper;
 import mx.escom.tt.diabetes.model.dto.MedicoDto;
 import mx.escom.tt.diabetes.model.dto.TokenMedicoDto;
 import mx.escom.tt.diabetes.model.dto.PacienteDto;
 import mx.escom.tt.diabetes.model.dto.UsuarioDto;
+import mx.escom.tt.diabetes.web.vo.DietaReportePDFVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
 import mx.escom.tt.diabetes.web.vo.UsuarioLoginVo;
 import mx.escom.tt.diabetes.web.vo.UsuarioVo;
@@ -36,6 +44,9 @@ public class UsuarioFacade extends NumberHelper{
 	@Autowired MedicoAppService medicoAppService;
 	@Autowired PacienteAppService pacienteAppService;
 	@Autowired TokenMedicoAppService tokenMedicoAppService;
+	@Autowired ReportesPDF reportesPDF;
+	
+	
 	
 	/**
 	 * Proposito :  Recuperar la informacion de un usuario por su Id
@@ -116,9 +127,21 @@ public class UsuarioFacade extends NumberHelper{
 		log.debug("Incio - Facade");
 		RespuestaVo respuestaVo = null;
 		UsuarioDto usuarioDto = null;
-		
+		String msjEx = null;
+		{//Validaciones 
+			if(StringUtils.isEmpty(usuarioVo.getEmail())) {
+				msjEx = "Verficar correo electrónico.";
+				throw new RuntimeException(msjEx);
+			}
+			if(StringUtils.isEmpty(usuarioVo.getKeyword())) {
+				msjEx = "Contraseña incorrecta.";
+				throw new RuntimeException(msjEx);
+			}
+		}
 		try{
-			usuarioDto = usuarioAppService.recuperarPorEmailYKeyword(usuarioVo.getEmail(), usuarioVo.getKeyword());
+			String encoedKeyword = encodeKeyword(usuarioVo.getKeyword());
+			
+			usuarioDto = usuarioAppService.recuperarPorEmailYKeyword(usuarioVo.getEmail(), encoedKeyword);
 		
 			if(usuarioDto == null) {
 				throw new RuntimeException("Correo electrónico o contraseña incorrectos.");
@@ -164,7 +187,7 @@ public class UsuarioFacade extends NumberHelper{
 			
 			email = response[0];
 			idUsuario = response[1];
-			
+			log.debug("idUsuario : " + idUsuario);
 			respuestaVo = new RespuestaVo();
 			respuestaVo.setRespuesta("OK");
 			respuestaVo.setMensaje(email);
@@ -210,6 +233,42 @@ public class UsuarioFacade extends NumberHelper{
 		return respuestaVo;
 	}
 	
+	
+	public byte[] generarDietaPDF(DietaReportePDFVo dietaReportePDFVo) throws RuntimeException{
+		log.debug("Inicio - Facade");
+		byte[] response = null;
+		String msjEx = null;
+		Map<String, Object> parameters;
+		List<DietaReporteVo> collectionDataSource = new ArrayList<DietaReporteVo>();
+		
+		try {
+			parameters = new HashMap<>();
+			parameters.put("nombrePaciente", dietaReportePDFVo.getNombrePaciente());
+			parameters.put("edadPaciente", dietaReportePDFVo.getEdadPaciente());
+			parameters.put("estaturaPaciente", dietaReportePDFVo.getEstaturaPaciente());
+			parameters.put("pesoPaciente", dietaReportePDFVo.getPesoPaciente());
+			parameters.put("get", dietaReportePDFVo.getGastoET());
+			
+			for(int i = 0; i< 5; i++) {
+				DietaReporteVo dietaReporteVo = new DietaReporteVo();
+				dietaReporteVo.setAlimentosDesayuno("alimentos : " + i);
+				log.debug(i);
+				collectionDataSource.add(dietaReporteVo);
+			}
+			
+			response = reportesPDF.crearReporte(Constants.PLANTILLA_JASPER_DIETA,null,parameters, collectionDataSource);
+			
+		}catch(RuntimeException rtExc) {
+			throw new RuntimeException(rtExc.getMessage());
+		}catch(Exception ex) {
+			msjEx = Constants.MSJ_EXCEPTION + "generar la dieta en formato PDF";
+			throw new RuntimeException(msjEx,ex);
+		}
+
+		log.debug("Fin - Facade");
+		return response;
+	}
+	
 	/**
 	 * 
 	 * Proposito : Guardar un usuario y su informacion con base en su rol
@@ -236,6 +295,26 @@ public class UsuarioFacade extends NumberHelper{
 				msjError="La información del usuario no puede ser nula.";
 				throw new RuntimeException(msjError);
 			}
+			
+			if(StringUtils.isEmpty(usuarioVo.getNombre())) {
+				msjError="El nombre del paciente" + Constants.ERROR_FORMATO_NULO_VACIO;
+				throw new RuntimeException(msjError);
+			}
+			
+			if(StringUtils.isEmpty(usuarioVo.getApellidoPaterno()) || StringUtils.isEmpty(usuarioVo.getApellidoMaterno())) {
+				msjError="El apellido del paciente" + Constants.ERROR_FORMATO_NULO_VACIO;
+				throw new RuntimeException(msjError);
+			}
+			
+			if(!StringUtils.isEmpty(usuarioVo.getCedulaProfesional())) {
+				if(!StringUtils.isNumeric(usuarioVo.getCedulaProfesional())){
+					msjError="La cédula profesional" + Constants.ERROR_FORMATO_NUMERICO;
+					throw new RuntimeException(msjError);
+				}
+			}
+			
+			
+		
 		}
 		try{
 			{//Se arma el DTO de usuario con la informacion del VO
@@ -245,8 +324,14 @@ public class UsuarioFacade extends NumberHelper{
 				usuarioDto.setApellidoPaterno(usuarioVo.getApellidoPaterno() != null ? usuarioVo.getApellidoPaterno().trim() : Constants.CADENA_VACIA);
 				usuarioDto.setApellidoMaterno(usuarioVo.getApellidoMaterno() != null ? usuarioVo.getApellidoMaterno().trim() : Constants.CADENA_VACIA);
 				usuarioDto.setEmail(usuarioVo.getEmail() != null ? usuarioVo.getEmail().trim() : Constants.CADENA_VACIA);
-				usuarioDto.setKeyword(usuarioVo.getKeyword() != null ? usuarioVo.getKeyword().trim() : Constants.CADENA_VACIA);
 				
+				String password = encodeKeyword(usuarioVo.getKeyword());
+				
+				if(StringUtils.isEmpty(password)) {
+					msjError="Ocurrió un error al guardar la información, intente nuevamente";
+					throw new RuntimeException(msjError);
+				}
+				usuarioDto.setKeyword(password);
 				if(isNumeric(usuarioVo.getSexo())) {
 					usuarioDto.setSexo(usuarioVo.getSexo().equals("1") ? "Masculino" : "Femenino");
 				}else {
@@ -322,5 +407,13 @@ public class UsuarioFacade extends NumberHelper{
         return Period.between(dob, curDate).getYears();
     }
 	
+    
+    public String encodeKeyword(String password) {
+    		log.debug("Inicia - Facade");
+    	    String md5Hex = DigestUtils.sha256Hex(password.getBytes()).toUpperCase();
+    	    log.debug("md5Hex : " + md5Hex);
+    		log.debug("Fin - Facade");
+    		return md5Hex;
+    }
 
 }

@@ -1,10 +1,11 @@
+<div ng-controller="dietaCtrl" ng-init="recuperarDietasPaciente()">
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2>Dietas asignadas</h2>
+    <h2>Dietas asignadas {{" de " + infoGralUsuario.nombreComppleto}}</h2>
   </div>
 </div>
 
-<div class ="wrapper wrapper-content animated fadeInRight" ng-controller="dietaCtrl" ng-init="recuperarDietasPaciente()">
+<div class ="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     
     <div class="col-lg-4" ng-repeat="dieta in dietas">
@@ -27,4 +28,6 @@
     </div>
 
   </div>
+</div>    
 </div>
+

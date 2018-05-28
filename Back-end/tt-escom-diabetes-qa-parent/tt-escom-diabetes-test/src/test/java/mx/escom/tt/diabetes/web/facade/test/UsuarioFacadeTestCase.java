@@ -1,5 +1,9 @@
 package mx.escom.tt.diabetes.web.facade.test;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Date;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,7 @@ import com.thoughtworks.xstream.XStream;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.web.facade.UsuarioFacade;
+import mx.escom.tt.diabetes.web.vo.DietaReportePDFVo;
 import mx.escom.tt.diabetes.web.vo.RespuestaVo;
 import mx.escom.tt.diabetes.web.vo.UsuarioLoginVo;
 import mx.escom.tt.diabetes.web.vo.UsuarioVo;
@@ -93,16 +98,63 @@ public class UsuarioFacadeTestCase {
 			usuarioVo.setNombre("Miguel");
 			usuarioVo.setApellidoPaterno("Rojas");
 			usuarioVo.setApellidoMaterno("Rojas");
-			usuarioVo.setEmail("miguel@gmail.com");
+			usuarioVo.setEmail("a@a.com");
 			usuarioVo.setFechaNacimiento("27/02/1994");
 			usuarioVo.setKeyword("doctor");
 			usuarioVo.setSexo("0");
 			usuarioVo.setIdRol("0");
 			usuarioVo.setCodigoMedico("Y5OVKF");
-			usuarioVo.setCedulaProfesional("IVAN1234");
+			usuarioVo.setCedulaProfesional("123");
 		}
 		usuarioFacade.guardarUsuario(usuarioVo);
 
+		
+		log.debug("Fin - Test");
+	}
+	
+	@Test
+	public void generarDietaPDFTestCase() {
+		log.debug("Inicio - Test");
+		
+		DietaReportePDFVo dietaReportePDFVo = new DietaReportePDFVo();
+		byte [] result = null;
+		Date nombre = new Date();
+		{//SE ARMA EL VO
+			dietaReportePDFVo.setDescripcion("Desc");
+			dietaReportePDFVo.setEdadPaciente("23");
+			dietaReportePDFVo.setEstaturaPaciente("1.70");
+			dietaReportePDFVo.setGastoET("2345");
+			dietaReportePDFVo.setNombrePaciente("Edgar ivan Hurtado Guzman");
+			dietaReportePDFVo.setPesoPaciente("70");
+		}
+	
+		try {
+			result = usuarioFacade.generarDietaPDF(dietaReportePDFVo);
+			
+			File pdfAttachmentFile = new File("/Users/edgarHG/Documents/documento_"+nombre.toString()+".pdf");
+			FileOutputStream fileOutputStream = new FileOutputStream(pdfAttachmentFile);
+			fileOutputStream.write(result);
+			fileOutputStream.close();
+		}catch(Exception ex) {
+			log.error(ex.getStackTrace());
+		}
+		
+		log.debug("Fin - Test");
+	}
+	
+	@Test
+	public void encodeKeywordTestCase() {
+		log.debug("Inicio - Test");
+		
+		String password = "edgar.hurtado";
+		String result = null;
+		try {
+			result = usuarioFacade.encodeKeyword(password);
+			
+			log.debug("result : " + result);
+		}catch(Exception ex) {
+			log.error(ex.getStackTrace());
+		}
 		
 		log.debug("Fin - Test");
 	}

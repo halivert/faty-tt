@@ -32,10 +32,14 @@ $scope.limpiaInfo = function(){
   $cookies.put("auth","false");
   $cookies.remove("rol");
     //TODO revisar si se elimina correctamente la informacion de las cookies
-    $cookies.remove("nombre","");
-    $cookies.remove("idUsuario","");
-    $cookies.remove("idCurrentPaciente","");
-
+    $cookies.remove("nombre");
+    $cookies.remove("idUsuario");
+    $cookies.remove("idCurrentPaciente");
+    $cookies.remove("historialDetalle");
+    $cookies.remove("valoresNutrimentales");
+    $cookies.remove("sexo");
+    $cookies.remove("idDieta");
+    $cookies.remove("edadCurrentUsuario"); 
   }
 
 /**
@@ -53,8 +57,11 @@ $scope.iniciarSesion = function(){
     loginService.recuperarInformacionUsuario(d.idUsuario).then( 
       function successCallback(informacionUsuario){
         var nombreCompleto = informacionUsuario.nombre + " " + informacionUsuario.apellidoPaterno + " " + informacionUsuario.apellidoMaterno;
+        
         $cookies.put("rol",informacionUsuario.idRol);
         $cookies.put("nombre",nombreCompleto);  
+        $cookies.put("sexo",informacionUsuario.sexo);
+        $cookies.put("edadCurrentUsuario",informacionUsuario.edad);                  
         $state.transitionTo('index.main');
 
       });

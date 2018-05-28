@@ -198,6 +198,7 @@ public class HistorialClinicoAppService {
 				aux.setPeso(historialClinicoDto.getPeso());
 				aux.setProteinas(historialClinicoDto.getProteinas());
 				aux.setTalla(historialClinicoDto.getTalla());
+				aux.setActividadFisica(historialClinicoDto.getActividadFisica());
 			}
 			
 			historialClinicoDao.actualizarHistorialClinico(aux);
