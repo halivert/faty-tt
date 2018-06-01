@@ -40,7 +40,7 @@ class PatientMainActivity : AppCompatActivity(),
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.patient_main_activity)
-    setSupportActionBar(findViewById(R.id.appBar))
+    setSupportActionBar(findViewById(R.id.app_bar))
     supportActionBar!!.setDisplayShowTitleEnabled(false)
 
     idPatient = intent.getIntExtra(ID_USUARIO, -1)
@@ -151,31 +151,44 @@ class PatientMainActivity : AppCompatActivity(),
         PatientDietFragment.newInstance(idPatient, true)
     val notificationTest = NotificationTestFragment.newInstance()
 
-    when {
-      it.itemId == R.id.home_item -> {
+    enableAllItems()
+    when (it.itemId) {
+      R.id.home_item -> {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameFragment, homeFragment).commit()
       }
-      it.itemId == R.id.generateDietItem -> {
+      R.id.diet_item -> {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameFragment, dietFragment).commit()
       }
-      it.itemId == R.id.registerSugarItem -> {
+      R.id.sugar_item -> {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.frameFragment, sugarFragment).commit()
       }
     /*
-    it.itemId == R.id.notification_test -> {
+    R.id.notification_test -> {
       val transaction = supportFragmentManager.beginTransaction()
       transaction.replace(R.id.frameFragment, notificationTest).commit()
     }
     */
-      it.itemId == R.id.sign_out_item -> {
+      R.id.sign_out_item -> {
         logOut(null)
       }
     }
 
     return true
+  }
+
+  private fun enableAllItems() {
+    val items = mutableListOf<Int>(
+        R.id.home_item,
+        R.id.diet_item,
+        R.id.sugar_item,
+        R.id.sign_out_item
+    )
+
+    for (item in items)
+      findViewById<View>(item).isEnabled = true
   }
 
   override fun onBackPressed() {
@@ -197,6 +210,7 @@ class PatientMainActivity : AppCompatActivity(),
   }
 
   private fun logOut(view: View?) {
+    findViewById<View>(R.id.sign_out_item).isEnabled = false
     val noButtonPressed = DialogInterface.OnClickListener { _: DialogInterface, _: Int ->
       onBackPressed()
     }

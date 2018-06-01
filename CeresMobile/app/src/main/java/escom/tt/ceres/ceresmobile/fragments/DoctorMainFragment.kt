@@ -103,6 +103,7 @@ class DoctorMainFragment : Fragment() {
 
   companion object {
     private const val ARG1 = "ID_USER"
+    const val TAG = "DOCTOR_MAIN_FRAGMENT_TAG"
 
     fun newInstance(idUser: Int): DoctorMainFragment {
       val fragment = DoctorMainFragment()

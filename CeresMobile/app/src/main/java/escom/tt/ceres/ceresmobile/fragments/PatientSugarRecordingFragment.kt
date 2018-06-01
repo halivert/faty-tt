@@ -39,6 +39,7 @@ class PatientSugarRecordingFragment : Fragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
+    activity.findViewById<View>(R.id.sugar_item).isEnabled = false
     val view = inflater.inflate(R.layout.patient_sugar_recording_fragment, container, false)
 
     val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)

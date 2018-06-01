@@ -216,10 +216,12 @@
     <string name="search_hint">Escriba aquí para buscar…</string>
     <string name="toolbar_title">Ceres</string>
     <string name="no_patients_found">No se encontraron pacientes</string>
+    <string name="no_information_found">No se encontró la información para el paciente"</string>
 
     <string name="kilograms_prefix">%1$.2f Kg</string>
     <string name="meters_prefix">%1$.2f m</string>
     <string name="centimeters_prefix">%1$.2f cm</string>
     <string name="percentage_prefix">%1$.2f %%</string>
+    <string name="ceres">Ceres</string>
 
 </resources>

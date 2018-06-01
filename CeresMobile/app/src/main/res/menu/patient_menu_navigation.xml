@@ -6,12 +6,12 @@
         android:title="@string/begin"/>
 
     <item
-        android:id="@+id/generateDietItem"
+        android:id="@+id/diet_item"
         android:icon="@drawable/fa_hospital"
         android:title="@string/show_my_diets"/>
 
     <item
-        android:id="@+id/registerSugarItem"
+        android:id="@+id/sugar_item"
         android:icon="@drawable/fa_edit"
         android:title="@string/record_glucose"/>
 

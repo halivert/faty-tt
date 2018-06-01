@@ -20,13 +20,6 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintTop_creator="1">
 
-        <View
-            android:id="@+id/appBarTopBorder"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black"
-            android:fitsSystemWindows="true"/>
-
         <android.support.v7.widget.Toolbar
             android:id="@+id/appBar"
             android:layout_width="match_parent"
@@ -72,11 +65,6 @@
 
 
         </android.support.v7.widget.Toolbar>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/black"/>
 
     </LinearLayout>
 

@@ -7,12 +7,13 @@ import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.MenuItem
 import android.widget.ProgressBar
-import android.widget.TextView
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.fragments.*
 import escom.tt.ceres.ceresmobile.models.Patient
@@ -34,11 +35,12 @@ class DoctorMainActivity :
     PatientDetailFragment.OnPatientDetailInteraction,
     DietDetailFragment.OnDietDetailInteraction,
     PatientDietFragment.OnDietListener {
+
   private lateinit var homeFragment: DoctorMainFragment
   private lateinit var patientsFragment: DoctorPatientsFragment
   private lateinit var generateCodeFragment: DoctorGenerateCodeFragment
   private lateinit var navigationView: BottomNavigationView
-  private lateinit var progressBar: ProgressBar
+  private var progressBar: ProgressBar? = null
 
   override fun showDiets(idPatient: Int) {
     val fragment = PatientDietFragment.newInstance(idPatient, true)
@@ -88,16 +90,16 @@ class DoctorMainActivity :
     } catch (e: Exception) {
     }
 
-    findViewById<TextView>(R.id.title_bar_text).text = getString(R.string.welcome)
-
     val userName = preferences.getString(NAME, null)
     val lastName = preferences.getString(APELLIDO_PATERNO, null)
     val mothersLastName = preferences.getString(APELLIDO_MATERNO, null)
 
+    /*
     val textView = findViewById<TextView>(R.id.userName)
     if (textView != null) {
       textView.text = "$userName $lastName $mothersLastName"
     }
+    */
 
     if (idUser >= 0) {
       supportFragmentManager.beginTransaction().apply {
@@ -109,6 +111,16 @@ class DoctorMainActivity :
     navigationView.setOnNavigationItemSelectedListener {
       navigationItemSelectedListener(it)
     }
+  }
+
+  override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+    super.onSaveInstanceState(outState, outPersistentState)
+    Log.e("Tag", outState.toString())
+  }
+
+  override fun onResume() {
+    super.onResume()
+    Log.e("Log", "Wuht")
   }
 
   private fun navigationItemSelectedListener(it: MenuItem): Boolean {

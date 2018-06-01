@@ -11,12 +11,55 @@ import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.models.Patient
 import escom.tt.ceres.ceresmobile.tools.Functions.calculateAge
 import java.text.SimpleDateFormat
+import java.util.*
+
 
 class PatientListAdapter(
-    private val patients: MutableList<Patient>,
-    private var mListener: PatientItemInteraction?) : RecyclerView.Adapter<PatientListAdapter.ViewHolder>(), Filterable {
+    private var patients: MutableList<Patient>,
+    private var mListener: PatientItemInteraction?) :
+    RecyclerView.Adapter<PatientListAdapter.ViewHolder>(),
+    Filterable {
 
-  private var patientsListFiltered = mutableListOf<Patient>()
+  private var patientsListFiltered: MutableList<Patient> = patients
+
+  /*
+  override fun getFilter(): Filter {
+    if (patientFilter == null) {
+      patientFilter = PatientFilter()
+    }
+
+    return patientFilter as Filter
+  }
+
+  private inner class PatientFilter : Filter() {
+    override fun performFiltering(constraint: CharSequence?): Filter.FilterResults {
+      val filterResults = Filter.FilterResults()
+      if (constraint != null && constraint.isNotEmpty()) {
+        val tempList = mutableListOf<Patient>()
+
+        for (patient in patients) {
+          if (patient.name.toLowerCase().contains(constraint.toString().toLowerCase())
+              || patient.lastName.contains(constraint)) {
+            tempList.add(patient)
+          }
+        }
+
+        filterResults.count = tempList.size
+        filterResults.values = tempList
+      } else {
+        filterResults.count = patients.size
+        filterResults.values = patients
+      }
+
+      return filterResults
+    }
+
+    override fun publishResults(constraint: CharSequence, results: Filter.FilterResults) {
+      patients = results.values as MutableList<Patient>
+      notifyDataSetChanged()
+    }
+  }
+  */
 
   override fun getFilter(): Filter {
     return object : Filter() {
@@ -57,12 +100,12 @@ class PatientListAdapter(
   }
 
   override fun getItemCount(): Int {
-    return patients.size
+    return patientsListFiltered.size
   }
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    val patient = patients[position]
-    val df = SimpleDateFormat("yyyy-MM-dd")
+    val patient = patientsListFiltered[position]
+    val df = SimpleDateFormat("yyyy-MM-dd", Locale.US)
     val birthdate = df.parse(patient.birthDate)
     holder.patientName.text = patient.name
     holder.patientAge.text = calculateAge(birthdate).toString()
@@ -70,11 +113,11 @@ class PatientListAdapter(
     holder.patientSex.text = patient.sex
     holder.patientEmail.text = patient.email
 
-    holder.itemView!!.setOnClickListener({
+    holder.itemView!!.setOnClickListener {
       if (mListener != null) {
         mListener!!.onPatientItemClick(position)
       }
-    })
+    }
   }
 
   inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

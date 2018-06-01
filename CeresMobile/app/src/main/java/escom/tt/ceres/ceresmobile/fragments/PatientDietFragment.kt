@@ -43,6 +43,7 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
+    activity.findViewById<View>(R.id.diet_item).isEnabled = false
     val view = inflater.inflate(R.layout.patient_diet_fragment, container, false)
 
     dietItemInteractionListener = this@PatientDietFragment

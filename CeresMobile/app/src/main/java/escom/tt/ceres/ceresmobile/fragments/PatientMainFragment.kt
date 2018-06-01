@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import com.android.volley.Request.Method.GET
 import escom.tt.ceres.ceresmobile.R
 import escom.tt.ceres.ceresmobile.models.MedicalHistory
@@ -17,6 +19,7 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.ERROR
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.LOGIN
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.NAME
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.RESPONSE
+import escom.tt.ceres.ceresmobile.tools.Constants.Strings.UNSUCCESSFUL
 import escom.tt.ceres.ceresmobile.tools.Constants.Strings.URL_PATIENT
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
@@ -35,6 +38,7 @@ class PatientMainFragment : Fragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
+    activity.findViewById<View>(R.id.home_item).isEnabled = false
     val view = inflater.inflate(R.layout.patient_main_fragment, container, false)
 
     launch(UI) {
@@ -43,31 +47,40 @@ class PatientMainFragment : Fragment() {
       val lastName = preferences.getString(APELLIDO_PATERNO, null)
       val mothersLastName = preferences.getString(APELLIDO_MATERNO, null)
 
+      view.findViewById<ProgressBar>(R.id.progress_bar).visibility = View.VISIBLE
       val history = getPatientDetail(idUser)
+      view.findViewById<ProgressBar>(R.id.progress_bar).visibility = View.GONE
 
       val hypen = getString(R.string.hypen)
-      var error = false
+      var error = history.historyJSON.has(UNSUCCESSFUL)
       if (history.historyJSON.has(RESPONSE)) {
         error = history.historyJSON.getString(RESPONSE) == ERROR
       }
 
       if (!error) {
+        view.findViewById<TextView>(R.id.tv_date).text = history.date
+
         view.findViewById<TextView>(R.id.tv_sugar).text =
             getString(R.string.mg_dl, history.sugar)
 
         view.findViewById<TextView>(R.id.tv_lipids).text =
-            getString(R.string.mg_dl, history.lipids)
+            getString(R.string.percentage_prefix, history.lipids)
 
         view.findViewById<TextView>(R.id.tv_carbohydrates).text =
-            getString(R.string.mg_dl, history.carbohydrates)
+            getString(R.string.percentage_prefix, history.carbohydrates)
 
         view.findViewById<TextView>(R.id.tv_proteins).text =
-            getString(R.string.mg_dl, history.proteins)
+            getString(R.string.percentage_prefix, history.proteins)
       } else {
+        view.findViewById<TextView>(R.id.tv_date).text = hypen
         view.findViewById<TextView>(R.id.tv_sugar).text = hypen
         view.findViewById<TextView>(R.id.tv_lipids).text = hypen
         view.findViewById<TextView>(R.id.tv_carbohydrates).text = hypen
         view.findViewById<TextView>(R.id.tv_proteins).text = hypen
+        Toast.makeText(
+            activity,
+            getString(R.string.no_information_found),
+            Toast.LENGTH_LONG).show()
       }
 
       val textView = activity.findViewById<TextView>(R.id.userName)
@@ -93,9 +106,9 @@ class PatientMainFragment : Fragment() {
   }
 
   private suspend fun getPatientDetail(id: Int): MedicalHistory {
-    var urlMedicalHistory = "$URL_PATIENT/$id/ultimoHistorialclinico"
-    var queue = CeresRequestQueue.getInstance(activity)
-    var response = queue.apiObjectRequest(
+    val urlMedicalHistory = "$URL_PATIENT/$id/ultimoHistorialclinico"
+    val queue = CeresRequestQueue.getInstance(activity)
+    val response = queue.apiObjectRequest(
         GET,
         urlMedicalHistory,
         null).await()

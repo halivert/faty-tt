@@ -1,5 +1,6 @@
 package escom.tt.ceres.ceresmobile.fragments
 
+import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,10 +8,8 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import android.widget.Toast
 import com.android.volley.Request
 import escom.tt.ceres.ceresmobile.R
@@ -23,7 +22,45 @@ import escom.tt.ceres.ceresmobile.tools.Constants.Strings.UNSUCCESSFUL
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 
-class DoctorPatientsFragment : Fragment(), PatientListAdapter.PatientItemInteraction {
+
+class DoctorPatientsFragment : Fragment(),
+    PatientListAdapter.PatientItemInteraction,
+    SearchView.OnQueryTextListener {
+  override fun onQueryTextSubmit(query: String): Boolean {
+    return false
+  }
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setHasOptionsMenu(true)
+  }
+
+  override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    inflater.inflate(R.menu.medic_search_menu, menu)
+
+    if (activity != null) {
+      val searchManager = activity.getSystemService(Context.SEARCH_SERVICE)
+          as SearchManager
+      val searchMenuItem = menu.findItem(R.id.app_bar_search)
+      val searchView = searchMenuItem.actionView as SearchView
+
+      searchView.isIconified = false
+      searchView.setSearchableInfo(searchManager.getSearchableInfo(activity.getComponentName()))
+      searchView.setOnQueryTextListener(this)
+    }
+    super.onCreateOptionsMenu(menu, inflater)
+  }
+
+  override fun onQueryTextChange(newText: String): Boolean {
+    if (activity != null) {
+      val recyclerView = activity.findViewById<RecyclerView>(R.id.patients_list)
+      val adapter = recyclerView.adapter as PatientListAdapter
+      adapter.filter.filter(newText)
+    }
+
+    return true
+  }
+
   private var patientItemListener: PatientListAdapter.PatientItemInteraction? = null
   private var mListener: OnDoctorPatientsInteraction? = null
 
@@ -35,10 +72,11 @@ class DoctorPatientsFragment : Fragment(), PatientListAdapter.PatientItemInterac
   override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
     val view = inflater!!.inflate(R.layout.doctor_patients_fragment, container, false)
-    val toolbar = view.findViewById<Toolbar>(R.id.app_bar)
     patientItemListener = this@DoctorPatientsFragment
 
-    (activity as DoctorMainActivity).setSupportActionBar(toolbar)
+    val searchBar = view.findViewById<SearchView>(R.id.s_filter)
+    searchBar.setOnQueryTextListener(this)
+    searchBar.visibility = View.GONE
 
     val recyclerView = view.findViewById<RecyclerView>(R.id.patients_list).apply {
       setHasFixedSize(true)
@@ -68,22 +106,24 @@ class DoctorPatientsFragment : Fragment(), PatientListAdapter.PatientItemInterac
   }
 
   private suspend fun getPatients() {
-    val urlPatients = "${Constants.Strings.URL_MEDICO}/${DoctorMainActivity.idUser}/pacientes/"
-    val queue = CeresRequestQueue.getInstance(activity)
-    val response = queue.apiArrayRequest(Request.Method.GET, urlPatients, null).await()
+    if (activity != null) {
+      val urlPatients = "${Constants.Strings.URL_MEDICO}/${DoctorMainActivity.idUser}/pacientes/"
+      val queue = CeresRequestQueue.getInstance(activity)
+      val response = queue.apiArrayRequest(Request.Method.GET, urlPatients, null).await()
 
-    DoctorMainActivity.patients.clear()
-    for (i in 0 until response.length()) {
-      val responseObject = response.getJSONObject(i)
-      var patient: Patient?
-      if (responseObject.has(UNSUCCESSFUL)) {
-        Toast.makeText(
-            activity, getString(R.string.no_patients_found), Toast.LENGTH_LONG).show()
-        continue
+      DoctorMainActivity.patients.clear()
+      for (i in 0 until response.length()) {
+        val responseObject = response.getJSONObject(i)
+        var patient: Patient?
+        if (responseObject.has(UNSUCCESSFUL)) {
+          Toast.makeText(
+              activity, getString(R.string.no_patients_found), Toast.LENGTH_LONG).show()
+          continue
+        }
+
+        patient = Patient(responseObject)
+        DoctorMainActivity.patients.add(patient)
       }
-
-      patient = Patient(responseObject)
-      DoctorMainActivity.patients.add(patient)
     }
   }
 
@@ -110,6 +150,8 @@ class DoctorPatientsFragment : Fragment(), PatientListAdapter.PatientItemInterac
   }
 
   companion object {
+    const val TAG = "DOCTOR_PATIENTS_FRAGMENT_TAG"
+
     fun newInstance(refresh: Boolean = false) =
         DoctorPatientsFragment().apply {
           if (refresh) refreshPatientsList()

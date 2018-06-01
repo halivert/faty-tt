@@ -40,6 +40,9 @@ class DoctorGenerateCodeFragment : Fragment() {
     val btnSendCode = view.findViewById<Button>(R.id.btn_send_code)
     val etCode = view.findViewById<EditText>(R.id.et_code)
 
+    etCode.setText("")
+    view.findViewById<EditText>(R.id.et_email).setText("")
+
     if (etCode.text.isNullOrBlank()) {
       btnSendCode.isEnabled = false
     }
@@ -152,6 +155,8 @@ class DoctorGenerateCodeFragment : Fragment() {
   interface OnDoctorGenerateCodeInteraction
 
   companion object {
+    const val TAG = "DOCTOR_GENERATE_CODE_FRAGMENT_TAG"
+
     fun newInstance(): DoctorGenerateCodeFragment {
       return DoctorGenerateCodeFragment()
     }
