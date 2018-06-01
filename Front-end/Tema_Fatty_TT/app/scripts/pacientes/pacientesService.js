@@ -140,7 +140,7 @@ guardarInfoHistorialClinico: function(idPaciente,peso,talla,estatura,imc,lipidos
     });
 },
 
-editarInfoHistorialClinico: function(idPaciente,idHistorialClinico,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar,actividadFisica) {  
+editarInfoHistorialClinico: function(idPaciente,idHistorialClinico,peso,talla,estatura,imc,lipidos,carbohidratos,proteinas,azucar,actividadFisica,observaciones) {  
   var fechaRegistro = $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss');
   
   var data = {
@@ -155,7 +155,8 @@ editarInfoHistorialClinico: function(idPaciente,idHistorialClinico,peso,talla,es
     carbohidratos: carbohidratos,
     proteinas:proteinas,
     azucar: azucar,
-    actividadFisica:actividadFisica
+    actividadFisica:actividadFisica,
+    observaciones:observaciones
   };
 
   

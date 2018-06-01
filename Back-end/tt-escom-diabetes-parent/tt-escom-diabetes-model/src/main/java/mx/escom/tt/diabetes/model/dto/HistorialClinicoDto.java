@@ -57,4 +57,7 @@ public class HistorialClinicoDto implements Serializable{
 	
 	@Column(name = "ACTIVIDAD_FISICA", unique = false)
 	private @Getter @Setter Integer actividadFisica;
+	
+	@Column(name = "OBSERVACIONES", unique = false)
+	private @Getter @Setter String observaciones;
 }

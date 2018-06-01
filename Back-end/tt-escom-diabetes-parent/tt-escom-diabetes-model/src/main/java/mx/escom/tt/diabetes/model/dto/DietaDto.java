@@ -55,6 +55,8 @@ public class DietaDto implements Serializable{
 	@Column(name = "CALORIAS_CENA", unique = false)
 	private @Getter @Setter Double caloriasCena;
 	
+	
+	
 	@Override
 	public String toString() {
 		return "DIETA : [ idDieta : " +idDieta+ " idPaciente : " +idPaciente+" idMedico : " +idMedico+ " descripcion : " +descripcion+" alimentosDisponibles : " + alimentosDisponibles +"]";

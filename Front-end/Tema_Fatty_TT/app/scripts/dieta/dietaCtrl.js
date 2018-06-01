@@ -438,16 +438,24 @@ $scope.seleccionarDieta = function(idDieta) {
 * mostrarDieta  - Funcion que llama al service que recupera una dieta por medio del idDieta
 */
 $scope.mostrarDieta = function() {
-  var idUsuario = $cookies.get("idUsuario");
+  var idUsuario = $cookies.get("idCurrentPaciente");
   pacientesService.recuperaUltimoHistorial(idUsuario).then(
     function successCallback(d) {
       $scope.pesoCurrentUser = d.peso;
       $scope.estaturaCurrentUser = d.estatura;
+      $scope.nombreComppleto = d.nombreComppleto;
+      $scope.peso = d.peso;
+      $scope.fechaNacimiento = d.fechaNacimiento;
+      $scope.carbohidratos = d.carbohidratos;
+      $scope.lipidos = d.lipidos;
+      $scope.proteinas = d.proteinas;
+            console.log("d : " + JSON.stringify(d));
     }
     );
   
   dietaService.recuperarDieta(idUsuario, $cookies.get("idDieta")).then(
     function successCallback(d) {
+      console.log("d : " + JSON.stringify(d));
       $scope.descripcion = d.descripcion;
       $scope.dieta = angular.fromJson(d.alimentosDisponibles);
       $scope.caloriasDesayuno = d.caloriasDesayuno.toFixed(2);
@@ -488,17 +496,19 @@ $scope.generarDietaEnPDF = function() {
         toastr.error(d.data.mensaje, 'Error');
       }
     });*/
-    html2canvas(document.getElementById('pdfContainer'), {
+    var elem = $('#pdfContainer');
+    html2canvas(elem, {
       onrendered: function (canvas) {
+        elem.show();
         var data = canvas.toDataURL();
         var docDefinition = {
           content: [{
-            image: data,
-            fit: [510, 761],
-            pageBreak: "after"
-          }]
+                        image: data,
+                        width: 500,
+                    }]
         };
         pdfMake.createPdf(docDefinition).download(nombre + "Dieta"+nombre+new Date()+".pdf");
+        elem.hide();
       }
       });
   }

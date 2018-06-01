@@ -28,4 +28,6 @@ public class HistorialClinicoVo {
 	private @Getter @Setter String azucar;
 	
 	private @Getter @Setter String actividadFisica;
+	
+	private @Getter @Setter String observaciones;
 }

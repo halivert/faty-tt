@@ -2,6 +2,7 @@ package mx.escom.tt.diabetes.business.service;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -166,7 +167,7 @@ public class HistorialClinicoAppService {
 	 * @param historialClinicoDto		-	Informacion del historial que se quiere actualizar
 	 * @throws RuntimeException			-	Si ocurre un error durante la ejecucion
 	 */
-	public void actualizarHistorialClinico(HistorialClinicoDto historialClinicoDto) throws RuntimeException{
+	public void actualizarHistorialClinico(HistorialClinicoDto historialClinicoDto,String observaciones) throws RuntimeException{
 		log.debug("Inicio - Service");
 		
 		String msjEx = null;
@@ -199,6 +200,13 @@ public class HistorialClinicoAppService {
 				aux.setProteinas(historialClinicoDto.getProteinas());
 				aux.setTalla(historialClinicoDto.getTalla());
 				aux.setActividadFisica(historialClinicoDto.getActividadFisica());
+				if(!StringUtils.isEmpty(observaciones)) {
+					aux.setObservaciones(observaciones);
+				}else {
+					aux.setObservaciones("");
+				}
+
+
 			}
 			
 			historialClinicoDao.actualizarHistorialClinico(aux);
@@ -211,6 +219,11 @@ public class HistorialClinicoAppService {
 		}
 		
 		log.debug("Fin - Service");
+	}
+	
+	
+	public void guardarInformacionCSV(HistorialClinicoDto historialClinicoDto) throws RuntimeException{
+		
 	}
 
 }

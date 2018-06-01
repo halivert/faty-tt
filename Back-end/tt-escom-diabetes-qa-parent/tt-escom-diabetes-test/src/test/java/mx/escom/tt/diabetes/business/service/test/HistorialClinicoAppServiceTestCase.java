@@ -93,7 +93,7 @@ public class HistorialClinicoAppServiceTestCase {
 			historialClinicoDto.setProteinas(proteinas);
 			historialClinicoDto.setAzucar(azucar);		
 		}	
-		historialClinicoAppService.actualizarHistorialClinico(historialClinicoDto);
+		historialClinicoAppService.actualizarHistorialClinico(historialClinicoDto,"");
 
 		log.debug("Fin - Test");
 	}

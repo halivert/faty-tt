@@ -46,7 +46,7 @@
                      <div class="col-sm-2">
                         <div class="input-group m-b">
                            <input type="text" class="form-control" ng-model="historialDetalle.talla" placeholder="{{historialDetalle.talla}}" ng-disabled="esEditable" required> 
-                           <span class="input-group-addon">cm</span>
+                           <span class="input-group-addon">inch</span>
                         </div>
                      </div>
                   </div>
@@ -121,7 +121,7 @@
                   <div class="form-group">
                      <label class="col-sm-2 control-label">Observaciones:</label>
                      <div class="col-sm-8">
-                        <textarea style="overflow:auto;resize:none" class="form-control" rows="5"></textarea>
+                        <textarea style="overflow:auto;resize:none" class="form-control" rows="5" ng-model="historialDetalle.observaciones" ng-disabled="esEditable"></textarea>
                      </div>
                   </div>
                </form>

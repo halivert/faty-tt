@@ -146,7 +146,7 @@ public class UsuarioFacadeTestCase {
 	public void encodeKeywordTestCase() {
 		log.debug("Inicio - Test");
 		
-		String password = "edgar.hurtado";
+		String password = "vere";
 		String result = null;
 		try {
 			result = usuarioFacade.encodeKeyword(password);

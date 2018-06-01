@@ -112,7 +112,7 @@ public class HistorialClinicoFacade extends NumberHelper{
 				throw new RuntimeException(msjEx);
 			}
 				
-			historialClinicoAppService.actualizarHistorialClinico(historialClinicoDto);
+			historialClinicoAppService.actualizarHistorialClinico(historialClinicoDto,historialClinicoDto.getObservaciones());
 
 			respuestaVo = new RespuestaVo();
 			respuestaVo.setIdUsuario(historialClinicoVo.getIdPaciente());
@@ -230,6 +230,7 @@ public class HistorialClinicoFacade extends NumberHelper{
 				historialClinicoVo.setProteinas(String.valueOf(historialClinicoDto.getProteinas()));
 				historialClinicoVo.setAzucar(String.valueOf(historialClinicoDto.getAzucar()));
 				historialClinicoVo.setActividadFisica(mapaIndiceActividadFisica.get(historialClinicoDto.getActividadFisica()));
+				historialClinicoVo.setObservaciones(historialClinicoDto.getObservaciones());
 			}
 		} catch (RuntimeException ex) {
 			throw new RuntimeException(ex.getMessage());
@@ -296,6 +297,7 @@ public class HistorialClinicoFacade extends NumberHelper{
 				ultimoHistorialFacadeVo.setProteinas(String.valueOf(ultimoHistorialClinicoVo.getPROTEINAS()));
 				ultimoHistorialFacadeVo.setAzucar(String.valueOf(ultimoHistorialClinicoVo.getAZUCAR()));
 				ultimoHistorialFacadeVo.setActividadFisica(mapaIndiceActividadFisica.get(ultimoHistorialClinicoVo.getACTIVIDAD_FISICA()));
+				ultimoHistorialFacadeVo.setObservaciones(ultimoHistorialClinicoVo.getOBSERVACIONES());
 			}
 		} catch (RuntimeException ex) {
 			throw new RuntimeException(ex.getMessage());
@@ -419,10 +421,12 @@ public class HistorialClinicoFacade extends NumberHelper{
 			historialClinicoDto.setAzucar(Double.parseDouble(historialClinicoVo.getAzucar()));
 			historialClinicoDto.setActividadFisica(Integer.valueOf(historialClinicoVo.getActividadFisica()));
 			
+			
 			if(isUpdate) {
 				historialClinicoDto.setIdHistorialClinico(Integer.valueOf(historialClinicoVo.getIdHistorialClinico()));
 			}if( Boolean.TRUE.equals(isUpdate)) {
 				historialClinicoDto.setFecha(Timestamp.valueOf(historialClinicoVo.getFecha()));
+				historialClinicoDto.setObservaciones(historialClinicoVo.getObservaciones() != null ? historialClinicoVo.getObservaciones() : StringUtils.EMPTY);
 			}
 
 		} catch (RuntimeException ex) {

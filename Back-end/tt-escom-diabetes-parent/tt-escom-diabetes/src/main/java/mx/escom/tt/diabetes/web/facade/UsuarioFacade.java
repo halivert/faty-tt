@@ -216,8 +216,8 @@ public class UsuarioFacade extends NumberHelper{
 			if(StringUtils.isEmpty(passwordStr)) {
 				throw new RuntimeException("La contraseña no puede ser nula o vacía.");
 			}
-			
-			usuarioAppService.reestablecerPasswordAppService(Integer.valueOf(idUsuarioStr), passwordStr);
+			String encriptedPassword = encodeKeyword(passwordStr);
+			usuarioAppService.reestablecerPasswordAppService(Integer.valueOf(idUsuarioStr), encriptedPassword);
 			
 			respuestaVo = new RespuestaVo();
 			respuestaVo.setRespuesta("OK");

@@ -265,7 +265,7 @@ if(macronutrientes > 100){
   else{
 
   var idHistorialClinico = $scope.historialDetalle.idHistorialClinico;
-  pacientesService.editarInfoHistorialClinico(idPaciente,idHistorialClinico,$scope.historialDetalle.peso,$scope.historialDetalle.talla,$scope.historialDetalle.estatura,$scope.historialDetalle.imc,$scope.historialDetalle.lipidos,$scope.historialDetalle.carbohidratos,$scope.historialDetalle.proteinas,$scope.historialDetalle.azucar,$scope.historial.af).then(
+  pacientesService.editarInfoHistorialClinico(idPaciente,idHistorialClinico,$scope.historialDetalle.peso,$scope.historialDetalle.talla,$scope.historialDetalle.estatura,$scope.historialDetalle.imc,$scope.historialDetalle.lipidos,$scope.historialDetalle.carbohidratos,$scope.historialDetalle.proteinas,$scope.historialDetalle.azucar,$scope.historial.af,$scope.historialDetalle.observaciones).then(
 
     function successCallback(d) {
       toastr.success(d, 'Ok');
@@ -323,7 +323,6 @@ $scope.calculateAge = function calculateAge(birthday) { // birthday is a date wi
 */
 formatAndCalculateAge = function formatAndCalculateAge(birthday) {// birthday is a date with dd/MM/yyyy format
   var formatedDate = birthday.split("/").reverse().join("-");
-  console.log("formatedDate : " + formatedDate);
   return  $scope.calculateAge(formatedDate);
 },
 /**
