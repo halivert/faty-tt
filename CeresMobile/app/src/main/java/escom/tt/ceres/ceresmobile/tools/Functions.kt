@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.support.constraint.ConstraintLayout
-import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -266,7 +265,7 @@ object Functions {
               parseInt(leftSideSplit[0].trim()) * parseInt(leftSideSplit[1].trim())
         }
       } catch (e: Exception) {
-        Log.e("Error", e.toString())
+        throw e
       }
     }
 

@@ -44,28 +44,29 @@ class DietDetailFragment : Fragment() {
 
     if (idDiet > -1) {
       launch(UI) {
-        val diet: Diet = getDietDetail(idDiet)
-        view.findViewById<TextView>(R.id.tv_description).text = diet.description
-        val dietDate = Calendar.getInstance()
-        dietDate.timeInMillis = diet.assignDate.time
-        view.findViewById<TextView>(R.id.tv_date).text =
-            "${dietDate.get(Calendar.DAY_OF_MONTH)}/" +
-            "${dietDate.get(Calendar.MONTH) + 1}/" +
-            "${dietDate.get(Calendar.YEAR)}"
-        var jsonFoods: JSONObject? = null
-        try {
-          jsonFoods = JSONObject(diet.availableFoods)
-        } catch (e: Exception) {
-          Log.e(ERROR, "Json parse error")
-        }
+        if (activity != null) {
+          val diet: Diet = getDietDetail(idDiet)
+          view.findViewById<TextView>(R.id.tv_description).text = diet.description
+          val dietDate = Calendar.getInstance()
+          dietDate.timeInMillis = diet.assignDate.time
+          view.findViewById<TextView>(R.id.tv_date).text =
+              "${dietDate.get(Calendar.DAY_OF_MONTH)}/" +
+              "${dietDate.get(Calendar.MONTH) + 1}/" +
+              "${dietDate.get(Calendar.YEAR)}"
+          var jsonFoods: JSONObject? = null
+          try {
+            jsonFoods = JSONObject(diet.availableFoods)
+          } catch (e: Exception) {
+            Log.e(ERROR, "Json parse error")
+          }
 
-        if (jsonFoods != null) {
-          // Log.e("Log", jsonFoods.toString(2))
-          view.findViewById<TextView>(R.id.tv_breakfast).text = Meal(jsonFoods.getString(BREAKFAST)).showMeal()
-          view.findViewById<TextView>(R.id.tv_collation_1).text = Meal(jsonFoods.getString(COLLATION_1)).showMeal()
-          view.findViewById<TextView>(R.id.tv_meal).text = Meal(jsonFoods.getString(MEAL)).showMeal()
-          view.findViewById<TextView>(R.id.tv_collation_2).text = Meal(jsonFoods.getString(COLLATION_2)).showMeal()
-          view.findViewById<TextView>(R.id.tv_dinner).text = Meal(jsonFoods.getString(DINNER)).showMeal()
+          if (jsonFoods != null) {
+            view.findViewById<TextView>(R.id.tv_breakfast).text = Meal(jsonFoods.getString(BREAKFAST)).showMeal()
+            view.findViewById<TextView>(R.id.tv_collation_1).text = Meal(jsonFoods.getString(COLLATION_1)).showMeal()
+            view.findViewById<TextView>(R.id.tv_meal).text = Meal(jsonFoods.getString(MEAL)).showMeal()
+            view.findViewById<TextView>(R.id.tv_collation_2).text = Meal(jsonFoods.getString(COLLATION_2)).showMeal()
+            view.findViewById<TextView>(R.id.tv_dinner).text = Meal(jsonFoods.getString(DINNER)).showMeal()
+          }
         }
       }
     }
@@ -100,6 +101,8 @@ class DietDetailFragment : Fragment() {
   }
 
   companion object {
+    const val TAG = "DIET_DETAIL_FRAGMENT"
+
     @JvmStatic
     fun newInstance(idDiet: Int) =
         DietDetailFragment().apply {

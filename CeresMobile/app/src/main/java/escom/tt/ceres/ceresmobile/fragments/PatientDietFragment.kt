@@ -43,7 +43,7 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
-    activity.findViewById<View>(R.id.diet_item).isEnabled = false
+    activity.findViewById<View>(R.id.diet_item)?.isEnabled = false
     val view = inflater.inflate(R.layout.patient_diet_fragment, container, false)
 
     dietItemInteractionListener = this@PatientDietFragment
@@ -58,31 +58,35 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
     val swipeContainer = view.findViewById<SwipeRefreshLayout>(R.id.diet_refresh)
     swipeContainer.setOnRefreshListener {
       launch(UI) {
-        getDiets()
-        recyclerView.adapter.notifyDataSetChanged()
-        swipeContainer.isRefreshing = false
-        if (diets.isEmpty() && activity != null) {
-          Toast.makeText(
-              activity,
-              getString(R.string.no_diets_found),
-              Toast.LENGTH_LONG
-          ).show()
+        if (activity != null) {
+          getDiets()
+          recyclerView.adapter.notifyDataSetChanged()
+          swipeContainer.isRefreshing = false
+          if (diets.isEmpty()) {
+            Toast.makeText(
+                activity,
+                getString(R.string.no_diets_found),
+                Toast.LENGTH_LONG
+            ).show()
+          }
         }
       }
     }
 
     if (diets.isEmpty()) {
       launch(UI) {
-        swipeContainer.isRefreshing = true
-        getDiets()
-        swipeContainer.isRefreshing = false
-        recyclerView.adapter.notifyDataSetChanged()
-        if (diets.isEmpty() && activity != null) {
-          Toast.makeText(
-              activity,
-              getString(R.string.no_diets_found),
-              Toast.LENGTH_LONG
-          ).show()
+        if (activity != null) {
+          swipeContainer.isRefreshing = true
+          getDiets()
+          swipeContainer.isRefreshing = false
+          recyclerView.adapter.notifyDataSetChanged()
+          if (diets.isEmpty()) {
+            Toast.makeText(
+                activity,
+                getString(R.string.no_diets_found),
+                Toast.LENGTH_LONG
+            ).show()
+          }
         }
       }
     }
@@ -159,5 +163,6 @@ class PatientDietFragment : Fragment(), DietListAdapter.DietItemInteraction {
         }
 
     var diets = mutableListOf<Diet>()
+    const val TAG = "PATIENT_DIET_FRAGMENT"
   }
 }

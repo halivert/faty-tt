@@ -6,10 +6,6 @@ import android.app.DialogFragment
 import android.os.Bundle
 import java.util.*
 
-/**
- * Created by hali on 30/10/17.
- */
-
 class DatePickerFragment : DialogFragment() {
   private var listener: DatePickerDialog.OnDateSetListener? = null
 

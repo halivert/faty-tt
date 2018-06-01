@@ -6,10 +6,6 @@ import android.app.TimePickerDialog
 import android.os.Bundle
 import java.util.*
 
-/**
- * Created by hali on 27/02/18.
- */
-
 class TimePickerFragment : DialogFragment() {
   private var listener: TimePickerDialog.OnTimeSetListener? = null
 

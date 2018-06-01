@@ -10,7 +10,6 @@ import escom.tt.ceres.ceresmobile.models.Diet
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class DietListAdapter(
     private val diets: MutableList<Diet>,
     private var mListener: DietItemInteraction?) : RecyclerView.Adapter<DietListAdapter.ViewHolder>() {

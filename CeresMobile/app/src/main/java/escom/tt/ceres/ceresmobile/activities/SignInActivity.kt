@@ -87,7 +87,7 @@ class SignInActivity : AppCompatActivity(),
     if (rolUser == PACIENTE)
       intent = Intent(this, PatientMainActivity::class.java)
     else if (rolUser == MEDICO)
-      intent = Intent(this, DoctorMainActivity::class.java)
+      intent = Intent(this, MedicMainActivity::class.java)
 
     intent!!.putExtra(ID_USUARIO, idUser)
     intent.addFlags(FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TASK)

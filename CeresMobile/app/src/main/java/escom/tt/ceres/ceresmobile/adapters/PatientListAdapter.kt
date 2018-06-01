@@ -13,7 +13,6 @@ import escom.tt.ceres.ceresmobile.tools.Functions.calculateAge
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class PatientListAdapter(
     private var patients: MutableList<Patient>,
     private var mListener: PatientItemInteraction?) :

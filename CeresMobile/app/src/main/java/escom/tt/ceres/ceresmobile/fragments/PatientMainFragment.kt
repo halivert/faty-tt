@@ -38,54 +38,56 @@ class PatientMainFragment : Fragment() {
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
-    activity.findViewById<View>(R.id.home_item).isEnabled = false
+    activity.findViewById<View>(R.id.home_item)?.isEnabled = false
     val view = inflater.inflate(R.layout.patient_main_fragment, container, false)
 
     launch(UI) {
-      val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
-      val userName = preferences.getString(NAME, null)
-      val lastName = preferences.getString(APELLIDO_PATERNO, null)
-      val mothersLastName = preferences.getString(APELLIDO_MATERNO, null)
+      if (activity != null) {
+        val preferences = activity.getSharedPreferences(LOGIN, Context.MODE_PRIVATE)
+        val userName = preferences.getString(NAME, null)
+        val lastName = preferences.getString(APELLIDO_PATERNO, null)
+        val mothersLastName = preferences.getString(APELLIDO_MATERNO, null)
 
-      view.findViewById<ProgressBar>(R.id.progress_bar).visibility = View.VISIBLE
-      val history = getPatientDetail(idUser)
-      view.findViewById<ProgressBar>(R.id.progress_bar).visibility = View.GONE
+        view.findViewById<ProgressBar>(R.id.progress_bar).visibility = View.VISIBLE
+        val history = getPatientDetail(idUser)
+        view.findViewById<ProgressBar>(R.id.progress_bar).visibility = View.GONE
 
-      val hypen = getString(R.string.hypen)
-      var error = history.historyJSON.has(UNSUCCESSFUL)
-      if (history.historyJSON.has(RESPONSE)) {
-        error = history.historyJSON.getString(RESPONSE) == ERROR
+        val hypen = getString(R.string.hypen)
+        var error = history.historyJSON.has(UNSUCCESSFUL)
+        if (history.historyJSON.has(RESPONSE)) {
+          error = history.historyJSON.getString(RESPONSE) == ERROR
+        }
+
+        if (!error) {
+          view.findViewById<TextView>(R.id.tv_date).text = history.date
+
+          view.findViewById<TextView>(R.id.tv_sugar).text =
+              getString(R.string.mg_dl, history.sugar)
+
+          view.findViewById<TextView>(R.id.tv_lipids).text =
+              getString(R.string.percentage_prefix, history.lipids)
+
+          view.findViewById<TextView>(R.id.tv_carbohydrates).text =
+              getString(R.string.percentage_prefix, history.carbohydrates)
+
+          view.findViewById<TextView>(R.id.tv_proteins).text =
+              getString(R.string.percentage_prefix, history.proteins)
+        } else {
+          view.findViewById<TextView>(R.id.tv_date).text = hypen
+          view.findViewById<TextView>(R.id.tv_sugar).text = hypen
+          view.findViewById<TextView>(R.id.tv_lipids).text = hypen
+          view.findViewById<TextView>(R.id.tv_carbohydrates).text = hypen
+          view.findViewById<TextView>(R.id.tv_proteins).text = hypen
+          Toast.makeText(
+              activity,
+              getString(R.string.no_information_found),
+              Toast.LENGTH_LONG).show()
+        }
+
+        val textView = activity.findViewById<TextView>(R.id.userName)
+        if (textView != null)
+          textView.text = "$userName $lastName $mothersLastName"
       }
-
-      if (!error) {
-        view.findViewById<TextView>(R.id.tv_date).text = history.date
-
-        view.findViewById<TextView>(R.id.tv_sugar).text =
-            getString(R.string.mg_dl, history.sugar)
-
-        view.findViewById<TextView>(R.id.tv_lipids).text =
-            getString(R.string.percentage_prefix, history.lipids)
-
-        view.findViewById<TextView>(R.id.tv_carbohydrates).text =
-            getString(R.string.percentage_prefix, history.carbohydrates)
-
-        view.findViewById<TextView>(R.id.tv_proteins).text =
-            getString(R.string.percentage_prefix, history.proteins)
-      } else {
-        view.findViewById<TextView>(R.id.tv_date).text = hypen
-        view.findViewById<TextView>(R.id.tv_sugar).text = hypen
-        view.findViewById<TextView>(R.id.tv_lipids).text = hypen
-        view.findViewById<TextView>(R.id.tv_carbohydrates).text = hypen
-        view.findViewById<TextView>(R.id.tv_proteins).text = hypen
-        Toast.makeText(
-            activity,
-            getString(R.string.no_information_found),
-            Toast.LENGTH_LONG).show()
-      }
-
-      val textView = activity.findViewById<TextView>(R.id.userName)
-      if (textView != null)
-        textView.text = "$userName $lastName $mothersLastName"
     }
 
     return view
