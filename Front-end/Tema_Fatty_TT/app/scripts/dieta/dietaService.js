@@ -15,6 +15,7 @@ angular.module('trabajoTerminal')
         }
 
         var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/' + idPaciente + '/dietas/' + idDieta;
+        //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/pacientes/' + idPaciente + '/dietas/' + idDieta;        
         return $http.get(url, config)
           .then(function successCallback(response) {
             if (response.data.respuesta === "ERROR") {
@@ -41,6 +42,7 @@ angular.module('trabajoTerminal')
         }
 
         var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/pacientes/' + idPaciente + '/dietas';
+        //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/pacientes/' + idPaciente + '/dietas';        
         return $http.get(url, config)
           .then(function successCallback(response) {
             
@@ -58,19 +60,23 @@ angular.module('trabajoTerminal')
       /**
        * crearDieta - Funcion que invoca al controller de la API para crear una nueva dieta  
        */
-      crearDieta: function(idPaciente,idMedico,descripcion,dieta) {
-        //console.log("descripcion : " + descripcion);
-        //console.log("dieta : " + JSON.stringify(dieta));
+      crearDieta: function(idPaciente,idMedico,descripcion,dieta,caloriasDesayuno,caloriasC1,caloriasComida,caloriasC2,caloriasCena) {
         var jsonDieta = JSON.stringify(dieta);
         var data = {
           descripcion: descripcion,
-          alimentosDisponibles: jsonDieta
+          alimentosDisponibles: jsonDieta,
+          caloriasDesayuno : caloriasDesayuno,
+          caloriasC1 : caloriasC1,
+          caloriasComida : caloriasComida,
+          caloriasC2 : caloriasC2,
+          caloriasCena : caloriasCena
         };
         var config = {
           headers : {'Content-Type': 'application/json'}
         }
 
         var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/medico/'+idMedico+'/pacientes/'+idPaciente+'/dietas';
+        //var url = 'http://localhost:8080/tt-escom-diabetes/ceres/medico/'+idMedico+'/pacientes/'+idPaciente+'/dietas';        
         return $http.post(url,data,config)
           .then(function successCallback(response) {
             if(response.data.respuesta === "OK"){
@@ -83,6 +89,32 @@ angular.module('trabajoTerminal')
           }, function errorCallback(response) {
             console.log("response ERROR : " + JSON.stringify(response.data));
             return $q.reject(response);
+          });
+      },
+
+      crearPDF: function(nombre,caloriasTotales,peso,estatura,edad) {
+        var data = {
+          nombrePaciente: nombre,
+          edadPaciente: edad,
+          estaturaPaciente: estatura,
+          pesoPaciente: peso,
+          gastoET: caloriasTotales        
+        };
+        var config = {
+          headers : {'Content-Type': 'application/json'},
+          responseType : 'arraybuffer'  
+        }
+
+        //var url = 'http://35.202.245.109/tt-escom-diabetes/ceres/usuarios/dietas/pdf';
+        var url = 'http://localhost:8080/tt-escom-diabetes/ceres/usuarios/dietas/pdf'
+        return $http.post(url,data,config)
+          .then(function successCallback(response) {
+            console.log("response SUCCESS");            
+            return response.data;
+
+          }, function errorCallback(response) {
+            console.log("response ERROR");
+            
           });
       },
 

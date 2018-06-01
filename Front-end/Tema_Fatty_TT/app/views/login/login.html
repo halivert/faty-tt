@@ -1,6 +1,33 @@
-<div class="loginColumns animated fadeInDown" ng-controller="loginCtrl" ng-init="limpiaInfo()">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button-custom"><b>CERES</b></a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+        <nav>
+            <a href="#session" class="w3-bar-item w3-button-custom">Iniciar sesión</li>
+            <a href="#about" class="w3-bar-item w3-button-custom">Qué es Ceres</a>
+        </nav>
+
+      </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="img/banner.jpg" alt="Architecture" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>CERES</b></span></h1> <h2 class="w3-hide-small font-bold font-color">Sistema de recomendación alimenticia</h2>
+</div>
+</header>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="loginColumns animated fadeInDown" ng-controller="loginCtrl" ng-init="limpiaInfo()" id="session">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 font-color">
             <h2 class="font-bold">{{titulo}}</h2>
             <p>Sistema de recomendación alimenticia.</p>
         </div>
@@ -125,17 +152,26 @@
 
          $('#data_2 .input-group.date').datepicker({
             startView: 2,
-            todayBtn: "linked",
             keyboardNavigation: false,
             forceParse: false,
             autoclose: true,
             format: "dd/mm/yyyy",
             language: 'es',
+            yearRange: '-110:-18',
             endDate : dt
         });
      });    
     </script>
 
-</div>
+    <script>
+    $("nav").find("a").click(function(e) {
+        e.preventDefault();
+        var section = $(this).attr("href");
+        $("html, body").animate({
+            scrollTop: $(section).offset().top
+        });
 
+    });  
+</script>
+</div>
 

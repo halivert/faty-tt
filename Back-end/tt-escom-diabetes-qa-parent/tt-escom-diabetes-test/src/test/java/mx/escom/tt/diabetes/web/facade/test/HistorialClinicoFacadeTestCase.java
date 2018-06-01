@@ -108,17 +108,17 @@ public class HistorialClinicoFacadeTestCase {
 		HistorialClinicoVo historialClinicoVo = new HistorialClinicoVo();
 		RespuestaVo respuestaVo = null;
 		
-		String idPaciente = "117";
+		String idPaciente = "2";
 		String fecha = "1994-11-04 00:00:00";
-		String peso = "72.5";
-		String talla = "70";
-		String estatura = "170";
-		String lipidos = "2.44";
-		String carbohidratos = "3.4";
-		String proteinas = "22.5";
-		String azucar = "100";
+		String peso = "7.";
+		String talla = "23";
+		String estatura = "1.70";
+		String lipidos = "24";
+		String carbohidratos = "34";
+		String proteinas = "225";
+		String azucar = "100.8";
 		String imc = "22";
-		
+		String actividadFisica = "1";
 		{//SE ARMA EL VO
 			historialClinicoVo.setIdPaciente(idPaciente);
 			historialClinicoVo.setFecha(fecha);
@@ -129,7 +129,8 @@ public class HistorialClinicoFacadeTestCase {
 			historialClinicoVo.setLipidos(lipidos);
 			historialClinicoVo.setCarbohidratos(carbohidratos);
 			historialClinicoVo.setProteinas(proteinas);
-			historialClinicoVo.setAzucar(azucar);		
+			historialClinicoVo.setAzucar(azucar);	
+			historialClinicoVo.setActividadFisica(actividadFisica);
 		}	
 		
 		

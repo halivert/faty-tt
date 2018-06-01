@@ -47,7 +47,7 @@ public class DietaDaoImpl implements DietaDao{
 		
 		}
 		catch(Exception ex){
-			msjEx = Constants.MSJ_EXCEPTION + "al guardar la dieta.";
+			msjEx = Constants.MSJ_EXCEPTION + "guardar la dieta.";
 			log.debug(ex.getMessage());
 			throw new RuntimeException(msjEx,ex.getCause());
 		}
@@ -70,11 +70,6 @@ public class DietaDaoImpl implements DietaDao{
 		
 		try {
 			dietaDto = (DietaDto) sessionFactory.getCurrentSession().get(DietaDto.class, idDieta);
-			
-			/*Criteria criteria = sessionFactory.getCurrentSession().createCriteria(DietaDto.class);
-			criteria.add(Restrictions.eq("idDieta", idDieta));
-			dietaDto =  (DietaDto) criteria.uniqueResult();*/
-	
 		}catch(Exception ex){
 			msjEx = Constants.MSJ_EXCEPTION + "recuperar la dieta con id : " + idDieta + ex.getMessage();
 			throw new RuntimeException(msjEx,ex.getCause());

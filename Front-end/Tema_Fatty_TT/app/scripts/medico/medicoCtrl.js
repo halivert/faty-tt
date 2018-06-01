@@ -8,7 +8,7 @@ angular.module('trabajoTerminal')
   $scope.algo="algo";
   $scope.codigo="";
   $scope.correoPaciente="";
-
+  $scope.nuevoCodigo="";
 /**
 * generarCodigo  - Funcion que solicita la creacion de un codigo para el medico
 */
@@ -72,6 +72,36 @@ $scope.validarCorreoCodigo = function(){
       return  true;
     else 
       return false;
+}
+
+
+/**
+* validaForm  - Funcion que verifica si todos los campos del formulario para registrar un nuevo usuario han sido llenados,
+*               Si todos los campos han sido llenados se manda a llamar a la funcion validaPasword.
+*/
+$scope.validaFormMedico =function(){
+  if($scope.formNuevoMedico.$valid)
+    return  true;
+  else 
+    return false;
+}
+
+$scope.cambiarMedico = function(){
+  var idPaciente =  $cookies.get("idUsuario")
+
+  medicoService.reasignaMedico(idPaciente, $scope.nuevoCodigo).then(
+    function successCallback(d){
+      $log.debug("d.mensaje : " + d.mensaje)
+      //$cookies.put("token",d.mensaje);
+      toastr.success(d.mensaje, d.respuesta);
+    },
+    function errorCallback(d){
+      if(d.data == null)
+        toastr.warning("Servicio no disponible", 'Advertencia');
+      else{
+        toastr.error(d.data.mensaje, 'Error');
+      }
+    });
 }
 
 });

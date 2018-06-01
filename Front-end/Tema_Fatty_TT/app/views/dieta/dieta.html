@@ -9,12 +9,12 @@
 
 <div class="wrapper wrapper-content animated fadeInRight" ng-controller="dietaCtrl" ng-init="mostrarDieta()">
     <div class="row">
-        <div class="ibox-content forum-container">
+        <div class="ibox-content forum-container" id="pdfContainer">
             <div class="forum-title">
                 <div class="pull-right forum-desc">
                     <samll></samll>
                 </div>
-                <h3>Plan diario de 1500 calorías</h3>
+                <h3>Plan diario de {{caloriasTotales}} calorías</h3>
             </div>
             <div class="forum-item active">
                 <div class="row">
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-md-1 forum-info">
                         <span class="views-number">
-                            400
+                            {{caloriasDesayuno}}
                         </span>
                         <div>
                             <small>calorías</small>
@@ -37,7 +37,7 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">                        
-                        <div ng-repeat="alimentoDesayuno in dieta.Desayuno">
+                        <div ng-repeat="alimentoDesayuno in dieta.Desayuno track by $index">
                             {{alimentoDesayuno.cantidad}}
                             {{alimentoDesayuno.unidad}}
                             {{alimentoDesayuno.alimento}}
@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-md-1 forum-info">
                         <span class="views-number">
-                            200
+                            {{caloriasC1}}
                         </span>
                         <div>
                             <small>calorías</small>
@@ -67,7 +67,7 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">
-                        <div ng-repeat="alimentoC1 in dieta.C1">
+                        <div ng-repeat="alimentoC1 in dieta.C1 track by $index">
                             {{alimentoC1.cantidad}}
                             {{alimentoC1.unidad}}                            
                             {{alimentoC1.alimento}}
@@ -87,7 +87,7 @@
                     </div>
                     <div class="col-md-1 forum-info">
                         <span class="views-number">
-                            400
+                            {{caloriasComida}}
                         </span>
                         <div>
                             <small>calorías</small>
@@ -97,7 +97,7 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">
-                        <div ng-repeat="alimentoComida in dieta.Comida">
+                        <div ng-repeat="alimentoComida in dieta.Comida track by $index">
                             {{alimentoComida.cantidad}}
                             {{alimentoComida.unidad}}                            
                             {{alimentoComida.alimento}}
@@ -117,7 +117,7 @@
                     </div>
                     <div class="col-md-1 forum-info">
                         <span class="views-number">
-                            200
+                            {{caloriasC2}}
                         </span>
                         <div>
                             <small>calorías</small>
@@ -127,7 +127,7 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">
-                        <div ng-repeat="alimentoC2 in dieta.C2">
+                        <div ng-repeat="alimentoC2 in dieta.C2 track by $index">
                             {{alimentoC2.cantidad}}
                             {{alimentoC2.unidad}}                            
                             {{alimentoC2.alimento}}
@@ -147,7 +147,7 @@
                     </div>
                     <div class="col-md-1 forum-info">
                         <span class="views-number">
-                            300
+                            {{caloriasCena}}
                         </span>
                         <div>
                             <small>calorías</small>
@@ -157,7 +157,7 @@
                 <br>
                 <div class="row">
                      <div class="col-md-5 pull-left">
-                        <div ng-repeat="alimentoCena in dieta.Cena">
+                        <div ng-repeat="alimentoCena in dieta.Cena track by $index">
                             {{alimentoCena.cantidad}}
                             {{alimentoCena.unidad}}                            
                             {{alimentoCena.alimento}}
@@ -171,22 +171,22 @@
              <div class="form-group">
                 <label class="col-sm-2 control-label">Recomendaciones del médico:</label>
                 <div class="col-sm-8">
-                    <textarea style="overflow:auto;resize:none" class="form-control" rows="5">{{descripcion}}</textarea>
+                    <textarea style="overflow:auto;resize:none" class="form-control" rows="5" disabled>{{descripcion}}</textarea>
                 </div>
             </div>
         </div>
-
-       
-
+        
+        </div>
+        <div class="ibox-content forum-container" id="pdfContainer">
         <div class="row">
             <div class="form-group pull-left">
                 <button class="btn btn-w-md btn-gap-v btn-primary" type="button" ui-sref="index.dietasPaciente">Regresar</button>
             </div>
             <div class="form-group pull-right">
-                <button class="btn btn-w-md btn-gap-v btn-primary" type="button"><i class="fa fa-file-pdf-o"></i> Generar PDF</button>
+                <button class="btn btn-w-md btn-gap-v btn-primary" type="button" ng-click="generarDietaEnPDF()"><i class="fa fa-file-pdf-o"></i> Generar PDF</button>
             </div>
         </div>
-        
         </div>
+
     </div>
 </div>

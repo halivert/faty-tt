@@ -60,9 +60,14 @@ public class RegistroGlucosaFacade extends NumberHelper{
 		}
 		
 		try {
-			if(!StringUtils.isNumeric(registroGlucosaVo.getAzucar())){
+			if(!isNumeric(registroGlucosaVo.getAzucar())){
 				msjEx = "El registro de la glucosa sólo debe contener números.";
 				throw  new RuntimeException(msjEx);
+			}
+			
+			if(Double.parseDouble(registroGlucosaVo.getAzucar()) < 50 || Double.parseDouble(registroGlucosaVo.getAzucar()) > 450){
+				msjEx = "Revisar el nivel de glucosa.";
+				throw new RuntimeException(msjEx);
 			}
 			
 			{//Se genera el formato de la fecha
@@ -120,8 +125,13 @@ public class RegistroGlucosaFacade extends NumberHelper{
 		
 		try {
 			
-			if(!StringUtils.isNumeric(registroGlucosaVo.getAzucar())){
+			if(!isNumeric(registroGlucosaVo.getAzucar())){
 				msjEx = "El registro de la glucosa sólo debe contener números.";
+				throw new RuntimeException(msjEx);
+			}
+			
+			if(Double.parseDouble(registroGlucosaVo.getAzucar()) < 50 || Double.parseDouble(registroGlucosaVo.getAzucar()) > 450){
+				msjEx = "Revisar el nivel de glucosa.";
 				throw new RuntimeException(msjEx);
 			}
 			

@@ -18,25 +18,26 @@
                         <div class="row">
                            <div class="col-md-12">
                               <div class="row" >
-                                 <h3 class="no-margins ng-binding"><b>{{infoGralUsuario.nombreComppleto}}</b></h3>
+                                 <h4 class="no-margins pull-left">{{infoGralUsuario.nombreComppleto}}</h4>
+                                 <h4 class="no-margins pull-right">Plan diario de {{valoresNutrimentales.get}} calorías</h4>
                                  <br>
                                  <div class="col-xs-4 text-center">
-                                    <small class="stats-label">Proteinas</small>
-                                    <h4 class="text-center h4-margin">{{infoGralUsuario.proteinas}} %</h4>
-                                    <h4 class="text-center h4-margin">{{valoresNutrimentales.kproteinas}} calorías</h4>
-                                    <h4 class="text-center h4-margin">{{valoresNutrimentales.gproteinas}} gramos</h4>
+                                    <small class="stats-label"><b>Proteinas</b></small>
+                                    <p class="text-center h4-margin">{{infoGralUsuario.proteinas}} %</p>
+                                    <p class="text-center h4-margin">{{valoresNutrimentales.kproteinas}} calorías</p>
+                                    <p class="text-center h4-margin">{{valoresNutrimentales.gproteinas}} gramos</p>
                                  </div>
                                  <div class="col-xs-4 text-center">
-                                    <small class="stats-label">Lípidos</small>
-                                    <h4 class="text-center h4-margin">{{infoGralUsuario.lipidos}} %</h4>
-                                    <h4 class="text-center h4-margin">{{valoresNutrimentales.klipidos}} calorías</h4>
-                                    <h4 class="text-center h4-margin">{{valoresNutrimentales.glipidos}} gramos</h4>
+                                    <small class="stats-label"><b>Lípidos</b></small>
+                                    <p class="text-center h4-margin">{{infoGralUsuario.lipidos}} %</p>
+                                    <p class="text-center h4-margin">{{valoresNutrimentales.klipidos}} calorías</p>
+                                    <p class="text-center h4-margin">{{valoresNutrimentales.glipidos}} gramos</p>
                                  </div>
                                  <div class="col-xs-4 text-center">
-                                    <small class="stats-label">Carbohidratos</small>
-                                    <h4 class="text-center h4-margin">{{infoGralUsuario.carbohidratos}} %</h4>
-                                    <h4 class="text-center h4-margin">{{valoresNutrimentales.kcarbohidratos}} calorías</h4>
-                                    <h4 class="text-center h4-margin">{{valoresNutrimentales.gcarbohidratos}} gramos</h4>
+                                    <small class="stats-label"><b>Carbohidratos</b></small>
+                                    <p class="text-center h4-margin">{{infoGralUsuario.carbohidratos}} %</p>
+                                    <p class="text-center h4-margin">{{valoresNutrimentales.kcarbohidratos}} calorías</p>
+                                    <p class="text-center h4-margin">{{valoresNutrimentales.gcarbohidratos}} gramos</p>
                                  </div>
                               </div>
                               <hr style="margin-top: 0px;margin-bottom: 0px;">
@@ -57,10 +58,10 @@
                               </div>
                               <br>
                               <div class="row">
-                                 <div class="form-group">
+                                 <div class="form-group select-bottom-maring">
                                     <label class="col-sm-2" style="text-align:right;">Tipo de alimento</label>
                                     <div class="col-sm-3">
-                                       <select class="form-control m-b" name="tipoAlimento" 
+                                       <select class="form-control select-bottom-maring" name="tipoAlimento" 
                                           ng-model="selected"
                                           ng-options="item.name for item in ArrayAlimentos"
                                           ng-change="searchAlimento(selected)">
@@ -73,7 +74,7 @@
                                           <td title="'Agregar'" class="text-center button-padding">
                                              <button class="btn btn-primary btn-circle btn-outline" type="button" ng-click="agregarAlimento(alimento.idAlimento)"><i class="fa fa-plus"></i>
                                              </button>
-                                             <button class="btn btn-danger btn-circle btn-outline" type="button" ng-click="eliminarAlimento(alimento.idAlimento)"><i class="fa fa-minus"></i>
+                                             <button class="btn btn-danger btn-circle" type="button" ng-click="eliminarAlimento(alimento.idAlimento)" ng-disabled="doesExist(alimento.idAlimento)"><i class="fa fa-minus"></i>
                                              </button>
                                           </td>
                                           <td title="'Alimento'" filter="{ alimento: 'text'}" sortable="'alimento'">
@@ -133,7 +134,7 @@
                               </div>
                               <div class="col-md-1 forum-info">
                                  <span class="views-number">
-                                 400
+                                 {{caloriasDesayuno.toFixed(2)}}
                                  </span>
                                  <div>
                                     <small>calorías</small>
@@ -143,7 +144,9 @@
                            <br>
                            <div class="row">
                               <div class="col-md-5 pull-left">
-                                 <div ng-repeat="alimentoDesayuno in dieta.Desayuno">
+                                 <div ng-repeat="alimentoDesayuno in dieta.Desayuno track by $index">
+                                    <button class="btn btn-danger btn-circle" type="button" ng-click="eliminaAlimentoDieta(alimentoDesayuno.idAlimento,dieta.Desayuno,'Desayuno')"><i class="fa fa-trash" style="color:#FFFFFF"></i> 
+                                    </button>
                                     {{alimentoDesayuno.cantidad}}
                                     {{alimentoDesayuno.unidad}}
                                     {{alimentoDesayuno.alimento}}
@@ -163,7 +166,7 @@
                               </div>
                               <div class="col-md-1 forum-info">
                                  <span class="views-number">
-                                 200
+                                 {{caloriasC1.toFixed(2)}}
                                  </span>
                                  <div>
                                     <small>calorías</small>
@@ -173,7 +176,9 @@
                            <br>
                            <div class="row">
                               <div class="col-md-5 pull-left">
-                                 <div ng-repeat="alimentoC1 in dieta.C1">
+                                 <div ng-repeat="alimentoC1 in dieta.C1 track by $index">
+                                    <button class="btn btn-danger btn-circle" type="button" ng-click="eliminaAlimentoDieta(alimentoC1.idAlimento,dieta.C1,'C1')"><i class="fa fa-trash"></i>                          
+                                    </button>
                                     {{alimentoC1.cantidad}}
                                     {{alimentoC1.unidad}}
                                     {{alimentoC1.alimento}}
@@ -193,7 +198,7 @@
                               </div>
                               <div class="col-md-1 forum-info">
                                  <span class="views-number">
-                                 400
+                                 {{caloriasComida.toFixed(2)}}
                                  </span>
                                  <div>
                                     <small>calorías</small>
@@ -203,7 +208,9 @@
                            <br>
                            <div class="row">
                               <div class="col-md-5 pull-left">
-                                 <div ng-repeat="alimentoComida in dieta.Comida">
+                                 <div ng-repeat="alimentoComida in dieta.Comida track by $index">
+                                    <button class="btn btn-danger btn-circle" type="button" ng-click="eliminaAlimentoDieta(alimentoComida.idAlimento,dieta.Comida,'Comida')"><i class="fa fa-trash" style="color:#FFFFFF"></i>
+                                    </button>
                                     {{alimentoComida.cantidad}}
                                     {{alimentoComida.unidad}}
                                     {{alimentoComida.alimento}}
@@ -223,7 +230,7 @@
                               </div>
                               <div class="col-md-1 forum-info">
                                  <span class="views-number">
-                                 200
+                                 {{caloriasC2.toFixed(2)}}
                                  </span>
                                  <div>
                                     <small>calorías</small>
@@ -233,7 +240,9 @@
                            <br>
                            <div class="row">
                               <div class="col-md-5 pull-left">
-                                 <div ng-repeat="alimentoC2 in dieta.C2">
+                                 <div ng-repeat="alimentoC2 in dieta.C2 track by $index">
+                                    <button class="btn btn-danger btn-circle" type="button" ng-click="eliminaAlimentoDieta(alimentoC2.idAlimento,dieta.C2,'C2')"><i class="fa fa-trash"></i>                                
+                                    </button>    
                                     {{alimentoC2.cantidad}}
                                     {{alimentoC2.unidad}}
                                     {{alimentoC2.alimento}}
@@ -253,7 +262,7 @@
                               </div>
                               <div class="col-md-1 forum-info">
                                  <span class="views-number">
-                                 300
+                                 {{caloriasCena.toFixed(2)}}
                                  </span>
                                  <div>
                                     <small>calorías</small>
@@ -263,7 +272,9 @@
                            <br>
                            <div class="row">
                               <div class="col-md-5 pull-left">
-                                 <div ng-repeat="alimentoCena in dieta.Cena">
+                                 <div ng-repeat="alimentoCena in dieta.Cena track by $index">
+                                    <button class="btn btn-danger btn-circle" type="button" ng-click="eliminaAlimentoDieta(alimentoCena.idAlimento,dieta.Cena,'Cena')"><i class="fa fa-trash" style="color:#FFFFFF"></i>
+                                    </button>
                                     {{alimentoCena.cantidad}}
                                     {{alimentoCena.unidad}}
                                     {{alimentoCena.alimento}}
@@ -272,9 +283,28 @@
                               </div>
                            </div>
                         </div>
+                        <div class="forum-item active">
+                           <div class="row">
+                              <div class="col-md-11">
+                                 <div class="forum-icon">
+                                    <i class="fa fa-star"></i>
+                                 </div>
+                                 <a class="forum-item-title">Calorías totales</a>
+                              </div>
+                              <div class="col-md-1 forum-info">
+                                 <span class="views-number">
+                                 {{caloriasTotales.toFixed(2)}}
+                                 </span>
+                                 <div>
+                                    <small>calorías</small>
+                                 </div>
+                              </div>
+                           </div>
+                           <br>
+                        </div>
                         <div class="row">
                            <div class="form-group pull-right">
-                              <button class="btn btn-w-md btn-gap-v btn-primary" type="button" data-toggle="modal" data-target="#modal-descripcion"><i class="fa fa-floppy-o"></i> Asignar Dieta</button>
+                              <button class="btn btn-w-md btn-gap-v btn-primary" type="button" data-toggle="modal" data-target="#modal-descripcion"  ng-click="validateData()"><i class="fa fa-floppy-o"></i> Asignar Dieta</button>
                            </div>
                         </div>
                      </div>
@@ -311,4 +341,18 @@
          </div>
       </div>
    </div>
+</div>
+
+<!-- MODAL -->
+
+<div class="modal fade" id="modal-cantidad-alimento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog model-sm">
+        <div class="modal-content"> 
+            <div class="modal-body">
+                <div class="row">
+                    <h3 class="m-t-none m-b">Controla la cantidad de alimento</h3>
+               </div>
+            </div>
+         </div>
+      </div>
 </div>

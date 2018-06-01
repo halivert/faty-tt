@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.apachecommons.CommonsLog;
 import mx.escom.tt.diabetes.commons.utils.Constants;
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperRunManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+
 
 @Service("ReportesPDF")
 @CommonsLog
@@ -28,7 +28,7 @@ public class ReportesPDF {
 		JRBeanCollectionDataSource ds = null;
 		InputStream inputStream = null;
 		Boolean isDataSource = Boolean.FALSE;
-		
+		//JRXmlDataSource xmlDataSource = null;
 		if(StringUtils.isEmpty(urlJasper)) {
 			msjEx="La ruta del reporte jasper no puede ser nula o vacia.";
 			throw new RuntimeException(msjEx);
@@ -36,6 +36,12 @@ public class ReportesPDF {
 		
 		if(collectionDataSource != null) {
 			ds = new JRBeanCollectionDataSource(collectionDataSource);
+			 /*try {
+				  xmlDataSource =	new JRXmlDataSource("");
+			} catch (JRException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
 			isDataSource = Boolean.TRUE;
 		}
 		
@@ -56,12 +62,16 @@ public class ReportesPDF {
 
 			
 		}catch(NullPointerException ex) {
+			log.error("NullPointerException ::: " + ex.getCause());			
 			throw new RuntimeException(ex.getMessage());
 		}catch (JRException e) {
+			log.error("JRException ::: " + e.getCause());			
 			throw new RuntimeException(e.getMessage());
 		}catch(RuntimeException rtExc) { 
-			throw rtExc;
+			log.error("RuntimeException ::: " + rtExc.getCause());			
+			throw new RuntimeException(rtExc.getMessage());
 		}catch(Exception ex) {
+			log.error("Exception ::: " + ex.getCause());
 			msjEx = Constants.MSJ_EXCEPTION + "crear la dieta en formato PDF";
 			throw new RuntimeException(msjEx,ex);
 		}

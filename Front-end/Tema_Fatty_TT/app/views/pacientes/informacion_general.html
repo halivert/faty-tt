@@ -68,8 +68,19 @@
                      <div class="col-sm-1"></div>
                      <label class="col-sm-2 control-label">Actividad física</label>
                      <div class="col-sm-2">
-                        <p class="form-control-static">{{historialDetalle.actividadFisica}}</p>
+                        <div ng-if="esEditable">                          
+                           <p class="form-control-static">{{historialDetalle.actividadFisica}}</p>
+                        </div>
+                         <div ng-if="!esEditable">                          
+                           <select class="form-control m-b" name="actividadFisica" 
+                                 ng-model="selected"
+                                 selected="Hola"
+                                 ng-options="item.name for item in Array"
+                                 ng-change="clickOptionFun(selected)" ng-disabled="esEditable" required>
+                           </select>
+                        </div>
                      </div>
+
                   </div>
                   <div class="hr-line-dashed"></div>
                   <div class="form-group">
@@ -122,6 +133,7 @@
                </div>
                <div class="form-group pull-right">
                   <button type="button" class="btn btn-primary" ng-disabled="desactivarBoton" ui-sref="index.dietaRigurosa">Generar Dieta</button>
+                  <button type="button" class="btn btn-outline btn-success" ui-sref="index.dietasPaciente">Ver dietas</button>
                   <button type="button" class="btn btn-outline btn-success" data-toggle="collapse" data-target=".collapseExample">Ver muestras de glucosa</button>
                   <button class="btn btn-w-md btn-gap-v btn-primary" ng-click="editarInfo()">Editar</button>
                   <button class="btn btn-w-md btn-gap-v btn-primary" ng-click="actualizaHistorialClinico()" ng-disabled="!validaInfo()">Guardar</button>

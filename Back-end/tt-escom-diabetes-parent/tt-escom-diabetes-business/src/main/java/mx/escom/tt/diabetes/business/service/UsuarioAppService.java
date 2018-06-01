@@ -86,11 +86,11 @@ public class UsuarioAppService {
 		String msjEx = null;
 		
 		{//Validaciones 
-			if(email == null || email.trim().isEmpty()) {
+			if(StringUtils.isEmpty(email)) {
 				msjEx = "Verficar correo electrónico.";
 				throw new RuntimeException(msjEx);
 			}
-			if(keyword == null || keyword.trim().isEmpty()) {
+			if(StringUtils.isEmpty(keyword)) {
 				msjEx = "Contraseña incorrecta.";
 				throw new RuntimeException(msjEx);
 			}
@@ -141,7 +141,7 @@ public class UsuarioAppService {
 				}
 				
 				Date date  = new Date();
-
+				log.debug(dmyDateFormat.format(date));
 				if(!tokenSplited[1].equals(dmyDateFormat.format(date))) {
 					msjEx = "La página a la que intenta acceder caducó.";
 					throw new RuntimeException(msjEx);
@@ -155,7 +155,7 @@ public class UsuarioAppService {
 					throw new RuntimeException(msjEx);
 				}
 				emailUsuario = emailUsuario + "-" + usuarioDto.getIdUsuario();
-				
+				log.debug("emailUsuario : " + emailUsuario);
 			}
 		}catch(RuntimeException rtExc) { 
 			throw new RuntimeException(rtExc.getMessage());

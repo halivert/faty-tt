@@ -62,143 +62,162 @@
 					<div class="ibox-content">					
 						<div class="row">
 							<h4><label class="col-md-3">Nombre del paciente:</label></h4>
-                			<h3><span class="col-md-6 text-center">{{currentPaciente.nombreCompletoPaciente}} </span></h3>
-                			<h5><label class="col-md-3">Fecha historial:{{historialDetalle.fecha | date:'dd/MM/yyyy'}}</label></h5>
-                			
-                		</div>
-                		
-                		<br><br><br>
-                		<div class="row">
-
-                			<form role="form" name="formInfoGral" class="form-horizontal" novalidate>
-                                <div class="form-group">
-                                    <div class="col-sm-1"></div>
-
-                                    <label class="col-sm-2 control-label">Fecha de Nacimiento</label>
-
-                                    <div class="col-sm-3">
-	                                    <div class="input-group m-b">
-	                                    	<input type="text" class="form-control" placeholder="{{currentPaciente.fechaNac}}" disabled="disabled"> 
-	                                    	<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-	                                    </div>
-                                    </div>
-
-                                    <label class="col-sm-2 control-label">Edad</label>
-                                    <div class="col-sm-2">
-                                    	<input type="text" disabled="disabled" placeholder="{{currentPaciente.edad}}" class="form-control"> 
-                                    </div>
-                                </div>
-                                
-                                <div class="hr-line-dashed"></div>
-                                
-                                <div class="form-group">
-	                                <div class="col-sm-1"></div>
-
-                                	<label class="col-sm-2 control-label">Peso</label>
-                                    <div class="col-sm-2">
-	                                    <div class="input-group m-b">
-	                                    	<input type="text" class="form-control" ng-model="historialDetalle.peso" placeholder="{{historialDetalle.peso}}" ng-disabled="esEditable" required> 
-	                                    	<span class="input-group-addon">Kg</span>
-	                                    </div>
-                                    </div>
-
-                                    <label class="col-sm-2 control-label">Talla</label>
-                                    <div class="col-sm-2">
-	                                    <div class="input-group m-b">
-	                                    	<input type="text" class="form-control" ng-model="historialDetalle.talla" placeholder="{{historialDetalle.talla}}" ng-disabled="esEditable" required> 
-	                                    	<span class="input-group-addon">cm</span>
-	                                    </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-	                                <div class="col-sm-1"></div>
-
-                                	<label class="col-sm-2 control-label">Estatura</label>
-                                    <div class="col-sm-2">
-	                                    <div class="input-group m-b">
-	                                    	<input type="text" class="form-control" ng-model="historialDetalle.estatura" placeholder="{{historialDetalle.estatura}}" ng-disabled="esEditable" required> 
-	                                    	<span class="input-group-addon">m</span>
-	                                    </div>
-                                    </div>
-
-                                    <label class="col-sm-2 control-label">I.M.C</label>
-                                    <div class="col-sm-2">
-	                                    <p class="form-control-static">{{historialDetalle.imc}}</p>
-                                    </div>
-                                </div>
-
-                                <div class="hr-line-dashed"></div>
-
-                                 <div class="form-group">
-	                                <div class="col-sm-1"></div>
-
-                                	<label class="col-sm-2 control-label">Carbohidratos</label>
-                                    <div class="col-sm-2">
-	                                    <div class="input-group m-b">
-	                                    	<input type="text" class="form-control" ng-model="historialDetalle.carbohidratos" placeholder="{{historialDetalle.carbohidratos}}" ng-disabled="esEditable" required> 
-	                                    	<span class="input-group-addon">%</span>
-	                                    </div>
-                                    </div>
-
-                                    <label class="col-sm-2 control-label">Lipidos</label>
-                                    <div class="col-sm-2">
-	                                    <div class="input-group m-b">
-	                                    	<input type="text" class="form-control" ng-model="historialDetalle.lipidos" placeholder="{{historialDetalle.lipidos}}" ng-disabled="esEditable" required> 
-	                                    	<span class="input-group-addon">%</span>
-	                                    </div>
-                                    </div>
-                                </div>
-
-                                 <div class="form-group">
-	                                <div class="col-sm-1"></div>
-
-                                	<label class="col-sm-2 control-label">Proteinas</label>
-                                    <div class="col-sm-2">
-	                                    <div class="input-group m-b">
-	                                    	<input type="text" class="form-control" ng-model="historialDetalle.proteinas" placeholder="{{historialDetalle.proteinas}}" ng-disabled="esEditable" required> 
-	                                    	<span class="input-group-addon">%</span>
-	                                    </div>
-                                    </div>
-
-                                    <label class="col-sm-2 control-label">Azucar</label>
-                                    <div class="col-sm-2">
-	                                    <div class="input-group m-b">
-	                                    	<input type="text" class="form-control" ng-model="historialDetalle.azucar" placeholder="{{historialDetalle.azucar}}" ng-disabled="esEditable" required> 
-	                                    	<span class="input-group-addon">%</span>
-	                                    </div>
-                                    </div>
-                                </div>
-
-                                <div class="hr-line-dashed"></div>
-
-                                <div class="form-group">
-							      <label class="col-sm-2 control-label">Observaciones:</label>
-							      <div class="col-sm-8">
-							      	<textarea style="overflow:auto;resize:none" class="form-control" rows="5"></textarea>
-							      </div>
-							    </div>
-
-                                </form>
-
-						</div>
-								
-						<br><br>
-						<div class="row">
+							<h3><span class="col-md-6 text-center">{{currentPaciente.nombreCompletoPaciente}} </span></h3>
+							<h5><label class="col-md-3">Fecha historial:{{historialDetalle.fecha | date:'dd/MM/yyyy'}}</label></h5>
 							
-							<div class="form-group pull-left">
-								<button class="btn btn-w-md btn-gap-v btn-primary" data-toggle="collapse" data-target=".collapseExample">Regresar</button>
+						</div>
+						
+						<br><br><br>
+						<div class="row">
+
+							<form role="form" name="formInfoGral" class="form-horizontal" novalidate>
+								<div class="form-group">
+									<div class="col-sm-1"></div>
+
+									<label class="col-sm-2 control-label">Fecha de Nacimiento</label>
+
+									<div class="col-sm-3">
+										<div class="input-group m-b">
+											<input type="text" class="form-control" placeholder="{{currentPaciente.fechaNac}}" disabled="disabled"> 
+											<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+										</div>
+									</div>
+
+									<label class="col-sm-2 control-label">Edad</label>
+									<div class="col-sm-2">
+										<input type="text" disabled="disabled" placeholder="{{currentPaciente.edad}}" class="form-control"> 
+									</div>
+								</div>
+								
+								<div class="hr-line-dashed"></div>
+								
+								<div class="form-group">
+									<div class="col-sm-1"></div>
+
+									<label class="col-sm-2 control-label">Peso</label>
+									<div class="col-sm-2">
+										<div class="input-group m-b">
+											<input type="text" class="form-control" ng-model="historialDetalle.peso" placeholder="{{historialDetalle.peso}}" ng-disabled="esEditable" required> 
+											<span class="input-group-addon">Kg</span>
+										</div>
+									</div>
+
+									<label class="col-sm-2 control-label">Talla</label>
+									<div class="col-sm-2">
+										<div class="input-group m-b">
+											<input type="text" class="form-control" ng-model="historialDetalle.talla" placeholder="{{historialDetalle.talla}}" ng-disabled="esEditable" required> 
+											<span class="input-group-addon">cm</span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-1"></div>
+
+									<label class="col-sm-2 control-label">Estatura</label>
+									<div class="col-sm-2">
+										<div class="input-group m-b">
+											<input type="text" class="form-control" ng-model="historialDetalle.estatura" placeholder="{{historialDetalle.estatura}}" ng-disabled="esEditable" required> 
+											<span class="input-group-addon">m</span>
+										</div>
+									</div>
+
+									<label class="col-sm-2 control-label">I.M.C</label>
+									<div class="col-sm-2">
+										<p class="form-control-static">{{historialDetalle.imc}}</p>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-1"></div>
+									<label class="col-sm-2 control-label">Actividad física</label>
+									<div class="col-sm-2">
+										<div ng-if="esEditable">                          
+											<p class="form-control-static">{{historialDetalle.actividadFisica}}</p>
+										</div>
+										<div ng-if="!esEditable">                          
+											<select class="form-control m-b" name="actividadFisica" 
+											ng-model="selected"
+											selected="Hola"
+											ng-options="item.name for item in Array"
+											ng-change="clickOptionFun(selected)" ng-disabled="esEditable" required>
+										</select>
+									</div>
+								</div>
+
 							</div>
-							<div class="form-group pull-right">
-						<button class="btn btn-w-md btn-gap-v btn-primary" ng-click="editarInfo()">Editar</button>
-						<button class="btn btn-w-md btn-gap-v btn-primary" ng-click="actualizaHistorialClinico()" ng-disabled="!validaInfo()">Guardar</button>
+
+							<div class="hr-line-dashed"></div>
+
+							<div class="form-group">
+								<div class="col-sm-1"></div>
+
+								<label class="col-sm-2 control-label">Carbohidratos</label>
+								<div class="col-sm-2">
+									<div class="input-group m-b">
+										<input type="text" class="form-control" ng-model="historialDetalle.carbohidratos" placeholder="{{historialDetalle.carbohidratos}}" ng-disabled="esEditable" required> 
+										<span class="input-group-addon">%</span>
+									</div>
+								</div>
+
+								<label class="col-sm-2 control-label">Lipidos</label>
+								<div class="col-sm-2">
+									<div class="input-group m-b">
+										<input type="text" class="form-control" ng-model="historialDetalle.lipidos" placeholder="{{historialDetalle.lipidos}}" ng-disabled="esEditable" required> 
+										<span class="input-group-addon">%</span>
+									</div>
+								</div>
 							</div>
-						</div>	
+
+							<div class="form-group">
+								<div class="col-sm-1"></div>
+
+								<label class="col-sm-2 control-label">Proteinas</label>
+								<div class="col-sm-2">
+									<div class="input-group m-b">
+										<input type="text" class="form-control" ng-model="historialDetalle.proteinas" placeholder="{{historialDetalle.proteinas}}" ng-disabled="esEditable" required> 
+										<span class="input-group-addon">%</span>
+									</div>
+								</div>
+
+								<label class="col-sm-2 control-label">Azucar</label>
+								<div class="col-sm-2">
+									<div class="input-group m-b">
+										<input type="text" class="form-control" ng-model="historialDetalle.azucar" placeholder="{{historialDetalle.azucar}}" ng-disabled="esEditable" required> 
+										<span class="input-group-addon">%</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="hr-line-dashed"></div>
+
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Observaciones:</label>
+								<div class="col-sm-8">
+									<textarea style="overflow:auto;resize:none" class="form-control" rows="5"></textarea>
+								</div>
+							</div>
+
+						</form>
+
 					</div>
+					
+					<br><br>
+					<div class="row">
+						
+						<div class="form-group pull-left">
+							<button class="btn btn-w-md btn-gap-v btn-primary" data-toggle="collapse" data-target=".collapseExample">Regresar</button>
+						</div>
+						<div class="form-group pull-right">
+							<button class="btn btn-w-md btn-gap-v btn-primary" ng-click="editarInfo()">Editar</button>
+							<button class="btn btn-w-md btn-gap-v btn-primary" ng-click="actualizaHistorialClinico()" ng-disabled="!validaInfo()">Guardar</button>
+						</div>
+					</div>	
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 

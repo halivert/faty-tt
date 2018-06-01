@@ -23,4 +23,12 @@ $scope.obtenerRol = function(){
 	return ($cookies.get("rol") == "1" ? "M" : "P")
 }
 
+$scope.obtenerSexo = function(){
+	if($cookies.get("sexo") == "Femenino"){
+		return $scope.rutaAvatar = "img/girl.png"
+	}else{
+		return $scope.rutaAvatar = "img/man.png"
+	}
+}
+
 });

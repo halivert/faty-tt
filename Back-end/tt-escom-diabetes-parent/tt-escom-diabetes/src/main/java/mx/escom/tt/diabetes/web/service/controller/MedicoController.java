@@ -120,7 +120,7 @@ public class MedicoController {
 		
 		try {
 
-			dietaFacade.guardarDieta(idMedico, idPaciente, dietaVo.getDescripcion(), dietaVo.getAlimentosDisponibles());
+			dietaFacade.guardarDieta(idMedico, idPaciente, dietaVo);
 			//Se reutiliza la clase RespuestaErrorVo
 			respuestaError = new RespuestaErrorVo();
 			respuestaError.setRespuesta("OK");
