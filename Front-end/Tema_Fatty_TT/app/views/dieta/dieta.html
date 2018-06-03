@@ -182,8 +182,8 @@
                <div class="form-group pull-left">
                    <button class="btn btn-w-md btn-gap-v btn-primary" type="button" ui-sref="index.dietasPaciente">Regresar</button>
                </div>
-               <div class="form-group pull-right">
-                   <button class="btn btn-w-md btn-gap-v btn-primary" type="button" ng-click="generarDietaEnPDF()"><i class="fa fa-file-pdf-o"></i> Generar PDF</button>
+               <div class="form-group pull-right"><!--ng-click="generarDietaEnPDF()"-->
+                   <button class="btn btn-w-md btn-gap-v btn-primary" type="button"  id="generarPDF"><i class="fa fa-file-pdf-o"></i> Generar PDF</button>
                </div>
            </div>
         </div>
@@ -198,7 +198,7 @@
 
          <h2 class="pull-left"><b>CERES DIETA</b></h2>
          <h3 class="pull-right">Dieta diaria de <b>{{caloriasTotales}}</b> calorías</h2>
-            <table class="table ">
+            <table class="table table-bordered table-sm">
                  <thead>
                  <tr>
                      <th class="col-md-7"><h4>Información del paciente</h4></th>
@@ -207,7 +207,7 @@
                  </thead>
                  <tbody>
                  <tr>
-                     <td class="col-md-4"><b>Nombre :</b> {{nombreComppleto}}</td>
+                     <td><b>Nombre :</b> {{nombreComppleto}}</td>
                      <td><b>Carbohidratos :</b> {{carbohidratos}} %</td>
                  </tr>
                  <tr>
@@ -223,25 +223,16 @@
                  </tr>
                  </tbody>
              </table>
-            <div class="forum-item active">
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="forum-icon">
-                            <i class="fa fa-shield"></i>
-                        </div>
-                        <a class="forum-item-title">Desayuno</a>
-                        <div class="forum-sub-title"><b>Horario : 7:00 am - 8:00 am</b></div>
-                    </div>
-                    <div class="col-md-1 forum-info">
-                        <span class="views-number">
-                            {{caloriasDesayuno}}
-                        </span>
-                        <div>
-                            <b><h3>calorías</h3></b>
-                        </div>
-                    </div>
+
+            <div class="row show-grid" style="color: #FFFFFF;">
+                <div class="col-md-12 nav-header">
+                    <h3 class="pull-left">Desayuno</h3>
+                    <h3 class="pull-right">
+                        {{caloriasDesayuno}} calorías
+                    </h3>
                 </div>
-                <br>
+            </div>
+            <div class="forum-item active">
                 <div class="row">
                      <div class="col-md-5 pull-left">                        
                         <div ng-repeat="alimentoDesayuno in dieta.Desayuno track by $index">
@@ -253,25 +244,17 @@
                     </div>
                 </div>
             </div>
-            <div class="forum-item">
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="forum-icon">
-                            <i class="fa fa-bolt"></i>
-                        </div>
-                        <a class="forum-item-title">Colación 1</a>
-                        <div class="forum-sub-title"><b>Horario : 11:00 am - 12:00 am</b></div>
-                    </div>
-                    <div class="col-md-1 forum-info">
-                        <span class="views-number">
-                            {{caloriasC1}}
-                        </span>
-                        <div>
-                            <b><h3>calorías</h3></b>
-                        </div>
-                    </div>
+
+            <div class="row show-grid" style="color: #FFFFFF;">
+                <div class="col-md-12 nav-header">
+                    <h3 class="pull-left">Colación 1</h3>
+                    <h3 class="pull-right">
+                        {{caloriasC1}} calorías
+                    </h3>
                 </div>
-                <br>
+            </div>
+
+            <div class="forum-item">
                 <div class="row">
                      <div class="col-md-5 pull-left">
                         <div ng-repeat="alimentoC1 in dieta.C1 track by $index">
@@ -283,25 +266,17 @@
                     </div>
                 </div>
             </div>
-            <div class="forum-item active">
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="forum-icon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <a class="forum-item-title">Comida</a>
-                        <div class="forum-sub-title"><b>Horario : 2:00 pm - 3:00 pm</b></div>
-                    </div>
-                    <div class="col-md-1 forum-info">
-                        <span class="views-number">
-                            {{caloriasComida}}
-                        </span>
-                        <div>
-                            <b><h3>calorías</h3></b>
-                        </div>
-                    </div>
+
+            <div class="row show-grid" style="color: #FFFFFF;">
+                <div class="col-md-12 nav-header">
+                    <h3 class="pull-left">Comida</h3>
+                    <h3 class="pull-right">
+                        {{caloriasComida}} calorías
+                    </h3>
                 </div>
-                <br>
+            </div>
+
+            <div class="forum-item active">
                 <div class="row">
                      <div class="col-md-5 pull-left">
                         <div ng-repeat="alimentoComida in dieta.Comida track by $index">
@@ -313,25 +288,17 @@
                     </div>
                 </div>
             </div>
-            <div class="forum-item">
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="forum-icon">
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <a class="forum-item-title">Colación 2</a>
-                        <div class="forum-sub-title"><b>Horario : 5:00 pm - 6:00 pm</b></div>
-                    </div>
-                    <div class="col-md-1 forum-info">
-                        <span class="views-number">
-                            {{caloriasC2}}
-                        </span>
-                        <div>
-                            <b><h3>calorías</h3></b>
-                        </div>
-                    </div>
+
+            <div class="row show-grid" style="color: #FFFFFF;">
+                <div class="col-md-12 nav-header">
+                    <h3 class="pull-left">Colación 2</h3>
+                    <h3 class="pull-right">
+                        {{caloriasC2}} calorías
+                    </h3>
                 </div>
-                <br>
+            </div>
+
+            <div class="forum-item">
                 <div class="row">
                      <div class="col-md-5 pull-left">
                         <div ng-repeat="alimentoC2 in dieta.C2 track by $index">
@@ -343,25 +310,16 @@
                     </div>
                 </div>
             </div>
-            <div class="forum-item active">
-                <div class="row">
-                    <div class="col-md-11">
-                        <div class="forum-icon">
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <a class="forum-item-title">Cena</a>
-                        <div class="forum-sub-title"><b>Horario : 9:00 pm - 10:00 pm</b></div>
-                    </div>
-                    <div class="col-md-1 forum-info">
-                        <span class="views-number">
-                            {{caloriasCena}}
-                        </span>
-                        <div>
-                            <b><h3>calorías</h3></b>
-                        </div>
-                    </div>
+
+            <div class="row show-grid" style="color: #FFFFFF;">
+                <div class="col-md-12 nav-header">
+                    <h3 class="pull-left">Cena</h3>
+                    <h3 class="pull-right">
+                        {{caloriasCena}} calorías
+                    </h3>
                 </div>
-                <br>
+            </div>
+            <div class="forum-item active">
                 <div class="row">
                      <div class="col-md-5 pull-left">
                         <div ng-repeat="alimentoCena in dieta.Cena track by $index">
@@ -389,9 +347,32 @@
 
 
 <script type="text/javascript">
-$( document ).ready(function() {
-    console.log( "ready!" );
+$(document).ready(function() {
     var elem = $('#pdfContainer');
     elem.hide();
 });
+
+$("#generarPDF").click(function(){
+    var elem = $('#pdfContainer');
+    elem.show();
+
+
+    html2canvas(elem, {
+      onrendered: function (canvas) {
+        elem.show();
+        var data = canvas.toDataURL();
+        var docDefinition = {
+          content: [{
+                        image: data,
+                        width: 500,
+                    }]
+        };
+        pdfMake.createPdf(docDefinition).download("Dieta"+new Date()+".pdf");
+        elem.hide();
+      }
+      });
+
+
+});
+
 </script>
