@@ -449,13 +449,13 @@ $scope.mostrarDieta = function() {
       $scope.carbohidratos = d.carbohidratos;
       $scope.lipidos = d.lipidos;
       $scope.proteinas = d.proteinas;
-            console.log("d : " + JSON.stringify(d));
+            //console.log("d : " + JSON.stringify(d));
     }
     );
   
   dietaService.recuperarDieta(idUsuario, $cookies.get("idDieta")).then(
     function successCallback(d) {
-      console.log("d : " + JSON.stringify(d));
+      //console.log("d : " + JSON.stringify(d));
       $scope.descripcion = d.descripcion;
       $scope.dieta = angular.fromJson(d.alimentosDisponibles);
       $scope.caloriasDesayuno = d.caloriasDesayuno.toFixed(2);

@@ -84,6 +84,13 @@ $scope.numeroPacientes = function(){
 },
 
 /**
+* redirectToPatiens - Redir4ecciona a la lista de pacientes
+*/
+$scope.redirectToPatiens = function(){
+  $state.transitionTo('index.pacientes');
+},
+
+/**
 * recuperaPaciente  - Seleccionar la info de un paciente 
 */
 $scope.recuperaPaciente = function(idCurrentPaciente){
