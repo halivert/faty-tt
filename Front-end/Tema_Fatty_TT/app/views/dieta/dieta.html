@@ -189,15 +189,11 @@
         </div>
     </div>
 
-
-
-
-
-    <div class="row" id="pdfContainer">
-        <div class="ibox-content forum-container">
+<div id="pdfContainer">
+        <div class="ibox-content">
 
          <h2 class="pull-left"><b>CERES DIETA</b></h2>
-         <h3 class="pull-right">Dieta diaria de <b>{{caloriasTotales}}</b> calorías</h2>
+         <h3 class="pull-right">Dieta diaria de <b>{{caloriasTotales}}</b> calorías</h3>
             <table class="table table-bordered table-sm">
                  <thead>
                  <tr>
@@ -207,7 +203,7 @@
                  </thead>
                  <tbody>
                  <tr>
-                     <td><b>Nombre :</b> {{nombreComppleto}}</td>
+                     <td><b>Nombre :</b> <span id="nombrePaciente" value="{{nombreComppleto}}">{{nombreComppleto}}</span></td>
                      <td><b>Carbohidratos :</b> {{carbohidratos}} %</td>
                  </tr>
                  <tr>
@@ -220,6 +216,7 @@
                  </tr>
                  <tr>
                      <td class="col-md-4"><b>Estatura:</b> {{estaturaCurrentUser}} m</td>
+                     <td></td>
                  </tr>
                  </tbody>
              </table>
@@ -326,24 +323,24 @@
                             {{alimentoCena.cantidad}}
                             {{alimentoCena.unidad}}                            
                             {{alimentoCena.alimento}}
-                            <br/>
                         </div>
                     </div>
                 </div>
             </div>
-
-        <div class="row">
-             <div class="form-group">
-                <label class="col-sm-2 control-label">Recomendaciones del médico:</label>
-                {{descripcion}}
+            <div class="row">
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label">Recomendaciones del médico:</label>
+                    {{descripcion}}
+                </div>
             </div>
-        </div>
         
         </div>
         
     </div>
-
+    
 </div>
+
+
 
 
 <script type="text/javascript">
@@ -356,7 +353,8 @@ $("#generarPDF").click(function(){
     var elem = $('#pdfContainer');
     elem.show();
 
-
+    var nombre = document.getElementById('nombrePaciente').innerText;
+    console.log("nombre : " + nombre);
     html2canvas(elem, {
       onrendered: function (canvas) {
         elem.show();
@@ -367,7 +365,7 @@ $("#generarPDF").click(function(){
                         width: 500,
                     }]
         };
-        pdfMake.createPdf(docDefinition).download("Dieta"+new Date()+".pdf");
+        pdfMake.createPdf(docDefinition).download("Dieta_"+nombre+"_"+new Date()+".pdf");
         elem.hide();
       }
       });

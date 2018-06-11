@@ -155,7 +155,6 @@ $scope.agregarAlimento = function(idAlimento) {
       $scope.caloriasDesayuno = 0;
     }
   }
-  //console.log(JSON.stringify($scope.dieta.Desayuno));
   $scope.iniciaGraficaBarras(proteinas,carbohidratos,lipidos,"plus");
 }
 
@@ -356,7 +355,8 @@ $scope.asignarDietaArmada = function() {
   else{
       toastr.error("No se puede asignar la dieta porque las calorías totales no están dentro del rango permitido para el paciente.","Error");
   }
-}//Termina dietaRigurosaSlider
+}
+//Termina dietaRigurosaSlider
 
 /**
  * iniciaGraficaBarras - Funcion que inicia una grafica de barras
@@ -449,13 +449,13 @@ $scope.mostrarDieta = function() {
       $scope.carbohidratos = d.carbohidratos;
       $scope.lipidos = d.lipidos;
       $scope.proteinas = d.proteinas;
-            console.log("d : " + JSON.stringify(d));
+            //console.log("d : " + JSON.stringify(d));
     }
     );
   
   dietaService.recuperarDieta(idUsuario, $cookies.get("idDieta")).then(
     function successCallback(d) {
-      console.log("d : " + JSON.stringify(d));
+      //console.log("d : " + JSON.stringify(d));
       $scope.descripcion = d.descripcion;
       $scope.dieta = angular.fromJson(d.alimentosDisponibles);
       $scope.caloriasDesayuno = d.caloriasDesayuno.toFixed(2);

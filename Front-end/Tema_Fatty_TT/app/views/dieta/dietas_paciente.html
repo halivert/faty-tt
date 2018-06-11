@@ -19,7 +19,7 @@
             <div class="col-sm-8">
                 <span class="label label-info pull-right">Fecha : {{dieta.fecha_ASIGNACION | date:'dd/MM/yyyy'}}</span>
                 <address>
-                    {{dieta.descripcion}}
+                    {{dieta.descripcion | limitTo: 40}}
                 </address>
             </div>
             <div class="clearfix"></div>
