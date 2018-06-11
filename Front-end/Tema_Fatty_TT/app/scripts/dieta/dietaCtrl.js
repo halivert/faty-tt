@@ -355,7 +355,8 @@ $scope.asignarDietaArmada = function() {
   else{
       toastr.error("No se puede asignar la dieta porque las calorías totales no están dentro del rango permitido para el paciente.","Error");
   }
-}//Termina dietaRigurosaSlider
+}
+//Termina dietaRigurosaSlider
 
 /**
  * iniciaGraficaBarras - Funcion que inicia una grafica de barras
