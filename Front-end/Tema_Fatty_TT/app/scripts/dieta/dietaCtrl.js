@@ -155,7 +155,6 @@ $scope.agregarAlimento = function(idAlimento) {
       $scope.caloriasDesayuno = 0;
     }
   }
-  //console.log(JSON.stringify($scope.dieta.Desayuno));
   $scope.iniciaGraficaBarras(proteinas,carbohidratos,lipidos,"plus");
 }
 
